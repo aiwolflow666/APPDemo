@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>托业教练 · 稳定池版 | 下一题永不等待</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #f4f9fe; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; padding: 20px 16px 40px; color: #0a2b3b; }
+        .container { max-width: 750px; margin: 0 auto; }
+        
+        .header-nav {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-btn {
+            background: #1e6f5c;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .nav-btn:active {
+            transform: scale(0.96);
+        }
+        
+        .header-title {
+            flex: 1;
+        }
+        
+        h1 { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            background: linear-gradient(135deg, #1e6f5c, #289672); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            margin: 0;
+        }
+        .api-card, .quiz-card, .stats-card, .record-card { background: white; border-radius: 28px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #e2edf2; }
+        .label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: #4b6e8a; margin-bottom: 8px; }
+        .key-input-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+        .key-input-group input { flex: 1; padding: 12px 16px; border: 1px solid #cfdfe9; border-radius: 40px; font-size: 0.85rem; }
+        button { background: #1e6f5c; border: none; color: white; padding: 10px 22px; border-radius: 40px; font-weight: 600; cursor: pointer; }
+        button:active { transform: scale(0.96); }
+        .difficulty-select, .batch-select { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+        select { padding: 8px 16px; border-radius: 40px; border: 1px solid #cbdde9; background: white; }
+        .question-text { font-weight: 700; font-size: 1.15rem; line-height: 1.45; margin: 12px 0 20px; }
+        .option { background: #fafdfe; border: 1px solid #e2edf2; border-radius: 40px; padding: 12px 18px; margin-bottom: 12px; cursor: pointer; display: flex; gap: 12px; align-items: center; }
+        .option.selected { background: #e6f9f2; border-color: #289672; }
+        .prefix { font-weight: 700; color: #289672; width: 28px; }
+        .feedback { background: #f8fafc; border-radius: 24px; padding: 16px; margin-top: 20px; border-left: 4px solid #289672; }
+        .correct { background: #dcfce7; color: #15803d; padding: 4px 12px; border-radius: 40px; display: inline-block; }
+        .wrong { background: #ffe4e2; color: #b91c1c; padding: 4px 12px; border-radius: 40px; display: inline-block; }
+        .stats-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .record-item { background: #fafcfe; border-left: 4px solid #289672; padding: 12px; margin-bottom: 12px; border-radius: 20px; cursor: pointer; }
+        .record-item.correct-item { border-left-color: #289672; }
+        .record-item.wrong-item { border-left-color: #e67e22; }
+        .record-question { font-weight: 600; font-size: 0.9rem; }
+        .record-detail { margin-top: 12px; padding-top: 12px; border-top: 1px dashed #e2edf2; font-size: 0.85rem; }
+        .category-badge { display: inline-block; background: #e9f0f5; padding: 2px 12px; border-radius: 20px; font-size: 0.7rem; margin-left: 8px; }
+        .filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+        .stat-category { background: #eef2ff; padding: 6px 12px; border-radius: 24px; font-size: 0.75rem; cursor: pointer; display: inline-block; margin-right: 8px; margin-bottom: 8px; }
+        .keyword-chip { display: inline-block; background: #e9f0f5; border-radius: 20px; padding: 4px 12px; margin: 4px 6px 4px 0; font-size: 0.8rem; }
+        .options-translation { margin-top: 16px; padding: 12px; background: #f1f5f9; border-radius: 20px; font-size: 0.85rem; }
+        .translation-item { margin: 6px 0; }
+        .loading { text-align: center; padding: 40px; }
+        .spinner { width: 32px; height: 32px; border: 3px solid #e2e8f0; border-top-color: #289672; border-radius: 50%; animation: spin 0.6s linear infinite; margin: 0 auto 12px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        footer { text-align: center; font-size: 0.7rem; color: #7c9eb3; margin-top: 24px; }
+        .btn-outline { background: transparent; border: 1px solid #289672; color: #289672; padding: 6px 14px; font-size: 0.8rem; }
+        .analysis-item { margin: 4px 0; padding: 4px 8px; border-radius: 8px; }
+        .analysis-item.correct-opt { background: #dcfce7; }
+        .pool-info { font-size: 0.75rem; background: #eef2ff; padding: 6px 12px; border-radius: 30px; display: inline-block; margin-top: 12px; }
+        .error-message { color: #b91c1c; background: #ffe4e2; padding: 10px; border-radius: 20px; margin-top: 12px; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header-nav">
+        <button id="btnBackHome" class="nav-btn">🏠 返回主页</button>
+        <div class="header-title">
+            <h1>📖 托业教练 · 稳定池版</h1>
+            <p style="margin: 4px 0 16px; font-size: 0.9rem; color: #5f7f9c;">预生成题目池 | 下一题永不调用API | 自动续题无感</p>
+        </div>
+    </div>
+
+    <div class="api-card">
+        <div class="label">🔐 火山引擎 API Key (模型: ep-20260505172500-db99v)</div>
+        <div class="key-input-group">
+            <input type="password" id="apiKeyInput" placeholder="ARK_API_KEY">
+            <button id="saveKeyBtn">保存</button>
+        </div>
+        <div class="difficulty-select">
+            <span>📊 难度：</span>
+            <select id="difficultySelect">
+                <option value="平衡">平衡（L1~L5）</option>
+                <option value="L1-L3" selected>中等（L1~L3）</option>
+                <option value="L4-L5">高分挑战（L4~L5）</option>
+            </select>
+            <span>📦 预生成数量：</span>
+            <select id="batchSizeSelect">
+                <option value="5">5 题（快速启动）</option>
+                <option value="15" selected>15 题（推荐）</option>
+                <option value="30">30 题（题库丰富）</option>
+            </select>
+            <button id="newQuestionBtn">✨ 重置池子并开始</button>
+        </div>
+    </div>
+
+        <div class="stats-card">
+        <div class="stats-row">
+            <div>📚 总练习: <strong id="totalCount">0</strong></div>
+            <div>✅ 正确率: <strong id="accuracyRate">0</strong>%</div>
+            <div>❌ 错题数: <strong id="wrongCount">0</strong></div>
+            <button id="clearHistoryBtn" style="background:#eef2ff; color:#1e4a6b;">清空所有记录</button>
+            <button id="clearHashesBtn" style="background:#fff3cd; color:#856404; font-size:0.8rem;">清空题目缓存</button>
+        </div>
+    </div>
+
+    <div id="quizArea">
+        <div class="quiz-card" style="text-align:center; color:#7c9eb3;">👆 点击「重置池子并开始」</div>
+    </div>
+
+    <div class="record-card">
+        <div class="label">📋 练习记录 · 全部题目（含解析&词汇）</div>
+        <div class="filter-bar">
+            <span>筛选：</span>
+            <select id="recordFilter" class="filter-select">
+                <option value="all">全部题目</option>
+                <option value="wrong">仅错题</option>
+                <option value="correct">仅正确</option>
+            </select>
+            <button id="refreshRecordBtn" style="background:#5f7f9c; padding:6px 16px;">刷新</button>
+        </div>
+        <div id="categoryStats" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;"></div>
+        <div id="recordListContainer" style="max-height: 450px; overflow-y: auto;"></div>
+    </div>
+    <footer>⚡ 池子预生成题数 = 你选择的数量 | 点击「下一题」瞬间取出，永不等待API | 池子低于1/3时后台自动补充</footer>
+</div>
+
+<script>
+    // ---------- IndexedDB ----------
+    const DB_NAME = 'ToeicTrainerDB_final';
+    const STORE_NAME = 'records';
+    const META_STORE = 'metadata';
+    let db = null;
+
+    function openDB() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open(DB_NAME, 1);
+            request.onupgradeneeded = (e) => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                if (!db.objectStoreNames.contains(META_STORE)) {
+                    const metaStore = db.createObjectStore(META_STORE, { keyPath: 'key' });
+                    metaStore.put({ key: 'categoryCount', value: {} });
+                    metaStore.put({ key: 'allQuestionHashes', value: [] });
+                }
+            };
+            request.onsuccess = (e) => { db = e.target.result; resolve(db); };
+            request.onerror = (e) => reject(e.target.error);
+        });
+    }
+
+    async function saveRecord(record) {
+        if (!db) await openDB();
+        const tx = db.transaction([STORE_NAME, META_STORE], 'readwrite');
+        await tx.objectStore(STORE_NAME).put(record);
+        const metaStore = tx.objectStore(META_STORE);
+        const catCount = (await metaStore.get('categoryCount'))?.value || {};
+        const cat = record.category || '未分类';
+        catCount[cat] = (catCount[cat] || 0) + 1;
+        await metaStore.put({ key: 'categoryCount', value: catCount });
+        const hash = record.questionText.slice(0, 60);
+        let hashes = (await metaStore.get('allQuestionHashes'))?.value || [];
+        if (!hashes.includes(hash)) hashes.push(hash);
+        if (hashes.length > 200) hashes = hashes.slice(-200);
+        await metaStore.put({ key: 'allQuestionHashes', value: hashes });
+        return new Promise((resolve) => { tx.oncomplete = resolve; });
+    }
+
+    async function getAllRecords() {
+        if (!db) await openDB();
+        return new Promise((resolve) => {
+            const tx = db.transaction(STORE_NAME, 'readonly');
+            const req = tx.objectStore(STORE_NAME).getAll();
+            req.onsuccess = () => resolve(req.result || []);
+        });
+    }
+
+    async function clearAllRecords() {
+        if (!db) await openDB();
+        const tx = db.transaction([STORE_NAME, META_STORE], 'readwrite');
+        await tx.objectStore(STORE_NAME).clear();
+        await tx.objectStore(META_STORE).put({ key: 'categoryCount', value: {} });
+        await tx.objectStore(META_STORE).put({ key: 'allQuestionHashes', value: [] });
+        return new Promise((resolve) => { tx.oncomplete = resolve; });
+    }
+
+    async function getCategoryCount() {
+        if (!db) await openDB();
+        const tx = db.transaction(META_STORE, 'readonly');
+        const res = await tx.objectStore(META_STORE).get('categoryCount');
+        return res?.value || {};
+    }
+
+    async function getAllQuestionHashes() {
+        if (!db) await openDB();
+        const tx = db.transaction(META_STORE, 'readonly');
+        const res = await tx.objectStore(META_STORE).get('allQuestionHashes');
+        return res?.value || [];
+    }
+
+    // ---------- 全局变量 ----------
+    let apiKey = localStorage.getItem('toeic_ark_key') || '';
+    let currentQuestion = null;
+    let selectedLetter = null;
+    let questionPool = [];          // 题目池
+    let isRefilling = false;        // 防止并发补充
+    let poolReady = false;          // 池子至少有一批已加载过
+    let currentBatchSize = 15;      // 当前选择的批量
+
+    const apiInput = document.getElementById('apiKeyInput');
+    const saveBtn = document.getElementById('saveKeyBtn');
+    const newBtn = document.getElementById('newQuestionBtn');
+    const difficultySelect = document.getElementById('difficultySelect');
+    const batchSizeSelect = document.getElementById('batchSizeSelect');
+    const quizArea = document.getElementById('quizArea');
+    const totalSpan = document.getElementById('totalCount');
+    const accuracySpan = document.getElementById('accuracyRate');
+    const wrongCountSpan = document.getElementById('wrongCount');
+    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+    const clearHashesBtn = document.getElementById('clearHashesBtn');
+    const recordFilter = document.getElementById('recordFilter');
+    const refreshRecordBtn = document.getElementById('refreshRecordBtn');
+    const categoryStatsDiv = document.getElementById('categoryStats');
+    const recordListContainer = document.getElementById('recordListContainer');
+
+    if (apiKey) apiInput.value = apiKey;
+
+    const ALL_CATEGORIES = ['词性判断', '动词时态语态', '非谓语动词', '连接词/介词', '虚拟语气', '倒装结构', '独立主格', '词汇搭配', '代词指代', '比较级'];
+    const BUSINESS_SCENES = ['邮件通讯', '例会纪要', '季度财务报告', '人事调动', '产品采购', '供应链延迟', '合约谈判', '差旅报销', '客户服务', '市场策略', '物流管理', '投资分析', '企业并购', '员工培训', '预算审批', '设备租赁', '国际运输', '展会策划', '绩效考核', '危机公关'];
+    
+    // 加载本地单词数据库
+    let wordDatabase = [];
+    async function loadWordDatabase() {
+        try {
+            const response = await fetch('word_database.json');
+            if (!response.ok) throw new Error('无法加载单词数据库');
+            wordDatabase = await response.json();
+            console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
+        } catch (error) {
+            console.error('加载单词数据库失败:', error);
+            // 如果无法加载，使用默认的单词列表
+            wordDatabase = [
+                { word: "increase", pos: ["名", "动"], meaning: "增加" },
+                { word: "include", pos: ["动"], meaning: "包含" },
+                { word: "currently", pos: ["副"], meaning: "目前" },
+                { word: "advertising", pos: ["名"], meaning: "广告，宣传" },
+                { word: "charge", pos: ["动", "名"], meaning: "收费，充电，指责；费用，责任" }
+            ];
+        }
+    }
+    
+    // 从单词数据库中随机选取单词（带权重）
+    function getRandomWords(count) {
+        if (wordDatabase.length === 0) return [];
+        
+        // 更复杂的随机算法，增加多样性
+        const shuffled = [...wordDatabase];
+        
+        // Fisher-Yates 洗牌算法
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        
+        // 确保选取不同词性的单词
+        const selected = [];
+        const usedPos = new Set();
+        
+        for (const word of shuffled) {
+            if (selected.length >= count) break;
+            
+            // 检查是否有新词性
+            const hasNewPos = word.pos.some(pos => !usedPos.has(pos));
+            if (hasNewPos || Math.random() < 0.3) { // 30%概率允许重复词性
+                selected.push(word);
+                word.pos.forEach(pos => usedPos.add(pos));
+            }
+        }
+        
+        // 如果不够，补充剩余
+        if (selected.length < count) {
+            const remaining = shuffled.filter(w => !selected.includes(w));
+            selected.push(...remaining.slice(0, count - selected.length));
+        }
+        
+        return selected;
+    }
+    
+    // 生成基于单词数据库的提示词
+    function generateWordBasedPrompt() {
+        const randomWords = getRandomWords(20); // 随机选取20个单词，增加数量
+        const wordList = randomWords.map(w => {
+            const posStr = Array.isArray(w.pos) ? w.pos.join('/') : w.pos || '未知';
+            const synonyms = w.synonyms ? ` (同义词: ${Array.isArray(w.synonyms) ? w.synonyms.join(', ') : w.synonyms})` : '';
+            const antonyms = w.antonyms ? ` (反义词: ${Array.isArray(w.antonyms) ? w.antonyms.join(', ') : w.antonyms})` : '';
+            return `${w.word} (${posStr}): ${w.meaning}${synonyms}${antonyms}`;
+        }).join('; ');
+        
+        return `以下单词请优先在题目中使用，确保题目多样性: ${wordList}`;
+    }
+
+    function renderKeywords(keywords) {
+        if (!keywords || !Array.isArray(keywords)) return '—';
+        if (keywords.length > 0 && typeof keywords[0] === 'object' && keywords[0].word) {
+            return keywords.map(kw => `<span class="keyword-chip">${kw.word} (${kw.pos}) ${kw.meaning}</span>`).join('');
+        }
+        return keywords.map(kw => `<span class="keyword-chip">${kw}</span>`).join('');
+    }
+
+    async function updateAllStatsAndRecords() {
+        const records = await getAllRecords();
+        const total = records.length;
+        const correctNum = records.filter(r => r.correct === true).length;
+        const wrongNum = total - correctNum;
+        const accuracy = total === 0 ? 0 : Math.round((correctNum / total) * 100);
+        totalSpan.innerText = total;
+        accuracySpan.innerText = accuracy;
+        wrongCountSpan.innerText = wrongNum;
+
+        const categoryStats = {};
+        records.forEach(rec => {
+            const cat = rec.category || '未分类';
+            if (!categoryStats[cat]) categoryStats[cat] = { total: 0, correct: 0 };
+            categoryStats[cat].total++;
+            if (rec.correct) categoryStats[cat].correct++;
+        });
+        categoryStatsDiv.innerHTML = Object.entries(categoryStats).map(([cat, stat]) => {
+            const percent = stat.total === 0 ? 0 : Math.round((stat.correct / stat.total) * 100);
+            return `<span class="stat-category" data-cat="${cat}">${cat} : ${stat.correct}/${stat.total} (${percent}%)</span>`;
+        }).join('');
+        document.querySelectorAll('.stat-category').forEach(el => {
+            el.onclick = () => {
+                window.currentCategoryFilter = el.getAttribute('data-cat');
+                renderRecords();
+            };
+        });
+        await renderRecords();
+    }
+
+    async function renderRecords() {
+        const records = await getAllRecords();
+        const filterValue = recordFilter.value;
+        let filtered = records;
+        if (filterValue === 'wrong') filtered = records.filter(r => r.correct === false);
+        if (filterValue === 'correct') filtered = records.filter(r => r.correct === true);
+        if (window.currentCategoryFilter && window.currentCategoryFilter !== 'all') {
+            filtered = filtered.filter(r => (r.category || '未分类') === window.currentCategoryFilter);
+        } else {
+            window.currentCategoryFilter = null;
+        }
+        filtered.sort((a, b) => b.timestamp - a.timestamp);
+        if (filtered.length === 0) {
+            recordListContainer.innerHTML = '<div style="text-align:center; padding:20px; color:#9bb7ce;">暂无记录</div>';
+            return;
+        }
+        recordListContainer.innerHTML = filtered.map(rec => {
+            const letters = ['A','B','C','D'];
+            let analysisHtml = '';
+            if (Array.isArray(rec.wrongOptionAnalysis) && rec.wrongOptionAnalysis.length === 4 && Array.isArray(rec.options) && rec.options.length === 4) {
+                analysisHtml = rec.wrongOptionAnalysis.map((a, i) => {
+                    const isCorrectOpt = (letters[i] === rec.correctAnswer);
+                    return `<div class="analysis-item ${isCorrectOpt ? 'correct-opt' : ''}">${isCorrectOpt ? '✅' : '❌'} <strong>${letters[i]}. ${rec.options[i]}</strong>: ${a}</div>`;
+                }).join('');
+            } else {
+                analysisHtml = `<div>⚠️ 选项分析：${rec.wrongOptionAnalysis || '—'}</div>`;
+            }
+            return `
+            <div class="record-item ${rec.correct ? 'correct-item' : 'wrong-item'}" data-id="${rec.id}">
+                <div class="record-question">
+                    ${rec.correct ? '✅' : '❌'} ${rec.questionText.length > 70 ? rec.questionText.slice(0,70)+'…' : rec.questionText}
+                    <span class="category-badge">${rec.category || '未分类'}</span>
+                </div>
+                <div style="font-size:0.75rem; margin-top:6px;">你的答案: ${rec.userAnswer} | 正确答案: ${rec.correctAnswer}</div>
+                <div class="record-detail" style="display:none;">
+                    <div><strong>📖 翻译：</strong> ${rec.translation || ''}</div>
+                    <div><strong>🔑 核心词汇：</strong> ${renderKeywords(rec.keywords)}</div>
+                    <div><strong>🎯 解题步骤：</strong> ${rec.solutionSteps || '—'}</div>
+                    <div><strong>⚠️ 选项分析：</strong></div>
+                    ${analysisHtml}
+                    <div><strong>📚 考点小结：</strong> ${rec.summaryTip || '—'}</div>
+                </div>
+            </div>`;
+        }).join('');
+        document.querySelectorAll('.record-item').forEach(el => {
+            const detail = el.querySelector('.record-detail');
+            el.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+                    detail.style.display = detail.style.display === 'none' ? 'block' : 'none';
+                }
+            });
+        });
+    }
+
+    clearHistoryBtn.onclick = async () => {
+        if (confirm('清除所有练习记录？不可恢复。')) {
+            await clearAllRecords();
+            await updateAllStatsAndRecords();
+        }
+    };
+    
+    clearHashesBtn.onclick = async () => {
+        if (confirm('清除题目缓存？这将允许生成之前出现过的题目。')) {
+            await clearQuestionHashes();
+            alert('题目缓存已清除，下次生成题目时将不再避免重复');
+        }
+    };
+    
+    refreshRecordBtn.onclick = () => updateAllStatsAndRecords();
+    recordFilter.onchange = () => {
+        window.currentCategoryFilter = null;
+        renderRecords();
+    };
+
+    saveBtn.onclick = () => {
+        const key = apiInput.value.trim();
+        if (key) {
+            apiKey = key;
+            localStorage.setItem('toeic_ark_key', key);
+            alert('API Key 已保存');
+        } else alert('请输入 Key');
+    };
+
+    // ---------- 批量生成 ----------
+    async function generateBatch(count) {
+        if (!apiKey) throw new Error('请先保存 API Key');
+        const difficultyHint = difficultySelect.value;
+        const recentHashes = await getAllQuestionHashes();
+        const recentHashHint = recentHashes.slice(-60).join('；');
+        
+        // 获取单词数据库提示
+        const wordPrompt = generateWordBasedPrompt();
+        
+        // 生成更详细的场景描述
+        const selectedScenes = [...BUSINESS_SCENES]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 10)
+            .join('、');
+
+        const prompt = `你是资深托业出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
+
+全局要求：
+- 难度均为: ${difficultyHint}
+- 商务场景：从以下列表中随机选择，确保场景多样性：${selectedScenes}
+- 考点必须均衡覆盖，尤其优先考虑低频考点（词性判断、非谓语、虚拟语气、独立主格等）。
+- 避免与以下最近已出题目的题干重复（前80字符）: ${recentHashHint}
+- ${wordPrompt}
+- 每道题的结构必须包含以下字段：
+{
+  "questionText": "题干",
+  "options": ["opt1", "opt2", "opt3", "opt4"],
+  "options_cn": ["释义1", "释义2", "释义3", "释义4"],
+  "correctIndex": 0,
+  "translation": "中文翻译",
+  "keywords": [{"word":"word", "pos":"n.", "meaning":"释义"}],
+  "category": "考点类别",
+  "solutionSteps": "解题步骤",
+  "wrongOptionAnalysis": ["分析1", "分析2", "分析3", "分析4"],
+  "summaryTip": "小结"
+}
+
+特别注意：
+1. 题目内容必须多样化，避免相似的语法结构或词汇选择
+2. 选项设计要有区分度，避免明显的干扰项
+3. wrongOptionAnalysis 数组中每个元素是对应选项的错误原因分析，不要出现A/B/C/D字母
+4. 正确选项索引 random 分布，不要集中在某个位置
+5. 关键词尽量使用提供的单词数据库中的词汇
+6. 返回格式严格为: [ {...}, {...}, ... ] 只输出数组
+
+开始生成。`;
+
+        const requestBody = {
+            model: "ep-20260505172500-db99v",
+            stream: false,
+            temperature: 0.4,
+            max_output_tokens: Math.min(2800 + count * 200, 8000),
+            input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }]
+        };
+        const resp = await fetch('https://ark.cn-beijing.volces.com/api/v3/responses', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody)
+        });
+        if (!resp.ok) throw new Error(`API ${resp.status}`);
+        const data = await resp.json();
+        let raw = '';
+        if (data.output?.[0]?.content?.[0]?.text) raw = data.output[0].content[0].text;
+        else if (data.output?.choices?.[0]?.message?.content) raw = data.output.choices[0].message.content;
+        else if (data.choices?.[0]?.message?.content) raw = data.choices[0].message.content;
+        else throw new Error('返回格式错误');
+        let cleaned = raw.trim();
+        const arrayMatch = cleaned.match(/\[[\s\S]*\]/);
+        if (arrayMatch) cleaned = arrayMatch[0];
+        let questions = JSON.parse(cleaned);
+        if (!Array.isArray(questions)) throw new Error('返回不是数组');
+        return questions.map(q => {
+            if (!q.options_cn) q.options_cn = ['','','',''];
+            if (!Array.isArray(q.wrongOptionAnalysis)) q.wrongOptionAnalysis = ['','','',''];
+            if (!q.keywords) q.keywords = [];
+            if (!q.translation) q.translation = '';
+            if (!q.solutionSteps) q.solutionSteps = '';
+            if (!q.summaryTip) q.summaryTip = '';
+            if (!q.category) q.category = '未分类';
+            return q;
+        });
+    }
+
+    function shuffleQuestion(question) {
+        const indices = [0,1,2,3];
+        for (let i = indices.length-1; i>0; i--) {
+            const j = Math.floor(Math.random()*(i+1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        const newOptions = indices.map(i=>question.options[i]);
+        const newOptionsCn = indices.map(i=>question.options_cn[i]);
+        const newWrongAnalysis = indices.map(i=>question.wrongOptionAnalysis[i]);
+        const newCorrectIndex = indices.indexOf(question.correctIndex);
+        const newCorrectLetter = String.fromCharCode(65+newCorrectIndex);
+        return {...question, options:newOptions, options_cn:newOptionsCn, wrongOptionAnalysis:newWrongAnalysis, correctAnswer:newCorrectLetter, correctIndex:newCorrectIndex};
+    }
+
+    // 核心：清空池子并用新数量填充（等待完成）
+    async function resetAndFillPool(targetCount) {
+        questionPool = [];
+        isRefilling = false;  // 重置标志
+        poolReady = false;
+        
+        // 确保单词数据库已加载
+        if (wordDatabase.length === 0) {
+            await loadWordDatabase();
+        }
+        
+        // 直接调用填充，并等待完成
+        const newQuestions = await generateBatch(targetCount);
+        const shuffledBatch = newQuestions.map(q => shuffleQuestion(q));
+        questionPool.push(...shuffledBatch);
+        poolReady = true;
+        
+        // 记录已使用的题目哈希
+        newQuestions.forEach(q => {
+            const hash = q.questionText.substring(0, 80).replace(/\s+/g, ' ');
+            saveQuestionHash(hash);
+        });
+    }
+
+    // 后台补充（不等待，但会抛出错误供调用者捕获）
+    async function backgroundRefill(targetCount) {
+        if (isRefilling) return;
+        isRefilling = true;
+        try {
+            const newQuestions = await generateBatch(targetCount);
+            const shuffledBatch = newQuestions.map(q => shuffleQuestion(q));
+            questionPool.push(...shuffledBatch);
+            
+            // 记录新题目的哈希
+            newQuestions.forEach(q => {
+                const hash = q.questionText.substring(0, 80).replace(/\s+/g, ' ');
+                saveQuestionHash(hash);
+            });
+            
+            console.log(`✅ 后台补充了 ${newQuestions.length} 道新题目`);
+        } catch (err) {
+            console.error("后台补充失败", err);
+        } finally {
+            isRefilling = false;
+        }
+    }
+
+    // 获取下一题：直接从池中取，绝不触发API（除非池子意外为空，显示错误）
+    function getNextQuestionFromPool() {
+        if (questionPool.length === 0) {
+            throw new Error("题目池已空，请点击「重置池子并开始」重新填充");
+        }
+        const q = questionPool.shift();
+        
+        // 更智能的补充策略
+        const targetBatch = parseInt(batchSizeSelect.value);
+        const currentPoolSize = questionPool.length;
+        
+        // 根据当前池子大小动态调整补充时机
+        if (currentPoolSize < Math.max(3, Math.floor(targetBatch / 4))) {
+            // 如果池子很小，立即补充
+            backgroundRefill(targetBatch).catch(e=>console.error);
+        } else if (currentPoolSize < Math.max(5, Math.floor(targetBatch / 2))) {
+            // 如果池子中等，延迟一点补充
+            setTimeout(() => {
+                if (questionPool.length < Math.max(3, Math.floor(targetBatch / 3))) {
+                    backgroundRefill(targetBatch).catch(e=>console.error);
+                }
+            }, 1000);
+        }
+        
+        return q;
+    }
+
+    // 渲染题目
+    function renderQuestion(question, poolRemaining) {
+        quizArea.innerHTML = '';
+        const card = document.createElement('div');
+        card.className = 'quiz-card';
+        const qDiv = document.createElement('div');
+        qDiv.className = 'question-text';
+        qDiv.innerText = question.questionText;
+        card.appendChild(qDiv);
+
+        const optsDiv = document.createElement('div');
+        const letters = ['A','B','C','D'];
+        question.options.forEach((optText, idx) => {
+            const letter = letters[idx];
+            const optDiv = document.createElement('div');
+            optDiv.className = 'option';
+            optDiv.setAttribute('data-letter', letter);
+            optDiv.innerHTML = `<span class="prefix">${letter}.</span> <span>${optText}</span>`;
+            optDiv.onclick = () => {
+                document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+                optDiv.classList.add('selected');
+                selectedLetter = letter;
+            };
+            optsDiv.appendChild(optDiv);
+        });
+        card.appendChild(optsDiv);
+
+        const transBtn = document.createElement('button');
+        transBtn.innerText = '🔍 显示选项中文';
+        transBtn.className = 'btn-outline';
+        transBtn.style.marginTop = '8px';
+        const transDiv = document.createElement('div');
+        transDiv.style.display = 'none';
+        transDiv.className = 'options-translation';
+        transBtn.onclick = () => {
+            if (transDiv.style.display === 'none') {
+                let html = '<div><strong>📖 选项中文释义：</strong></div>';
+                letters.forEach((letter, idx) => {
+                    const eng = question.options[idx];
+                    const cn = question.options_cn[idx] || '';
+                    html += `<div class="translation-item">${letter}. ${eng} → ${cn}</div>`;
+                });
+                transDiv.innerHTML = html;
+                transDiv.style.display = 'block';
+                transBtn.innerText = '🙈 隐藏选项中文';
+            } else {
+                transDiv.style.display = 'none';
+                transBtn.innerText = '🔍 显示选项中文';
+            }
+        };
+        card.appendChild(transBtn);
+        card.appendChild(transDiv);
+
+        const submitBtn = document.createElement('button');
+        submitBtn.innerText = '📥 提交答案';
+        submitBtn.style.marginRight = '12px';
+        submitBtn.style.marginTop = '12px';
+        const nextBtn = document.createElement('button');
+        nextBtn.innerText = '🔄 下一题';
+        nextBtn.style.background = '#306844';
+        const btnGroup = document.createElement('div');
+        btnGroup.style.display = 'flex';
+        btnGroup.style.gap = '12px';
+        btnGroup.style.marginTop = '16px';
+        btnGroup.appendChild(submitBtn);
+        btnGroup.appendChild(nextBtn);
+        card.appendChild(btnGroup);
+
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.id = 'feedbackArea';
+        card.appendChild(feedbackDiv);
+
+        const poolInfo = document.createElement('div');
+        poolInfo.className = 'pool-info';
+        poolInfo.innerText = `📦 剩余题目池: ${poolRemaining} 题`;
+        card.appendChild(poolInfo);
+
+        quizArea.appendChild(card);
+
+        submitBtn.onclick = async () => {
+            if (!selectedLetter) { alert('请选择一项'); return; }
+            const isCorrect = (selectedLetter === question.correctAnswer);
+            await saveRecord({
+                id: Date.now(),
+                timestamp: Date.now(),
+                questionText: question.questionText,
+                options: question.options,
+                options_cn: question.options_cn,
+                userAnswer: selectedLetter,
+                correctAnswer: question.correctAnswer,
+                correct: isCorrect,
+                category: question.category,
+                translation: question.translation,
+                keywords: question.keywords,
+                solutionSteps: question.solutionSteps,
+                wrongOptionAnalysis: question.wrongOptionAnalysis,
+                summaryTip: question.summaryTip
+            });
+            await updateAllStatsAndRecords();
+            const correctIdx = letters.indexOf(question.correctAnswer);
+            const correctText = question.options[correctIdx];
+            const correctCn = question.options_cn[correctIdx] || '';
+            let keywordsHtml = renderKeywords(question.keywords);
+            let analysisHtml = '';
+            if (Array.isArray(question.wrongOptionAnalysis) && question.wrongOptionAnalysis.length === 4) {
+                analysisHtml = '<div style="margin-top:8px;"><strong>⚠️ 选项分析：</strong></div>';
+                letters.forEach((letter, idx) => {
+                    const analysis = question.wrongOptionAnalysis[idx];
+                    const optText = question.options[idx];
+                    const isCorrectOpt = (idx === question.correctIndex);
+                    analysisHtml += `<div class="analysis-item ${isCorrectOpt ? 'correct-opt' : ''}">${isCorrectOpt ? '✅' : '❌'} <strong>${letter}. ${optText}</strong>: ${analysis}</div>`;
+                });
+            } else {
+                analysisHtml = `<div><strong>⚠️ 错误分析：</strong> ${question.wrongOptionAnalysis || '—'}</div>`;
+            }
+            let html = `<div class="feedback">
+                <div>${isCorrect ? '<span class="correct">✔ 回答正确</span>' : '<span class="wrong">✘ 回答错误</span>'} &nbsp; 正确答案：${question.correctAnswer}. ${correctText} ${correctCn ? '('+correctCn+')' : ''}</div>
+                <div><strong>📖 翻译：</strong> ${question.translation}</div>
+                <div><strong>🔑 核心词汇：</strong> ${keywordsHtml}</div>
+                <div><strong>🎯 解题步骤：</strong> ${question.solutionSteps || '—'}</div>
+                ${analysisHtml}
+                <div><strong>📚 考点小结：</strong> ${question.summaryTip || '—'}</div>
+                <div><em>考点类别：${question.category || '未分类'}</em></div>
+            </div>`;
+            feedbackDiv.innerHTML = html;
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.6';
+            document.querySelectorAll('.option').forEach(opt => {
+                const l = opt.getAttribute('data-letter');
+                if (l === question.correctAnswer) opt.style.border = '2px solid #289672';
+                if (l === selectedLetter && l !== question.correctAnswer) opt.style.border = '2px solid #e25c5c';
+            });
+            // 更新池子显示
+            const remaining = questionPool.length;
+            poolInfo.innerText = `📦 剩余题目池: ${remaining} 题`;
+        };
+        nextBtn.onclick = async () => {
+            await fetchAndDisplay();
+        };
+    }
+
+    // 显示题目主流程
+    async function fetchAndDisplay() {
+        if (!apiKey) { alert('请先填写 API Key'); return; }
+        try {
+            const q = getNextQuestionFromPool();
+            currentQuestion = q;
+            selectedLetter = null;
+            renderQuestion(q, questionPool.length);
+        } catch (err) {
+            // 池子为空，显示错误并提供重置按钮
+            quizArea.innerHTML = `<div class="quiz-card"><div class="error-message">❌ ${err.message}<br>请点击下方按钮重新生成池子。</div><button id="forceResetBtn" style="margin-top:12px;">重置池子并开始</button></div>`;
+            const resetBtn = document.getElementById('forceResetBtn');
+            if (resetBtn) resetBtn.onclick = () => newBtn.onclick();
+        }
+    }
+
+    // 重置池子（异步）并显示第一题
+    newBtn.onclick = async () => {
+        if (!apiKey) { alert('请先保存 API Key'); return; }
+        const batchSize = parseInt(batchSizeSelect.value);
+        newBtn.disabled = true;
+        quizArea.innerHTML = `<div class="quiz-card loading"><div class="spinner"></div><div>🔄 正在生成 ${batchSize} 道题目，请稍候（约 ${Math.ceil(batchSize * 1.2)} 秒）...</div></div>`;
+        try {
+            await resetAndFillPool(batchSize);
+            // 重置成功后，取出第一题并显示
+            const firstQ = getNextQuestionFromPool();
+            currentQuestion = firstQ;
+            selectedLetter = null;
+            renderQuestion(firstQ, questionPool.length);
+        } catch (err) {
+            quizArea.innerHTML = `<div class="quiz-card"><div class="error-message">重置失败: ${err.message}<br>请检查 API Key 或网络。</div><button id="retryResetBtn">重试</button></div>`;
+            const retry = document.getElementById('retryResetBtn');
+            if (retry) retry.onclick = () => newBtn.onclick();
+        } finally {
+            newBtn.disabled = false;
+        }
+    };
+
+    // 切换难度或批量大小时，自动重置池子
+    difficultySelect.addEventListener('change', async () => {
+        if (apiKey) await newBtn.onclick();
+    });
+    batchSizeSelect.addEventListener('change', async () => {
+        currentBatchSize = parseInt(batchSizeSelect.value);
+        if (apiKey) await newBtn.onclick();
+    });
+
+    // 初始化数据库并自动重置池子（如果有key）
+    (async () => {
+        await openDB();
+        await loadWordDatabase();  // 加载单词数据库
+        await updateAllStatsAndRecords();
+        if (apiKey) {
+            await newBtn.onclick();  // 自动触发首次重置和填池
+        }
+    })();
+</script>
+</body>
+</html>

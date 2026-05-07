@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>托业学习助手</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #f4f9fe 0%, #e6f2ff 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            padding: 20px 16px;
+            color: #0a2b3b;
+        }
+        .container { 
+            max-width: 750px; 
+            margin: 0 auto;
+        }
+        
+        /* 头部样式 */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e6f5c, #289672, #2563eb);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: #5f7f9c;
+            font-size: 0.9rem;
+        }
+        
+        /* 功能卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2edf2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+            border-color: #289672;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1e4a6b;
+        }
+        
+        .card-desc {
+            color: #5f7f9c;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #7c9eb3;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eef2ff;
+        }
+        
+        /* 底部信息 */
+        .footer {
+            text-align: center;
+            color: #7c9eb3;
+            font-size: 0.8rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eef2ff;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 托业学习助手</h1>
+            <p>一站式托业学习平台 · 单词记忆与题库练习</p>
+        </div>
+        
+        <div class="feature-grid">
+            <a href="vocabulary_app.html" class="feature-card">
+                <div class="card-icon">📖</div>
+                <div class="card-title">单词记忆</div>
+                <div class="card-desc">
+                    系统学习托业核心词汇，包含词性、中文释义、同反义词等。
+                    支持单词卡片、测试模式，帮助高效记忆。
+                </div>
+                <div class="card-stats">
+                    <span>📊 2000+ 单词</span>
+                    <span>🎯 智能记忆</span>
+                </div>
+            </a>
+            
+            <a href="practice_coach.html" class="feature-card">
+                <div class="card-icon">🧠</div>
+                <div class="card-title">题库练习</div>
+                <div class="card-desc">
+                    智能生成托业Part 5语法/词汇题目，包含详细解析。
+                    支持难度选择、错题回顾、学习统计等功能。
+                </div>
+                <div class="card-stats">
+                    <span>📚 多种难度</span>
+                    <span>✅ 详细解析</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>使用本地Simple HTTP Server在手机上运行 · 数据存储在本地</p>
+            <p>© 2025 托业学习助手 · 优化版本</p>
+        </div>
+    </div>
+</body>
+</html>

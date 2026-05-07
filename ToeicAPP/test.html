@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试优化结果</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #1e6f5c; margin-bottom: 20px; }
+        .test-section { margin-bottom: 30px; padding: 20px; border: 1px solid #e2edf2; border-radius: 12px; }
+        .test-item { margin: 10px 0; padding: 10px; background: #f8fafc; border-radius: 8px; }
+        .success { color: #15803d; }
+        .warning { color: #e67e22; }
+        .error { color: #b91c1c; }
+        button { padding: 10px 20px; background: #1e6f5c; color: white; border: none; border-radius: 6px; cursor: pointer; margin: 5px; }
+        button:hover { background: #289672; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 托业学习助手优化测试</h1>
+        
+        <div class="test-section">
+            <h2>✅ 已完成优化</h2>
+            <div class="test-item success">1. 创建统一入口页面 (index.html)</div>
+            <div class="test-item success">2. 改进题目生成逻辑，使用本地单词数据库</div>
+            <div class="test-item success">3. 实现更好的题目去重机制</div>
+            <div class="test-item success">4. 增加题目缓存管理功能</div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔧 优化内容说明</h2>
+            <div class="test-item">
+                <h3>问题解决：题目重复</h3>
+                <p><strong>原因：</strong>之前只检查最近40个题目哈希，场景有限，没有利用本地单词库</p>
+                <p><strong>解决方案：</strong></p>
+                <ul>
+                    <li>使用本地2000+单词数据库 (word_database.json)</li>
+                    <li>增加题目哈希检查到最近100个</li>
+                    <li>改进随机算法，确保词性多样性</li>
+                    <li>智能后台补充机制</li>
+                </ul>
+            </div>
+            
+            <div class="test-item">
+                <h3>统一入口</h3>
+                <p>现在可以通过 <code>index.html</code> 访问所有功能：</p>
+                <ul>
+                    <li>📖 单词记忆 - 系统学习托业核心词汇</li>
+                    <li>🧠 题库练习 - 智能生成托业Part 5题目</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🚀 测试步骤</h2>
+            <div class="test-item">
+                <ol>
+                    <li>在手机上启动 Simple HTTP Server</li>
+                    <li>访问 <code>http://[你的IP]:[端口]/index.html</code></li>
+                    <li>点击"单词记忆"测试单词学习功能</li>
+                    <li>点击"题库练习"测试题目生成</li>
+                    <li>在题库练习中，尝试连续做题，观察题目多样性</li>
+                    <li>使用"清空题目缓存"按钮测试去重功能</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>📱 手机访问说明</h2>
+            <div class="test-item">
+                <p>如果你的电脑IP是 <code>192.168.1.100</code>，端口是 <code>8000</code>：</p>
+                <p>手机访问：<code>http://192.168.1.100:8000/index.html</code></p>
+                <p>启动命令示例：<code>python -m http.server 8000</code></p>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button onclick="window.location.href='index.html'">🏠 前往主页面</button>
+                <button onclick="window.location.href='vocabulary_app.html'">📖 测试单词记忆</button>
+                <button onclick="window.location.href='practice_coach.html'">🧠 测试题库练习</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

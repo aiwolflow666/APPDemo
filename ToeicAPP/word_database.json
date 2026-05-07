@@ -1,0 +1,6066 @@
+[
+  {
+    "word": "increase",
+    "pos": ["名", "动"],
+    "meaning": "增加",
+    "antonyms": ["decrease"],
+    "synonyms": ["surge激增"]
+  },
+  {
+    "word": "include",
+    "pos": ["动"],
+    "meaning": "包含",
+    "antonyms": ["exclude不包括，把...排除在外，排斥"]
+  },
+  {
+    "word": "currently",
+    "pos": ["副"],
+    "meaning": "目前",
+    "notes": "和形容词current反复在考试中出现"
+  },
+  {
+    "word": "advertising",
+    "pos": ["名"],
+    "meaning": "广告，宣传",
+    "synonyms": ["advertisement"]
+  },
+  {
+    "word": "charge",
+    "pos": ["动", "名"],
+    "meaning": "收费，充电，指责；费用，责任",
+    "related": "in charge of负责"
+  },
+  {
+    "word": "expect",
+    "pos": ["动"],
+    "meaning": "预期，预定",
+    "usage": "be expected to do/expect sb. to do sth.",
+    "synonyms": ["be slated to do预定做某事"]
+  },
+  {
+    "word": "firm",
+    "pos": ["名"],
+    "meaning": "公司",
+    "related": "law/accounting/architectural/construction"
+  },
+  {
+    "word": "client",
+    "pos": ["名"],
+    "meaning": "顾客",
+    "synonyms": ["consumer（消费者）", "customer（顾客）", "guest（来宾）", "visitor（访客）", "tourist（游客）"]
+  },
+  {
+    "word": "financial",
+    "pos": ["形"],
+    "meaning": "金融的，财务的",
+    "related": "finance",
+    "synonyms": ["monetary金钱的"]
+  },
+  {
+    "word": "annual",
+    "pos": ["形", "名"],
+    "meaning": "每年的；年利",
+    "related": "semi-annual1年2次的"
+  },
+  {
+    "word": "payment",
+    "pos": ["名"],
+    "meaning": "支付",
+    "related": "pay"
+  },
+  {
+    "word": "budget",
+    "pos": ["名", "动"],
+    "meaning": "预算；做预算",
+    "usage": "onabudget预算有限"
+  },
+  {
+    "word": "application",
+    "pos": ["名"],
+    "meaning": "申请",
+    "usage": "前面动词常用fillout",
+    "related": "applicable"
+  },
+  {
+    "word": "contract",
+    "pos": ["名"],
+    "meaning": "契约",
+    "related": "contractor承包商，承建商"
+  },
+  {
+    "word": "management",
+    "pos": ["名"],
+    "meaning": "经营，管理",
+    "related": "manage"
+  },
+  {
+    "word": "performance",
+    "pos": ["名"],
+    "meaning": "表现，表演，性能，业绩"
+  },
+  {
+    "word": "pleased",
+    "pos": ["形"],
+    "meaning": "高兴的",
+    "usage": "be pleased with对XX满意be pleased to do",
+    "related": "pleasure",
+    "synonyms": ["pleasant"]
+  },
+  {
+    "word": "confirm",
+    "pos": ["动"],
+    "meaning": "确认",
+    "related": "confirmation托业考试中正确答案中常见"
+  },
+  {
+    "word": "award",
+    "pos": ["名", "动"],
+    "meaning": "奖；授予",
+    "related": "award-winning获过奖的"
+  },
+  {
+    "word": "clothing",
+    "pos": ["名"],
+    "meaning": "衣服",
+    "synonyms": ["attire", "apparel", "garment", "clothes", "outfit"]
+  },
+  {
+    "word": "display",
+    "pos": ["名", "动"],
+    "meaning": "展示",
+    "notes": "Part1狂出，且每次出正解率高"
+  },
+  {
+    "word": "candidate",
+    "pos": ["名"],
+    "meaning": "候选者"
+  },
+  {
+    "word": "state",
+    "pos": ["动"],
+    "meaning": "描述",
+    "related": "statement"
+  },
+  {
+    "word": "exhibit",
+    "pos": ["名", "动"],
+    "meaning": "展会，展品；展示",
+    "synonyms": ["exhibition"],
+    "related": "exhibitor出展商"
+  },
+  {
+    "word": "session",
+    "pos": ["名"],
+    "meaning": "时期，阶段，会议"
+  },
+  {
+    "word": "note",
+    "pos": ["动", "名"],
+    "meaning": "注意，叙述；备注"
+  },
+  {
+    "word": "process",
+    "pos": ["动", "名"],
+    "meaning": "处理；过程，处理",
+    "related": "processing处理，加工"
+  },
+  {
+    "word": "instruction",
+    "pos": ["名"],
+    "meaning": "说明书，说明，指示",
+    "related": "instruct；instructor讲师",
+    "synonyms": ["tutorial个别指导，说明书"]
+  },
+  {
+    "word": "membership",
+    "pos": ["名"],
+    "meaning": "会员"
+  },
+  {
+    "word": "agency",
+    "pos": ["名"],
+    "meaning": "代理，机构",
+    "related": "travelagent旅游业者；advertisingagency广告代理店；employmentagency职业介绍所"
+  },
+  {
+    "word": "based",
+    "pos": ["形"],
+    "meaning": "总部位于XXX的",
+    "related": "based on 基于XXX"
+  },
+  {
+    "word": "facility",
+    "pos": ["名"],
+    "meaning": "设施",
+    "notes": "多为复合名词考法例如production facility"
+  },
+  {
+    "word": "advance",
+    "pos": ["形", "名"],
+    "meaning": "事先的；进步",
+    "related": "in advance 事先；Advance copy 新书样本"
+  },
+  {
+    "word": "committee",
+    "pos": ["名"],
+    "meaning": "委员会",
+    "notes": "TOEIC考试中有啥问题都要组委员会解决"
+  },
+  {
+    "word": "successful",
+    "pos": ["形"],
+    "meaning": "成功的",
+    "related": "succeed；success；successfully"
+  },
+  {
+    "word": "excellent",
+    "pos": ["形"],
+    "meaning": "出色的",
+    "synonyms": ["fine", "outstanding", "exceptional", "superior", "terrific"]
+  },
+  {
+    "word": "industry",
+    "pos": ["名"],
+    "meaning": "产业",
+    "related": "industrial"
+  },
+  {
+    "word": "fee",
+    "pos": ["名"],
+    "meaning": "费用"
+  },
+  {
+    "word": "accept",
+    "pos": ["动"],
+    "meaning": "接受",
+    "related": "acceptable可接受的；acceptance letter合格通知"
+  },
+  {
+    "word": "upcoming",
+    "pos": ["形"],
+    "meaning": "即将到来的",
+    "synonyms": ["forthcoming"]
+  },
+  {
+    "word": "latest",
+    "pos": ["形"],
+    "meaning": "最近的",
+    "related": "at the latest 最近"
+  },
+  {
+    "word": "submit",
+    "pos": ["动"],
+    "meaning": "提出",
+    "related": "submission",
+    "synonyms": ["file", "turn in", "hand in"]
+  },
+  {
+    "word": "transportation",
+    "pos": ["名"],
+    "meaning": "交通运输",
+    "related": "transport"
+  },
+  {
+    "word": "resume",
+    "pos": ["名"],
+    "meaning": "简历",
+    "notes": "考试中CV（curriculum vitae）也会出现"
+  },
+  {
+    "word": "executive",
+    "pos": ["名", "形"],
+    "meaning": "董事；董事局的，高级的"
+  },
+  {
+    "word": "introduce",
+    "pos": ["动"],
+    "meaning": "介绍",
+    "related": "introduction"
+  },
+  {
+    "word": "previous",
+    "pos": ["形"],
+    "meaning": "先前的",
+    "synonyms": ["preceding"],
+    "example": "the preceding year前一年"
+  },
+  {
+    "word": "proposal",
+    "pos": ["名"],
+    "meaning": "计划书",
+    "related": "propose"
+  },
+  {
+    "word": "supply",
+    "pos": ["名", "动"],
+    "meaning": "供给品（托业狂考词）；提供",
+    "related": "supplier供应商"
+  },
+  {
+    "word": "enclose",
+    "pos": ["动"],
+    "meaning": "随信附上",
+    "synonyms": ["attach", "include", "send along"],
+    "notes": "阅读中询问附件（随信附上的）是什么类问题，关键要找“添附”这个动词，后面是答案"
+  },
+  {
+    "word": "policy",
+    "pos": ["名"],
+    "meaning": "政策",
+    "usage": "考试中常跟exchange或replacement等退还意思"
+  },
+  {
+    "word": "register",
+    "pos": ["动", "名"],
+    "meaning": "注册；收银",
+    "related": "registration",
+    "synonyms": ["sign up for"]
+  },
+  {
+    "word": "arrange",
+    "pos": ["动"],
+    "meaning": "安排",
+    "related": "arrangement"
+  },
+  {
+    "word": "bill",
+    "pos": ["名", "动"],
+    "meaning": "账单；发送账单，结账（托业考试狂考）",
+    "synonyms": ["invoice"]
+  },
+  {
+    "word": "hire",
+    "pos": ["动"],
+    "meaning": "雇佣",
+    "notes": "托业考试中涉及雇佣的条件一般要求会用电脑，优秀的交流能力以及相关行业的若干工作经验（特别工种除外）"
+  },
+  {
+    "word": "approve",
+    "pos": ["动"],
+    "meaning": "赞成，允诺",
+    "related": "approved 被承认的"
+  },
+  {
+    "word": "conduct",
+    "pos": ["动"],
+    "meaning": "操作，执行，实施",
+    "usage": "一般接survey做问卷调查"
+  },
+  {
+    "word": "opportunity",
+    "pos": ["名"],
+    "meaning": "机会",
+    "synonyms": ["chance"]
+  },
+  {
+    "word": "deadline",
+    "pos": ["名"],
+    "meaning": "截止时间"
+  },
+  {
+    "word": "corporate",
+    "pos": ["形"],
+    "meaning": "企业的，法人的（注意这不是名词）",
+    "related": "corporation"
+  },
+  {
+    "word": "warranty",
+    "pos": ["名"],
+    "meaning": "保修",
+    "related": "guarantee",
+    "usage": "在保修期间under warranty"
+  },
+  {
+    "word": "necessary",
+    "pos": ["形"],
+    "meaning": "必要的",
+    "related": "necessity必需品"
+  },
+  {
+    "word": "reserve",
+    "pos": ["动"],
+    "meaning": "预约，确保",
+    "synonyms": ["book"]
+  },
+  {
+    "word": "resident",
+    "pos": ["名"],
+    "meaning": "居民",
+    "related": "reside；residential",
+    "synonyms": ["inhabitant居民"]
+  },
+  {
+    "word": "create",
+    "pos": ["动"],
+    "meaning": "创造",
+    "related": "creative；creativity，creation"
+  },
+  {
+    "word": "inform",
+    "pos": ["动"],
+    "meaning": "通知",
+    "usage": "inform+人+that+从句，inform+人+of/about+具体事"
+  },
+  {
+    "word": "allow",
+    "pos": ["动"],
+    "meaning": "允许",
+    "synonyms": ["tolerate"],
+    "usage": "allow+人+to do"
+  },
+  {
+    "word": "mention",
+    "pos": ["动", "名"],
+    "meaning": "提及",
+    "synonyms": ["state", "cite"]
+  },
+  {
+    "word": "appreciate",
+    "pos": ["动"],
+    "meaning": "感谢，赏识",
+    "related": "appreciation；appreciative"
+  },
+  {
+    "word": "replacement",
+    "pos": ["名"],
+    "meaning": "交换，交换品，继任者"
+  },
+  {
+    "word": "update",
+    "pos": ["名", "动"],
+    "meaning": "最新情报；更新"
+  },
+  {
+    "word": "branch",
+    "pos": ["名"],
+    "meaning": "支店=branch office"
+  },
+  {
+    "word": "paid",
+    "pos": ["形"],
+    "meaning": "支付完毕的",
+    "related": "paid vacation/holidays"
+  },
+  {
+    "word": "unfortunately",
+    "pos": ["副"],
+    "meaning": "不幸地",
+    "antonyms": ["fortunately"]
+  },
+  {
+    "word": "original",
+    "pos": ["形", "名"],
+    "meaning": "最初的；原始",
+    "related": "originality原创性"
+  },
+  {
+    "word": "rent",
+    "pos": ["名", "动"],
+    "meaning": "房租；租借",
+    "related": "rental租赁（这不是形容词！）"
+  },
+  {
+    "word": "memo",
+    "pos": ["名"],
+    "meaning": "备忘录",
+    "related": "memorandum"
+  },
+  {
+    "word": "luggage",
+    "pos": ["名"],
+    "meaning": "行李（不可数）",
+    "synonyms": ["baggage"]
+  },
+  {
+    "word": "editor",
+    "pos": ["名"],
+    "meaning": "编辑者",
+    "related": "edit；editorial"
+  },
+  {
+    "word": "exhibition",
+    "pos": ["名"],
+    "meaning": "展会，展品",
+    "synonyms": ["exposition展览会"],
+    "related": "trade fair商品展销会；retrospective（艺术作品）回顾展"
+  },
+  {
+    "word": "leading",
+    "pos": ["形"],
+    "meaning": "一流的",
+    "synonyms": ["foremost", "top"]
+  },
+  {
+    "word": "organization",
+    "pos": ["名"],
+    "meaning": "团体，组织（化）",
+    "related": "organizational"
+  },
+  {
+    "word": "release",
+    "pos": ["动", "名"],
+    "meaning": "发布，发售",
+    "related": "press release新闻稿"
+  },
+  {
+    "word": "limited",
+    "pos": ["形"],
+    "meaning": "有限的",
+    "related": "limit限制，边境",
+    "antonyms": ["unlimited"]
+  },
+  {
+    "word": "procedure",
+    "pos": ["名"],
+    "meaning": "手续",
+    "related": "proceed推进",
+    "synonyms": ["process过程"]
+  },
+  {
+    "word": "experienced",
+    "pos": ["形"],
+    "meaning": "经验丰富的",
+    "synonyms": ["seasoned经验丰富的，调好味的"]
+  },
+  {
+    "word": "personnel",
+    "pos": ["名"],
+    "meaning": "人事部，社员",
+    "notes": "近混 personal个人的"
+  },
+  {
+    "word": "author",
+    "pos": ["名", "动"],
+    "meaning": "作者；写书",
+    "notes": "托业的世界，作者的review都是好评"
+  },
+  {
+    "word": "benefit",
+    "pos": ["名", "动"],
+    "meaning": "福利；对某人有用，使受益",
+    "related": "beneficial"
+  },
+  {
+    "word": "focus",
+    "pos": ["动", "名"],
+    "meaning": "集中，焦点",
+    "usage": "接介词on",
+    "related": "focusgroup焦点小组，小组访谈"
+  },
+  {
+    "word": "participate",
+    "pos": ["动"],
+    "meaning": "参加（不及物，必须搭配in）",
+    "synonyms": ["attend（及物可直接宾语）"],
+    "related": "participation 参加；participant 参加者"
+  },
+  {
+    "word": "cause",
+    "pos": ["名", "动"],
+    "meaning": "原因；引起"
+  },
+  {
+    "word": "degree",
+    "pos": ["名"],
+    "meaning": "学位，程度，（温度，角度的单位）度",
+    "related": "diploma 毕业论文"
+  },
+  {
+    "word": "directly",
+    "pos": ["副"],
+    "meaning": "直接地",
+    "related": "direct",
+    "antonyms": ["indirectly 间接地"]
+  },
+  {
+    "word": "host",
+    "pos": ["名", "动"],
+    "meaning": "主持人；主持",
+    "synonyms": ["moderator（超高频）", "anchor", "M.C."]
+  },
+  {
+    "word": "expert",
+    "pos": ["名", "形"],
+    "meaning": "专家；专家的，专门的",
+    "related": "expertise 专业知识",
+    "synonyms": ["connoisseur（饮食，艺术，音乐等特定领域）作家"]
+  },
+  {
+    "word": "impress",
+    "pos": ["动"],
+    "meaning": "给XX留下好印象",
+    "related": "impressive；impression"
+  },
+  {
+    "word": "mainly",
+    "pos": ["副"],
+    "meaning": "主要地",
+    "related": "main",
+    "synonyms": ["primarily", "chiefly", "largely"]
+  },
+  {
+    "word": "suggestion",
+    "pos": ["名"],
+    "meaning": "提案，建议",
+    "synonyms": ["proposal", "recommendation"]
+  },
+  {
+    "word": "supplier",
+    "pos": ["名"],
+    "meaning": "供应商",
+    "synonyms": ["vendor"]
+  },
+  {
+    "word": "document",
+    "pos": ["名", "动"],
+    "meaning": "文件；（用文字或影像）记录",
+    "synonyms": ["documentation"]
+  },
+  {
+    "word": "remind",
+    "pos": ["动"],
+    "meaning": "提醒",
+    "related": "reminder（Part5高频考点）"
+  },
+  {
+    "word": "require",
+    "pos": ["动"],
+    "meaning": "要求",
+    "related": "requirement",
+    "synonyms": ["prerequisite 先决条件"]
+  },
+  {
+    "word": "representative",
+    "pos": ["名"],
+    "meaning": "担当者，代表者（注意这不是形容词）",
+    "notes": "tive结尾但有名词考点的易错词还包括：initiative 计划，alternative替代方案，perspective 看法，executive 董事局董事"
+  },
+  {
+    "word": "packaging",
+    "pos": ["名"],
+    "meaning": "包装",
+    "example": "包装设计：the packaging design"
+  },
+  {
+    "word": "description",
+    "pos": ["名"],
+    "meaning": "说明，描述",
+    "related": "describe",
+    "synonyms": ["portrayal"]
+  },
+  {
+    "word": "property",
+    "pos": ["名"],
+    "meaning": "不动产，资产",
+    "synonyms": ["real estate"]
+  },
+  {
+    "word": "extension",
+    "pos": ["名"],
+    "meaning": "延长，公司内电话分机号（内线）"
+  },
+  {
+    "word": "inquire",
+    "pos": ["动"],
+    "meaning": "询问",
+    "related": "inquiry"
+  },
+  {
+    "word": "merchandise",
+    "pos": ["名"],
+    "meaning": "商品",
+    "synonyms": ["item", "commodity", "goods"]
+  },
+  {
+    "word": "highly",
+    "pos": ["副"],
+    "meaning": "高度地",
+    "notes": "这个词是Part5副词选择里正确答案概率No.1"
+  },
+  {
+    "word": "result",
+    "pos": ["动", "名"],
+    "meaning": "发生，产生；结果，后果"
+  },
+  {
+    "word": "assistance",
+    "pos": ["名"],
+    "meaning": "帮助，支援",
+    "related": "assist",
+    "synonyms": ["help"]
+  },
+  {
+    "word": "encourage",
+    "pos": ["动"],
+    "meaning": "鼓励",
+    "usage": "to do 鼓励某人做某事",
+    "antonyms": ["discourage"]
+  },
+  {
+    "word": "individual",
+    "pos": ["名", "形"],
+    "meaning": "个人；个人的",
+    "notes": "名词和形容词考察概率均等"
+  },
+  {
+    "word": "laboratory",
+    "pos": ["名"],
+    "meaning": "研究所，研究室",
+    "related": "experiment 实验"
+  },
+  {
+    "word": "consider",
+    "pos": ["动"],
+    "meaning": "考虑，认为",
+    "related": "considerate",
+    "synonyms": ["deem"],
+    "notes": "近义 weigh"
+  },
+  {
+    "word": "headquarters",
+    "pos": ["名"],
+    "meaning": "总部",
+    "synonyms": ["the main", "head office"]
+  },
+  {
+    "word": "ship",
+    "pos": ["名", "动"],
+    "meaning": "船；运输（此时名词为shipment）",
+    "synonyms": ["dispatch"]
+  },
+  {
+    "word": "commercial",
+    "pos": ["形", "名"],
+    "meaning": "商业的；广告"
+  },
+  {
+    "word": "device",
+    "pos": ["名"],
+    "meaning": "机器，装置"
+  },
+  {
+    "word": "intended",
+    "pos": ["形"],
+    "meaning": "预定的，计划的，打算的",
+    "related": "intend；intention 意图"
+  },
+  {
+    "word": "brochure",
+    "pos": ["名"],
+    "meaning": "小册子(侧重企业资料或产品(广告)宣传手册)",
+    "synonyms": ["pamphlet 小册子(一般是整长型,有数字页码,内部以文字为中心)"]
+  },
+  {
+    "word": "mail",
+    "pos": ["名", "动"],
+    "meaning": "邮寄物，邮寄；邮送"
+  },
+  {
+    "word": "prefer",
+    "pos": ["动"],
+    "meaning": "喜好",
+    "related": "preference；preferable"
+  },
+  {
+    "word": "response",
+    "pos": ["名"],
+    "meaning": "回应",
+    "related": "respondent 回应者",
+    "synonyms": ["reply"]
+  },
+  {
+    "word": "region",
+    "pos": ["名"],
+    "meaning": "地域",
+    "related": "regional"
+  },
+  {
+    "word": "donation",
+    "pos": ["名"],
+    "meaning": "捐赠",
+    "related": "donate；donor 捐赠者"
+  },
+  {
+    "word": "quarter",
+    "pos": ["名"],
+    "meaning": "四分之一，3个月，1季度"
+  },
+  {
+    "word": "agreement",
+    "pos": ["名"],
+    "meaning": "契约",
+    "related": "agree；agreeable"
+  },
+  {
+    "word": "journal",
+    "pos": ["名"],
+    "meaning": "日记，(学科或专业的)报纸"
+  },
+  {
+    "word": "distribute",
+    "pos": ["动"],
+    "meaning": "分发，分销",
+    "related": "distributor 经销商"
+  },
+  {
+    "word": "potential",
+    "pos": ["形", "名"],
+    "meaning": "潜在的；可能性"
+  },
+  {
+    "word": "reschedule",
+    "pos": ["动"],
+    "meaning": "重新安排"
+  },
+  {
+    "word": "renew",
+    "pos": ["动"],
+    "meaning": "更新",
+    "related": "renewal"
+  },
+  {
+    "word": "warehouse",
+    "pos": ["名"],
+    "meaning": "仓库",
+    "notes": "词根 ware- 用特定素材制作成的用于特定用途的东西，例:software软件,cookware厨具,glassware玻璃制品"
+  },
+  {
+    "word": "refund",
+    "pos": ["名", "动"],
+    "meaning": "退款"
+  },
+  {
+    "word": "advise",
+    "pos": ["动"],
+    "meaning": "建议",
+    "related": "advisable"
+  },
+  {
+    "word": "immediately",
+    "pos": ["动"],
+    "meaning": "马上地",
+    "usage": "immediately after在XXX后马上"
+  },
+  {
+    "word": "council",
+    "pos": ["名"],
+    "meaning": "议会"
+  },
+  {
+    "word": "broadcast",
+    "pos": ["动", "名"],
+    "meaning": "广播"
+  },
+  {
+    "word": "responsible",
+    "pos": ["形"],
+    "meaning": "负有责任的",
+    "synonyms": ["accountable", "liable"]
+  },
+  {
+    "word": "avoid",
+    "pos": ["动"],
+    "meaning": "避免"
+  },
+  {
+    "word": "effective",
+    "pos": ["形"],
+    "meaning": "有效的",
+    "related": "effect效果，effectiveness有效性",
+    "notes": "考点 effective(from/on)+日期自XX起开始生效，from/on可以省略"
+  },
+  {
+    "word": "invitation",
+    "pos": ["名"],
+    "meaning": "邀请函"
+  },
+  {
+    "word": "reduce",
+    "pos": ["动"],
+    "meaning": "降低，减少",
+    "synonyms": ["cut back on", "lower"],
+    "related": "reduction",
+    "notes": "近义 shorten"
+  },
+  {
+    "word": "vehicle",
+    "pos": ["名"],
+    "meaning": "机动车",
+    "usage": "通常用于对汽车,卡车,公交车等用于运送人的同义词置换"
+  },
+  {
+    "word": "efficient",
+    "pos": ["形"],
+    "meaning": "有效率的",
+    "related": "efficiency效率，效率性",
+    "antonyms": ["inefficient"]
+  },
+  {
+    "word": "manufacturer",
+    "pos": ["名"],
+    "meaning": "制造商，制造业者",
+    "related": "manufacture"
+  },
+  {
+    "word": "comfortable",
+    "pos": ["形"],
+    "meaning": "舒适的(自信的，习惯的用法也有)",
+    "related": "comfort",
+    "antonyms": ["uncomfortable"]
+  },
+  {
+    "word": "correct",
+    "pos": ["形", "动"],
+    "meaning": "正确的；修正",
+    "antonyms": ["incorrect"],
+    "related": "correction"
+  },
+  {
+    "word": "downtown",
+    "pos": ["形", "副", "名"],
+    "meaning": "市中心的（地）；市中心",
+    "synonyms": ["urban"]
+  },
+  {
+    "word": "method",
+    "pos": ["名"],
+    "meaning": "方法",
+    "synonyms": ["means", "approach"]
+  },
+  {
+    "word": "entire",
+    "pos": ["形"],
+    "meaning": "整体的",
+    "related": "entirely；entirety"
+  },
+  {
+    "word": "range",
+    "pos": ["名"],
+    "meaning": "范围",
+    "synonyms": ["extent"]
+  },
+  {
+    "word": "setting",
+    "pos": ["名"],
+    "meaning": "环境（指场所及其周边环境）",
+    "related": "atmosphere 氛围"
+  },
+  {
+    "word": "apologize",
+    "pos": ["动"],
+    "meaning": "道歉",
+    "related": "apology"
+  },
+  {
+    "word": "frequent",
+    "pos": ["形"],
+    "meaning": "频繁的",
+    "related": "frequently；frequency 频度"
+  },
+  {
+    "word": "promotion",
+    "pos": ["名"],
+    "meaning": "晋升，提拔，促销",
+    "related": "promotional"
+  },
+  {
+    "word": "regarding",
+    "pos": ["介"],
+    "meaning": "关于",
+    "synonyms": ["concerning", "in/with regard to"]
+  },
+  {
+    "word": "temporary",
+    "pos": ["形"],
+    "meaning": "临时的，暂时的",
+    "related": "permanent staff 正社员（非临时工）"
+  },
+  {
+    "word": "traditional",
+    "pos": ["形"],
+    "meaning": "传统的",
+    "related": "tradition",
+    "synonyms": ["conventional 依循惯例的"],
+    "notes": "相关 heritage 遗产（国家或社会长期行程的历史或传统特色）"
+  },
+  {
+    "word": "admission",
+    "pos": ["名"],
+    "meaning": "进入许可，入场，入场费",
+    "related": "admit 承认"
+  },
+  {
+    "word": "fit",
+    "pos": ["动", "形"],
+    "meaning": "适合，合身；健康的，恰当的，合格的"
+  },
+  {
+    "word": "reference",
+    "pos": ["名"],
+    "meaning": "参考，查阅",
+    "notes": "考点词组 letter of reference介绍信；For your reference 供参考"
+  },
+  {
+    "word": "status",
+    "pos": ["名"],
+    "meaning": "地位，状况"
+  },
+  {
+    "word": "fuel",
+    "pos": ["名"],
+    "meaning": "燃料",
+    "notes": "TOEIC喜欢在涉及运输的公司中拿燃油费做梗"
+  },
+  {
+    "word": "nearly",
+    "pos": ["副"],
+    "meaning": "几乎，差不多",
+    "notes": "阅读中喜欢搭配时间理藏正确答案"
+  },
+  {
+    "word": "cafeteria",
+    "pos": ["名"],
+    "meaning": "自助餐厅",
+    "notes": "这不是cafe，意思大相径庭"
+  },
+  {
+    "word": "determine",
+    "pos": ["动"],
+    "meaning": "决心",
+    "related": "determination",
+    "synonyms": ["decide", "gauge"]
+  },
+  {
+    "word": "expense",
+    "pos": ["名"],
+    "meaning": "费用",
+    "synonyms": ["expenditure", "spending"]
+  },
+  {
+    "word": "overseas",
+    "pos": ["形", "副"],
+    "meaning": "海外的（地）"
+  },
+  {
+    "word": "satisfied",
+    "pos": ["形"],
+    "meaning": "满意的",
+    "related": "satisfy；satisfactory"
+  },
+  {
+    "word": "appear",
+    "pos": ["动"],
+    "meaning": "出现",
+    "related": "appearance 外貌，外观"
+  },
+  {
+    "word": "develop",
+    "pos": ["动"],
+    "meaning": "开发，提出（制作）计划",
+    "related": "development"
+  },
+  {
+    "word": "improve",
+    "pos": ["动"],
+    "meaning": "改善，改良",
+    "related": "improvement"
+  },
+  {
+    "word": "reasonable",
+    "pos": ["形"],
+    "meaning": "公平的，明智的，价格公道的",
+    "synonyms": ["affordable", "competitive", "inexpensive"]
+  },
+  {
+    "word": "unable",
+    "pos": ["形"],
+    "meaning": "不能够XXX的",
+    "antonyms": ["able"]
+  },
+  {
+    "word": "delay",
+    "pos": ["动", "名"],
+    "meaning": "推迟；延迟"
+  },
+  {
+    "word": "legal",
+    "pos": ["形"],
+    "meaning": "法律相关的，合法的",
+    "related": "law firm 律师事务所；Lawyer/attorney 律师（lawyer强调职业关系（广泛概念），attorney强调代理人关系）；Paralegal 律师助理；counselor 辩护律师（能够替当事人在法庭上说话的那位）"
+  },
+  {
+    "word": "regulation",
+    "pos": ["名"],
+    "meaning": "规则",
+    "related": "regulate 管理；under construction 建设中；Under consideration 在考虑之中；under negotiation 交涉中"
+  },
+  {
+    "word": "expand",
+    "pos": ["动"],
+    "meaning": "扩大",
+    "related": "expansion；expansive 广阔的, 广泛的"
+  },
+  {
+    "word": "launch",
+    "pos": ["名", "动"],
+    "meaning": "开始，发售，上线"
+  },
+  {
+    "word": "recommendation",
+    "pos": ["名"],
+    "meaning": "推荐",
+    "notes": "Part 7 高频；a letter of reference 推荐信"
+  },
+  {
+    "word": "direct",
+    "pos": ["动", "形"],
+    "meaning": "管理，指示；直接的",
+    "related": "directly"
+  },
+  {
+    "word": "profit",
+    "pos": ["名", "动"],
+    "meaning": "利润；获益，得到好处",
+    "related": "profitable 有利可图的"
+  },
+  {
+    "word": "seek",
+    "pos": ["动"],
+    "meaning": "探寻",
+    "related": "job seeker 求职者"
+  },
+  {
+    "word": "entry",
+    "pos": ["名"],
+    "meaning": "入口，登录，入场，参赛作品"
+  },
+  {
+    "word": "claim",
+    "pos": ["名", "动"],
+    "meaning": "索赔，声称，断言，声明",
+    "related": "unclaimed 无人认领的"
+  },
+  {
+    "word": "crew",
+    "pos": ["名"],
+    "meaning": "【飞机或轮船等】全体工作人员"
+  },
+  {
+    "word": "demand",
+    "pos": ["名", "动"],
+    "meaning": "需要，要求"
+  },
+  {
+    "word": "figure",
+    "pos": ["名"],
+    "meaning": "数字，人物",
+    "example": "a key/leading figure 重要人物"
+  },
+  {
+    "word": "raise",
+    "pos": ["动"],
+    "meaning": "提升，举起，工资增长",
+    "example": "raise concerns 引起关切，表达担忧"
+  },
+  {
+    "word": "attach",
+    "pos": ["动"],
+    "meaning": "添加",
+    "notes": "Part 7 考点：enclose, accompany, include 同义词置换"
+  },
+  {
+    "word": "attract",
+    "pos": ["动"],
+    "meaning": "吸引",
+    "related": "attractive；attraction 景点"
+  },
+  {
+    "word": "insurance",
+    "pos": ["名"],
+    "meaning": "保险",
+    "related": "premium 保险费；insurance policy 保单"
+  },
+  {
+    "word": "departure",
+    "pos": ["名"],
+    "meaning": "出发",
+    "related": "出发"
+  },
+  {
+    "word": "mayor",
+    "pos": ["名"],
+    "meaning": "市长",
+    "related": "governor 州长, 总督, 省长"
+  },
+  {
+    "word": "balance",
+    "pos": ["名"],
+    "meaning": "余额，平衡"
+  },
+  {
+    "word": "estimate",
+    "pos": ["名", "动"],
+    "meaning": "估算，估价",
+    "related": "estimated；underestimate 低估, 轻视"
+  },
+  {
+    "word": "district",
+    "pos": ["名"],
+    "meaning": "地区",
+    "synonyms": ["area/region"]
+  },
+  {
+    "word": "former",
+    "pos": ["形", "名"],
+    "meaning": "以前的；前者",
+    "related": "formerly",
+    "synonyms": ["previous 先前的"]
+  },
+  {
+    "word": "modern",
+    "pos": ["形"],
+    "meaning": "现代的",
+    "synonyms": ["contemporary"],
+    "related": "modernize 现代化"
+  },
+  {
+    "word": "tip",
+    "pos": ["名"],
+    "meaning": "建议，小费",
+    "synonyms": ["advice"]
+  },
+  {
+    "word": "establish",
+    "pos": ["动"],
+    "meaning": "建立",
+    "related": "establishment 建立, 设施",
+    "synonyms": ["found"]
+  },
+  {
+    "word": "option",
+    "pos": ["名"],
+    "meaning": "选项",
+    "related": "optional 可选择的（非强制的）"
+  },
+  {
+    "word": "retire",
+    "pos": ["动"],
+    "meaning": "退休，退役",
+    "related": "retirement"
+  },
+  {
+    "word": "search",
+    "pos": ["名", "动"],
+    "meaning": "搜索",
+    "notes": "考点 search for 后接具体的目标物；Search（不接for）直接接宾语指的是搜索的范围，例如互联网"
+  },
+  {
+    "word": "specific",
+    "pos": ["形"],
+    "meaning": "具体的",
+    "related": "specifics 细节"
+  },
+  {
+    "word": "agricultural",
+    "pos": ["形"],
+    "meaning": "农业的",
+    "related": "agriculture 农业"
+  },
+  {
+    "word": "historical",
+    "pos": ["形"],
+    "meaning": "历史上的",
+    "synonyms": ["historic 历史上重要的"]
+  },
+  {
+    "word": "helpful",
+    "pos": ["形"],
+    "meaning": "有帮助的"
+  },
+  {
+    "word": "complaint",
+    "pos": ["名"],
+    "meaning": "抱怨"
+  },
+  {
+    "word": "related",
+    "pos": ["形"],
+    "meaning": "相关联的",
+    "usage": "related to 与xx相关",
+    "synonyms": ["relevant"]
+  },
+  {
+    "word": "simply",
+    "pos": ["副"],
+    "meaning": "单纯地，只不过",
+    "synonyms": ["only", "just", "merely", "purely"]
+  },
+  {
+    "word": "unique",
+    "pos": ["形"],
+    "meaning": "独特的",
+    "usage": "unique to X X 所特有的"
+  },
+  {
+    "word": "concerning",
+    "pos": ["介"],
+    "meaning": "关于",
+    "usage": "后面直接接名词",
+    "synonyms": ["regarding", "in/with Regard to"]
+  },
+  {
+    "word": "reputation",
+    "pos": ["名"],
+    "meaning": "名声，名誉"
+  },
+  {
+    "word": "ability",
+    "pos": ["名"],
+    "meaning": "能力",
+    "synonyms": ["capability"],
+    "related": "形容词able=能怎样的"
+  },
+  {
+    "word": "arrival",
+    "pos": ["名"],
+    "meaning": "到达",
+    "antonyms": ["departure"]
+  },
+  {
+    "word": "familiar",
+    "pos": ["形"],
+    "meaning": "熟悉的",
+    "related": "familiarize 使了解，熟悉",
+    "antonyms": ["unfamiliar"]
+  },
+  {
+    "word": "ideal",
+    "pos": ["形"],
+    "meaning": "理想的",
+    "synonyms": ["impeccable", "perfect"]
+  },
+  {
+    "word": "maintain",
+    "pos": ["动"],
+    "meaning": "维持",
+    "related": "maintenance 维护管理"
+  },
+  {
+    "word": "landscaping",
+    "pos": ["名"],
+    "meaning": "景观美化",
+    "synonyms": ["gardening（园艺）"],
+    "notes": "园林园艺是听力和阅读考试常出现的一个行业"
+  },
+  {
+    "word": "organize",
+    "pos": ["动"],
+    "meaning": "组织",
+    "related": "organizer 主办者"
+  },
+  {
+    "word": "significant",
+    "pos": ["形"],
+    "meaning": "有重大意义的，显著的，大幅的",
+    "related": "significance 重要性",
+    "synonyms": ["considerable/substantial"]
+  },
+  {
+    "word": "occasion",
+    "pos": ["名"],
+    "meaning": "时机"
+  },
+  {
+    "word": "standard",
+    "pos": ["名"],
+    "meaning": "基准",
+    "synonyms": ["criterion（常用复数criteria）"],
+    "related": "标准的"
+  },
+  {
+    "word": "background",
+    "pos": ["名"],
+    "meaning": "背景，经历"
+  },
+  {
+    "word": "guided",
+    "pos": ["形"],
+    "meaning": "有指导的，有导游的"
+  },
+  {
+    "word": "advanced",
+    "pos": ["形"],
+    "meaning": "上级的，先进的",
+    "related": "advance"
+  },
+  {
+    "word": "alternative",
+    "pos": ["形", "名"],
+    "meaning": "可供替代的；可供选择的事物",
+    "synonyms": ["substitute"]
+  },
+  {
+    "word": "confident",
+    "pos": ["形"],
+    "meaning": "有自信的",
+    "synonyms": ["convinced坚信不疑的"],
+    "notes": "易混 Confidential 机密的"
+  },
+  {
+    "word": "decade",
+    "pos": ["名"],
+    "meaning": "10年",
+    "notes": "Part 7经常和10 years互换考察"
+  },
+  {
+    "word": "initial",
+    "pos": ["形", "动"],
+    "meaning": "最初的；签名于XX=sign（重点高频考点）"
+  },
+  {
+    "word": "separate",
+    "pos": ["形", "动"],
+    "meaning": "单独的，独立的；分开"
+  },
+  {
+    "word": "celebration",
+    "pos": ["名"],
+    "meaning": "庆典，庆祝",
+    "synonyms": ["festivity/gala"],
+    "related": "celebrate；celebrity名人"
+  },
+  {
+    "word": "concern",
+    "pos": ["名"],
+    "meaning": "担心"
+  },
+  {
+    "word": "environment",
+    "pos": ["名"],
+    "meaning": "环境",
+    "related": "environmental 环境的"
+  },
+  {
+    "word": "operate",
+    "pos": ["动"],
+    "meaning": "操作，运营",
+    "related": "operating costs 营业成本，生产费用"
+  },
+  {
+    "word": "various",
+    "pos": ["形"],
+    "meaning": "各种各样的",
+    "related": "variety；vary",
+    "synonyms": ["erratic"]
+  },
+  {
+    "word": "brief",
+    "pos": ["形"],
+    "meaning": "简短的，短时间的",
+    "related": "briefly"
+  },
+  {
+    "word": "full-time",
+    "pos": ["形"],
+    "meaning": "全职的",
+    "antonyms": ["part-time"]
+  },
+  {
+    "word": "overall",
+    "pos": ["形", "副"],
+    "meaning": "全体的/地"
+  },
+  {
+    "word": "achieve",
+    "pos": ["动"],
+    "meaning": "达成",
+    "related": "achievement",
+    "synonyms": ["attain/meet a target"]
+  },
+  {
+    "word": "basis",
+    "pos": ["名"],
+    "meaning": "基础，根据",
+    "usage": "on a daily/weekly/yearly basis"
+  },
+  {
+    "word": "complex",
+    "pos": ["名", "形"],
+    "meaning": "类型相似的建筑群，集合型公寓；复杂的"
+  },
+  {
+    "word": "delighted",
+    "pos": ["形"],
+    "meaning": "高兴的，愉快的",
+    "synonyms": ["pleased"]
+  },
+  {
+    "word": "obtain",
+    "pos": ["动"],
+    "meaning": "获得，取得",
+    "usage": "obtain A from B从B那里取得A"
+  },
+  {
+    "word": "honor",
+    "pos": ["动", "名"],
+    "meaning": "尊敬，尊重，遵守；荣誉，荣幸",
+    "example": "in honor of",
+    "synonyms": ["accolade"]
+  },
+  {
+    "word": "properly",
+    "pos": ["副"],
+    "meaning": "确切地",
+    "related": "proper",
+    "antonyms": ["improperly"]
+  },
+  {
+    "word": "suitable",
+    "pos": ["形"],
+    "meaning": "合适的",
+    "related": "suitably；suitability"
+  },
+  {
+    "word": "electronic",
+    "pos": ["形"],
+    "meaning": "电子的（也有线上的意思）",
+    "related": "electronically"
+  },
+  {
+    "word": "generous",
+    "pos": ["形"],
+    "meaning": "慷慨的，大方的",
+    "related": "generously；generosity"
+  },
+  {
+    "word": "preparation",
+    "pos": ["名"],
+    "meaning": "准备",
+    "related": "preparatory"
+  },
+  {
+    "word": "duty",
+    "pos": ["名"],
+    "meaning": "职务，关税，任务",
+    "usage": "on duty工作中",
+    "synonyms": ["responsibility"]
+  },
+  {
+    "word": "earn",
+    "pos": ["动"],
+    "meaning": "取得，挣得",
+    "related": "earnings收入"
+  },
+  {
+    "word": "willing",
+    "pos": ["形"],
+    "meaning": "愿意，乐意，自愿的",
+    "related": "willingness"
+  },
+  {
+    "word": "finalize",
+    "pos": ["动"],
+    "meaning": "把（计划，旅行）最终定下来，定案",
+    "related": "final；finally"
+  },
+  {
+    "word": "worth",
+    "pos": ["形"],
+    "meaning": "有...价值，值钱的",
+    "example": "worth the expense值这个价"
+  },
+  {
+    "word": "fund",
+    "pos": ["动", "名"],
+    "meaning": "提供资金；资金",
+    "related": "funding资金提供"
+  },
+  {
+    "word": "overnight",
+    "pos": ["形"],
+    "meaning": "第二天配送的，夜间的，一晚的"
+  },
+  {
+    "word": "particularly",
+    "pos": ["副"],
+    "meaning": "特别地",
+    "related": "particular",
+    "synonyms": ["especially"]
+  },
+  {
+    "word": "aspect",
+    "pos": ["名"],
+    "meaning": "方面，局面",
+    "synonyms": ["facet"],
+    "notes": "近义 phase，factor"
+  },
+  {
+    "word": "hesitate",
+    "pos": ["动"],
+    "meaning": "犹豫",
+    "related": "hesitant"
+  },
+  {
+    "word": "involved",
+    "pos": ["形"],
+    "meaning": "相关的",
+    "related": "involve"
+  },
+  {
+    "word": "regularly",
+    "pos": ["副"],
+    "meaning": "定期地",
+    "related": "regular"
+  },
+  {
+    "word": "scholarship",
+    "pos": ["名"],
+    "meaning": "奖学金",
+    "synonyms": ["grant拨款"]
+  },
+  {
+    "word": "shortly",
+    "pos": ["副"],
+    "meaning": "不久，马上，立刻",
+    "synonyms": ["soon"]
+  },
+  {
+    "word": "automobile",
+    "pos": ["形", "名"],
+    "meaning": "汽车，汽车的",
+    "synonyms": ["automotive"]
+  },
+  {
+    "word": "deposit",
+    "pos": ["名", "动"],
+    "meaning": "定金，押金；存储，放置"
+  },
+  {
+    "word": "contain",
+    "pos": ["动"],
+    "meaning": "包含，所拥有",
+    "related": "container 容器"
+  },
+  {
+    "word": "content",
+    "pos": ["名", "形"],
+    "meaning": "内容；满意的"
+  },
+  {
+    "word": "proof",
+    "pos": ["名"],
+    "meaning": "证据，证明",
+    "related": "prove",
+    "synonyms": ["evidence"],
+    "notes": "在Part7 经常和receipt进行互换"
+  },
+  {
+    "word": "affect",
+    "pos": ["动"],
+    "meaning": "影响",
+    "notes": "affected 受影响的 托业考试出现频度也很高"
+  },
+  {
+    "word": "recognize",
+    "pos": ["动"],
+    "meaning": "认可（业绩等），认出",
+    "related": "recognition 赞誉，认知 同样重要"
+  },
+  {
+    "word": "represent",
+    "pos": ["动"],
+    "meaning": "代表，表现，描绘",
+    "related": "representative 代表，负责人"
+  },
+  {
+    "word": "transfer",
+    "pos": ["动", "名"],
+    "meaning": "转移，公司内部的岗位调整"
+  },
+  {
+    "word": "anniversary",
+    "pos": ["名"],
+    "meaning": "周年，纪念日",
+    "related": "annual 年度的",
+    "synonyms": ["milestone 重大事件"]
+  },
+  {
+    "word": "automatically",
+    "pos": ["副"],
+    "meaning": "自动地",
+    "related": "automatic；automated 自动化的"
+  },
+  {
+    "word": "capacity",
+    "pos": ["名"],
+    "meaning": "生产能力，收容能力"
+  },
+  {
+    "word": "destination",
+    "pos": ["名"],
+    "meaning": "目的地"
+  },
+  {
+    "word": "grant",
+    "pos": ["名", "动"],
+    "meaning": "资金，拨款；批准，许可",
+    "synonyms": ["scholarship 奖学金"]
+  },
+  {
+    "word": "publish",
+    "pos": ["动"],
+    "meaning": "出版",
+    "related": "publication 出版，出版物；publisher 出版社；Publishing 出版业"
+  },
+  {
+    "word": "accompany",
+    "pos": ["动"],
+    "meaning": "同行，添加",
+    "example": "accompanying documents 添付的文件"
+  },
+  {
+    "word": "economic",
+    "pos": ["形"],
+    "meaning": "经济上的",
+    "related": "economy",
+    "notes": "近混 economical 经济实惠的"
+  },
+  {
+    "word": "extremely",
+    "pos": ["副"],
+    "meaning": "非常地",
+    "synonyms": ["immensely"]
+  },
+  {
+    "word": "institution",
+    "pos": ["名"],
+    "meaning": "机关，团体，指银行，医院，大学等大的机关",
+    "synonyms": ["Institute 单一专业技能培训的大专，研究机构，从事特定研究或教育行为的机构"]
+  },
+  {
+    "word": "accurate",
+    "pos": ["形"],
+    "meaning": "正确的",
+    "synonyms": ["correct/precise"],
+    "antonyms": ["inaccurate"]
+  },
+  {
+    "word": "compete",
+    "pos": ["动"],
+    "meaning": "竞争",
+    "related": "competition；competitive"
+  },
+  {
+    "word": "emphasize",
+    "pos": ["动"],
+    "meaning": "强调",
+    "related": "emphasis",
+    "synonyms": ["stress", "highlight", "underscore"]
+  },
+  {
+    "word": "aware",
+    "pos": ["形"],
+    "meaning": "意识到",
+    "related": "awareness",
+    "antonyms": ["unaware"]
+  },
+  {
+    "word": "crowded",
+    "pos": ["形"],
+    "meaning": "混杂的，拥挤的"
+  },
+  {
+    "word": "praise",
+    "pos": ["动", "名"],
+    "meaning": "表扬，称赞",
+    "synonyms": ["commend", "compliment"]
+  },
+  {
+    "word": "valuable",
+    "pos": ["形"],
+    "meaning": "珍贵的",
+    "related": "invaluable 无价的，极其宝贵的（注意不是反义词）"
+  },
+  {
+    "word": "explore",
+    "pos": ["动"],
+    "meaning": "探索，调查"
+  },
+  {
+    "word": "found",
+    "pos": ["动"],
+    "meaning": "成立，创立",
+    "related": "founder 创立者；foundation 设立，基金",
+    "synonyms": ["establish"]
+  },
+  {
+    "word": "function",
+    "pos": ["名", "动"],
+    "meaning": "功能；运转",
+    "related": "functional 实用的，有功能性的"
+  },
+  {
+    "word": "impact",
+    "pos": ["名"],
+    "meaning": "影响"
+  },
+  {
+    "word": "amazing",
+    "pos": ["形"],
+    "meaning": "惊人的",
+    "related": "amazingly",
+    "synonyms": ["surprising", "phenomenal"]
+  },
+  {
+    "word": "assure",
+    "pos": ["动"],
+    "meaning": "保证，确保",
+    "notes": "常见句型 rest assured that..."
+  },
+  {
+    "word": "cooperation",
+    "pos": ["名"],
+    "meaning": "合作",
+    "related": "cooperate；cooperative；cooperatively",
+    "synonyms": ["collaboration"]
+  },
+  {
+    "word": "popularity",
+    "pos": ["名"],
+    "meaning": "人气",
+    "related": "popular"
+  },
+  {
+    "word": "permit",
+    "pos": ["名", "动"],
+    "meaning": "许可证（可数）；许可",
+    "related": "permission 许可（不可数）"
+  },
+  {
+    "word": "solve",
+    "pos": ["动"],
+    "meaning": "解决",
+    "related": "solution",
+    "synonyms": ["resolve", "overcome"]
+  },
+  {
+    "word": "vote",
+    "pos": ["动", "名"],
+    "meaning": "投票",
+    "usage": "vote for/vote to do/ in favor of"
+  },
+  {
+    "word": "crop",
+    "pos": ["名"],
+    "meaning": "作物，产量，庄稼",
+    "synonyms": ["grain 谷物", "harvest/yield 产量"]
+  },
+  {
+    "word": "neighborhood",
+    "pos": ["名"],
+    "meaning": "附近，街坊",
+    "related": "neighbor 邻居"
+  },
+  {
+    "word": "permanent",
+    "pos": ["形", "名"],
+    "meaning": "永久的，固定的，不变的；烫发"
+  },
+  {
+    "word": "regret",
+    "pos": ["动"],
+    "meaning": "后悔，遗憾",
+    "related": "regrettable",
+    "synonyms": ["unfortunately"]
+  },
+  {
+    "word": "slightly",
+    "pos": ["副"],
+    "meaning": "略微，稍微地",
+    "related": "slight",
+    "synonyms": ["marginally/subtly"]
+  },
+  {
+    "word": "complicated",
+    "pos": ["形"],
+    "meaning": "复杂的",
+    "synonyms": ["complex", "confusing", "elaborate"]
+  },
+  {
+    "word": "factor",
+    "pos": ["名"],
+    "meaning": "因素，要素",
+    "synonyms": ["element"]
+  },
+  {
+    "word": "favorable",
+    "pos": ["形"],
+    "meaning": "有望的，赞成的，良好的",
+    "related": "favor",
+    "antonyms": ["unfavorable"]
+  },
+  {
+    "word": "guarantee",
+    "pos": ["动", "名"],
+    "meaning": "保证"
+  },
+  {
+    "word": "mechanical",
+    "pos": ["形"],
+    "meaning": "机械的"
+  },
+  {
+    "word": "priority",
+    "pos": ["名"],
+    "meaning": "优先，首要",
+    "related": "prioritize"
+  },
+  {
+    "word": "relatively",
+    "pos": ["副"],
+    "meaning": "比较地，相对地",
+    "related": "relative",
+    "synonyms": ["comparatively"]
+  },
+  {
+    "word": "resource",
+    "pos": ["名"],
+    "meaning": "资源",
+    "synonyms": ["source"]
+  },
+  {
+    "word": "shuttle",
+    "pos": ["名"],
+    "meaning": "来往于两地之间的航班/班车/火车，飞梭"
+  },
+  {
+    "word": "divide",
+    "pos": ["动"],
+    "meaning": "分割，除，分配",
+    "synonyms": ["sort"]
+  },
+  {
+    "word": "native",
+    "pos": ["形", "名"],
+    "meaning": "本地的；本地人"
+  },
+  {
+    "word": "afford",
+    "pos": ["动"],
+    "meaning": "负担得起，提供",
+    "related": "affordable；affordably；affordability"
+  },
+  {
+    "word": "income",
+    "pos": ["名"],
+    "meaning": "收入",
+    "synonyms": ["salary", "wage"]
+  },
+  {
+    "word": "occur",
+    "pos": ["动"],
+    "meaning": "发生",
+    "synonyms": ["happen/take place"]
+  },
+  {
+    "word": "saving",
+    "pos": ["名"],
+    "meaning": "积蓄，节约，折扣",
+    "related": "save"
+  },
+  {
+    "word": "findings",
+    "pos": ["名"],
+    "meaning": "（研究/调查的）结果，发现"
+  },
+  {
+    "word": "locate",
+    "pos": ["动"],
+    "meaning": "定位，位于，使坐落于",
+    "related": "location 场所"
+  },
+  {
+    "word": "postpone",
+    "pos": ["动"],
+    "meaning": "延迟",
+    "synonyms": ["delay", "put off"]
+  },
+  {
+    "word": "preserve",
+    "pos": ["动", "名"],
+    "meaning": "保护，保存；保护区",
+    "related": "preservation 保护"
+  },
+  {
+    "word": "prove",
+    "pos": ["动"],
+    "meaning": "证明，证实",
+    "related": "proof"
+  },
+  {
+    "word": "exact",
+    "pos": ["形"],
+    "meaning": "正确的",
+    "related": "exactly刚刚好，正确地"
+  },
+  {
+    "word": "gain",
+    "pos": ["动", "名"],
+    "meaning": "获得；利益，收获"
+  },
+  {
+    "word": "labor",
+    "pos": ["名"],
+    "meaning": "劳动，劳力"
+  },
+  {
+    "word": "regard",
+    "pos": ["动", "名"],
+    "meaning": "评价，看待；关心，尊敬",
+    "antonyms": ["disregard无视"]
+  },
+  {
+    "word": "closely",
+    "pos": ["副"],
+    "meaning": "紧密地，仔细地，详尽地"
+  },
+  {
+    "word": "deserve",
+    "pos": ["动"],
+    "meaning": "价值，值得，应得"
+  },
+  {
+    "word": "identify",
+    "pos": ["动"],
+    "meaning": "鉴定，确认，发现，找到"
+  },
+  {
+    "word": "loyal",
+    "pos": ["形"],
+    "meaning": "忠诚的",
+    "related": "忠实顾客",
+    "synonyms": ["patron", "established customers"]
+  },
+  {
+    "word": "promising",
+    "pos": ["形"],
+    "meaning": "有希望的",
+    "related": "promise"
+  },
+  {
+    "word": "stress",
+    "pos": ["动", "名"],
+    "meaning": "强调，述说；压力，强调",
+    "synonyms": ["emphasize/highlight"]
+  },
+  {
+    "word": "analyze",
+    "pos": ["动"],
+    "meaning": "分析",
+    "related": "analysis；analyst 分析师"
+  },
+  {
+    "word": "commission",
+    "pos": ["动", "名"],
+    "meaning": "委托；佣金，委员会"
+  },
+  {
+    "word": "committed",
+    "pos": ["形"],
+    "meaning": "忠诚的，热心的",
+    "related": "commitment承诺，许诺"
+  },
+  {
+    "word": "comparison",
+    "pos": ["名"],
+    "meaning": "比较",
+    "related": "compare；comparable可以比较的"
+  },
+  {
+    "word": "component",
+    "pos": ["名"],
+    "meaning": "成分，部件，组成部分"
+  },
+  {
+    "word": "enable",
+    "pos": ["动"],
+    "meaning": "使能够，使有机会"
+  },
+  {
+    "word": "enjoyable",
+    "pos": ["形"],
+    "meaning": "有乐趣的，令人愉快的",
+    "related": "enjoy；enjoyment"
+  },
+  {
+    "word": "existing",
+    "pos": ["形"],
+    "meaning": "现存的，现行的"
+  },
+  {
+    "word": "flyer",
+    "pos": ["名"],
+    "meaning": "传单，飞机乘客",
+    "synonyms": ["brochure"]
+  },
+  {
+    "word": "proceed",
+    "pos": ["动"],
+    "meaning": "前进",
+    "notes": "不及物，语法常考，后面不能直接接宾语"
+  },
+  {
+    "word": "prevent",
+    "pos": ["动"],
+    "meaning": "防止，阻止",
+    "related": "prevention防止；preventive"
+  },
+  {
+    "word": "alike",
+    "pos": ["副", "形"],
+    "meaning": "同样地；相像，十分相似",
+    "synonyms": ["likewise"]
+  },
+  {
+    "word": "connection",
+    "pos": ["名"],
+    "meaning": "连接，关联",
+    "related": "connect"
+  },
+  {
+    "word": "eager",
+    "pos": ["形"],
+    "meaning": "迫切的，渴求的",
+    "related": "eagerly迫切地"
+  },
+  {
+    "word": "ease",
+    "pos": ["名", "动"],
+    "meaning": "容易，安逸，自在；缓解，减轻",
+    "related": "easy"
+  },
+  {
+    "word": "fairly",
+    "pos": ["副"],
+    "meaning": "公平地，公正地，相当地，一定地"
+  },
+  {
+    "word": "absolutely",
+    "pos": ["副"],
+    "meaning": "完全地，绝对地",
+    "related": "absolute",
+    "synonyms": ["Definitely", "undoubtedly"]
+  },
+  {
+    "word": "atmosphere",
+    "pos": ["名"],
+    "meaning": "气氛，氛围，大气"
+  },
+  {
+    "word": "appoint",
+    "pos": ["动"],
+    "meaning": "委任，指派",
+    "usage": "be appointed to do被任命做某事"
+  },
+  {
+    "word": "calculate",
+    "pos": ["动"],
+    "meaning": "计算",
+    "related": "calculation计算；calculator计算器"
+  },
+  {
+    "word": "contrast",
+    "pos": ["名", "动"],
+    "meaning": "对照",
+    "related": "by contrast"
+  },
+  {
+    "word": "monitor",
+    "pos": ["动", "名"],
+    "meaning": "监视；显示器"
+  },
+  {
+    "word": "occasionally",
+    "pos": ["副"],
+    "meaning": "时不时地",
+    "related": "occasion；occasional"
+  },
+  {
+    "word": "practical",
+    "pos": ["形"],
+    "meaning": "实际的，切实可行的",
+    "related": "practically"
+  },
+  {
+    "word": "serious",
+    "pos": ["形"],
+    "meaning": "重大的，认真的，重要的",
+    "synonyms": ["severe"],
+    "related": "seriously"
+  },
+  {
+    "word": "strength",
+    "pos": ["名"],
+    "meaning": "强度，（液体类）浓度",
+    "related": "strong；strengthen"
+  },
+  {
+    "word": "equally",
+    "pos": ["副"],
+    "meaning": "平等地",
+    "synonyms": ["evenly"],
+    "related": "equivalent"
+  },
+  {
+    "word": "import",
+    "pos": ["名", "动"],
+    "meaning": "进口",
+    "antonyms": ["export"]
+  },
+  {
+    "word": "informal",
+    "pos": ["形"],
+    "meaning": "非正式的",
+    "related": "informally",
+    "antonyms": ["formal"]
+  },
+  {
+    "word": "lately",
+    "pos": ["副"],
+    "meaning": "最近"
+  },
+  {
+    "word": "profession",
+    "pos": ["名"],
+    "meaning": "职业",
+    "synonyms": ["occupation"]
+  },
+  {
+    "word": "supervisor",
+    "pos": ["名"],
+    "meaning": "上司",
+    "related": "supervise；supervisory；supervision"
+  },
+  {
+    "word": "ensure",
+    "pos": ["动"],
+    "meaning": "保证",
+    "synonyms": ["make sure", "insure"]
+  },
+  {
+    "word": "submission",
+    "pos": ["名"],
+    "meaning": "提交（物），提出"
+  },
+  {
+    "word": "notify",
+    "pos": ["动"],
+    "meaning": "通知",
+    "usage": "notify A of B 通知A关于B这件事"
+  },
+  {
+    "word": "definitely",
+    "pos": ["副"],
+    "meaning": "绝对地"
+  },
+  {
+    "word": "eligible",
+    "pos": ["形"],
+    "meaning": "具备xxx的资格",
+    "related": "eligibility",
+    "synonyms": ["be entitled to"]
+  },
+  {
+    "word": "paperwork",
+    "pos": ["名"],
+    "meaning": "文书",
+    "synonyms": ["document/paper"]
+  },
+  {
+    "word": "complimentary",
+    "pos": ["形"],
+    "meaning": "免费的",
+    "synonyms": ["free"]
+  },
+  {
+    "word": "revise",
+    "pos": ["动"],
+    "meaning": "修改，修正",
+    "related": "revision"
+  },
+  {
+    "word": "track",
+    "pos": ["动", "名"],
+    "meaning": "追踪；路径，轨道，线路"
+  },
+  {
+    "word": "administrative",
+    "pos": ["形"],
+    "meaning": "管理的",
+    "related": "administration"
+  },
+  {
+    "word": "retail",
+    "pos": ["名"],
+    "meaning": "零售",
+    "related": "retailer零售商"
+  },
+  {
+    "word": "inventory",
+    "pos": ["名"],
+    "meaning": "库存",
+    "synonyms": ["stock"]
+  },
+  {
+    "word": "extensive",
+    "pos": ["形"],
+    "meaning": "广泛的，大量的",
+    "related": "extensively"
+  },
+  {
+    "word": "promotional",
+    "pos": ["形"],
+    "meaning": "广告宣传的，促销的",
+    "related": "promotion"
+  },
+  {
+    "word": "catering",
+    "pos": ["名"],
+    "meaning": "餐饮服务",
+    "related": "cater；caterer；cater to"
+  },
+  {
+    "word": "wildlife",
+    "pos": ["名"],
+    "meaning": "野生动物"
+  },
+  {
+    "word": "assign",
+    "pos": ["动"],
+    "meaning": "指定，指派，委派",
+    "related": "assignment任务"
+  },
+  {
+    "word": "imply",
+    "pos": ["动"],
+    "meaning": "暗示，表明",
+    "synonyms": ["suggest"]
+  },
+  {
+    "word": "banquet",
+    "pos": ["名"],
+    "meaning": "（晚）宴会",
+    "related": "luncheon午宴"
+  },
+  {
+    "word": "valid",
+    "pos": ["形"],
+    "meaning": "有效的",
+    "related": "validate",
+    "synonyms": ["good"],
+    "related": "expire"
+  },
+  {
+    "word": "affordable",
+    "pos": ["形"],
+    "meaning": "负担得起的",
+    "related": "affordably；afford"
+  },
+  {
+    "word": "renovate",
+    "pos": ["动"],
+    "meaning": "翻新，修复",
+    "related": "renovation",
+    "synonyms": ["repair", "remodel", "Restore", "refurbish"]
+  },
+  {
+    "word": "guidelines",
+    "pos": ["名"],
+    "meaning": "指南，准则",
+    "synonyms": ["instruction", "direction"]
+  },
+  {
+    "word": "certificate",
+    "pos": ["名"],
+    "meaning": "证明书，文凭",
+    "related": "certify；certified"
+  },
+  {
+    "word": "innovative",
+    "pos": ["形"],
+    "meaning": "有创新性的",
+    "related": "innovation",
+    "synonyms": ["revolutionary"]
+  },
+  {
+    "word": "agenda",
+    "pos": ["名"],
+    "meaning": "议事日程"
+  },
+  {
+    "word": "assembly",
+    "pos": ["名"],
+    "meaning": "集会，组装"
+  },
+  {
+    "word": "install",
+    "pos": ["动"],
+    "meaning": "安装，设置",
+    "related": "installation"
+  },
+  {
+    "word": "orientation",
+    "pos": ["名"],
+    "meaning": "面向公司新人/入学新生的说明会"
+  },
+  {
+    "word": "renowned",
+    "pos": ["形"],
+    "meaning": "知名的，著名的",
+    "notes": "TOEIC所有有名的：famous, well-known, Eminent, prominent, celebrated, noted, notable"
+  },
+  {
+    "word": "appropriate",
+    "pos": ["形"],
+    "meaning": "合适的",
+    "related": "appropriately",
+    "synonyms": ["proper"],
+    "antonyms": ["inappropriate"]
+  },
+  {
+    "word": "ingredient",
+    "pos": ["名"],
+    "meaning": "料理的配料，成分，要素"
+  },
+  {
+    "word": "storage",
+    "pos": ["名"],
+    "meaning": "保管，储藏"
+  },
+  {
+    "word": "beverage",
+    "pos": ["名"],
+    "meaning": "饮料"
+  },
+  {
+    "word": "prior",
+    "pos": ["形"],
+    "meaning": "在...之前的"
+  },
+  {
+    "word": "merger",
+    "pos": ["名"],
+    "meaning": "合并",
+    "related": "M&A(Mergers & Acquisitions)企业间并购"
+  },
+  {
+    "word": "inn",
+    "pos": ["名"],
+    "meaning": "小酒店，小旅馆"
+  },
+  {
+    "word": "equip",
+    "pos": ["动"],
+    "meaning": "配备，装备",
+    "related": "equipment",
+    "usage": "be equipped with"
+  },
+  {
+    "word": "summary",
+    "pos": ["名"],
+    "meaning": "总结，概括",
+    "related": "summarize"
+  },
+  {
+    "word": "lease",
+    "pos": ["名", "动"],
+    "meaning": "租约；出租"
+  },
+  {
+    "word": "defective",
+    "pos": ["形"],
+    "meaning": "有缺点的，有缺陷的",
+    "related": "defect"
+  },
+  {
+    "word": "quarterly",
+    "pos": ["名", "形", "副"],
+    "meaning": "季刊；每季度的；按季度地"
+  },
+  {
+    "word": "extended",
+    "pos": ["形"],
+    "meaning": "扩展的，延长了的",
+    "synonyms": ["long-term"]
+  },
+  {
+    "word": "architect",
+    "pos": ["名"],
+    "meaning": "建筑师(TOEIC考试最常见职业之一)"
+  },
+  {
+    "word": "grocery",
+    "pos": ["形", "名"],
+    "meaning": "食品杂货的；食品杂货"
+  },
+  {
+    "word": "sculpture",
+    "pos": ["名"],
+    "meaning": "雕像，塑像",
+    "related": "statue"
+  },
+  {
+    "word": "itinerary",
+    "pos": ["名"],
+    "meaning": "行程，旅行日程"
+  },
+  {
+    "word": "directory",
+    "pos": ["名"],
+    "meaning": "记录姓名和电话号码的名簿"
+  },
+  {
+    "word": "expire",
+    "pos": ["动"],
+    "meaning": "过期",
+    "related": "expiration",
+    "synonyms": ["lapse"]
+  },
+  {
+    "word": "vendor",
+    "pos": ["名"],
+    "meaning": "小贩，卖主，厂商"
+  },
+  {
+    "word": "colleague",
+    "pos": ["名"],
+    "meaning": "同事",
+    "synonyms": ["coworker"]
+  },
+  {
+    "word": "patron",
+    "pos": ["名"],
+    "meaning": "顾客，赞助人",
+    "related": "patronize；patronage"
+  },
+  {
+    "word": "relocate",
+    "pos": ["动"],
+    "meaning": "搬家",
+    "related": "relocation",
+    "synonyms": ["move"]
+  },
+  {
+    "word": "tourism",
+    "pos": ["名"],
+    "meaning": "旅游观光",
+    "related": "tourist观光客，travel agency旅行社"
+  },
+  {
+    "word": "remodel",
+    "pos": ["动"],
+    "meaning": "改造，重建"
+  },
+  {
+    "word": "consumer",
+    "pos": ["名"],
+    "meaning": "消费者",
+    "related": "consume；consumption"
+  },
+  {
+    "word": "inspect",
+    "pos": ["动"],
+    "meaning": "检查",
+    "related": "inspector 检察员，督查"
+  },
+  {
+    "word": "numerous",
+    "pos": ["形"],
+    "meaning": "许多的，数不清的"
+  },
+  {
+    "word": "payroll",
+    "pos": ["名"],
+    "meaning": "工资"
+  },
+  {
+    "word": "qualified",
+    "pos": ["形"],
+    "meaning": "合格的，有资格的",
+    "related": "qualification"
+  },
+  {
+    "word": "appliance",
+    "pos": ["名"],
+    "meaning": "电器"
+  },
+  {
+    "word": "competitive",
+    "pos": ["形"],
+    "meaning": "有竞争性的，有竞争力的"
+  },
+  {
+    "word": "specialize",
+    "pos": ["动"],
+    "meaning": "专门研究，专攻"
+  },
+  {
+    "word": "questionnaire",
+    "pos": ["名"],
+    "meaning": "调查问卷，调查表"
+  },
+  {
+    "word": "approximately",
+    "pos": ["副"],
+    "meaning": "大约",
+    "related": "approximate"
+  },
+  {
+    "word": "contribute",
+    "pos": ["动"],
+    "meaning": "捐助，捐款",
+    "related": "contribution"
+  },
+  {
+    "word": "productivity",
+    "pos": ["名"],
+    "meaning": "生产力，生产能力"
+  },
+  {
+    "word": "promptly",
+    "pos": ["副"],
+    "meaning": "立即地，马上地",
+    "related": "prompt迅速的；prompt提示，促使"
+  },
+  {
+    "word": "strategy",
+    "pos": ["名"],
+    "meaning": "战略",
+    "related": "strategic；strategically"
+  },
+  {
+    "word": "dedicated",
+    "pos": ["形"],
+    "meaning": "有奉献精神的，献身的",
+    "related": "dedication"
+  },
+  {
+    "word": "exceptional",
+    "pos": ["形"],
+    "meaning": "例外的，非常出色的",
+    "synonyms": ["remarkable", "extraordinary"]
+  },
+  {
+    "word": "luncheon",
+    "pos": ["名"],
+    "meaning": "午宴",
+    "related": "banquet 晚宴"
+  },
+  {
+    "word": "exceed",
+    "pos": ["动"],
+    "meaning": "超过"
+  },
+  {
+    "word": "multiple",
+    "pos": ["形"],
+    "meaning": "复数的，多个"
+  },
+  {
+    "word": "specify",
+    "pos": ["动"],
+    "meaning": "具体说明，明确规定"
+  },
+  {
+    "word": "venue",
+    "pos": ["名"],
+    "meaning": "会场",
+    "synonyms": ["site场所，现场"]
+  },
+  {
+    "word": "household",
+    "pos": ["形", "名"],
+    "meaning": "家庭用的；家庭"
+  },
+  {
+    "word": "evaluate",
+    "pos": ["动"],
+    "meaning": "评价",
+    "related": "evaluation",
+    "synonyms": ["assess"]
+  },
+  {
+    "word": "negotiate",
+    "pos": ["动"],
+    "meaning": "交涉",
+    "related": "negotiation；negotiable"
+  },
+  {
+    "word": "booking",
+    "pos": ["名"],
+    "meaning": "预约",
+    "related": "book",
+    "synonyms": ["reservation"]
+  },
+  {
+    "word": "circulation",
+    "pos": ["名"],
+    "meaning": "循环，流通，发行量"
+  },
+  {
+    "word": "completion",
+    "pos": ["名"],
+    "meaning": "完成",
+    "related": "completely"
+  },
+  {
+    "word": "relevant",
+    "pos": ["形"],
+    "meaning": "相关的",
+    "antonyms": ["irrelevant"]
+  },
+  {
+    "word": "thorough",
+    "pos": ["形"],
+    "meaning": "彻底的",
+    "related": "thoroughly"
+  },
+  {
+    "word": "via",
+    "pos": ["介"],
+    "meaning": "通过，经由"
+  },
+  {
+    "word": "workplace",
+    "pos": ["名"],
+    "meaning": "职场"
+  },
+  {
+    "word": "accommodations",
+    "pos": ["名"],
+    "meaning": "住宿",
+    "synonyms": ["lodging"]
+  },
+  {
+    "word": "flexible",
+    "pos": ["形"],
+    "meaning": "灵活多变的，弹性的"
+  },
+  {
+    "word": "predict",
+    "pos": ["动"],
+    "meaning": "预测",
+    "related": "prediction；predictable",
+    "synonyms": ["foresee"]
+  },
+  {
+    "word": "preference",
+    "pos": ["名"],
+    "meaning": "偏爱，喜爱，喜好"
+  },
+  {
+    "word": "substantial",
+    "pos": ["形"],
+    "meaning": "大量的",
+    "synonyms": ["significant", "considerable"]
+  },
+  {
+    "word": "accessible",
+    "pos": ["形"],
+    "meaning": "能到达的，能使用的"
+  },
+  {
+    "word": "coverage",
+    "pos": ["名"],
+    "meaning": "报道，保险的赔偿"
+  },
+  {
+    "word": "generate",
+    "pos": ["动"],
+    "meaning": "产生",
+    "synonyms": ["yield"]
+  },
+  {
+    "word": "refreshment",
+    "pos": ["名"],
+    "meaning": "茶点，小吃，饮料",
+    "synonyms": ["snack"]
+  },
+  {
+    "word": "reliable",
+    "pos": ["形"],
+    "meaning": "值得信赖的",
+    "related": "rely；reliability；reliably"
+  },
+  {
+    "word": "revenue",
+    "pos": ["名"],
+    "meaning": "收入"
+  },
+  {
+    "word": "fund-raising",
+    "pos": ["形"],
+    "meaning": "筹措资金的",
+    "related": "fund-raiser募集资金的活动"
+  },
+  {
+    "word": "accomplished",
+    "pos": ["形"],
+    "meaning": "才华高的，技艺高超，熟练的",
+    "related": "accomplishment"
+  },
+  {
+    "word": "acquire",
+    "pos": ["动"],
+    "meaning": "获得，取得，学到",
+    "related": "acquisition"
+  },
+  {
+    "word": "accordingly",
+    "pos": ["副"],
+    "meaning": "相应地，因此，所以"
+  },
+  {
+    "word": "critic",
+    "pos": ["名"],
+    "meaning": "评论家，批评家"
+  },
+  {
+    "word": "highlight",
+    "pos": ["动", "名"],
+    "meaning": "突出，强调；最好的部分",
+    "synonyms": ["emphasize", "stress"]
+  },
+  {
+    "word": "profile",
+    "pos": ["动", "名"],
+    "meaning": "概述，写简介；轮廓，简介",
+    "related": "high-profile 高调的，引人注目的"
+  },
+  {
+    "word": "motivate",
+    "pos": ["动"],
+    "meaning": "激励，激发",
+    "related": "motivated；motivation",
+    "synonyms": ["inspire"]
+  },
+  {
+    "word": "subscription",
+    "pos": ["名"],
+    "meaning": "订购，加入，会费",
+    "related": "subscribe；subscriber 用户，订户"
+  },
+  {
+    "word": "encounter",
+    "pos": ["动"],
+    "meaning": "遭遇，偶然遇到，与...邂逅"
+  },
+  {
+    "word": "luxury",
+    "pos": ["形", "名"],
+    "meaning": "高级的；高级",
+    "synonyms": ["luxurious"]
+  },
+  {
+    "word": "prohibit",
+    "pos": ["动"],
+    "meaning": "禁止",
+    "related": "prohibitive"
+  },
+  {
+    "word": "resolve",
+    "pos": ["动"],
+    "meaning": "解决",
+    "synonyms": ["solve/settle"]
+  },
+  {
+    "word": "restore",
+    "pos": ["动"],
+    "meaning": "恢复，修复",
+    "related": "restoration"
+  },
+  {
+    "word": "surrounding",
+    "pos": ["形"],
+    "meaning": "周边的"
+  },
+  {
+    "word": "alert",
+    "pos": ["动", "形", "名"],
+    "meaning": "使警惕；警觉的，警惕的；警报，警惕"
+  },
+  {
+    "word": "anticipated",
+    "pos": ["形"],
+    "meaning": "期待的，预期的",
+    "related": "anticipate；anticipation"
+  },
+  {
+    "word": "consistently",
+    "pos": ["副"],
+    "meaning": "一贯地，一致地",
+    "related": "consistent；consistency"
+  },
+  {
+    "word": "dairy",
+    "pos": ["名"],
+    "meaning": "乳制品，牛奶厂"
+  },
+  {
+    "word": "phase",
+    "pos": ["名"],
+    "meaning": "阶段",
+    "synonyms": ["step"],
+    "usage": "in phases 分阶段"
+  },
+  {
+    "word": "manuscript",
+    "pos": ["名"],
+    "meaning": "原稿",
+    "synonyms": ["draft"]
+  },
+  {
+    "word": "overtime",
+    "pos": ["名", "副"],
+    "meaning": "加班；规定工作时间之外地"
+  },
+  {
+    "word": "premises",
+    "pos": ["名"],
+    "meaning": "房产建筑及附属场地"
+  },
+  {
+    "word": "utility",
+    "pos": ["名"],
+    "meaning": "公用事业",
+    "related": "utility company公用事业公司（水电煤气）"
+  },
+  {
+    "word": "laundry",
+    "pos": ["名"],
+    "meaning": "洗衣店，要洗的衣服，干洗"
+  },
+  {
+    "word": "enthusiastic",
+    "pos": ["形"],
+    "meaning": "热心的",
+    "related": "enthusiastically；enthusiasm；enthusiast爱好者"
+  },
+  {
+    "word": "outline",
+    "pos": ["动", "名"],
+    "meaning": "概述；概要",
+    "synonyms": ["overview"]
+  },
+  {
+    "word": "packet",
+    "pos": ["名"],
+    "meaning": "小包，袋"
+  },
+  {
+    "word": "retain",
+    "pos": ["动"],
+    "meaning": "保留，保持",
+    "related": "retention"
+  },
+  {
+    "word": "belongings",
+    "pos": ["名"],
+    "meaning": "财产，财务，行李",
+    "related": "belong"
+  },
+  {
+    "word": "conservation",
+    "pos": ["名"],
+    "meaning": "节约，环境保护",
+    "related": "conserve"
+  },
+  {
+    "word": "routine",
+    "pos": ["形"],
+    "meaning": "常规的，日常的",
+    "related": "routinely"
+  },
+  {
+    "word": "urban",
+    "pos": ["形"],
+    "meaning": "都市的",
+    "antonyms": ["rural"],
+    "related": "suburb, suburban"
+  },
+  {
+    "word": "workforce",
+    "pos": ["名"],
+    "meaning": "劳动人口"
+  },
+  {
+    "word": "biography",
+    "pos": ["名"],
+    "meaning": "自传，人物传记",
+    "synonyms": ["autobiography 自传文学"]
+  },
+  {
+    "word": "ownership",
+    "pos": ["名"],
+    "meaning": "所有权",
+    "related": "own，owner"
+  },
+  {
+    "word": "pastry",
+    "pos": ["名"],
+    "meaning": "酥油面团，酥油糕点",
+    "synonyms": ["baked goods 烘焙食品"]
+  },
+  {
+    "word": "tenant",
+    "pos": ["名"],
+    "meaning": "房客，租户",
+    "related": "landlord 房东，业主"
+  },
+  {
+    "word": "workload",
+    "pos": ["名"],
+    "meaning": "工作量"
+  },
+  {
+    "word": "sufficient",
+    "pos": ["形"],
+    "meaning": "足够的，充足的",
+    "related": "sufficiency；sufficiently",
+    "synonyms": ["enough"],
+    "antonyms": ["insufficient"]
+  },
+  {
+    "word": "characteristic",
+    "pos": ["名", "形"],
+    "meaning": "特征；典型的，独特的",
+    "synonyms": ["feature"]
+  },
+  {
+    "word": "combined",
+    "pos": ["形"],
+    "meaning": "共同的，联合的",
+    "related": "combine 联合；combination"
+  },
+  {
+    "word": "conclude",
+    "pos": ["动"],
+    "meaning": "得出结论，结束",
+    "related": "conclusion 结论；conclusive 决定性的"
+  },
+  {
+    "word": "associate",
+    "pos": ["动", "名", "形"],
+    "meaning": "联想，联系，混在一起；伙伴，同事；别的，非正式的"
+  },
+  {
+    "word": "conflict",
+    "pos": ["名"],
+    "meaning": "冲突"
+  },
+  {
+    "word": "investment",
+    "pos": ["名"],
+    "meaning": "投资",
+    "related": "investor 投资家"
+  },
+  {
+    "word": "physician",
+    "pos": ["名"],
+    "meaning": "内科医生",
+    "related": "dentist 牙医，surgeon 外科医生，Veterinarian 兽医"
+  },
+  {
+    "word": "token",
+    "pos": ["名"],
+    "meaning": "标记，记号"
+  },
+  {
+    "word": "partial",
+    "pos": ["形"],
+    "meaning": "一部分的"
+  },
+  {
+    "word": "resume",
+    "pos": ["动", "名"],
+    "meaning": "继续；简历"
+  },
+  {
+    "word": "dealership",
+    "pos": ["名"],
+    "meaning": "特约经销商",
+    "synonyms": ["dealer 贩卖业者"]
+  },
+  {
+    "word": "garment",
+    "pos": ["名"],
+    "meaning": "衣服（Part 1 常考）"
+  },
+  {
+    "word": "implement",
+    "pos": ["动", "名"],
+    "meaning": "实施，履行；implementation",
+    "synonyms": ["institute 建立，实行；enforce 施行"]
+  },
+  {
+    "word": "paycheck",
+    "pos": ["名"],
+    "meaning": "工资，薪金"
+  },
+  {
+    "word": "recruit",
+    "pos": ["动", "名"],
+    "meaning": "募集，采用；新人",
+    "related": "recruitment 雇佣"
+  },
+  {
+    "word": "substitute",
+    "pos": ["动", "名"],
+    "meaning": "代替；代替品"
+  },
+  {
+    "word": "typically",
+    "pos": ["动"],
+    "meaning": "典型地",
+    "synonyms": ["usually", "generally", "normally"]
+  },
+  {
+    "word": "authorize",
+    "pos": ["动"],
+    "meaning": "授权，允许，认可",
+    "related": "authorization"
+  },
+  {
+    "word": "comparable",
+    "pos": ["形"],
+    "meaning": "可比较的，比得上的",
+    "synonyms": ["similar"]
+  },
+  {
+    "word": "faculty",
+    "pos": ["名"],
+    "meaning": "大学教员，院系"
+  },
+  {
+    "word": "initiative",
+    "pos": ["名"],
+    "meaning": "新的想法，计划"
+  },
+  {
+    "word": "postage",
+    "pos": ["名"],
+    "meaning": "邮费"
+  },
+  {
+    "word": "afterwards",
+    "pos": ["动"],
+    "meaning": "后来，之后"
+  },
+  {
+    "word": "aim",
+    "pos": ["动", "名"],
+    "meaning": "瞄准；目标"
+  },
+  {
+    "word": "generally",
+    "pos": ["动"],
+    "meaning": "一般地",
+    "related": "general",
+    "synonyms": ["usually", "normally", "Ordinarily", "commonly", "mostly"]
+  },
+  {
+    "word": "occupied",
+    "pos": ["形"],
+    "meaning": "被占用的",
+    "related": "occupy；occupancy 占有"
+  },
+  {
+    "word": "solid",
+    "pos": ["形"],
+    "meaning": "固体的，坚硬的"
+  },
+  {
+    "word": "attempt",
+    "pos": ["名", "动"],
+    "meaning": "尝试"
+  },
+  {
+    "word": "authority",
+    "pos": ["名"],
+    "meaning": "权限，权力，权威，当局"
+  },
+  {
+    "word": "domestic",
+    "pos": ["形"],
+    "meaning": "国内的",
+    "antonyms": ["international"]
+  },
+  {
+    "word": "permission",
+    "pos": ["名"],
+    "meaning": "许可",
+    "related": "permit许可，许可证"
+  },
+  {
+    "word": "presence",
+    "pos": ["名"],
+    "meaning": "存在感，出席"
+  },
+  {
+    "word": "rapidly",
+    "pos": ["副"],
+    "meaning": "快速地",
+    "related": "rapid"
+  },
+  {
+    "word": "relief",
+    "pos": ["名"],
+    "meaning": "缓解，安心感",
+    "related": "relieve缓和"
+  },
+  {
+    "word": "reward",
+    "pos": ["动", "名"],
+    "meaning": "奖励，奖赏；报酬"
+  },
+  {
+    "word": "translate",
+    "pos": ["动"],
+    "meaning": "翻译",
+    "related": "翻译",
+    "synonyms": ["rephrase 改述"]
+  },
+  {
+    "word": "circumstance",
+    "pos": ["名"],
+    "meaning": "状况"
+  },
+  {
+    "word": "contrary",
+    "pos": ["形", "名"],
+    "meaning": "相反的，相对的，矛盾的；反面"
+  },
+  {
+    "word": "eventually",
+    "pos": ["副"],
+    "meaning": "最终地",
+    "synonyms": ["finally", "ultimately"]
+  },
+  {
+    "word": "expose",
+    "pos": ["动"],
+    "meaning": "揭露，曝光",
+    "related": "exposure"
+  },
+  {
+    "word": "panel",
+    "pos": ["名"],
+    "meaning": "仪表板，专家组"
+  },
+  {
+    "word": "portion",
+    "pos": ["名"],
+    "meaning": "部分，一份食物"
+  },
+  {
+    "word": "primary",
+    "pos": ["形"],
+    "meaning": "主要的",
+    "related": "primarily",
+    "synonyms": ["main", "principal"]
+  },
+  {
+    "word": "remark",
+    "pos": ["名", "动"],
+    "meaning": "意见，评价；评价"
+  },
+  {
+    "word": "timely",
+    "pos": ["形"],
+    "meaning": "及时的",
+    "notes": "所有-ly结尾，形容词用法很重要的: nightly, Daily, weekly, monthly, yearly, timely, costly, leisurely"
+  },
+  {
+    "word": "commonly",
+    "pos": ["副"],
+    "meaning": "一般地，通常",
+    "related": "common",
+    "synonyms": ["usually", "normally", "generally"]
+  },
+  {
+    "word": "consult",
+    "pos": ["动"],
+    "meaning": "(向专业人士)咨询",
+    "related": "consultation；consultant"
+  },
+  {
+    "word": "convert",
+    "pos": ["动"],
+    "meaning": "改造，变换"
+  },
+  {
+    "word": "obligation",
+    "pos": ["名"],
+    "meaning": "义务",
+    "related": "obligate 强制，使负义务"
+  },
+  {
+    "word": "resign",
+    "pos": ["动"],
+    "meaning": "辞职",
+    "synonyms": ["step down"]
+  },
+  {
+    "word": "securely",
+    "pos": ["副"],
+    "meaning": "安全地"
+  },
+  {
+    "word": "strive",
+    "pos": ["动"],
+    "meaning": "努力，力争"
+  },
+  {
+    "word": "timeline",
+    "pos": ["名"],
+    "meaning": "时间表"
+  },
+  {
+    "word": "urge",
+    "pos": ["动"],
+    "meaning": "催促"
+  },
+  {
+    "word": "acknowledge",
+    "pos": ["动"],
+    "meaning": "承认，认识，感谢",
+    "related": "acknowledgement 感谢，鸣谢，确认，承认"
+  },
+  {
+    "word": "diverse",
+    "pos": ["形"],
+    "meaning": "多种多样的",
+    "related": "diversity多样性；diversify使多样化"
+  },
+  {
+    "word": "transaction",
+    "pos": ["名"],
+    "meaning": "处理，业务，交易"
+  },
+  {
+    "word": "lack",
+    "pos": ["名", "动"],
+    "meaning": "不足；缺少",
+    "synonyms": ["shortage"]
+  },
+  {
+    "word": "essential",
+    "pos": ["形"],
+    "meaning": "最重要的，必不可少的，本质的",
+    "related": "essence",
+    "synonyms": ["indispensable", "integral"]
+  },
+  {
+    "word": "majority",
+    "pos": ["名"],
+    "meaning": "大多数，大部分",
+    "related": "major"
+  },
+  {
+    "word": "observe",
+    "pos": ["动"],
+    "meaning": "观察，遵守",
+    "related": "observation"
+  },
+  {
+    "word": "possess",
+    "pos": ["动"],
+    "meaning": "拥有，持有",
+    "related": "possession",
+    "synonyms": ["have/own"]
+  },
+  {
+    "word": "sharply",
+    "pos": ["副"],
+    "meaning": "急剧地，明显地"
+  },
+  {
+    "word": "adjustment",
+    "pos": ["名"],
+    "meaning": "调节，调整"
+  },
+  {
+    "word": "aisle",
+    "pos": ["名"],
+    "meaning": "过道，通道"
+  },
+  {
+    "word": "capture",
+    "pos": ["动"],
+    "meaning": "捕获，采集，拍摄"
+  },
+  {
+    "word": "consist",
+    "pos": ["动"],
+    "meaning": "构成，包含，一致",
+    "synonyms": ["be composed of 由XXX组成"]
+  },
+  {
+    "word": "desirable",
+    "pos": ["形"],
+    "meaning": "理想的，称心的"
+  },
+  {
+    "word": "heavily",
+    "pos": ["副"],
+    "meaning": "大量地，非常频繁地"
+  },
+  {
+    "word": "investigate",
+    "pos": ["动"],
+    "meaning": "调查",
+    "related": "investigation",
+    "synonyms": ["look into"]
+  },
+  {
+    "word": "measurement",
+    "pos": ["名"],
+    "meaning": "测量",
+    "related": "measure测量",
+    "synonyms": ["dimension尺寸"]
+  },
+  {
+    "word": "urgent",
+    "pos": ["形"],
+    "meaning": "紧急的",
+    "related": "urgently"
+  },
+  {
+    "word": "checkout",
+    "pos": ["名"],
+    "meaning": "超市付款台，旅馆结账离开的时间",
+    "related": "cashier收银"
+  },
+  {
+    "word": "dispose",
+    "pos": ["动"],
+    "meaning": "处理，处置",
+    "synonyms": ["discard"],
+    "related": "disposal；disposable"
+  },
+  {
+    "word": "modify",
+    "pos": ["动"],
+    "meaning": "修改",
+    "related": "modification",
+    "synonyms": ["change/alter", "adapt", "transform", "convert"]
+  },
+  {
+    "word": "outlet",
+    "pos": ["名"],
+    "meaning": "店铺，插座"
+  },
+  {
+    "word": "prescription",
+    "pos": ["名"],
+    "meaning": "处方"
+  },
+  {
+    "word": "situated",
+    "pos": ["形"],
+    "meaning": "坐落于XXX的"
+  },
+  {
+    "word": "surprisingly",
+    "pos": ["副"],
+    "meaning": "令人惊讶地"
+  },
+  {
+    "word": "transform",
+    "pos": ["动"],
+    "meaning": "转换，转化，转变"
+  },
+  {
+    "word": "undergo",
+    "pos": ["动"],
+    "meaning": "进行，接受（检查，修理等）"
+  },
+  {
+    "word": "blueprint",
+    "pos": ["名"],
+    "meaning": "蓝图，设计图"
+  },
+  {
+    "word": "boost",
+    "pos": ["动", "名"],
+    "meaning": "增长，促进；增长，提高，帮助"
+  },
+  {
+    "word": "considerably",
+    "pos": ["副"],
+    "meaning": "相当地，颇大地",
+    "related": "considerable"
+  },
+  {
+    "word": "eliminate",
+    "pos": ["动"],
+    "meaning": "消灭，排除，淘汰",
+    "synonyms": ["remove"]
+  },
+  {
+    "word": "exclusively",
+    "pos": ["副"],
+    "meaning": "独占，专有，只有"
+  },
+  {
+    "word": "leak",
+    "pos": ["动", "名"],
+    "meaning": "泄露"
+  },
+  {
+    "word": "preliminary",
+    "pos": ["形"],
+    "meaning": "初步的，暂定的"
+  },
+  {
+    "word": "sophisticated",
+    "pos": ["形"],
+    "meaning": "复杂巧妙的，精密的，老练的"
+  },
+  {
+    "word": "statistics",
+    "pos": ["名"],
+    "meaning": "统计，统计学",
+    "related": "statistically"
+  },
+  {
+    "word": "vacant",
+    "pos": ["形"],
+    "meaning": "空缺的，空闲的"
+  },
+  {
+    "word": "evidence",
+    "pos": ["名"],
+    "meaning": "证据，证明",
+    "related": "evident",
+    "synonyms": ["proof"]
+  },
+  {
+    "word": "excursion",
+    "pos": ["名"],
+    "meaning": "短途旅行，远足",
+    "synonyms": ["getaway", "outing"]
+  },
+  {
+    "word": "influence",
+    "pos": ["动", "名"],
+    "meaning": "影响",
+    "related": "influential"
+  },
+  {
+    "word": "ordinary",
+    "pos": ["形"],
+    "meaning": "普通的",
+    "related": "ordinarily 普通地",
+    "synonyms": ["common"],
+    "antonyms": ["extraordinary"]
+  },
+  {
+    "word": "reject",
+    "pos": ["动"],
+    "meaning": "拒绝",
+    "synonyms": ["turn down", "deny"]
+  },
+  {
+    "word": "tailor",
+    "pos": ["动"],
+    "meaning": "专门制作，定做"
+  },
+  {
+    "word": "assume",
+    "pos": ["动"],
+    "meaning": "假设，假定",
+    "synonyms": ["take on"]
+  },
+  {
+    "word": "engagement",
+    "pos": ["名"],
+    "meaning": "约会，约定",
+    "related": "engage in 从事，参加；engaging"
+  },
+  {
+    "word": "fame",
+    "pos": ["名"],
+    "meaning": "名声",
+    "related": "famous",
+    "synonyms": ["renown 名声"]
+  },
+  {
+    "word": "modest",
+    "pos": ["形"],
+    "meaning": "些许的，适度的，谦逊的"
+  },
+  {
+    "word": "patent",
+    "pos": ["名"],
+    "meaning": "专利",
+    "related": "copyright"
+  },
+  {
+    "word": "pursue",
+    "pos": ["动"],
+    "meaning": "追求，从事",
+    "related": "pursuit"
+  },
+  {
+    "word": "remote",
+    "pos": ["形"],
+    "meaning": "偏远的，偏僻的，遥远的"
+  },
+  {
+    "word": "reveal",
+    "pos": ["动"],
+    "meaning": "揭露，揭示",
+    "synonyms": ["unveil", "disclose"]
+  },
+  {
+    "word": "allowance",
+    "pos": ["名"],
+    "meaning": "津贴，补贴，零用钱"
+  },
+  {
+    "word": "crucial",
+    "pos": ["形"],
+    "meaning": "至关重要的",
+    "synonyms": ["critical", "essential", "pivotal", "vital"]
+  },
+  {
+    "word": "distinguished",
+    "pos": ["形"],
+    "meaning": "著名的，卓越的",
+    "related": "distinguish"
+  },
+  {
+    "word": "disturb",
+    "pos": ["动"],
+    "meaning": "打扰",
+    "related": "disturbance",
+    "synonyms": ["interfere"]
+  },
+  {
+    "word": "fluent",
+    "pos": ["形"],
+    "meaning": "流利的，流畅的",
+    "related": "fluency；fluently"
+  },
+  {
+    "word": "fulfill",
+    "pos": ["动"],
+    "meaning": "满足",
+    "synonyms": ["accommodate/meet"]
+  },
+  {
+    "word": "objective",
+    "pos": ["名"],
+    "meaning": "目标，目的",
+    "synonyms": ["goal", "target", "purpose", "object"]
+  },
+  {
+    "word": "restrict",
+    "pos": ["动"],
+    "meaning": "限制",
+    "related": "restriction"
+  },
+  {
+    "word": "steadily",
+    "pos": ["副"],
+    "meaning": "稳定地"
+  },
+  {
+    "word": "adequate",
+    "pos": ["形"],
+    "meaning": "适当的，充分的"
+  },
+  {
+    "word": "assessment",
+    "pos": ["名"],
+    "meaning": "评价",
+    "synonyms": ["evaluation", "appraisal"]
+  },
+  {
+    "word": "attribute",
+    "pos": ["动"],
+    "meaning": "把...归因于"
+  },
+  {
+    "word": "beforehand",
+    "pos": ["副"],
+    "meaning": "事先"
+  },
+  {
+    "word": "challenging",
+    "pos": ["形"],
+    "meaning": "挑战性的"
+  },
+  {
+    "word": "endeavor",
+    "pos": ["名", "动"],
+    "meaning": "努力",
+    "synonyms": ["effort"]
+  },
+  {
+    "word": "inspiring",
+    "pos": ["形"],
+    "meaning": "鼓舞人心的",
+    "related": "inspire；inspiration"
+  },
+  {
+    "word": "remarkable",
+    "pos": ["形"],
+    "meaning": "引人注目的",
+    "synonyms": ["surprising/amazing", "extraordinary/phenomenal"]
+  },
+  {
+    "word": "measure",
+    "pos": ["名", "动"],
+    "meaning": "手段，对策；测量，评价"
+  },
+  {
+    "word": "struggle",
+    "pos": ["动"],
+    "meaning": "努力，奋斗，抗争"
+  },
+  {
+    "word": "wage",
+    "pos": ["名"],
+    "meaning": "（按周领的）工资"
+  },
+  {
+    "word": "adapt",
+    "pos": ["动"],
+    "meaning": "适应，修改"
+  },
+  {
+    "word": "ambitious",
+    "pos": ["形"],
+    "meaning": "野心勃勃的"
+  },
+  {
+    "word": "capable",
+    "pos": ["形"],
+    "meaning": "有能力的，有才能的"
+  },
+  {
+    "word": "consequence",
+    "pos": ["名"],
+    "meaning": "结果",
+    "synonyms": ["result", "outcome"]
+  },
+  {
+    "word": "impose",
+    "pos": ["动"],
+    "meaning": "征税，迫使，强制实行"
+  },
+  {
+    "word": "latter",
+    "pos": ["名"],
+    "meaning": "后者",
+    "related": "respectively分别，各自"
+  },
+  {
+    "word": "output",
+    "pos": ["名"],
+    "meaning": "生产量",
+    "related": "production volume生产量；Production capacity生产能力"
+  },
+  {
+    "word": "proudly",
+    "pos": ["副"],
+    "meaning": "自豪地",
+    "related": "pride"
+  },
+  {
+    "word": "stable",
+    "pos": ["形"],
+    "meaning": "稳定的",
+    "antonyms": ["unstable"],
+    "related": "instability不稳定；Stabilize使得变得稳定；stabilization稳定化"
+  },
+  {
+    "word": "transition",
+    "pos": ["名"],
+    "meaning": "过渡，转移"
+  },
+  {
+    "word": "consent",
+    "pos": ["名"],
+    "meaning": "同意",
+    "related": "consent form同意书"
+  },
+  {
+    "word": "dependable",
+    "pos": ["形"],
+    "meaning": "值得信赖的",
+    "related": "depend；dependability信赖性"
+  },
+  {
+    "word": "diligent",
+    "pos": ["形"],
+    "meaning": "勤奋的，认真的",
+    "related": "diligently"
+  },
+  {
+    "word": "illustrate",
+    "pos": ["动"],
+    "meaning": "用图表说明"
+  },
+  {
+    "word": "independently",
+    "pos": ["副"],
+    "meaning": "独立地，单独地",
+    "related": "independent"
+  },
+  {
+    "word": "mission",
+    "pos": ["名"],
+    "meaning": "使命"
+  },
+  {
+    "word": "moderate",
+    "pos": ["形"],
+    "meaning": "适度的",
+    "related": "moderately"
+  },
+  {
+    "word": "outlook",
+    "pos": ["名"],
+    "meaning": "前景，观点",
+    "synonyms": ["forecast/prediction"]
+  },
+  {
+    "word": "precisely",
+    "pos": ["副"],
+    "meaning": "准确地",
+    "related": "precise；precision",
+    "synonyms": ["accurately"]
+  },
+  {
+    "word": "concentrated",
+    "pos": ["形"],
+    "meaning": "集中的，专一的",
+    "related": "concentrate；concentration"
+  },
+  {
+    "word": "ample",
+    "pos": ["形"],
+    "meaning": "足够的，丰裕的",
+    "synonyms": ["adequate", "enough", "sufficient"]
+  },
+  {
+    "word": "asset",
+    "pos": ["名"],
+    "meaning": "财产"
+  },
+  {
+    "word": "controversial",
+    "pos": ["形"],
+    "meaning": "有争议性的",
+    "related": "controversy争论"
+  },
+  {
+    "word": "disappointing",
+    "pos": ["形"],
+    "meaning": "令人失望的",
+    "related": "disappointingly"
+  },
+  {
+    "word": "instrumental",
+    "pos": ["形"],
+    "meaning": "起重要作用的，用乐器演奏的"
+  },
+  {
+    "word": "interruption",
+    "pos": ["名"],
+    "meaning": "中断"
+  },
+  {
+    "word": "perspective",
+    "pos": ["名"],
+    "meaning": "观点，远景"
+  },
+  {
+    "word": "scope",
+    "pos": ["名"],
+    "meaning": "范围，适用范围",
+    "synonyms": ["range"]
+  },
+  {
+    "word": "speculation",
+    "pos": ["名"],
+    "meaning": "推测",
+    "related": "speculate"
+  },
+  {
+    "word": "supplement",
+    "pos": ["动", "名"],
+    "meaning": "补充，增补；添加物，补充物"
+  },
+  {
+    "word": "understaffed",
+    "pos": ["形"],
+    "meaning": "人手不足的"
+  },
+  {
+    "word": "rarely",
+    "pos": ["副"],
+    "meaning": "很少，罕有",
+    "related": "rare",
+    "synonyms": ["seldom", "hardly"]
+  },
+  {
+    "word": "caution",
+    "pos": ["名", "动"],
+    "meaning": "注意，警告"
+  },
+  {
+    "word": "legislation",
+    "pos": ["名"],
+    "meaning": "法律，法制化",
+    "related": "legislate"
+  },
+  {
+    "word": "logical",
+    "pos": ["形"],
+    "meaning": "必然的，合乎逻辑的"
+  },
+  {
+    "word": "board of directors",
+    "pos": ["名"],
+    "meaning": "董事会"
+  },
+  {
+    "word": "accounting department",
+    "pos": ["名"],
+    "meaning": "会计部门"
+  },
+  {
+    "word": "marketing department",
+    "pos": ["名"],
+    "meaning": "市场部"
+  },
+  {
+    "word": "human resources department",
+    "pos": ["名"],
+    "meaning": "人事部"
+  },
+  {
+    "word": "personnel department",
+    "pos": ["名"],
+    "meaning": "人事部"
+  },
+  {
+    "word": "administrative department",
+    "pos": ["名"],
+    "meaning": "行政管理部门"
+  },
+  {
+    "word": "legal department",
+    "pos": ["名"],
+    "meaning": "法务部门"
+  },
+  {
+    "word": "sales department",
+    "pos": ["名"],
+    "meaning": "销售部门"
+  },
+  {
+    "word": "technology department",
+    "pos": ["名"],
+    "meaning": "技术部门"
+  },
+  {
+    "word": "purchasing department",
+    "pos": ["名"],
+    "meaning": "采购部门"
+  },
+  {
+    "word": "payroll department",
+    "pos": ["名"],
+    "meaning": "工资部门"
+  },
+  {
+    "word": "public relations department",
+    "pos": ["名"],
+    "meaning": "公共关系部门"
+  },
+  {
+    "word": "advertising department",
+    "pos": ["名"],
+    "meaning": "企划宣传部门"
+  },
+  {
+    "word": "general affairs department",
+    "pos": ["名"],
+    "meaning": "总务部门"
+  },
+  {
+    "word": "accounting",
+    "pos": ["名"],
+    "meaning": "会计部"
+  },
+  {
+    "word": "marketing",
+    "pos": ["名"],
+    "meaning": "市场部"
+  },
+  {
+    "word": "human resources",
+    "pos": ["名"],
+    "meaning": "人事部"
+  },
+  {
+    "word": "personnel",
+    "pos": ["名"],
+    "meaning": "人事部"
+  },
+  {
+    "word": "administrative",
+    "pos": ["名"],
+    "meaning": "行政部"
+  },
+  {
+    "word": "legal",
+    "pos": ["名"],
+    "meaning": "法务部"
+  },
+  {
+    "word": "sales",
+    "pos": ["名"],
+    "meaning": "销售部"
+  },
+  {
+    "word": "technology",
+    "pos": ["名"],
+    "meaning": "技术部"
+  },
+  {
+    "word": "security",
+    "pos": ["名"],
+    "meaning": "安保部"
+  },
+  {
+    "word": "purchasing",
+    "pos": ["名"],
+    "meaning": "采购部"
+  },
+  {
+    "word": "payroll",
+    "pos": ["名"],
+    "meaning": "工资部"
+  },
+  {
+    "word": "public relations",
+    "pos": ["名"],
+    "meaning": "公关部"
+  },
+  {
+    "word": "advertising",
+    "pos": ["名"],
+    "meaning": "企宣部"
+  },
+  {
+    "word": "general affairs",
+    "pos": ["名"],
+    "meaning": "总务部"
+  },
+  {
+    "word": "plumber",
+    "pos": ["名"],
+    "meaning": "水暖工"
+  },
+  {
+    "word": "welder",
+    "pos": ["名"],
+    "meaning": "焊接工"
+  },
+  {
+    "word": "mechanic",
+    "pos": ["名"],
+    "meaning": "机械师"
+  },
+  {
+    "word": "electrician",
+    "pos": ["名"],
+    "meaning": "电工"
+  },
+  {
+    "word": "carpenter",
+    "pos": ["名"],
+    "meaning": "木匠"
+  },
+  {
+    "word": "civil engineer",
+    "pos": ["名"],
+    "meaning": "土木工程师"
+  },
+  {
+    "word": "dentist",
+    "pos": ["名"],
+    "meaning": "牙医"
+  },
+  {
+    "word": "pharmacist",
+    "pos": ["名"],
+    "meaning": "药剂师"
+  },
+  {
+    "word": "surgeon",
+    "pos": ["名"],
+    "meaning": "外科医生"
+  },
+  {
+    "word": "veterinarian (vet)",
+    "pos": ["名"],
+    "meaning": "兽医"
+  },
+  {
+    "word": "bakery",
+    "pos": ["名"],
+    "meaning": "烘焙食品店"
+  },
+  {
+    "word": "printer",
+    "pos": ["名"],
+    "meaning": "印刷业者"
+  },
+  {
+    "word": "florist",
+    "pos": ["名"],
+    "meaning": "花店"
+  },
+  {
+    "word": "courier",
+    "pos": ["名"],
+    "meaning": "快递配送业者"
+  },
+  {
+    "word": "cleaner's",
+    "pos": ["名"],
+    "meaning": "家政服务"
+  },
+  {
+    "word": "real estate agency",
+    "pos": ["名"],
+    "meaning": "不动产中介机构"
+  },
+  {
+    "word": "locksmith",
+    "pos": ["名"],
+    "meaning": "锁匠"
+  },
+  {
+    "word": "moving company",
+    "pos": ["名"],
+    "meaning": "搬家公司"
+  },
+  {
+    "word": "hardware store",
+    "pos": ["名"],
+    "meaning": "五金店, 家居中心"
+  },
+  {
+    "word": "accountant",
+    "pos": ["名"],
+    "meaning": "会计"
+  },
+  {
+    "word": "chemist",
+    "pos": ["名"],
+    "meaning": "化学家"
+  },
+  {
+    "word": "auditor",
+    "pos": ["名"],
+    "meaning": "审计师"
+  },
+  {
+    "word": "historian",
+    "pos": ["名"],
+    "meaning": "历史学家"
+  },
+  {
+    "word": "anthropologist",
+    "pos": ["名"],
+    "meaning": "人类学家"
+  },
+  {
+    "word": "lawyer/attorney",
+    "pos": ["名"],
+    "meaning": "律师"
+  },
+  {
+    "word": "biologist",
+    "pos": ["名"],
+    "meaning": "生物学家"
+  },
+  {
+    "word": "professor",
+    "pos": ["名"],
+    "meaning": "教授"
+  },
+  {
+    "word": "botanist",
+    "pos": ["名"],
+    "meaning": "植物学家"
+  },
+  {
+    "word": "paralegal",
+    "pos": ["名"],
+    "meaning": "律师助理"
+  },
+  {
+    "word": "scientist",
+    "pos": ["名"],
+    "meaning": "科学家"
+  },
+  {
+    "word": "receptionist",
+    "pos": ["名"],
+    "meaning": "接待员"
+  },
+  {
+    "word": "ambassador",
+    "pos": ["名"],
+    "meaning": "大使"
+  },
+  {
+    "word": "secretary",
+    "pos": ["名"],
+    "meaning": "秘书"
+  },
+  {
+    "word": "security guard",
+    "pos": ["名"],
+    "meaning": "保安"
+  },
+  {
+    "word": "spokesperson",
+    "pos": ["名"],
+    "meaning": "发言人"
+  },
+  {
+    "word": "cashier",
+    "pos": ["名"],
+    "meaning": "收银员"
+  },
+  {
+    "word": "novelist",
+    "pos": ["名"],
+    "meaning": "小说家"
+  },
+  {
+    "word": "concierge",
+    "pos": ["名"],
+    "meaning": "门房, 礼宾员"
+  },
+  {
+    "word": "librarian",
+    "pos": ["名"],
+    "meaning": "图书管理员"
+  },
+  {
+    "word": "housekeeping",
+    "pos": ["名"],
+    "meaning": "客房服务部"
+  },
+  {
+    "word": "flight attendant",
+    "pos": ["名"],
+    "meaning": "空乘"
+  },
+  {
+    "word": "conductor",
+    "pos": ["名"],
+    "meaning": "列车长, 售票员, 乐团指挥"
+  },
+  {
+    "word": "travel agent",
+    "pos": ["名"],
+    "meaning": "旅行业者"
+  },
+  {
+    "word": "operator",
+    "pos": ["名"],
+    "meaning": "操作员, 接线员"
+  },
+  {
+    "word": "tour guide",
+    "pos": ["名"],
+    "meaning": "导游"
+  },
+  {
+    "word": "architect",
+    "pos": ["名"],
+    "meaning": "建筑师"
+  },
+  {
+    "word": "actor",
+    "pos": ["名"],
+    "meaning": "男演员"
+  },
+  {
+    "word": "photographer",
+    "pos": ["名"],
+    "meaning": "摄影师"
+  },
+  {
+    "word": "actress",
+    "pos": ["名"],
+    "meaning": "女演员"
+  },
+  {
+    "word": "choreographer",
+    "pos": ["名"],
+    "meaning": "动作指导, 舞蹈指导"
+  },
+  {
+    "word": "curator",
+    "pos": ["名"],
+    "meaning": "博物馆馆长, 策展人"
+  },
+  {
+    "word": "journalist",
+    "pos": ["名"],
+    "meaning": "记者"
+  },
+  {
+    "word": "correspondent",
+    "pos": ["名"],
+    "meaning": "通讯记者, 驻外记者"
+  },
+  {
+    "word": "announcer",
+    "pos": ["名"],
+    "meaning": "播音员, 广播员"
+  },
+  {
+    "word": "editor",
+    "pos": ["名"],
+    "meaning": "编辑"
+  },
+  {
+    "word": "host",
+    "pos": ["名"],
+    "meaning": "主持人"
+  },
+  {
+    "word": "proofreader",
+    "pos": ["名"],
+    "meaning": "校对"
+  },
+  {
+    "word": "lumber",
+    "pos": ["名"],
+    "meaning": "木材,木料",
+    "synonyms": ["timber"]
+  },
+  {
+    "word": "reverse",
+    "pos": ["形"],
+    "meaning": "相反的",
+    "notes": "Part7经常和back进行互换"
+  },
+  {
+    "word": "voluntary",
+    "pos": ["形"],
+    "meaning": "自愿的,自发的",
+    "related": "volunteer自愿做,义务做；voluntarily"
+  },
+  {
+    "word": "contractor",
+    "pos": ["名"],
+    "meaning": "承包商,承包人"
+  },
+  {
+    "word": "on-site",
+    "pos": ["形"],
+    "meaning": "现场的",
+    "antonyms": ["off-site公司外的"],
+    "synonyms": ["in-house"]
+  },
+  {
+    "word": "comprehensive",
+    "pos": ["形"],
+    "meaning": "全部的,综合的,广泛的"
+  },
+  {
+    "word": "confidential",
+    "pos": ["形"],
+    "meaning": "机密的",
+    "related": "confidentiality机密"
+  },
+  {
+    "word": "expertise",
+    "pos": ["名"],
+    "meaning": "专门知识",
+    "related": "expertly",
+    "synonyms": ["professionalism"]
+  },
+  {
+    "word": "premier",
+    "pos": ["形"],
+    "meaning": "首要的,第一位的"
+  },
+  {
+    "word": "souvenir",
+    "pos": ["名"],
+    "meaning": "纪念品,土特产"
+  },
+  {
+    "word": "rafting",
+    "pos": ["名"],
+    "meaning": "泛舟"
+  },
+  {
+    "word": "compartment",
+    "pos": ["名"],
+    "meaning": "隔间,舱"
+  },
+  {
+    "word": "fabric",
+    "pos": ["名"],
+    "meaning": "布料",
+    "related": "textile"
+  },
+  {
+    "word": "spacious",
+    "pos": ["形"],
+    "meaning": "宽敞的",
+    "antonyms": ["cramped狭窄的,拥挤的"]
+  },
+  {
+    "word": "upgrade",
+    "pos": ["名", "动"],
+    "meaning": "升级,改良"
+  },
+  {
+    "word": "showcase",
+    "pos": ["动", "名"],
+    "meaning": "展示；展示柜"
+  },
+  {
+    "word": "commuter",
+    "pos": ["名"],
+    "meaning": "通勤者",
+    "related": "commute通勤"
+  },
+  {
+    "word": "enhance",
+    "pos": ["动"],
+    "meaning": "增强,提高",
+    "related": "enhancement改良,强化",
+    "synonyms": ["bolster/strengthen加强,改善"]
+  },
+  {
+    "word": "freight",
+    "pos": ["名"],
+    "meaning": "货物,运输,运费",
+    "synonyms": ["cargo货运,船货"]
+  },
+  {
+    "word": "nominate",
+    "pos": ["动"],
+    "meaning": "提名,推荐",
+    "related": "nomination推荐,提名权"
+  },
+  {
+    "word": "discontinued",
+    "pos": ["形"],
+    "meaning": "已停产,中止"
+  },
+  {
+    "word": "mentoring",
+    "pos": ["名"],
+    "meaning": "导师制",
+    "related": "mentee门生,学员"
+  },
+  {
+    "word": "personalized",
+    "pos": ["形"],
+    "meaning": "个人化,个性化",
+    "synonyms": ["customized"],
+    "related": "customizable可定制的"
+  },
+  {
+    "word": "pharmacy",
+    "pos": ["名"],
+    "meaning": "药房",
+    "related": "pharmacist药剂师；Pharmaceutical制药的"
+  },
+  {
+    "word": "excerpt",
+    "pos": ["名"],
+    "meaning": "摘录,节选"
+  },
+  {
+    "word": "publicize",
+    "pos": ["动"],
+    "meaning": "宣传,宣扬",
+    "related": "publicity公共宣传,公共性"
+  },
+  {
+    "word": "tuition",
+    "pos": ["名"],
+    "meaning": "学费"
+  },
+  {
+    "word": "compliance",
+    "pos": ["名"],
+    "meaning": "遵从,顺从,服从",
+    "related": "comply；compliant顺从,服从的"
+  },
+  {
+    "word": "clarify",
+    "pos": ["动"],
+    "meaning": "澄清,阐明",
+    "related": "clarity清晰,明确,清楚"
+  },
+  {
+    "word": "municipal",
+    "pos": ["形"],
+    "meaning": "市政的,地方政府的"
+  },
+  {
+    "word": "respectively",
+    "pos": ["副"],
+    "meaning": "各自，分别，各个"
+  },
+  {
+    "word": "durable",
+    "pos": ["形"],
+    "meaning": "经久耐用的",
+    "related": "durability耐用性"
+  },
+  {
+    "word": "landmark",
+    "pos": ["名"],
+    "meaning": "地标，里程碑"
+  },
+  {
+    "word": "portfolio",
+    "pos": ["名"],
+    "meaning": "作品集"
+  },
+  {
+    "word": "recipient",
+    "pos": ["名"],
+    "meaning": "领奖者，接收方",
+    "related": "receipt收据，发票"
+  },
+  {
+    "word": "prototype",
+    "pos": ["名"],
+    "meaning": "原型，雏形，最初形态"
+  },
+  {
+    "word": "transit",
+    "pos": ["名"],
+    "meaning": "运输"
+  },
+  {
+    "word": "verify",
+    "pos": ["动"],
+    "meaning": "认证，确认",
+    "related": "verification确认"
+  },
+  {
+    "word": "managerial",
+    "pos": ["形"],
+    "meaning": "经营上的，管理上的"
+  },
+  {
+    "word": "culinary",
+    "pos": ["形"],
+    "meaning": "料理的"
+  },
+  {
+    "word": "attire",
+    "pos": ["名"],
+    "meaning": "服装",
+    "related": "dress code着装要求"
+  },
+  {
+    "word": "reimburse",
+    "pos": ["动"],
+    "meaning": "补偿，偿还"
+  },
+  {
+    "word": "courteous",
+    "pos": ["形"],
+    "meaning": "有礼貌的，客气的",
+    "related": "courtesy礼貌，彬彬有礼"
+  },
+  {
+    "word": "furnished",
+    "pos": ["形"],
+    "meaning": "配备家具的",
+    "related": "furnishings家具陈设"
+  },
+  {
+    "word": "knowledgeable",
+    "pos": ["形"],
+    "meaning": "知识丰富的",
+    "related": "knowledge知识"
+  },
+  {
+    "word": "craftspeople",
+    "pos": ["名"],
+    "meaning": "手工艺人",
+    "synonyms": ["artisan"]
+  },
+  {
+    "word": "delete",
+    "pos": ["动"],
+    "meaning": "删除",
+    "synonyms": ["omit"]
+  },
+  {
+    "word": "emerging",
+    "pos": ["形"],
+    "meaning": "新兴的",
+    "related": "emerge浮现，显现"
+  },
+  {
+    "word": "enroll",
+    "pos": ["动"],
+    "meaning": "登记，招收，入学",
+    "related": "enrollment登记，入学，注册人数"
+  },
+  {
+    "word": "proficiency",
+    "pos": ["名"],
+    "meaning": "熟练，精通，能力",
+    "related": "proficient熟练的，精通的"
+  },
+  {
+    "word": "scenic",
+    "pos": ["形"],
+    "meaning": "风景优美的",
+    "related": "scenery风景",
+    "synonyms": ["Picturesque优美的，古色古香的"]
+  },
+  {
+    "word": "state-of-the-art",
+    "pos": ["形"],
+    "meaning": "最先端的，最新式的",
+    "synonyms": ["up-to-date最新式的", "Latest最新的", "cutting-edge最前沿的"]
+  },
+  {
+    "word": "cuisine",
+    "pos": ["名"],
+    "meaning": "料理"
+  },
+  {
+    "word": "acclaimed",
+    "pos": ["形"],
+    "meaning": "受欢迎的，受赞誉的"
+  },
+  {
+    "word": "certified",
+    "pos": ["形"],
+    "meaning": "有资格的，公认的",
+    "related": "certify认定；certificate证书"
+  },
+  {
+    "word": "medication",
+    "pos": ["名"],
+    "meaning": "药物",
+    "synonyms": ["medicine/drug药物"]
+  },
+  {
+    "word": "overview",
+    "pos": ["名"],
+    "meaning": "概况，概略",
+    "synonyms": ["outline", "summary", "abstract摘要"]
+  },
+  {
+    "word": "resistant",
+    "pos": ["形"],
+    "meaning": "有抵抗力的",
+    "related": "resist抵抗；resistance"
+  },
+  {
+    "word": "superb",
+    "pos": ["形"],
+    "meaning": "极佳的，卓越的",
+    "related": "superbly",
+    "synonyms": ["excellent"]
+  },
+  {
+    "word": "array",
+    "pos": ["名"],
+    "meaning": "大量，多数"
+  },
+  {
+    "word": "informative",
+    "pos": ["形"],
+    "meaning": "给与知识的，增长有用信息的",
+    "synonyms": ["beneficial"]
+  },
+  {
+    "word": "nationwide",
+    "pos": ["形"],
+    "meaning": "全国的",
+    "notes": "别 全国地"
+  },
+  {
+    "word": "outdated",
+    "pos": ["形"],
+    "meaning": "过时的，陈旧的",
+    "synonyms": ["obsolete 淘汰的，废弃的，过时的"]
+  },
+  {
+    "word": "shareholder",
+    "pos": ["名"],
+    "meaning": "股东",
+    "synonyms": ["stockholder"]
+  },
+  {
+    "word": "voucher",
+    "pos": ["名"],
+    "meaning": "消费券"
+  },
+  {
+    "word": "adjacent",
+    "pos": ["形"],
+    "meaning": "接近的，邻近的"
+  },
+  {
+    "word": "correspondence",
+    "pos": ["名"],
+    "meaning": "回应，回复",
+    "related": "correspond；corresponding 符合的，相应的，相关的；correspondent 记者，通讯员"
+  },
+  {
+    "word": "detergent",
+    "pos": ["名"],
+    "meaning": "洗涤剂，洗衣粉"
+  },
+  {
+    "word": "duration",
+    "pos": ["名"],
+    "meaning": "持续时间，期间"
+  },
+  {
+    "word": "functional",
+    "pos": ["形"],
+    "meaning": "实用的，有功能的",
+    "synonyms": ["operational 可使用，可运转的"]
+  },
+  {
+    "word": "hands-on",
+    "pos": ["形"],
+    "meaning": "亲身实践的",
+    "synonyms": ["firsthand"]
+  },
+  {
+    "word": "intensive",
+    "pos": ["形"],
+    "meaning": "集中的"
+  },
+  {
+    "word": "last-minute",
+    "pos": ["形"],
+    "meaning": "最后一刻的，紧急关头的"
+  },
+  {
+    "word": "thrilled",
+    "pos": ["形"],
+    "meaning": "非常兴奋的"
+  },
+  {
+    "word": "spectacular",
+    "pos": ["形"],
+    "meaning": "壮观的",
+    "synonyms": ["amazing/stunning"]
+  },
+  {
+    "word": "entrepreneur",
+    "pos": ["名"],
+    "meaning": "企业家",
+    "related": "entrepreneurial 企业家的"
+  },
+  {
+    "word": "introductory",
+    "pos": ["形"],
+    "meaning": "入门的，最初的，尝试性的"
+  },
+  {
+    "word": "minimize",
+    "pos": ["动"],
+    "meaning": "最小化",
+    "related": "最小限度"
+  },
+  {
+    "word": "prestigious",
+    "pos": ["形"],
+    "meaning": "有威望的，声誉高的"
+  },
+  {
+    "word": "screening",
+    "pos": ["名"],
+    "meaning": "检查，上映"
+  },
+  {
+    "word": "amenity",
+    "pos": ["名"],
+    "meaning": "便利设施，社会福利设施"
+  },
+  {
+    "word": "lengthy",
+    "pos": ["形"],
+    "meaning": "冗长的",
+    "related": "lengthen 延长；length 长度"
+  },
+  {
+    "word": "compensate",
+    "pos": ["动"],
+    "meaning": "补偿"
+  },
+  {
+    "word": "misplace",
+    "pos": ["动"],
+    "meaning": "随意搁置"
+  },
+  {
+    "word": "notable",
+    "pos": ["形"],
+    "meaning": "值得注意的，显著的，重要的"
+  },
+  {
+    "word": "subsidiary",
+    "pos": ["名"],
+    "meaning": "子公司"
+  },
+  {
+    "word": "authentic",
+    "pos": ["形"],
+    "meaning": "货真价实的",
+    "related": "authenticity 真实性，确实性"
+  },
+  {
+    "word": "designated",
+    "pos": ["形"],
+    "meaning": "指定的，指名的"
+  },
+  {
+    "word": "disruption",
+    "pos": ["名"],
+    "meaning": "中断，扰乱",
+    "related": "disrupt；disruptive 引起混乱的"
+  },
+  {
+    "word": "fragile",
+    "pos": ["形"],
+    "meaning": "易损坏的",
+    "synonyms": ["breakable 容易打坏的", "vulnerable 易受伤的"]
+  },
+  {
+    "word": "ongoing",
+    "pos": ["形"],
+    "meaning": "进行中的",
+    "synonyms": ["going on进行，发生"]
+  },
+  {
+    "word": "periodical",
+    "pos": ["名"],
+    "meaning": "定期刊物",
+    "related": "periodic定期的；periodically"
+  },
+  {
+    "word": "plumber",
+    "pos": ["名"],
+    "meaning": "水暖工"
+  },
+  {
+    "word": "incur",
+    "pos": ["动"],
+    "meaning": "招致，遭受，引起"
+  },
+  {
+    "word": "oversee",
+    "pos": ["动"],
+    "meaning": "监督，监视",
+    "synonyms": ["supervise"]
+  },
+  {
+    "word": "retrieve",
+    "pos": ["动"],
+    "meaning": "找回，取回，挽回"
+  },
+  {
+    "word": "reunion",
+    "pos": ["名"],
+    "meaning": "团聚，聚会，重逢"
+  },
+  {
+    "word": "rigorous",
+    "pos": ["形"],
+    "meaning": "谨慎的，严厉的",
+    "related": "rigorously"
+  },
+  {
+    "word": "specification",
+    "pos": ["名"],
+    "meaning": "规范，规格，说明书"
+  },
+  {
+    "word": "tentative",
+    "pos": ["形"],
+    "meaning": "暂时的",
+    "synonyms": ["interim"],
+    "related": "tentatively"
+  },
+  {
+    "word": "tutorial",
+    "pos": ["名"],
+    "meaning": "教程，辅导课"
+  },
+  {
+    "word": "apprentice",
+    "pos": ["名"],
+    "meaning": "学徒，徒弟"
+  },
+  {
+    "word": "bid",
+    "pos": ["动", "名"],
+    "meaning": "投标，出价"
+  },
+  {
+    "word": "discard",
+    "pos": ["动", "名"],
+    "meaning": "丢弃，抛弃；被丢弃的物品"
+  },
+  {
+    "word": "outing",
+    "pos": ["名"],
+    "meaning": "短途旅行，郊游，外出活动",
+    "synonyms": ["excursion", "getaway"]
+  },
+  {
+    "word": "overwhelmingly",
+    "pos": ["副"],
+    "meaning": "压倒性地，势不可挡地",
+    "related": "overwhelming"
+  },
+  {
+    "word": "proceeds",
+    "pos": ["名"],
+    "meaning": "收益，收入"
+  },
+  {
+    "word": "refrain",
+    "pos": ["动"],
+    "meaning": "克制，避免",
+    "usage": "refrain from doing-避免做某事"
+  },
+  {
+    "word": "inclement",
+    "pos": ["形"],
+    "meaning": "（天气）恶劣的，寒冷的，狂风暴雨的"
+  },
+  {
+    "word": "novice",
+    "pos": ["名"],
+    "meaning": "新手，初学者"
+  },
+  {
+    "word": "activate",
+    "pos": ["动"],
+    "meaning": "激活，使运作，使开始起作用"
+  },
+  {
+    "word": "anecdote",
+    "pos": ["名"],
+    "meaning": "轶事，趣闻，短故事"
+  },
+  {
+    "word": "collaboration",
+    "pos": ["名"],
+    "meaning": "合作，协作",
+    "related": "collaborative 协同的，齐心协力的"
+  },
+  {
+    "word": "commemorate",
+    "pos": ["动"],
+    "meaning": "纪念，庆祝，缅怀",
+    "related": "commemoration"
+  },
+  {
+    "word": "duplicate",
+    "pos": ["动", "名", "形"],
+    "meaning": "复制，复印；副本；完全一样的"
+  },
+  {
+    "word": "intermission",
+    "pos": ["名"],
+    "meaning": "中场休息，间歇，暂停"
+  },
+  {
+    "word": "fertilizer",
+    "pos": ["名"],
+    "meaning": "肥料，养分"
+  },
+  {
+    "word": "proofread",
+    "pos": ["动"],
+    "meaning": "校对，审查（文章、书籍等）",
+    "related": "proofreader 校对者"
+  },
+  {
+    "word": "solicit",
+    "pos": ["动"],
+    "meaning": "请求，征求，恳求",
+    "related": "solicitation 请求，征求，恳求"
+  },
+  {
+    "word": "unveil",
+    "pos": ["动"],
+    "meaning": "揭幕，公布，揭示",
+    "synonyms": ["reveal", "disclose"]
+  },
+  {
+    "word": "applicable",
+    "pos": ["形"],
+    "meaning": "适用的，相关的",
+    "related": "application",
+    "synonyms": ["relevant", "appropriate"]
+  },
+  {
+    "word": "commend",
+    "pos": ["动"],
+    "meaning": "表扬，称赞",
+    "related": "commendation",
+    "synonyms": ["praise", "compliment"]
+  },
+  {
+    "word": "complement",
+    "pos": ["动", "名"],
+    "meaning": "补充，使完善；补充物",
+    "synonyms": ["supplement", "complete"]
+  },
+  {
+    "word": "incentive",
+    "pos": ["名"],
+    "meaning": "激励，奖励，动机",
+    "synonyms": ["motivation", "stimulus"]
+  },
+  {
+    "word": "incorporate",
+    "pos": ["动"],
+    "meaning": "纳入，合并，吸收",
+    "usage": "incorporate A into B ~ 将A并入B",
+    "synonyms": ["merge", "integrate", "include", "embrace（积极接受）"]
+  },
+  {
+    "word": "lapse",
+    "pos": ["名", "动"],
+    "meaning": "疏忽，小错；（时间）流逝；失败",
+    "synonyms": ["error", "expiration"]
+  },
+  {
+    "word": "picturesque",
+    "pos": ["形"],
+    "meaning": "如画的，生动的，别致的",
+    "synonyms": ["scenic", "charming"]
+  },
+  {
+    "word": "prospective",
+    "pos": ["形"],
+    "meaning": "预期的，未来的",
+    "related": "prospect",
+    "synonyms": ["potential", "expected"]
+  },
+  {
+    "word": "simplify",
+    "pos": ["动"],
+    "meaning": "简化，使简单",
+    "related": "simplification",
+    "synonyms": ["streamline", "reduce"]
+  },
+  {
+    "word": "surpass",
+    "pos": ["动"],
+    "meaning": "超过，胜过",
+    "synonyms": ["exceed", "outdo"]
+  },
+  {
+    "word": "surplus",
+    "pos": ["名", "形"],
+    "meaning": "过剩，盈余；过剩的，剩余的",
+    "synonyms": ["excess", "extra"]
+  },
+  {
+    "word": "withstand",
+    "pos": ["动"],
+    "meaning": "经受住，承受，抵挡",
+    "synonyms": ["endure", "resist"]
+  },
+  {
+    "word": "advocate",
+    "pos": ["动", "名"],
+    "meaning": "提倡，主张；支持者，倡导者",
+    "synonyms": ["support", "promote"]
+  },
+  {
+    "word": "aspiring",
+    "pos": ["形"],
+    "meaning": "有志向的，积极追求的",
+    "synonyms": ["ambitious", "striving"]
+  },
+  {
+    "word": "assorted",
+    "pos": ["形"],
+    "meaning": "各种各样的，混合的",
+    "synonyms": ["varied", "mixed"]
+  },
+  {
+    "word": "credentials",
+    "pos": ["名"],
+    "meaning": "资格，资历，证书",
+    "synonyms": ["qualifications", "ability"]
+  },
+  {
+    "word": "interoffice",
+    "pos": ["形"],
+    "meaning": "办公室之间的，部门之间的",
+    "usage": "interoffice mail - 内部邮件"
+  },
+  {
+    "word": "malfunction",
+    "pos": ["名", "动"],
+    "meaning": "故障，失灵",
+    "synonyms": ["breakdown", "failure"]
+  },
+  {
+    "word": "mutually",
+    "pos": ["副"],
+    "meaning": "互相地，共同地",
+    "usage": "mutually beneficial - 互利的",
+    "synonyms": ["reciprocally", "jointly"]
+  },
+  {
+    "word": "periodically",
+    "pos": ["副"],
+    "meaning": "定期地，周期性地",
+    "synonyms": ["regularly", "at intervals"]
+  },
+  {
+    "word": "copyright",
+    "pos": ["名", "动"],
+    "meaning": "版权，著作权；为……取得版权",
+    "synonyms": ["patent"]
+  },
+  {
+    "word": "nutritious",
+    "pos": ["形"],
+    "meaning": "有营养的",
+    "related": "nutrition",
+    "synonyms": ["healthy", "nourishing"]
+  },
+  {
+    "word": "obstruct",
+    "pos": ["动"],
+    "meaning": "阻碍，妨碍，阻塞",
+    "related": "obstruction",
+    "synonyms": ["block", "hinder"]
+  },
+  {
+    "word": "abundant",
+    "pos": ["形"],
+    "meaning": "丰富的，大量的",
+    "synonyms": ["plentiful", "ample"]
+  },
+  {
+    "word": "agreeable",
+    "pos": ["形"],
+    "meaning": "令人愉快的，和蔼可亲的，可接受的",
+    "synonyms": ["pleasant", "acceptable"]
+  },
+  {
+    "word": "compromise",
+    "pos": ["名", "动"],
+    "meaning": "妥协，让步；妥协，危及",
+    "synonyms": ["settlement", "concession"]
+  },
+  {
+    "word": "continuous",
+    "pos": ["形"],
+    "meaning": "持续不断的，不间断的",
+    "synonyms": ["uninterrupted", "constant"]
+  },
+  {
+    "word": "dominant",
+    "pos": ["形"],
+    "meaning": "占优势的，主导的",
+    "related": "dominate",
+    "synonyms": ["leading", "controlling"]
+  },
+  {
+    "word": "exhausted",
+    "pos": ["形"],
+    "meaning": "筋疲力尽的，用尽的",
+    "synonyms": ["tired", "depleted"]
+  },
+  {
+    "word": "fierce",
+    "pos": ["形"],
+    "meaning": "猛烈的，激烈的，凶猛的",
+    "synonyms": ["intense", "ferocious"]
+  },
+  {
+    "word": "prosperous",
+    "pos": ["形"],
+    "meaning": "繁荣的，兴旺的，富裕的",
+    "synonyms": ["wealthy", "thriving", "flourishing"]
+  },
+  {
+    "word": "quote",
+    "pos": ["动", "名"],
+    "meaning": "引用，引述；引文，引语",
+    "synonyms": ["cite", "refer to", "excerpt"]
+  },
+  {
+    "word": "reluctant",
+    "pos": ["形"],
+    "meaning": "不情愿的，勉强的",
+    "synonyms": ["unwilling", "hesitant", "resistant"]
+  },
+  {
+    "word": "remedy",
+    "pos": ["名", "动"],
+    "meaning": "治疗法，补救办法；纠正，治疗",
+    "synonyms": ["cure", "solution", "fix"]
+  },
+  {
+    "word": "solely",
+    "pos": ["副"],
+    "meaning": "仅仅，唯一地",
+    "synonyms": ["only", "exclusively", "purely"]
+  },
+  {
+    "word": "vital",
+    "pos": ["形"],
+    "meaning": "至关重要的，充满活力的",
+    "synonyms": ["essential", "crucial", "critical"]
+  },
+  {
+    "word": "revitalize",
+    "pos": ["动"],
+    "meaning": "使恢复生机，使复兴",
+    "synonyms": ["renew", "refresh", "rejuvenate"]
+  },
+  {
+    "word": "commence",
+    "pos": ["动"],
+    "meaning": "开始，着手",
+    "synonyms": ["begin", "start", "initiate"]
+  },
+  {
+    "word": "countless",
+    "pos": ["形"],
+    "meaning": "无数的，数不尽的",
+    "synonyms": ["numerous", "infinite", "innumerable"]
+  },
+  {
+    "word": "devise",
+    "pos": ["动"],
+    "meaning": "设计，想出，发明",
+    "synonyms": ["invent", "create", "formulate"]
+  },
+  {
+    "word": "execute",
+    "pos": ["动"],
+    "meaning": "执行，实施，处决",
+    "synonyms": ["carry out", "perform", "implement"]
+  },
+  {
+    "word": "foster",
+    "pos": ["动"],
+    "meaning": "培养，促进，养育",
+    "synonyms": ["promote", "nurture", "encourage"]
+  },
+  {
+    "word": "initiate",
+    "pos": ["动"],
+    "meaning": "开始，发起，启动",
+    "synonyms": ["begin", "launch", "commence"]
+  },
+  {
+    "word": "insight",
+    "pos": ["名"],
+    "meaning": "洞察力，见解",
+    "related": "insightful",
+    "synonyms": ["understanding", "perception", "awareness"]
+  },
+  {
+    "word": "misleading",
+    "pos": ["形"],
+    "meaning": "误导性的，引起误解的",
+    "synonyms": ["deceptive", "confusing", "inaccurate"]
+  },
+  {
+    "word": "precaution",
+    "pos": ["名"],
+    "meaning": "预防措施，警惕",
+    "synonyms": ["safeguard", "preventive measure", "caution"]
+  },
+  {
+    "word": "transparent",
+    "pos": ["形"],
+    "meaning": "透明的，清晰的，易懂的",
+    "synonyms": ["clear", "obvious", "see-through"]
+  },
+  {
+    "word": "coincide",
+    "pos": ["动"],
+    "meaning": "同时发生，相符，一致",
+    "related": "coincidence",
+    "synonyms": ["occur simultaneously", "correspond", "match"]
+  },
+  {
+    "word": "concise",
+    "pos": ["形"],
+    "meaning": "简洁的，简明的",
+    "related": "concisely",
+    "synonyms": ["brief", "succinct", "to the point"]
+  },
+  {
+    "word": "delegation",
+    "pos": ["名"],
+    "meaning": "代表团，委托，授权",
+    "related": "delegate代表",
+    "synonyms": ["assignment", "representation", "entrusting"]
+  },
+  {
+    "word": "diagnosis",
+    "pos": ["名"],
+    "meaning": "诊断，判断",
+    "synonyms": ["identification", "analysis", "evaluation"]
+  },
+  {
+    "word": "enforce",
+    "pos": ["动"],
+    "meaning": "执行，实施，强制",
+    "synonyms": ["implement", "impose", "carry out"]
+  },
+  {
+    "word": "hypothesis",
+    "pos": ["名"],
+    "meaning": "假设，猜想",
+    "synonyms": ["assumption", "theory", "supposition"]
+  },
+  {
+    "word": "predecessor",
+    "pos": ["名"],
+    "meaning": "前任，前辈，前身",
+    "synonyms": ["forerunner", "ancestor"]
+  },
+  {
+    "word": "prominently",
+    "pos": ["副"],
+    "meaning": "显著地，突出地",
+    "synonyms": ["noticeably", "clearly", "obviously"]
+  },
+  {
+    "word": "adoption",
+    "pos": ["名"],
+    "meaning": "采用，采纳，收养",
+    "synonyms": ["acceptance", "approval", "embrace"]
+  },
+  {
+    "word": "accelerate",
+    "pos": ["动"],
+    "meaning": "加速，促进",
+    "synonyms": ["speed up", "hasten", "advance"]
+  },
+  {
+    "word": "adhere",
+    "pos": ["动"],
+    "meaning": "坚持，黏附",
+    "synonyms": ["stick", "cling", "follow"]
+  },
+  {
+    "word": "allocate",
+    "pos": ["动"],
+    "meaning": "分配，拨出",
+    "synonyms": ["assign", "distribute", "allot"],
+    "related": "allocation"
+  },
+  {
+    "word": "appraisal",
+    "pos": ["名"],
+    "meaning": "评估，估价",
+    "synonyms": ["evaluation", "assessment", "review"]
+  },
+  {
+    "word": "compile",
+    "pos": ["动"],
+    "meaning": "编译；汇编",
+    "synonyms": ["collect", "gather"],
+    "related": "compilation"
+  },
+  {
+    "word": "conform",
+    "pos": ["动"],
+    "meaning": "遵守；符合",
+    "synonyms": ["comply", "follow"],
+    "related": "conformity"
+  },
+  {
+    "word": "constraint",
+    "pos": ["名"],
+    "meaning": "限制；约束",
+    "synonyms": ["restriction", "limitation"]
+  },
+  {
+    "word": "distraction",
+    "pos": ["名"],
+    "meaning": "分心；干扰",
+    "synonyms": ["disturbance", "diversion"]
+  },
+  {
+    "word": "facilitate",
+    "pos": ["动"],
+    "meaning": "促进；使便利",
+    "synonyms": ["ease", "assist"],
+    "related": "facilitation"
+  },
+  {
+    "word": "integral",
+    "pos": ["形"],
+    "meaning": "必需的；完整",
+    "related": "integrate 合并，整合",
+    "synonyms": ["essential", "fundamental"]
+  },
+  {
+    "word": "interact",
+    "pos": ["动"],
+    "meaning": "互动；相互作用",
+    "related": "interaction"
+  },
+  {
+    "word": "persistence",
+    "pos": ["名"],
+    "meaning": "坚持；持续",
+    "synonyms": ["endurance"],
+    "related": "persistent"
+  },
+  {
+    "word": "quota",
+    "pos": ["名"],
+    "meaning": "配额；定额",
+    "synonyms": ["allowance", "allocation"]
+  },
+  {
+    "word": "congested",
+    "pos": ["形"],
+    "meaning": "拥挤的；堵塞的",
+    "synonyms": ["crowded", "jammed"]
+  },
+  {
+    "word": "deduct",
+    "pos": ["动"],
+    "meaning": "扣除；减去",
+    "synonyms": ["subtract", "remove"],
+    "related": "deduction"
+  },
+  {
+    "word": "embrace",
+    "pos": ["动"],
+    "meaning": "拥抱；接受",
+    "synonyms": ["hug", "adopt"]
+  },
+  {
+    "word": "synthetic",
+    "pos": ["形"],
+    "meaning": "合成的；人造的",
+    "synonyms": ["artificial", "man-made"]
+  },
+  {
+    "word": "detect",
+    "pos": ["动"],
+    "meaning": "察觉；检测",
+    "synonyms": ["discover", "identify"],
+    "related": "detection"
+  },
+  {
+    "word": "patiently",
+    "pos": ["副"],
+    "meaning": "耐心地",
+    "synonyms": ["tolerantly", "calmly"],
+    "related": "patience"
+  },
+  {
+    "word": "ratio",
+    "pos": ["名"],
+    "meaning": "比率；比例",
+    "synonyms": ["proportion", "percentage"]
+  },
+  {
+    "word": "dietary",
+    "pos": ["形"],
+    "meaning": "饮食的",
+    "synonyms": ["nutritional", "alimentary"],
+    "related": "diet 饮食"
+  },
+  {
+    "word": "intentionally",
+    "pos": ["副"],
+    "meaning": "故意地",
+    "synonyms": ["deliberately", "purposely"],
+    "related": "intent；intentional"
+  },
+  {
+    "word": "persuasive",
+    "pos": ["形"],
+    "meaning": "有说服力的",
+    "synonyms": ["convincing", "influential"],
+    "related": "persuasion"
+  },
+  {
+    "word": "terminate",
+    "pos": ["动"],
+    "meaning": "终止；结束",
+    "synonyms": ["end", "conclude"],
+    "related": "termination"
+  },
+  {
+    "word": "accommodation",
+    "pos": ["名"],
+    "meaning": "容纳；适应；提供住宿",
+    "examples": ["accommodate 200 guests", "accommodate to changes", "accommodate tourists"]
+  },
+  {
+    "word": "account",
+    "pos": ["名", "动"],
+    "meaning": "账户；解释；描述",
+    "examples": ["open a bank account", "account for the absence", "give a detailed account"]
+  },
+  {
+    "word": "address",
+    "pos": ["名", "动"],
+    "meaning": "地址；演说；处理",
+    "examples": ["change one's address", "deliver a speech", "address the issue"]
+  },
+  {
+    "word": "appearance",
+    "pos": ["名"],
+    "meaning": "外表；出现；出席",
+    "examples": ["improve one's appearance", "make an appearance", "a public appearance"]
+  },
+  {
+    "word": "apply",
+    "pos": ["动"],
+    "meaning": "申请；应用；涂抹",
+    "examples": ["apply for a visa", "apply the rule", "apply paint"]
+  },
+  {
+    "word": "appointment",
+    "pos": ["名"],
+    "meaning": "约会；任命；职位",
+    "examples": ["make an appointment", "get an appointment", "a high-level appointment"]
+  },
+  {
+    "word": "article",
+    "pos": ["名"],
+    "meaning": "文章；物品；条款",
+    "examples": ["publish an article", "an article of value", "under Article 10"]
+  },
+  {
+    "word": "battery",
+    "pos": ["名"],
+    "meaning": "电池；一组；殴打",
+    "examples": ["recharge a battery", "a battery of questions", "assault and battery"]
+  },
+  {
+    "word": "board",
+    "pos": ["名", "动"],
+    "meaning": "木板；董事会；登机",
+    "examples": ["a wooden board", "board meeting", "board the flight"]
+  },
+  {
+    "word": "book",
+    "pos": ["名", "动"],
+    "meaning": "书；预订；起诉",
+    "examples": ["read a book", "book a table", "booked for speeding"]
+  },
+  {
+    "word": "carry",
+    "pos": ["动"],
+    "meaning": "携带；运输；包含",
+    "examples": ["carry a bag", "carry goods", "carry a risk"]
+  },
+  {
+    "word": "certain",
+    "pos": ["形"],
+    "meaning": "确定的；某个；某种",
+    "examples": ["for certain", "a certain person", "a certain charm"]
+  },
+  {
+    "word": "complete",
+    "pos": ["动", "形"],
+    "meaning": "完成；完整的；彻底的",
+    "examples": ["complete a task", "a complete set", "a complete surprise"]
+  },
+  {
+    "word": "consideration",
+    "pos": ["名"],
+    "meaning": "考虑；体贴；因素",
+    "examples": ["under consideration", "show consideration", "a key consideration"]
+  },
+  {
+    "word": "copy",
+    "pos": ["动", "名"],
+    "meaning": "复制；副本；一本",
+    "examples": ["copy a file", "make a copy", "a copy of a book"]
+  },
+  {
+    "word": "cover",
+    "pos": ["动", "名"],
+    "meaning": "覆盖；报道；支付",
+    "examples": ["cover a surface", "cover an event", "cover the cost"]
+  },
+  {
+    "word": "critical",
+    "pos": ["形"],
+    "meaning": "关键的；批评的；危急的",
+    "examples": ["critical evidence", "critical comments", "in critical condition"]
+  },
+  {
+    "word": "decline",
+    "pos": ["动", "名"],
+    "meaning": "下降；拒绝；衰退",
+    "examples": ["decline sharply", "decline an offer", "economic decline"]
+  },
+  {
+    "word": "definition",
+    "pos": ["名"],
+    "meaning": "定义；清晰度；解释",
+    "examples": ["precise definition", "high definition", "dictionary definition"]
+  },
+  {
+    "word": "deliver",
+    "pos": ["动"],
+    "meaning": "递送；发表；实现",
+    "examples": ["deliver a package", "deliver a speech", "deliver results"]
+  },
+  {
+    "word": "demonstrate",
+    "pos": ["动"],
+    "meaning": "证明；演示；示范",
+    "examples": ["demonstrate a theory", "demonstrate how to use", "demonstrate against"]
+  },
+  {
+    "word": "development",
+    "pos": ["名"],
+    "meaning": "发展；进展；新建",
+    "examples": ["economic development", "latest developments", "housing development"]
+  },
+  {
+    "word": "direction",
+    "pos": ["名"],
+    "meaning": "方向；指导；说明",
+    "examples": ["in the right direction", "under the direction of", "follow directions"]
+  },
+  {
+    "word": "drawing",
+    "pos": ["名"],
+    "meaning": "图画；抽签；绘图",
+    "examples": ["a pencil drawing", "a prize drawing", "technical drawing"]
+  },
+  {
+    "word": "due",
+    "pos": ["形", "名"],
+    "meaning": "到期；应得；由于",
+    "examples": ["due date", "give due respect", "due to the rain"]
+  },
+  {
+    "word": "edge",
+    "pos": ["名"],
+    "meaning": "边缘；优势；锋利",
+    "examples": ["edge of the table", "competitive edge", "sharp edge"]
+  },
+  {
+    "word": "express",
+    "pos": ["动", "形", "名"],
+    "meaning": "表达；快速的；特快",
+    "examples": ["express an opinion", "express train", "express delivery"]
+  },
+  {
+    "word": "extend",
+    "pos": ["动"],
+    "meaning": "延伸；延长；提供",
+    "examples": ["extend a road", "extend a deadline", "extend an invitation"]
+  },
+  {
+    "word": "fare",
+    "pos": ["名", "动"],
+    "meaning": "票价；伙食；进展",
+    "examples": ["bus fare", "fine fare", "fare well"]
+  },
+  {
+    "word": "fashion",
+    "pos": ["名"],
+    "meaning": "时尚；方式；产业",
+    "examples": ["latest fashion", "in a timely fashion", "fashion industry"]
+  },
+  {
+    "word": "feature",
+    "pos": ["名", "动"],
+    "meaning": "特征；特色；主演",
+    "examples": ["key feature", "special feature", "feature in a film"]
+  },
+  {
+    "word": "field",
+    "pos": ["名"],
+    "meaning": "田野；领域；现场",
+    "examples": ["field of wheat", "field of study", "on the field"]
+  },
+  {
+    "word": "fine",
+    "pos": ["名", "形", "动"],
+    "meaning": "罚款；好的；精美的",
+    "examples": ["pay a fine", "I'm fine", "fine art"]
+  },
+  {
+    "word": "forward",
+    "pos": ["副", "动", "名"],
+    "meaning": "向前；转发；前件",
+    "examples": ["move forward", "forward an email", "football forward"]
+  },
+  {
+    "word": "hold",
+    "pos": ["动"],
+    "meaning": "握住；举行；容纳",
+    "examples": ["hold hands", "hold a meeting", "the room holds 50 people"]
+  },
+  {
+    "word": "house",
+    "pos": ["名", "动"],
+    "meaning": "房子；容纳；机构",
+    "examples": ["build a house", "the museum houses paintings", "publishing house"]
+  },
+  {
+    "word": "input",
+    "pos": ["名", "动"],
+    "meaning": "输入；意见；投入",
+    "examples": ["data input", "valuable input", "seek input from others"]
+  },
+  {
+    "word": "invite",
+    "pos": ["动"],
+    "meaning": "邀请；征求；招致",
+    "examples": ["invite a friend", "invite opinions", "invite trouble"]
+  },
+  {
+    "word": "issue",
+    "pos": ["名", "动"],
+    "meaning": "问题；发布；一期",
+    "examples": ["discuss an issue", "issue a statement", "magazine issue"]
+  },
+  {
+    "word": "last",
+    "pos": ["形", "动", "名"],
+    "meaning": "最后；持续；上一个",
+    "examples": ["last chance", "last for hours", "last week"]
+  },
+  {
+    "word": "lead",
+    "pos": ["动", "名"],
+    "meaning": "领导；导致；铅",
+    "examples": ["lead a team", "lead to success", "a lead pipe"]
+  },
+  {
+    "word": "leave",
+    "pos": ["动", "名"],
+    "meaning": "离开；留下；休假",
+    "examples": ["leave home", "leave a message", "take a leave"]
+  },
+  {
+    "word": "manage",
+    "pos": ["动"],
+    "meaning": "管理；设法做到；经营",
+    "examples": ["manage a company", "manage to finish", "manage a store"]
+  },
+  {
+    "word": "mark",
+    "pos": ["动", "名"],
+    "meaning": "做记号；评分；特征",
+    "examples": ["mark the page", "mark an exam", "a birth mark"]
+  },
+  {
+    "word": "match",
+    "pos": ["名", "动"],
+    "meaning": "比赛；匹配；火柴",
+    "examples": ["a tennis match", "match colors", "strike a match"]
+  },
+  {
+    "word": "meet",
+    "pos": ["动", "名"],
+    "meaning": "遇见；满足；召开",
+    "examples": ["meet a friend", "meet the requirement", "meet regularly"]
+  },
+  {
+    "word": "minute",
+    "pos": ["名", "形"],
+    "meaning": "分钟；片刻；会议记录",
+    "examples": ["wait a minute", "just a minute", "take the minutes"]
+  },
+  {
+    "word": "object",
+    "pos": ["名", "动"],
+    "meaning": "物体；反对；目标",
+    "examples": ["a solid object", "object to the plan", "the object of study"]
+  },
+  {
+    "word": "once",
+    "pos": ["副", "连"],
+    "meaning": "一次；一旦；曾经",
+    "examples": ["only once", "once you start", "I once lived there"]
+  },
+  {
+    "word": "order",
+    "pos": ["名", "动"],
+    "meaning": "命令；订购；顺序",
+    "examples": ["give an order", "order food", "in order"]
+  },
+  {
+    "word": "otherwise",
+    "pos": ["副", "连"],
+    "meaning": "否则；不同地；在其他方面",
+    "examples": ["hurry up, otherwise you'll be late", "think otherwise", "kind but otherwise strict"]
+  },
+  {
+    "word": "outgoing",
+    "pos": ["形"],
+    "meaning": "外向的；离任的；外出",
+    "examples": ["an outgoing person", "the outgoing president", "outgoing mail"]
+  },
+  {
+    "word": "outstanding",
+    "pos": ["形"],
+    "meaning": "杰出的；未支付的；未解决的",
+    "examples": ["an outstanding student", "outstanding bills", "an outstanding issue"]
+  },
+  {
+    "word": "party",
+    "pos": ["名"],
+    "meaning": "聚会；政党；一方",
+    "examples": ["birthday party", "political party", "a third party"]
+  },
+  {
+    "word": "plant",
+    "pos": ["名", "动"],
+    "meaning": "植物；工厂；种植",
+    "examples": ["a green plant", "a car plant", "plant trees"]
+  },
+  {
+    "word": "post",
+    "pos": ["名", "动"],
+    "meaning": "邮寄；派任；柱子",
+    "examples": ["post a letter", "apply for a post", "a fence post"]
+  },
+  {
+    "word": "recall",
+    "pos": ["动"],
+    "meaning": "回忆；召回；撤回",
+    "examples": ["recall the past", "recall a car model", "recall an order"]
+  },
+  {
+    "word": "reception",
+    "pos": ["名"],
+    "meaning": "接待；前台；信号接收",
+    "examples": ["a warm reception", "ask at the reception", "poor TV reception"]
+  },
+  {
+    "word": "replace",
+    "pos": ["动"],
+    "meaning": "替换；取代；替代",
+    "examples": ["replace the battery", "replace the old system", "replace a manager"]
+  },
+  {
+    "word": "reservation",
+    "pos": ["名"],
+    "meaning": "预订；保留意见；保留地",
+    "examples": ["make a reservation", "have reservations about the plan", "an Indian reservation"]
+  },
+  {
+    "word": "run",
+    "pos": ["动", "名"],
+    "meaning": "跑；经营；运转",
+    "examples": ["run fast", "run a business", "the machine runs well"]
+  },
+  {
+    "word": "sample",
+    "pos": ["名", "动"],
+    "meaning": "样本；试吃/试用；抽样",
+    "examples": ["a blood sample", "sample the product", "sample data"]
+  },
+  {
+    "word": "secure",
+    "pos": ["形", "动"],
+    "meaning": "安全的；获得；固定",
+    "examples": ["a secure place", "secure a job", "secure the door with a lock"]
+  },
+  {
+    "word": "sensitive",
+    "pos": ["形"],
+    "meaning": "敏感的；体贴的；灵敏的",
+    "examples": ["sensitive skin", "a sensitive person", "a sensitive sensor"]
+  },
+  {
+    "word": "practice",
+    "pos": ["名", "动"],
+    "meaning": "练习；实践；业务",
+    "examples": ["practice speaking English", "put theory into practice", "a medical practice"]
+  },
+  {
+    "word": "present",
+    "pos": ["名", "形", "动"],
+    "meaning": "礼物；出席；呈现/发表",
+    "examples": ["birthday present", "be present at a meeting", "present a report"]
+  },
+  {
+    "word": "produce",
+    "pos": ["动", "名"],
+    "meaning": "生产；产生；农产品",
+    "examples": ["produce cars", "produce results", "fresh produce"]
+  },
+  {
+    "word": "professional",
+    "pos": ["形", "名"],
+    "meaning": "专业的；职业的；专业人士",
+    "examples": ["professional skills", "professional athlete", "a medical professional"]
+  },
+  {
+    "word": "project",
+    "pos": ["名", "动"],
+    "meaning": "项目；预测/预计；投射",
+    "examples": ["start a new project", "project growth", "project an image"]
+  },
+  {
+    "word": "promote",
+    "pos": ["动"],
+    "meaning": "促进；推广；晋升",
+    "examples": ["promote development", "promote a product", "promote to manager"]
+  },
+  {
+    "word": "rate",
+    "pos": ["名", "动"],
+    "meaning": "比率；评价；价格",
+    "examples": ["birth rate", "rate highly", "room rate"]
+  },
+  {
+    "word": "reach",
+    "pos": ["动", "名"],
+    "meaning": "到达；伸手；取得联系",
+    "examples": ["reach the station", "reach for the phone", "reach someone by phone"]
+  },
+  {
+    "word": "serve",
+    "pos": ["动"],
+    "meaning": "服务；提供食物；担任",
+    "examples": ["serve customers", "serve dinner", "serve as a teacher"]
+  },
+  {
+    "word": "service",
+    "pos": ["名"],
+    "meaning": "服务；维修；公共设施",
+    "examples": ["excellent service", "car service", "public service"]
+  },
+  {
+    "word": "signature",
+    "pos": ["名"],
+    "meaning": "签名；特征；标志性事物",
+    "examples": ["sign your signature", "a signature style", "the chef's signature dish"]
+  },
+  {
+    "word": "solution",
+    "pos": ["名"],
+    "meaning": "解决方案；溶液；解答",
+    "examples": ["find a solution", "a salt solution", "math solution"]
+  },
+  {
+    "word": "star",
+    "pos": ["名", "动"],
+    "meaning": "星星；明星；主角",
+    "examples": ["look at the stars", "a movie star", "star in a play"]
+  },
+  {
+    "word": "statement",
+    "pos": ["名"],
+    "meaning": "陈述；报表；声明",
+    "examples": ["make a statement", "bank statement", "official statement"]
+  },
+  {
+    "word": "steep",
+    "pos": ["形", "动"],
+    "meaning": "陡峭的；过高的；浸泡",
+    "examples": ["a steep hill", "a steep price", "steep the tea leaves"]
+  },
+  {
+    "word": "subject",
+    "pos": ["名", "形", "动"],
+    "meaning": "科目；主题；受支配的",
+    "examples": ["school subject", "discuss the subject", "be subject to rules"]
+  },
+  {
+    "word": "suggest",
+    "pos": ["动"],
+    "meaning": "建议；提示；推荐",
+    "examples": ["suggest a plan", "data suggest a trend", "suggest a book"]
+  },
+  {
+    "word": "suspend",
+    "pos": ["动"],
+    "meaning": "暂停；悬挂；暂停执行",
+    "examples": ["suspend the game", "suspend from the ceiling", "suspend a license"]
+  },
+  {
+    "word": "table",
+    "pos": ["名", "动"],
+    "meaning": "桌子；表格；提出（议案）",
+    "examples": ["a dining table", "create a table", "table a proposal"]
+  },
+  {
+    "word": "terms",
+    "pos": ["名"],
+    "meaning": "条款；条件；关系",
+    "examples": ["contract terms", "accept the terms", "be on good terms"]
+  },
+  {
+    "word": "view",
+    "pos": ["名", "动"],
+    "meaning": "视野；看法；观点",
+    "examples": ["enjoy the view", "in my view", "a political view"]
+  },
+  {
+    "word": "weigh",
+    "pos": ["动"],
+    "meaning": "称重；权衡；影响",
+    "examples": ["weigh the luggage", "weigh the pros and cons", "weigh heavily on someone"]
+  },
+  {
+    "word": "withdraw",
+    "pos": ["动"],
+    "meaning": "撤回；撤销；撤退",
+    "examples": ["withdraw money", "withdraw a statement", "withdraw troops"]
+  },
+  {
+    "word": "work",
+    "pos": ["名", "动"],
+    "meaning": "工作；运作；作品",
+    "examples": ["go to work", "the machine works well", "a work of art"]
+  }
+]
