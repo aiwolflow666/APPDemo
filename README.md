@@ -62,28 +62,19 @@
 ├── question_batch_generator.html # 批量题目生成器
 ├── word_database.json            # 托业核心词库（1000+ 单词）
 ├── toeic_questions_sample.json   # 本地题库样本
-├── questions_local.json          # 本地题库
-├── local_test.py                 # Python 本地测试脚本
-├── simple_test.py                # Python 简化测试脚本
-├── quick_test.bat                # Windows 快速启动脚本
+├── local_test.py                 # 启动本地服务器
 └── README.md
 ```
 
 ## 快速开始
 
-1. 启动本地 HTTP 服务器：
-
 ```bash
-# Python
-python -m http.server 8000
-
-# Node.js
-npx http-server -p 8000
+python local_test.py
 ```
 
-2. 浏览器访问 `http://localhost:8000/index.html`
-
-3. 手机访问：确保手机和电脑在同一 Wi-Fi 下，访问 `http://[电脑IP]:8000/index.html`
+启动后会显示访问地址：
+- 电脑：`http://localhost:8000/index.html`
+- 手机：`http://[电脑IP]:8000/index.html`（需同一 Wi-Fi）
 
 ## API Key 配置
 
