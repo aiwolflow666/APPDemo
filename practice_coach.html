@@ -947,11 +947,12 @@
     const DB_NAME = 'ToeicTrainerDB_final';
     const STORE_NAME = 'records';
     const META_STORE = 'metadata';
+    const EXAM_HISTORY_STORE = 'exam_history';
     let db = null;
 
     function openDB() {
         return new Promise((resolve, reject) => {
-            const request = indexedDB.open(DB_NAME, 1);
+            const request = indexedDB.open(DB_NAME, 2);
             request.onupgradeneeded = (e) => {
                 const db = e.target.result;
                 if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: 'id' });
@@ -959,6 +960,9 @@
                     const metaStore = db.createObjectStore(META_STORE, { keyPath: 'key' });
                     metaStore.put({ key: 'categoryCount', value: {} });
                     metaStore.put({ key: 'allQuestionHashes', value: [] });
+                }
+                if (!db.objectStoreNames.contains(EXAM_HISTORY_STORE)) {
+                    db.createObjectStore(EXAM_HISTORY_STORE, { keyPath: 'id' });
                 }
             };
             request.onsuccess = (e) => { db = e.target.result; resolve(db); };
@@ -1841,7 +1845,7 @@
     //  模拟考试模式
     // ============================================================
     const EXAM_QUESTION_COUNT = 30;
-    const EXAM_TIME_MINUTES = 25;
+    const EXAM_TIME_MINUTES = 10;
     let examQuestions = [];
     let examAnswers = {};
     let examTimer = null;
@@ -1865,6 +1869,7 @@
         const total = parseInt(totalSpan.textContent) || 0;
         const accuracy = parseInt(accuracySpan.textContent) || 0;
         const wrong = parseInt(wrongCountSpan.textContent) || 0;
+        const bankCount = localQuestionBank.length || 0;
         examArea.innerHTML = `
             <div class="card">
                 <div class="exam-start-card">
@@ -1872,8 +1877,8 @@
                     <div class="exam-title">模拟考试</div>
                     <div class="exam-desc">
                         标准托业 Part 5 模拟测试<br>
-                        30 道单选题 · 限时 25 分钟<br>
-                        考试结束后可查看详细解析
+                        ${bankCount} 道题库随机抽取 ${EXAM_QUESTION_COUNT} 题 · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
+                        考试结束后 AI 分析不足与改进点
                     </div>
                     <div class="exam-stats">
                         <div class="exam-stat-item">
@@ -1885,134 +1890,79 @@
                             <div class="exam-stat-label">正确率</div>
                         </div>
                         <div class="exam-stat-item">
-                            <div class="exam-stat-num">${wrong}</div>
-                            <div class="exam-stat-label">错题数</div>
+                            <div class="exam-stat-num">${bankCount}</div>
+                            <div class="exam-stat-label">题库</div>
                         </div>
                     </div>
                     <button class="btn btn-primary" id="startExamBtn" style="width:100%; margin-top:8px;">
                         🚀 开始考试
                     </button>
+                    <button class="btn btn-secondary btn-sm" id="viewHistoryBtn" style="width:100%; margin-top:8px;">
+                        📋 查看历史记录与成绩曲线
+                    </button>
                     <div style="margin-top:12px; font-size:0.75rem; color:#94a3b8;">
-                        题目由 AI 实时生成，请确保已保存 API Key
+                        题目从本地题库随机抽取，无需 API Key
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-label">📋 考试说明</div>
                 <div style="font-size:0.82rem; line-height:1.7; color:#475569;">
-                    <div style="margin-bottom:8px;">• 共 <strong>30 道</strong> Part 5 语法/词汇单选题</div>
-                    <div style="margin-bottom:8px;">• 时间限制 <strong>25 分钟</strong>，到时自动交卷</div>
+                    <div style="margin-bottom:8px;">• 从题库随机抽取 <strong>${EXAM_QUESTION_COUNT} 道</strong> Part 5 单选题</div>
+                    <div style="margin-bottom:8px;">• 时间限制 <strong>${EXAM_TIME_MINUTES} 分钟</strong>，到时自动交卷</div>
                     <div style="margin-bottom:8px;">• 可随时点击题目序号跳转答题</div>
-                    <div style="margin-bottom:8px;">• 提交后可选择将 AI 生成的题目加入本地题库</div>
+                    <div style="margin-bottom:8px;">• 考试结束后 AI 分析不足与改进点</div>
+                    <div style="margin-bottom:8px;">• 历史成绩记录与进步曲线</div>
                     <div>• 考试结果计入练习统计</div>
                 </div>
             </div>
         `;
         document.getElementById('startExamBtn').onclick = startExam;
+        document.getElementById('viewHistoryBtn').onclick = () => renderExamHistory();
     }
 
     async function startExam() {
-        if (!apiKey) {
-            alert('请先在设置页保存 API Key');
+        if (localQuestionBank.length === 0) {
+            await loadLocalQuestionBank();
+        }
+        if (localQuestionBank.length < 10) {
+            alert('本地题库题目不足10道，请先通过刷题或批量生成添加题目');
             return;
         }
-        examArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>🔄 正在生成 ${EXAM_QUESTION_COUNT} 道考试题目...</div><div style="font-size:0.8rem; color:#94a3b8; margin-top:8px;">预计需要 20-40 秒</div></div>`;
-
-        try {
-            await loadWordDatabase();
-            const difficultyHint = difficultySelect.value;
-            const recentHashes = await getAllQuestionHashes();
-            const recentHashHint = recentHashes.slice(-80).join('；');
-            const wordPrompt = generateWordBasedPrompt();
-            const selectedScenes = [...BUSINESS_SCENES]
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 15)
-                .join('、');
-
-            const prompt = `你是资深托业出题专家。请一次性生成 ${EXAM_QUESTION_COUNT} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
-
-全局要求：
-- 难度为: ${difficultyHint}（包含 L1~L5 各难度）
-- 商务或者国际职业场景：从以下列表中随机选择，确保场景多样性：${selectedScenes}
-- 考点必须均衡覆盖所有类别（词义辨析、固定搭配、连词与介词、代词与关系代词、名词冠词和数词、非谓语动词、定语从句、主谓一致、虚拟语气和祈使句、倒装结构、比较级与最高级等）
-- 避免与以下已出题目的题干重复（前80字符）: ${recentHashHint}
-- ${wordPrompt}
-- 每道题的结构必须包含以下字段：
-{
-  "questionText": "题干",
-  "options": ["opt1", "opt2", "opt3", "opt4"],
-  "options_cn": ["释义1", "释义2", "释义3", "释义4"],
-  "correctIndex": 0,
-  "translation": "中文翻译",
-  "keywords": [{"word":"word", "pos":"n.", "meaning":"释义"}],
-  "category": "考点类别",
-  "solutionSteps": "解题步骤",
-  "wrongOptionAnalysis": ["分析1", "分析2", "分析3", "分析4"],
-  "summaryTip": "小结"
-}
-
-特别注意：
-1. 30 道题目的正确选项索引必须随机分布，不要集中在某几个位置
-2. 选项设计要有区分度，避免明显的干扰项
-3. wrongOptionAnalysis 数组中每个元素是对应选项的错误原因分析，不要出现A/B/C/D字母
-4. 关键词尽量使用提供的单词数据库中的词汇
-5. 返回格式严格为: [ {...}, {...}, ... ] 只输出数组
-
-开始生成。`;
-
-            const requestBody = {
-                model: "ep-20260505172500-db99v",
-                stream: false,
-                temperature: 0.35,
-                max_output_tokens: 8000,
-                input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }]
-            };
-            const resp = await fetch('https://ark.cn-beijing.volces.com/api/v3/responses', {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify(requestBody)
-            });
-            if (!resp.ok) throw new Error(`API ${resp.status}`);
-            const data = await resp.json();
-            let raw = '';
-            if (data.output?.[0]?.content?.[0]?.text) raw = data.output[0].content[0].text;
-            else if (data.output?.choices?.[0]?.message?.content) raw = data.output.choices[0].message.content;
-            else if (data.choices?.[0]?.message?.content) raw = data.choices[0].message.content;
-            else throw new Error('返回格式错误');
-            let cleaned = raw.trim();
-            const arrayMatch = cleaned.match(/\[[\s\S]*\]/);
-            if (arrayMatch) cleaned = arrayMatch[0];
-            let questions = JSON.parse(cleaned);
-            if (!Array.isArray(questions)) throw new Error('返回不是数组');
-            if (questions.length < EXAM_QUESTION_COUNT) {
-                throw new Error(`只返回了 ${questions.length} 道题，请重试`);
+        const pool = [...localQuestionBank].sort(() => Math.random() - 0.5);
+        const selected = pool.slice(0, Math.min(EXAM_QUESTION_COUNT, pool.length));
+        const letters = ['A','B','C','D'];
+        examQuestions = selected.map((q, idx) => {
+            const q2 = {...q};
+            if (!q2.options_cn) q2.options_cn = ['','','',''];
+            if (!Array.isArray(q2.wrongOptionAnalysis)) q2.wrongOptionAnalysis = ['','','',''];
+            if (!q2.keywords) q2.keywords = [];
+            if (!q2.translation) q2.translation = '';
+            if (!q2.solutionSteps) q2.solutionSteps = '';
+            if (!q2.summaryTip) q2.summaryTip = '';
+            if (!q2.category) q2.category = '未分类';
+            if (q2.correctIndex !== undefined) {
+                const correctIdx = q2.correctIndex;
+                const indices = [0,1,2,3];
+                for (let i = indices.length-1; i>0; i--) {
+                    const j = Math.floor(Math.random()*(i+1));
+                    [indices[i], indices[j]] = [indices[j], indices[i]];
+                }
+                q2.options = indices.map(i=>(q2.options||[])[i]);
+                q2.options_cn = indices.map(i=>(q2.options_cn||['','','',''])[i]);
+                q2.wrongOptionAnalysis = indices.map(i=>(q2.wrongOptionAnalysis||['','','',''])[i]);
+                q2.correctAnswer = letters[indices.indexOf(correctIdx)];
+                q2.correctIndex = indices.indexOf(correctIdx);
             }
-            questions = questions.slice(0, EXAM_QUESTION_COUNT);
-            examQuestions = questions.map((q, idx) => {
-                if (!q.options_cn) q.options_cn = ['','','',''];
-                if (!Array.isArray(q.wrongOptionAnalysis)) q.wrongOptionAnalysis = ['','','',''];
-                if (!q.keywords) q.keywords = [];
-                if (!q.translation) q.translation = '';
-                if (!q.solutionSteps) q.solutionSteps = '';
-                if (!q.summaryTip) q.summaryTip = '';
-                if (!q.category) q.category = '未分类';
-                const shuffled = shuffleQuestion(q);
-                return { ...shuffled, originalIndex: idx };
-            });
-            examAnswers = {};
-            examMode = 'active';
-            examTimeLeft = EXAM_TIME_MINUTES * 60;
-            examStartTime = Date.now();
-            for (const q of questions) {
-                const hash = q.questionText.substring(0, 80).replace(/\s+/g, ' ');
-                await saveQuestionHash(hash);
-            }
-            renderExamQuestion();
-            startExamTimer();
-        } catch (err) {
-            examArea.innerHTML = `<div class="card"><div class="error-message">❌ 生成失败: ${err.message}</div><button class="btn btn-primary" id="retryExamBtn" style="margin-top:12px; width:100%;">重试</button></div>`;
-            document.getElementById('retryExamBtn').onclick = startExam;
-        }
+            return { ...q2, originalIndex: idx };
+        });
+        examAnswers = {};
+        examMode = 'active';
+        examTimeLeft = EXAM_TIME_MINUTES * 60;
+        examStartTime = Date.now();
+        examCurrentIdx = 0;
+        renderExamQuestion();
+        startExamTimer();
     }
 
     function startExamTimer() {
@@ -2200,9 +2150,21 @@
         for (const rec of examRecords) {
             await saveRecord(rec);
         }
+
+        const accuracy = Math.round((correct / examQuestions.length) * 100);
+        const examHistoryEntry = {
+            id: Date.now(),
+            timestamp: Date.now(),
+            totalQuestions: examQuestions.length,
+            correct: correct,
+            accuracy: accuracy,
+            timeSpent: timeSpent,
+            categoryStats: categoryStats,
+        };
+        await saveExamHistory(examHistoryEntry);
+
         await updateAllStatsAndRecords();
 
-        const accuracy = Math.round((correct / EXAM_QUESTION_COUNT) * 100);
         const mins = Math.floor(timeSpent / 60);
         const secs = timeSpent % 60;
         const barColor = accuracy >= 80 ? '#16a34a' : accuracy >= 60 ? '#f59e0b' : '#dc2626';
@@ -2231,7 +2193,7 @@
                             <div class="stat-label">正确</div>
                         </div>
                         <div class="exam-results-stat">
-                            <div class="stat-num">${EXAM_QUESTION_COUNT - correct}</div>
+                            <div class="stat-num">${examQuestions.length - correct}</div>
                             <div class="stat-label">错误</div>
                         </div>
                         <div class="exam-results-stat">
@@ -2246,19 +2208,21 @@
                 ${catHtml}
             </div>
             <div class="card">
+                <div class="card-label">📈 成绩趋势</div>
+                <canvas id="scoreChart" width="400" height="200" style="width:100%; height:200px;"></canvas>
+                <div id="chartEmpty" style="text-align:center; padding:20px; color:#94a3b8; display:none;">暂无历史记录</div>
+            </div>
+            <div class="card" id="aiAnalysisCard" style="display:none;">
+                <div class="card-label">🤖 AI 学习分析</div>
+                <div id="aiAnalysisContent"><div class="spinner"></div><div style="text-align:center; margin-top:8px; color:#94a3b8; font-size:0.85rem;">AI 正在分析你的考试数据...</div></div>
+            </div>
+            <div class="card">
                 <div class="card-label">🔍 题目回顾</div>
                 <div id="examReviewArea" style="max-height:300px; overflow-y:auto;"></div>
             </div>
-            <div class="card">
-                <div class="card-label">💾 题库管理</div>
-                <div style="font-size:0.82rem; color:#64748b; margin-bottom:10px;">
-                    可将本次 AI 生成的 ${EXAM_QUESTION_COUNT} 道题加入本地题库（避免重复）
-                </div>
-                <button class="btn btn-primary btn-sm" id="addAllToBankBtn">📥 全部加入题库</button>
-                <div id="addToBankStatus" style="font-size:0.78rem; color:#16a34a; margin-top:6px; display:none;"></div>
-            </div>
             <div style="text-align:center; margin-top:8px;">
-                <button class="btn btn-secondary" id="restartExamBtn">🔄 再来一次</button>
+                <button class="btn btn-primary" id="restartExamBtn" style="margin-right:8px;">🔄 再来一次</button>
+                <button class="btn btn-secondary" id="viewExamHistoryBtn">📋 历史记录</button>
             </div>
         `;
 
@@ -2266,7 +2230,6 @@
         reviewArea.innerHTML = examQuestions.map((q, idx) => {
             const userAnswer = examAnswers[idx];
             const isCorrect = userAnswer === q.correctAnswer;
-            const correctIdx = letters.indexOf(q.correctAnswer);
             return `
                 <div class="record-item ${isCorrect ? 'correct-item' : 'wrong-item'}" data-exam-idx="${idx}" style="margin-bottom:8px;">
                     <div class="record-question">
@@ -2298,55 +2261,347 @@
             renderExamStart();
         };
 
-        document.getElementById('addAllToBankBtn').onclick = async () => {
-            const btn = document.getElementById('addAllToBankBtn');
-            const status = document.getElementById('addToBankStatus');
-            btn.disabled = true;
-            btn.textContent = '⏳ 添加中...';
-            try {
-                if (localQuestionBank.length === 0) await loadLocalQuestionBank();
-                const existingHashes = localQuestionBank.map(q => (q.questionText||'').substring(0, 50)).filter(Boolean);
-                const toAdd = examQuestions.filter(q => {
-                    const hash = (q.questionText || '').substring(0, 50);
-                    return !existingHashes.includes(hash);
-                });
-                if (toAdd.length === 0) {
-                    status.textContent = '⚠️ 所有题目已存在于题库中';
-                    status.style.display = 'block';
-                    status.style.color = '#f59e0b';
-                } else {
-                    const newQuestions = toAdd.map((q, idx) => ({
-                        id: `exam_${Date.now()}_${idx}`,
-                        part: "Part5",
-                        category: q.category || '未分类',
-                        difficulty: q.difficulty || 2,
-                        questionText: q.questionText,
-                        options: q.options,
-                        options_cn: q.options_cn,
-                        correctIndex: q.correctIndex,
-                        correctAnswer: q.correctAnswer,
-                        translation: q.translation,
-                        keywords: q.keywords,
-                        solutionSteps: q.solutionSteps,
-                        wrongOptionAnalysis: q.wrongOptionAnalysis,
-                        summaryTip: q.summaryTip,
-                        source: 'exam',
-                        createdAt: new Date().toISOString(),
-                    }));
-                    localQuestionBank.push(...newQuestions);
-                    await saveLocalQuestionBank(localQuestionBank);
-                    status.textContent = `✅ 已添加 ${toAdd.length} 道题目到本地题库（已下载新JSON文件）`;
-                    status.style.display = 'block';
-                    status.style.color = '#16a34a';
-                    btn.textContent = '✅ 已添加';
-                }
-            } catch (err) {
-                status.textContent = '❌ 添加失败: ' + err.message;
-                status.style.display = 'block';
-                status.style.color = '#dc2626';
-                btn.disabled = false;
-                btn.textContent = '📥 全部加入题库';
+        document.getElementById('viewExamHistoryBtn').onclick = () => {
+            renderExamHistory();
+        };
+
+        renderScoreChart();
+        await fetchAIAnalysis(categoryStats, accuracy, correct, examQuestions.length, timeSpent);
+    }
+
+    // ---------- 考试历史记录 (IndexedDB) ----------
+
+    async function saveExamHistory(entry) {
+        if (!db) await openDB();
+        const tx = db.transaction(EXAM_HISTORY_STORE, 'readwrite');
+        tx.objectStore(EXAM_HISTORY_STORE).put(entry);
+        return new Promise((resolve) => { tx.oncomplete = resolve; });
+    }
+
+    async function getAllExamHistory() {
+        if (!db) await openDB();
+        if (!db.objectStoreNames.contains(EXAM_HISTORY_STORE)) return [];
+        return new Promise((resolve) => {
+            const tx = db.transaction(EXAM_HISTORY_STORE, 'readonly');
+            const req = tx.objectStore(EXAM_HISTORY_STORE).getAll();
+            req.onsuccess = () => resolve(req.result || []);
+        });
+    }
+
+    async function clearExamHistory() {
+        if (!db) await openDB();
+        if (!db.objectStoreNames.contains(EXAM_HISTORY_STORE)) return;
+        const tx = db.transaction(EXAM_HISTORY_STORE, 'readwrite');
+        tx.objectStore(EXAM_HISTORY_STORE).clear();
+        return new Promise((resolve) => { tx.oncomplete = resolve; });
+    }
+
+    // ---------- 成绩曲线绘制 ----------
+    async function renderScoreChart() {
+        const history = await getAllExamHistory();
+        const canvas = document.getElementById('scoreChart');
+        const emptyMsg = document.getElementById('chartEmpty');
+        if (!canvas) return;
+        if (history.length === 0) {
+            canvas.style.display = 'none';
+            if (emptyMsg) emptyMsg.style.display = 'block';
+            return;
+        }
+        canvas.style.display = 'block';
+        if (emptyMsg) emptyMsg.style.display = 'none';
+
+        history.sort((a, b) => a.timestamp - b.timestamp);
+        const scores = history.map(h => h.accuracy);
+        const labels = history.map((h, i) => `第${i + 1}次`);
+        const times = history.map(h => {
+            const m = Math.floor(h.timeSpent / 60);
+            const s = h.timeSpent % 60;
+            return `${m}:${String(s).padStart(2, '0')}`;
+        });
+
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+
+        const W = rect.width;
+        const H = rect.height;
+        const padL = 40, padR = 20, padT = 20, padB = 40;
+        const chartW = W - padL - padR;
+        const chartH = H - padT - padB;
+
+        ctx.clearRect(0, 0, W, H);
+
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 5; i++) {
+            const y = padT + chartH * (1 - i / 5);
+            ctx.beginPath();
+            ctx.moveTo(padL, y);
+            ctx.lineTo(padL + chartW, y);
+            ctx.stroke();
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '10px sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(`${i * 20}%`, padL - 6, y + 3);
+        }
+
+        const n = scores.length;
+        const stepX = n > 1 ? chartW / (n - 1) : chartW;
+
+        const gradient = ctx.createLinearGradient(0, padT, 0, padT + chartH);
+        gradient.addColorStop(0, 'rgba(37, 99, 235, 0.3)');
+        gradient.addColorStop(1, 'rgba(37, 99, 235, 0.02)');
+        ctx.beginPath();
+        scores.forEach((s, i) => {
+            const x = padL + (n > 1 ? i * stepX : chartW / 2);
+            const y = padT + chartH * (1 - s / 100);
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        const lastX = padL + (n > 1 ? (n - 1) * stepX : chartW / 2);
+        ctx.lineTo(lastX, padT + chartH);
+        ctx.lineTo(padL, padT + chartH);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        ctx.beginPath();
+        scores.forEach((s, i) => {
+            const x = padL + (n > 1 ? i * stepX : chartW / 2);
+            const y = padT + chartH * (1 - s / 100);
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        ctx.strokeStyle = '#2563eb';
+        ctx.lineWidth = 2.5;
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+
+        scores.forEach((s, i) => {
+            const x = padL + (n > 1 ? i * stepX : chartW / 2);
+            const y = padT + chartH * (1 - s / 100);
+            ctx.beginPath();
+            ctx.arc(x, y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = '#2563eb';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x, y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#fff';
+            ctx.fill();
+        });
+
+        ctx.fillStyle = '#475569';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'center';
+        scores.forEach((s, i) => {
+            const x = padL + (n > 1 ? i * stepX : chartW / 2);
+            ctx.fillText(labels[i], x, padT + chartH + 16);
+            ctx.fillStyle = '#2563eb';
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillText(`${s}%`, x, padT + chartH * (1 - s / 100) - 8);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '9px sans-serif';
+            ctx.fillText(times[i], x, padT + chartH + 28);
+            ctx.fillStyle = '#475569';
+            ctx.font = '10px sans-serif';
+        });
+    }
+
+    // ---------- AI 考后分析 ----------
+    async function fetchAIAnalysis(categoryStats, accuracy, correct, total, timeSpent) {
+        const card = document.getElementById('aiAnalysisCard');
+        const content = document.getElementById('aiAnalysisContent');
+        if (!card || !content) return;
+
+        if (!apiKey) {
+            content.innerHTML = '<div style="font-size:0.85rem; color:#94a3b8;">未配置 API Key，无法使用 AI 分析功能。请在设置页保存 API Key。</div>';
+            card.style.display = 'block';
+            return;
+        }
+
+        card.style.display = 'block';
+
+        const history = await getAllExamHistory();
+        history.sort((a, b) => a.timestamp - b.timestamp);
+        let trendInfo = '';
+        if (history.length >= 2) {
+            const recent = history.slice(-5).map((h, i) => `第${history.length - 4 + i}次: ${h.accuracy}% (${h.correct}/${h.totalQuestions})`);
+            trendInfo = `\n历史成绩趋势（最近5次）:\n${recent.join('\n')}`;
+        }
+
+        const catDetail = Object.entries(categoryStats).map(([cat, stat]) => {
+            const pct = Math.round((stat.correct / stat.total) * 100);
+            return `${cat}: ${stat.correct}/${stat.total} (${pct}%)`;
+        }).join('\n');
+
+        const prompt = `你是一位专业的托业英语考试辅导老师。请根据以下考试数据，给出详细的学习分析和改进建议。
+
+本次考试数据：
+- 正确率: ${accuracy}% (${correct}/${total})
+- 用时: ${Math.floor(timeSpent/60)}分${timeSpent%60}秒
+- 分类得分:
+${catDetail}
+${trendInfo}
+
+请用中文回答，包含以下几个部分：
+1. **总体评价**：对本次考试表现的简要评价
+2. **薄弱考点**：指出最需要加强的考点类别（附具体建议）
+3. **进步分析**：${history.length >= 2 ? '结合历史成绩分析是否有进步' : '这是第一次考试，后续会有进步趋势分析'}
+4. **学习建议**：给出3条具体可执行的学习建议
+5. **下次目标**：建议下次考试的正确率目标
+
+请简洁清晰，避免过于笼统。`;
+
+        try {
+            const requestBody = {
+                model: "ep-20260505172500-db99v",
+                stream: false,
+                temperature: 0.5,
+                max_output_tokens: 2000,
+                input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }]
+            };
+            const resp = await fetch('https://ark.cn-beijing.volces.com/api/v3/responses', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestBody)
+            });
+            if (!resp.ok) throw new Error(`API ${resp.status}`);
+            const data = await resp.json();
+            let text = '';
+            if (data.output?.[0]?.content?.[0]?.text) text = data.output[0].content[0].text;
+            else if (data.output?.choices?.[0]?.message?.content) text = data.output.choices[0].message.content;
+            else if (data.choices?.[0]?.message?.content) text = data.choices[0].message.content;
+            else throw new Error('返回格式错误');
+
+            const html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+            content.innerHTML = `<div style="font-size:0.85rem; line-height:1.7; color:#1e293b;">${html}</div>`;
+        } catch (err) {
+            content.innerHTML = `<div style="color:#dc2626; font-size:0.85rem;">AI 分析失败: ${err.message}</div><button class="btn btn-sm btn-outline" style="margin-top:8px;" id="retryAiBtn">重试</button>`;
+            document.getElementById('retryAiBtn').onclick = () => fetchAIAnalysis(categoryStats, accuracy, correct, total, timeSpent);
+        }
+    }
+
+    // ---------- 考试历史记录页面 ----------
+    async function renderExamHistory() {
+        const history = await getAllExamHistory();
+        history.sort((a, b) => b.timestamp - a.timestamp);
+
+        let listHtml = '';
+        if (history.length === 0) {
+            listHtml = '<div style="text-align:center; padding:40px 20px; color:#94a3b8;">暂无考试记录</div>';
+        } else {
+            listHtml = history.map((h, i) => {
+                const date = new Date(h.timestamp);
+                const dateStr = `${date.getMonth()+1}/${date.getDate()} ${String(date.getHours()).padStart(2,'0')}:${String(date.getMinutes()).padStart(2,'0')}`;
+                const m = Math.floor(h.timeSpent / 60);
+                const s = h.timeSpent % 60;
+                const barColor = h.accuracy >= 80 ? '#16a34a' : h.accuracy >= 60 ? '#f59e0b' : '#dc2626';
+                return `<div class="record-item" style="border-left:4px solid ${barColor};">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-weight:600;">${h.accuracy}%</span>
+                        <span style="font-size:0.75rem; color:#94a3b8;">${dateStr}</span>
+                    </div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">
+                        ${h.correct}/${h.totalQuestions} 正确 · 用时 ${m}:${String(s).padStart(2,'0')}
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        examArea.innerHTML = `
+            <div class="card">
+                <div class="card-label">📋 考试历史记录 (${history.length} 次)</div>
+                ${listHtml}
+            </div>
+            ${history.length > 0 ? `
+            <div class="card">
+                <div class="card-label">📈 成绩趋势</div>
+                <canvas id="historyChart" width="400" height="200" style="width:100%; height:200px;"></canvas>
+            </div>
+            <div style="text-align:center; margin-top:8px;">
+                <button class="btn btn-danger btn-sm" id="clearExamHistoryBtn">🗑️ 清除所有考试记录</button>
+            </div>` : ''}
+            <div style="text-align:center; margin-top:8px;">
+                <button class="btn btn-secondary" id="backToExamBtn">← 返回</button>
+            </div>
+        `;
+
+        if (history.length > 0) {
+            const sortedHistory = [...history].sort((a, b) => a.timestamp - b.timestamp);
+            const canvas = document.getElementById('historyChart');
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr);
+
+            const W = rect.width;
+            const H = rect.height;
+            const padL = 40, padR = 20, padT = 20, padB = 40;
+            const chartW = W - padL - padR;
+            const chartH = H - padT - padB;
+            const scores = sortedHistory.map(h => h.accuracy);
+            const n = scores.length;
+            const stepX = n > 1 ? chartW / (n - 1) : chartW;
+
+            ctx.clearRect(0, 0, W, H);
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.lineWidth = 1;
+            for (let i = 0; i <= 5; i++) {
+                const y = padT + chartH * (1 - i / 5);
+                ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(padL + chartW, y); ctx.stroke();
+                ctx.fillStyle = '#94a3b8'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
+                ctx.fillText(`${i*20}%`, padL - 6, y + 3);
             }
+
+            const gradient = ctx.createLinearGradient(0, padT, 0, padT + chartH);
+            gradient.addColorStop(0, 'rgba(37, 99, 235, 0.3)');
+            gradient.addColorStop(1, 'rgba(37, 99, 235, 0.02)');
+            ctx.beginPath();
+            scores.forEach((s, i) => {
+                const x = padL + (n > 1 ? i * stepX : chartW / 2);
+                const y = padT + chartH * (1 - s / 100);
+                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            });
+            ctx.lineTo(padL + (n > 1 ? (n-1) * stepX : chartW/2), padT + chartH);
+            ctx.lineTo(padL, padT + chartH);
+            ctx.closePath();
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            ctx.beginPath();
+            scores.forEach((s, i) => {
+                const x = padL + (n > 1 ? i * stepX : chartW / 2);
+                const y = padT + chartH * (1 - s / 100);
+                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            });
+            ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round'; ctx.stroke();
+
+            scores.forEach((s, i) => {
+                const x = padL + (n > 1 ? i * stepX : chartW / 2);
+                const y = padT + chartH * (1 - s / 100);
+                ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI*2); ctx.fillStyle = '#2563eb'; ctx.fill();
+                ctx.beginPath(); ctx.arc(x, y, 2, 0, Math.PI*2); ctx.fillStyle = '#fff'; ctx.fill();
+                ctx.fillStyle = '#2563eb'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText(`${s}%`, x, y - 8);
+            });
+
+            const clearBtn = document.getElementById('clearExamHistoryBtn');
+            if (clearBtn) {
+                clearBtn.onclick = async () => {
+                    if (confirm('确定清除所有考试历史记录？不可恢复。')) {
+                        await clearExamHistory();
+                        renderExamHistory();
+                    }
+                };
+            }
+        }
+
+        document.getElementById('backToExamBtn').onclick = () => {
+            examMode = 'ready';
+            renderExamStart();
         };
     }
 
