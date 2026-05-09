@@ -27,7 +27,6 @@
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - 24px);
-            max-height: 800px;
         }
 
         .header {
@@ -217,18 +216,19 @@
             background: none;
             padding: 10px 0 12px;
             font-size: 12px;
-            color: #2563eb;
+            color: #94a3b8;
             cursor: pointer;
             transition: color 0.2s;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2px;
-            font-weight: 600;
+            font-weight: 500;
             text-decoration: none;
         }
         .bottom-nav a .nav-icon { font-size: 20px; }
         .bottom-nav a:active { opacity: 0.6; }
+        .bottom-nav a.active { color: #2563eb; font-weight: 600; }
 
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -253,6 +253,7 @@
                 <a href="index.html" class="current">🏠 主页</a>
                 <a href="vocabulary_app.html">📘 单词</a>
                 <a href="practice_coach.html">🧠 刷题</a>
+                <a href="vocab_story.html">📖 故事</a>
                 <a href="question_batch_generator.html">📦 批量生成</a>
             </div>
         </header>
@@ -298,7 +299,7 @@
                 </div>
             </a>
 
-            <a href="TOEIC词汇故事.html" class="feature-card">
+            <a href="vocab_story.html" class="feature-card">
                 <div class="card-header">
                     <div class="card-icon">📖</div>
                     <div class="card-title-wrap">
@@ -316,11 +317,27 @@
                 </div>
             </a>
 
-            
+            <a href="question_batch_generator.html" class="feature-card">
+                <div class="card-header">
+                    <div class="card-icon">📦</div>
+                    <div class="card-title-wrap">
+                        <div class="card-title">批量生成题目</div>
+                        <div class="card-subtitle">批量AI出题 · 丰富题库</div>
+                    </div>
+                </div>
+                <div class="card-desc">
+                    批量生成托业 Part 5 题目并保存到本地题库，支持选择生成数量和难度，生成的题目可直接在刷题中使用。
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat primary">🤖 AI出题</span>
+                    <span class="card-stat">📊 自定义难度</span>
+                    <span class="card-stat">💾 本地保存</span>
+                </div>
+            </a>
         </div>
 
         <nav class="bottom-nav">
-            <a href="index.html">
+            <a href="index.html" class="active">
                 <span class="nav-icon">🏠</span> 首页
             </a>
             <a href="vocabulary_app.html">
@@ -328,6 +345,9 @@
             </a>
             <a href="practice_coach.html">
                 <span class="nav-icon">🧠</span> 刷题
+            </a>
+            <a href="vocab_story.html">
+                <span class="nav-icon">📖</span> 故事
             </a>
             <a href="question_batch_generator.html">
                 <span class="nav-icon">📦</span> 批量生成

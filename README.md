@@ -27,6 +27,13 @@
 - **错题回顾**：按全部/仅错题/仅正确筛选，点击展开详细解析
 - **题目缓存管理**：一键清除题目哈希缓存，允许重新生成曾出现过的题目
 
+### 词汇故事 (`vocab_story.html`)
+
+- **故事串联**：通过 5 篇关联文章串联托业高频词汇，覆盖商务、职场、法律、科技、日常生活等场景
+- **点击查词**：文章中高亮词汇可点击查看详细释义、词性、近义词/反义词
+- **内置词库**：包含 1042 个托业核心词汇
+- **搜索功能**：顶部搜索栏可快速查找单词
+
 ### 批量题目生成器 (`question_batch_generator.html`)
 
 - 批量生成托业 Part 5 题目并保存到本地题库
@@ -51,6 +58,7 @@
 ├── index.html                    # 统一入口页面
 ├── vocabulary_app.html           # 单词记忆应用
 ├── practice_coach.html           # 题库练习应用（含模拟考试）
+├── vocab_story.html              # 词汇故事应用
 ├── question_batch_generator.html # 批量题目生成器
 ├── word_database.json            # 托业核心词库（1000+ 单词）
 ├── toeic_questions_sample.json   # 本地题库样本
@@ -85,7 +93,7 @@ npx http-server -p 8000
 2. 在 API Key 输入框填入你的 ARK_API_KEY
 3. 点击保存，即可开始刷题
 
-> 单词记忆功能完全本地运行，无需 API Key。
+> 单词记忆和词汇故事功能完全本地运行，无需 API Key。
 
 ## 词库 JSON 格式
 

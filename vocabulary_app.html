@@ -19,7 +19,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 12px;
         }
         #app {
@@ -30,7 +30,7 @@
             box-shadow: 0 20px 60px rgba(0, 20, 40, 0.12);
             overflow: hidden;
             position: relative;
-            min-height: 640px;
+            min-height: calc(100vh - 24px);
             display: flex;
             flex-direction: column;
         }
@@ -55,7 +55,7 @@
             align-items: center;
             gap: 10px;
         }
-        .header-left button {
+        .header-left a {
             background: rgba(255, 255, 255, 0.18);
             border: none;
             color: #fff;
@@ -69,7 +69,7 @@
             align-items: center;
             justify-content: center;
         }
-        .header-left button:active {
+        .header-left a:active {
             background: rgba(255, 255, 255, 0.30);
         }
         .header h1 {
@@ -674,6 +674,7 @@
                 <a href="index.html">🏠 主页</a>
                 <a href="vocabulary_app.html" class="current">📘 单词</a>
                 <a href="practice_coach.html">🧠 刷题</a>
+                <a href="vocab_story.html">📖 故事</a>
                 <a href="question_batch_generator.html">📦 批量生成</a>
             </div>
         </header>

@@ -29,7 +29,7 @@
             min-height: calc(100vh - 24px);
         }
         .header {
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             padding: 16px 16px 14px;
             color: #fff;
             display: flex;
@@ -95,7 +95,11 @@
         .header-nav a:active { background: rgba(255, 255, 255, 0.30); }
         .header-nav .current { background: rgba(255, 255, 255, 0.35); font-weight: 600; }
 
-        .content { flex: 1; padding: 16px 18px 20px; overflow-y: auto; }
+        .content { flex: 1; padding: 16px 18px 20px; overflow-y: auto; animation: fadeIn 0.30s ease; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
         .card {
             background: #ffffff;
@@ -390,7 +394,7 @@
         }
         .bottom-nav a .nav-icon { font-size: 20px; }
         .bottom-nav a:active { opacity: 0.6; }
-        .bottom-nav a.active { color: #7c3aed; }
+        .bottom-nav a.active { color: #2563eb; }
 
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -415,6 +419,7 @@
             <a href="index.html">🏠 主页</a>
             <a href="vocabulary_app.html">📘 单词</a>
             <a href="practice_coach.html">🧠 刷题</a>
+            <a href="vocab_story.html">📖 故事</a>
             <a href="question_batch_generator.html" class="current">📦 批量生成</a>
         </div>
     </header>
@@ -512,6 +517,9 @@
         </a>
         <a href="practice_coach.html">
             <span class="nav-icon">🧠</span> 刷题
+        </a>
+        <a href="vocab_story.html">
+            <span class="nav-icon">📖</span> 故事
         </a>
         <a href="question_batch_generator.html" class="active">
             <span class="nav-icon">📦</span> 批量生成
