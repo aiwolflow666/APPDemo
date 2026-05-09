@@ -1,0 +1,232 @@
+[
+  {
+    "id": "local_001",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The company announced a significant _____ in its global marketing strategy this quarter.",
+    "options": ["increase", "increasing", "increased", "increases"],
+    "options_cn": ["增加（名词）", "增加（动名词）", "增加了（过去分词）", "增加（第三人称单数）"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司本季度宣布了其全球营销策略的重大调整。",
+    "keywords": [
+      {"word": "increase", "pos": "n./v.", "meaning": "增加，增长"},
+      {"word": "announce", "pos": "v.", "meaning": "宣布"},
+      {"word": "significant", "pos": "adj.", "meaning": "重要的，重大的"}
+    ],
+    "solutionSteps": "1. 空前有 'a significant' 和 'in'，空格后是介词短语，空格处应填名词。2. 'increase' 可作名词，'increasing' 为动名词或现在分词，'increased' 为过去分词，'increases' 为第三人称单数动词。3. 冠词 'a' 修饰名词，故选 increase。",
+    "wrongOptionAnalysis": [
+      "动名词形式，不能被冠词修饰",
+      "过去分词作形容词时需配合名词使用",
+      "第三人称单数动词，需要主谓一致"
+    ],
+    "summaryTip": "注意冠词+形容词的组合提示名词空缺。increase 作名词时意为 '增加量/增长'。"
+  },
+  {
+    "id": "local_002",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The quarterly report _____ the board of directors by the end of this week.",
+    "options": ["will be presented", "is presenting", "presented", "has presented"],
+    "options_cn": ["将被呈报", "正在呈报", "呈报了（过去式）", "已呈报（现在完成时）"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "季度报告将在本周结束前呈报给董事会。",
+    "keywords": [
+      {"word": "quarterly", "pos": "adj.", "meaning": "季度的"},
+      {"word": "present", "pos": "v.", "meaning": "呈报，提交"},
+      {"word": "board of directors", "pos": "n.", "meaning": "董事会"}
+    ],
+    "solutionSteps": "1. 时间状语 'by the end of this week' 表示将来的截止时间。2. 主语 'The quarterly report' 与动词 'present' 为被动关系。3. 'will be presented' 为一般将来时被动语态，符合题意。",
+    "wrongOptionAnalysis": [
+      "进行时态不能与表示将来时间状语连用",
+      "一般过去时，不能与将来时间状语连用",
+      "现在完成时表示已经完成的动作，与将来截止时间不符"
+    ],
+    "summaryTip": "by + 将来的时间点 = 一般将来时。报告被呈报 = 被动语态。组合：will be + 过去分词。"
+  },
+  {
+    "id": "local_003",
+    "category": "介词搭配",
+    "difficulty": 3,
+    "questionText": "All employees must comply _____ the new safety regulations effective next month.",
+    "options": ["with", "to", "for", "on"],
+    "options_cn": ["遵守，遵从", "（无此搭配）", "为了", "在...上面"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "所有员工必须遵守下月起生效的新安全条例。",
+    "keywords": [
+      {"word": "comply", "pos": "v.", "meaning": "遵从，服从"},
+      {"word": "regulation", "pos": "n.", "meaning": "条例，规章"},
+      {"word": "effective", "pos": "adj.", "meaning": "生效的"}
+    ],
+    "solutionSteps": "1. 'comply' 为不及物动词，与介词 'with' 搭配表示 '遵守'。2. 常见搭配还有 comply with rules/regulations/law。3. 其他选项均不能与 comply 搭配使用。",
+    "wrongOptionAnalysis": [
+      "to 不是 comply 的正确介词搭配",
+      "for 不表示遵守的含义",
+      "on 不能与 comply 搭配"
+    ],
+    "summaryTip": "comply with = 遵守（必须记住的搭配）。类似的还有 agree with, argue with, deal with。"
+  },
+  {
+    "id": "local_004",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "_____ the project deadline, the manager decided to hire additional staff.",
+    "options": ["Approaching", "Having approached", "To approach", "Approached"],
+    "options_cn": ["接近（现在分词）", "已接近（现在分词完成式）", "为了接近（不定式）", "接近（过去分词）"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "由于项目截止日期临近，经理决定雇用额外员工。",
+    "keywords": [
+      {"word": "approach", "pos": "v.", "meaning": "接近，临近"},
+      {"word": "deadline", "pos": "n.", "meaning": "截止日期"},
+      {"word": "additional", "pos": "adj.", "meaning": "额外的"}
+    ],
+    "solutionSteps": "1. 空格在句首，后有逗号，提示使用分词短语作状语。2. 主句主语 'the manager' 与 'approach' 是主动关系。3. 'Having approached' 强调先于主句动作发生，但这里只是说明原因，时序不重要。4. 'Approaching' 可作原因状语，符合题意。",
+    "wrongOptionAnalysis": [
+      "Having approached 强调动作先于主句，但此处不需要",
+      "不定式作状语通常表示目的，此处主句是结果而非目的",
+      "过去分词表示被动，但 approach 为不及物动词，无被动意义"
+    ],
+    "summaryTip": "不及物动词 approach 无被动语态。分词作状语时，现在分词表示主动/同时进行，过去分词表示被动/已完成。"
+  },
+  {
+    "id": "local_005",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The marketing team needs to _____ the effectiveness of the new advertising campaign.",
+    "options": ["assess", "access", "excess", "process"],
+    "options_cn": ["评估", "进入，访问", "超过，过量", "处理，加工"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "营销团队需要评估新广告活动的有效性。",
+    "keywords": [
+      {"word": "assess", "pos": "v.", "meaning": "评估，评定"},
+      {"word": "effectiveness", "pos": "n.", "meaning": "有效性"},
+      {"word": "campaign", "pos": "n.", "meaning": "活动，运动"}
+    ],
+    "solutionSteps": "1. 句子意为 '评估...有效性'。2. 'assess' = 评估，符合句意。3. 'access' = 进入/访问，不符合。4. 'excess' = 超过/过量，为名词或动词，但不是评估。5. 'process' = 处理，与 evaluate 意思不同。",
+    "wrongOptionAnalysis": [
+      "access 拼写相近但意思完全不同",
+      "excess 拼写相近但词性和意思都不匹配",
+      "process 虽与评估有关但语义不准确"
+    ],
+    "summaryTip": "形近词辨析是 Part 5 常见考点。assess (评估) / access (访问) / excess (过量) 需区分记忆。"
+  },
+  {
+    "id": "local_006",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "If the client _____ the contract earlier, we would have begun production last month.",
+    "options": ["had signed", "signed", "would sign", "have signed"],
+    "options_cn": ["已签署（过去完成时）", "签署（一般过去时）", "将签署", "已签署（现在完成时）"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "如果客户早点签合同，我们上个月就开始生产了。",
+    "keywords": [
+      {"word": "contract", "pos": "n.", "meaning": "合同"},
+      {"word": "production", "pos": "n.", "meaning": "生产"},
+      {"word": "client", "pos": "n.", "meaning": "客户"}
+    ],
+    "solutionSteps": "1. 主句 'would have begun' 是对过去的虚拟。2. if 句应使用过去完成时 'had + 过去分词'。3. 'If...had done..., ...would have done...' 是对过去的虚拟语气固定结构。4. 'signed' 用于对现在或将来的虚拟。",
+    "wrongOptionAnalysis": [
+      "一般过去时用于对现在/将来的虚拟",
+      "would 不能用于 if 条件句",
+      "现在完成时不与表示过去的时间状语 'last month' 搭配"
+    ],
+    "summaryTip": "对过去的虚拟：If + had done, ...would have done。对现在的虚拟：If + did, ...would do。"
+  },
+  {
+    "id": "local_007",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "The new policy will take effect _____ Monday, March 15.",
+    "options": ["on", "in", "at", "by"],
+    "options_cn": ["在...（具体日期）", "在...（年/月）", "在...（时刻）", "到...为止"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "新政策将于3月15日（星期一）生效。",
+    "keywords": [
+      {"word": "policy", "pos": "n.", "meaning": "政策"},
+      {"word": "take effect", "pos": "v.", "meaning": "生效"},
+      {"word": "Monday", "pos": "n.", "meaning": "星期一"}
+    ],
+    "solutionSteps": "1. 'on' 用于具体日期、星期几。2. 'in' 用于年、月、季节。3. 'at' 用于具体时刻。4. 'by' 表示截止到某时。5. 'Monday, March 15' 是具体日期，用 'on'。",
+    "wrongOptionAnalysis": [
+      "in 用于月份或年份前",
+      "at 用于具体时间点前",
+      "by 表示截止时间，语义不符"
+    ],
+    "summaryTip": "on + 具体日期/星期；in + 年/月/季节；at + 时间点。March 15 是具体日期，用 on。"
+  },
+  {
+    "id": "local_008",
+    "category": "连接词/从句",
+    "difficulty": 3,
+    "questionText": "The report covers the company's performance _____ its subsidiaries were performing well.",
+    "options": ["where", "which", "that", "when"],
+    "options_cn": ["在...的地方（关系副词）", "哪个（关系代词）", "那个（关系代词/连词）", "当...时候（时间连词）"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "报告涵盖了公司旗下子公司表现出色的地区的业绩。",
+    "keywords": [
+      {"word": "subsidiary", "pos": "n.", "meaning": "子公司"},
+      {"word": "perform", "pos": "v.", "meaning": "表现，执行"},
+      {"word": "cover", "pos": "v.", "meaning": "涵盖，覆盖"}
+    ],
+    "solutionSteps": "1. 主句完整不缺成分，空格引导定语从句修饰 'areas/places'。2. 'where' 引导地点定语从句。3. 'which' 需在从句中作主语或宾语，此处不缺成分。4. 'that' 不用于引导非限制性定语从句。5. 'when' 引导时间从句，语义不符。",
+    "wrongOptionAnalysis": [
+      "which 缺少在从句中充当成分的必要",
+      "that 不引导非限制性定语从句",
+      "when 表时间，与地点语境不符"
+    ],
+    "summaryTip": "where 引导地点/情形定语从句，先行词通常是表示地点或情形的名词。从句主谓齐全时用关系副词。"
+  },
+  {
+    "id": "local_009",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The conference room is available for your _____ use this afternoon.",
+    "options": ["exclusive", "exclusively", "exclude", "exclusion"],
+    "options_cn": ["专用的（形容词）", "专门地（副词）", "排除（动词）", "排除（名词）"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "会议室今天下午可供您专用。",
+    "keywords": [
+      {"word": "exclusive", "pos": "adj.", "meaning": "专用的，独家的"},
+      {"word": "conference", "pos": "n.", "meaning": "会议"},
+      {"word": "available", "pos": "adj.", "meaning": "可用的，空闲的"}
+    ],
+    "solutionSteps": "1. 'for your...' 之后应接名词，'for + 所有格 + 动名词' 或 'for + 所有格 + 形容词性物主代词 + 名词'。2. 空前为 'your'，空格后为 'use'（名词），空处应填形容词修饰 'use'。3. 'exclusive' 为形容词，'exclusively' 为副词。",
+    "wrongOptionAnalysis": [
+      "副词不能修饰名词",
+      "动词不能置于所有格和名词之间",
+      "名词 'exclusion' 需要搭配其他词才能修饰 use"
+    ],
+    "summaryTip": "your + 形容词性物主代词 + 名词 = your exclusive use（专用）。注意区分形容词（修饰名词）和副词（修饰动词/形容词）。"
+  },
+  {
+    "id": "local_010",
+    "category": "词汇搭配",
+    "difficulty": 3,
+    "questionText": "All participants are required to make a _____ for the annual meeting.",
+    "options": ["reservation", "reservation", "preservation", "observation"],
+    "options_cn": ["预约，预订（常见搭配）", "预约（与原文重复占位）", "保存，保护", "观察，评论"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "所有与会者需要为年度会议进行预约。",
+    "keywords": [
+      {"word": "participant", "pos": "n.", "meaning": "参与者"},
+      {"word": "annual", "pos": "adj.", "meaning": "年度的"},
+      {"word": "meeting", "pos": "n.", "meaning": "会议"}
+    ],
+    "solutionSteps": "1. 'make a reservation' = 预订/预约，是固定搭配。2. 'preservation' = 保存，语义不符。3. 'observation' = 观察，与会议预约无关。4. 注意形近词辨析和固定搭配。",
+    "wrongOptionAnalysis": [
+      "preservation 与保存相关，但不符合 make a... 搭配",
+      "observation 观察/评论，不适用此语境",
+      "preservation 不与 make a 搭配"
+    ],
+    "summaryTip": "make a reservation = 预订（酒店、座位、会议等）。记住常见 make + a + 名词搭配：make a decision, make a complaint, make a suggestion。"
+  }
+]

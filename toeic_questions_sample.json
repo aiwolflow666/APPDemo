@@ -1,0 +1,2453 @@
+[
+  {
+    "id": "toeic_p5_001",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The marketing team ______ the new campaign strategy when the CEO walked in.",
+    "options": ["discussed", "were discussing", "have discussed", "had been discussing"],
+    "options_cn": ["讨论(一般过去)", "正在讨论(过去进行)", "已经讨论(现在完成)", "一直在讨论(过去完成进行)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "当首席执行官走进来时，营销团队正在讨论新的营销活动策略。",
+    "keywords": [
+      {"word": "marketing", "pos": "n.", "meaning": "市场营销"},
+      {"word": "campaign", "pos": "n.", "meaning": "活动，战役"},
+      {"word": "strategy", "pos": "n.", "meaning": "策略"}
+    ],
+    "solutionSteps": "1. 识别句子结构：主句为'The marketing team ______ the new campaign strategy'，从句为'when the CEO walked in'（一般过去时）。\n2. 判断动作发生的顺序：团队讨论活动发生在CEO进来的同时或之前，且强调讨论正在进行时CEO进来。\n3. 过去进行时表示在过去某个时间点正在进行的动作，符合语境。\n4. 其他选项：A一般过去时不强调进行；C现在完成时与过去时间点不搭配；D过去完成进行时强调更早且持续到过去的动作，但本句更强调同时性。",
+    "wrongOptionAnalysis": [
+      "一般过去时，表示动作已完成，但这里需要表示正在进行的动作。",
+      "正确选项。",
+      "现在完成时，不能与明确的过去时间点(when...walked in)连用。",
+      "过去完成进行时，强调到过去某时刻一直在进行，但这里不需要强调持续性，且通常与for/since连用。"
+    ],
+    "summaryTip": "过去进行时表示过去某一时刻正在进行的动作，常与when/while引导的时间状语从句连用。"
+  },
+  {
+    "id": "toeic_p5_002",
+    "part": "Part5",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "All employees are required to comply ______ the company's safety regulations.",
+    "options": ["to", "with", "for", "at"],
+    "options_cn": ["向", "与...一致", "为了", "在"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "所有员工都必须遵守公司的安全规定。",
+    "keywords": [
+      {"word": "comply", "pos": "v.", "meaning": "遵守"},
+      {"word": "regulations", "pos": "n.", "meaning": "规定，规章"}
+    ],
+    "solutionSteps": "1. 识别动词'comply'的固定搭配。\n2. 'comply with'是标准短语，意为'遵守，服从'。\n3. 其他介词不与comply构成正确搭配。",
+    "wrongOptionAnalysis": [
+      "comply to 不是标准搭配。",
+      "正确搭配。",
+      "comply for 错误。",
+      "comply at 错误。"
+    ],
+    "summaryTip": "comply with = 遵守；类似搭配：abide by, conform to, adhere to。"
+  },
+  {
+    "id": "toeic_p5_003",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "Due to the ______ demand for our products, we have decided to increase production by 20%.",
+    "options": ["rising", "arising", "raising", "lifting"],
+    "options_cn": ["上升的", "出现的", "提升的(及物)", "举起的"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "由于对我们产品的需求不断增长，我们决定将产量提高20%。",
+    "keywords": [
+      {"word": "demand", "pos": "n.", "meaning": "需求"},
+      {"word": "increase", "pos": "v.", "meaning": "增加"}
+    ],
+    "solutionSteps": "1. 分析句子需要形容词修饰'demand'。\n2. 'rising demand'意为'增长的需求'，rise是不及物动词。\n3. 'arising'意为'出现'，不用于需求增长。\n4. 'raising'是及物动词，需带宾语；'lifting'指物理举起。",
+    "wrongOptionAnalysis": [
+      "正确选项，rising为不及物动词的现在分词作定语。",
+      "arising表示'产生，出现'，如problem arising，不合适。",
+      "raising是及物动词，需要宾语，如raising prices。",
+      "lifting指物理上举起，如lifting weights。"
+    ],
+    "summaryTip": "rise (vi.) 上升；raise (vt.) 提高；arise (vi.) 出现。"
+  },
+  {
+    "id": "toeic_p5_004",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The manager asked the staff ______ the meeting room before the client arrives.",
+    "options": ["prepare", "to prepare", "preparing", "prepared"],
+    "options_cn": ["准备(原形)", "准备(不定式)", "准备(现在分词)", "准备(过去分词)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "经理要求员工在客户到达之前准备好会议室。",
+    "keywords": [
+      {"word": "ask", "pos": "v.", "meaning": "要求"},
+      {"word": "client", "pos": "n.", "meaning": "客户"}
+    ],
+    "solutionSteps": "1. 动词'ask'的用法：ask sb. to do sth. 要求某人做某事。\n2. 不定式作宾语补足语。\n3. 没有ask sb. do (原形)的结构，ask后不接现在分词或过去分词作宾补。",
+    "wrongOptionAnalysis": [
+      "ask sb. do 结构错误，缺少to。",
+      "正确形式。",
+      "ask sb. preparing 错误。",
+      "ask sb. prepared 错误。"
+    ],
+    "summaryTip": "ask/tell/want/expect等动词后接宾语加不定式：ask sb. to do sth."
+  },
+  {
+    "id": "toeic_p5_005",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 1,
+    "questionText": "Each department head must submit ______ budget proposal by Friday.",
+    "options": ["his", "their", "its", "our"],
+    "options_cn": ["他的", "他们的", "它的", "我们的"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "每个部门负责人必须在周五之前提交他们的预算提案。",
+    "keywords": [
+      {"word": "department", "pos": "n.", "meaning": "部门"},
+      {"word": "budget", "pos": "n.", "meaning": "预算"},
+      {"word": "proposal", "pos": "n.", "meaning": "提案"}
+    ],
+    "solutionSteps": "1. 主语'Each department head'是单数，但现代英语常用'他们的'作性别中立代词。\n2. 'their'可指代单数不定代词each/everyone等。\n3. 'his'过于性别特定；'its'指物；'our'指包括说话者。",
+    "wrongOptionAnalysis": [
+      "his 可以指代男性，但不够包容，且题干未指定性别。",
+      "正确，their 作为单数中性代词被广泛接受。",
+      "its 指代非人，部门负责人是人。",
+      "our 指包括说话者，不符合语境。"
+    ],
+    "summaryTip": "在正式英语中，可用'his or her'，但托业更常用'their'指代单数不定代词。"
+  },
+  {
+    "id": "toeic_p5_006",
+    "part": "Part5",
+    "category": "定语从句",
+    "difficulty": 3,
+    "questionText": "The report ______ was submitted yesterday contains several errors.",
+    "options": ["who", "which", "where", "what"],
+    "options_cn": ["谁(指人)", "哪个(指物)", "哪里", "什么"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "昨天提交的那份报告包含几个错误。",
+    "keywords": [
+      {"word": "report", "pos": "n.", "meaning": "报告"},
+      {"word": "submit", "pos": "v.", "meaning": "提交"},
+      {"word": "error", "pos": "n.", "meaning": "错误"}
+    ],
+    "solutionSteps": "1. 先行词是'The report'，指物。\n2. 定语从句'______ was submitted yesterday'缺少主语。\n3. 关系代词which/that可指物作主语。\n4. who指人；where指地点；what不能引导定语从句。",
+    "wrongOptionAnalysis": [
+      "who 只能指人。",
+      "正确，which指物。",
+      "where 表示地点，在从句中作状语。",
+      "what 不能引导定语从句，它相当于the thing that。"
+    ],
+    "summaryTip": "关系代词：which/that指物，who指人，where指地点，when指时间。"
+  },
+  {
+    "id": "toeic_p5_007",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "______ the company had a strong quarter, the stock price fell sharply.",
+    "options": ["Although", "Because", "While", "Unless"],
+    "options_cn": ["虽然", "因为", "然而(对比)", "除非"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "虽然公司本季度业绩强劲，但股价大幅下跌。",
+    "keywords": [
+      {"word": "quarter", "pos": "n.", "meaning": "季度"},
+      {"word": "stock price", "pos": "n.", "meaning": "股价"},
+      {"word": "sharply", "pos": "adv.", "meaning": "急剧地"}
+    ],
+    "solutionSteps": "1. 分析逻辑关系：公司业绩好与股价下跌之间存在转折关系。\n2. 'Although'引导让步状语从句，表示'虽然...但是...'。\n3. 'Because'表因果；'While'可表对比但通常不用于这种结构；'Unless'表条件。",
+    "wrongOptionAnalysis": [
+      "正确，表示让步转折。",
+      "because 表示因果关系，逻辑不符。",
+      "while 可以表示对比，但通常用于两个同时发生的事件对比，这里更强调转折。",
+      "unless 表示除非，条件关系。"
+    ],
+    "summaryTip": "although/though引导让步状语从句，不能与but连用。"
+  },
+  {
+    "id": "toeic_p5_008",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "Neither the CEO nor the board members ______ in favor of the proposed merger.",
+    "options": ["is", "are", "was", "be"],
+    "options_cn": ["是(单数)", "是(复数)", "过去是", "原形"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "首席执行官和董事会成员都不赞成拟议的合并。",
+    "keywords": [
+      {"word": "board", "pos": "n.", "meaning": "董事会"},
+      {"word": "merger", "pos": "n.", "meaning": "合并"}
+    ],
+    "solutionSteps": "1. 'neither...nor...'连接两个主语时，谓语动词遵循'就近原则'。\n2. 最近的主语是'the board members'，复数。\n3. 因此谓语动词用复数are。\n4. 时态为一般现在时，陈述事实。",
+    "wrongOptionAnalysis": [
+      "is 是单数，但就近主语是复数。",
+      "正确，are复数。",
+      "was 是过去式单数，时态和数都不对。",
+      "be 是原形，不能作谓语。"
+    ],
+    "summaryTip": "neither...nor..., either...or..., not only...but also... 谓语动词与最近的主语保持一致。"
+  },
+  {
+    "id": "toeic_p5_009",
+    "part": "Part5",
+    "category": "情态动词",
+    "difficulty": 3,
+    "questionText": "All invoices ______ be submitted electronically by the 15th of each month.",
+    "options": ["shall", "might", "could", "would"],
+    "options_cn": ["应该(规定)", "可能", "能够", "将会(虚拟)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "所有发票必须在每月15号之前以电子方式提交。",
+    "keywords": [
+      {"word": "invoice", "pos": "n.", "meaning": "发票"},
+      {"word": "electronically", "pos": "adv.", "meaning": "电子地"}
+    ],
+    "solutionSteps": "1. 句子表达规定或义务，需要表示'必须'的情态动词。\n2. 'shall'用于正式规章、法律文件中表示强制要求。\n3. 'might/could'表示可能性；'would'表示意愿或虚拟。",
+    "wrongOptionAnalysis": [
+      "正确，shall在正式文件中表示强制义务。",
+      "might 表示可能性较小，不表示义务。",
+      "could 表示能力或可能性。",
+      "would 表示过去将来或虚拟语气。"
+    ],
+    "summaryTip": "在合同、公司政策中，'shall'常表示法定或强制性义务。"
+  },
+  {
+    "id": "toeic_p5_010",
+    "part": "Part5",
+    "category": "词汇搭配",
+    "difficulty": 2,
+    "questionText": "We regret to ______ you that your application has been rejected.",
+    "options": ["say", "tell", "inform", "speak"],
+    "options_cn": ["说", "告诉", "通知", "说话"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "我们很遗憾地通知您，您的申请已被拒绝。",
+    "keywords": [
+      {"word": "regret", "pos": "v.", "meaning": "遗憾"},
+      {"word": "application", "pos": "n.", "meaning": "申请"},
+      {"word": "reject", "pos": "v.", "meaning": "拒绝"}
+    ],
+    "solutionSteps": "1. 句型'regret to do sth.'表示遗憾要做某事。\n2. 搭配'regret to inform you'是商业信函中常见的礼貌表达。\n3. 'tell'可以接双宾语tell sb. sth.，但通常不说regret to tell you that...也可以，但inform更正式。\n4. 'say'不接双宾语；'speak'不接that从句。",
+    "wrongOptionAnalysis": [
+      "say to you that...不标准。",
+      "tell you that...可以，但inform更正式适用于商业场合。",
+      "正确，最正式得体。",
+      "speak to you that...错误。"
+    ],
+    "summaryTip": "商务英语中常用'We regret to inform you that...'表示遗憾通知。"
+  },
+  {
+    "id": "toeic_p5_011",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "If the logistics manager ______ the delay earlier, we could have rerouted the shipment.",
+    "options": ["had known", "knew", "has known", "would know"],
+    "options_cn": ["已经知道(过去完成)", "知道(一般过去)", "已经知道(现在完成)", "会知道"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "如果物流经理早点知道延误情况，我们本可以重新安排货运路线。",
+    "keywords": [
+      {"word": "logistics", "pos": "n.", "meaning": "物流"},
+      {"word": "delay", "pos": "n.", "meaning": "延误"},
+      {"word": "reroute", "pos": "v.", "meaning": "改变路线"},
+      {"word": "shipment", "pos": "n.", "meaning": "货运"}
+    ],
+    "solutionSteps": "1. 主句使用'could have + 过去分词'，表示与过去事实相反的虚拟语气。\n2. 条件从句需要用过去完成时(had + 过去分词)。\n3. 句子意为：实际上经理不知道，所以没有重新安排。\n4. 'knew'是现在虚拟，'has known'不是虚拟结构，'would know'不正确。",
+    "wrongOptionAnalysis": [
+      "正确，过去完成时表示与过去事实相反。",
+      "knew用于与现在事实相反的虚拟。",
+      "has known不是虚拟语气的正确形式。",
+      "would know不能用于if条件从句。"
+    ],
+    "summaryTip": "与过去事实相反的虚拟：if + had done, 主句 would/could/might have done。"
+  },
+  {
+    "id": "toeic_p5_012",
+    "part": "Part5",
+    "category": "倒装结构",
+    "difficulty": 4,
+    "questionText": "Only after signing the non-disclosure agreement ______ access to the confidential data.",
+    "options": ["he was granted", "was he granted", "did he grant", "granted he"],
+    "options_cn": ["他被授予", "他被授予(倒装)", "他授予", "授予他"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "只有在签署保密协议后，他才被授予访问机密数据的权限。",
+    "keywords": [
+      {"word": "non-disclosure agreement", "pos": "n.", "meaning": "保密协议"},
+      {"word": "confidential", "pos": "adj.", "meaning": "机密的"},
+      {"word": "grant", "pos": "v.", "meaning": "授予"}
+    ],
+    "solutionSteps": "1. 'Only after...' 位于句首时，主句需部分倒装。\n2. 倒装结构：助动词/情态动词 + 主语 + 谓语动词。\n3. 主语'he'和谓语'was granted'，被动语态。\n4. 将'was'提到主语前，构成'was he granted'。",
+    "wrongOptionAnalysis": [
+      "未倒装，语序错误。",
+      "正确倒装。",
+      "did he grant 主动语态，但原文需要被动。",
+      "granted he 语序混乱。"
+    ],
+    "summaryTip": "Only + 状语(介词短语/从句/副词) 置于句首，主句部分倒装。"
+  },
+  {
+    "id": "toeic_p5_013",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "This year's sales figures are ______ than last year's.",
+    "options": ["more better", "much better", "very better", "so better"],
+    "options_cn": ["更好(错误)", "好得多", "很好(错误)", "这么好(错误)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "今年的销售数据比去年好得多。",
+    "keywords": [
+      {"word": "sales figures", "pos": "n.", "meaning": "销售数据"}
+    ],
+    "solutionSteps": "1. 'than'是比较级的标志，需用形容词比较级'better'。\n2. 修饰比较级可用'much'、'far'、'a lot'等。\n3. 'more'不能修饰比较级，'very'修饰原级，'so'修饰原级。",
+    "wrongOptionAnalysis": [
+      "more better 双重比较，错误。",
+      "正确，much修饰比较级。",
+      "very 不能修饰比较级。",
+      "so 不能修饰比较级。"
+    ],
+    "summaryTip": "修饰比较级的常用词：much, far, even, a lot, a bit, slightly。"
+  },
+  {
+    "id": "toeic_p5_014",
+    "part": "Part5",
+    "category": "名词单复数",
+    "difficulty": 1,
+    "questionText": "We need to purchase new ______ for the office computers.",
+    "options": ["equipment", "equipments", "piece equipment", "equipment pieces"],
+    "options_cn": ["设备(不可数)", "设备(错误复数)", "一件设备(错误)", "设备件(错误)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "我们需要为办公室电脑购买新设备。",
+    "keywords": [
+      {"word": "purchase", "pos": "v.", "meaning": "购买"},
+      {"word": "office", "pos": "n.", "meaning": "办公室"}
+    ],
+    "solutionSteps": "1. 'equipment'是不可数名词，没有复数形式。\n2. 不可数名词不能用a/an或数词直接修饰。\n3. 如需量化，用'a piece of equipment'。",
+    "wrongOptionAnalysis": [
+      "正确，equipment为不可数名词。",
+      "equipments 错误形式。",
+      "piece equipment 缺of。",
+      "equipment pieces 不是标准表达。"
+    ],
+    "summaryTip": "常见的不可数名词：equipment, furniture, information, advice, luggage。"
+  },
+  {
+    "id": "toeic_p5_015",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The company's decision to downsize will ______ approximately 200 employees.",
+    "options": ["affect", "effect", "infect", "perfect"],
+    "options_cn": ["影响", "产生效果", "感染", "完善"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司裁员的决定将影响大约200名员工。",
+    "keywords": [
+      {"word": "downsize", "pos": "v.", "meaning": "裁员"},
+      {"word": "approximately", "pos": "adv.", "meaning": "大约"}
+    ],
+    "solutionSteps": "1. 句子需要动词，意为'影响'。\n2. 'affect'是及物动词，意为'影响'。\n3. 'effect'作为动词意为'导致，产生'，但较正式且不常用作'影响'。\n4. 'infect'感染，'perfect'使完美。",
+    "wrongOptionAnalysis": [
+      "正确，affect表示对...产生负面影响。",
+      "effect作动词意为'实现，产生'，宾语通常为change等，不直接接人。",
+      "infect 医学用语，不符合。",
+      "perfect 使完美，不合逻辑。"
+    ],
+    "summaryTip": "affect (v.) 影响；effect (n.) 影响，effect (v.) 实现。"
+  },
+  {
+    "id": "toeic_p5_016",
+    "part": "Part5",
+    "category": "平行结构",
+    "difficulty": 3,
+    "questionText": "The new manager is responsible for hiring, training, ______ employees.",
+    "options": ["and to motivate", "motivating", "and motivating", "to motivate"],
+    "options_cn": ["并激励(不定式)", "激励(现在分词)", "并激励", "激励(不定式)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "新经理负责招聘、培训和激励员工。",
+    "keywords": [
+      {"word": "manager", "pos": "n.", "meaning": "经理"},
+      {"word": "responsible", "pos": "adj.", "meaning": "负责的"}
+    ],
+    "solutionSteps": "1. 'responsible for'后接名词或动名词。\n2. 平行结构：for hiring, training, and motivating，三个动名词并列。\n3. 最后一项前需要'and'连接。",
+    "wrongOptionAnalysis": [
+      "and to motivate 与动名词不平行。",
+      "motivating 缺少and，且最后一项前通常需要and。",
+      "正确，平行且连词正确。",
+      "to motivate 形式不平行。"
+    ],
+    "summaryTip": "并列连词(and, or, but)前后的语法结构需保持一致。"
+  },
+  {
+    "id": "toeic_p5_017",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 5,
+    "questionText": "The project being delayed, the team ______ overtime to catch up.",
+    "options": ["work", "worked", "working", "were working"],
+    "options_cn": ["工作(原形)", "工作了(过去式)", "工作(现在分词)", "正在工作(过去进行)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "由于项目延误，团队加班赶工。",
+    "keywords": [
+      {"word": "project", "pos": "n.", "meaning": "项目"},
+      {"word": "delay", "pos": "v.", "meaning": "延误"},
+      {"word": "overtime", "pos": "n.", "meaning": "加班"},
+      {"word": "catch up", "pos": "phr.", "meaning": "赶上"}
+    ],
+    "solutionSteps": "1. 前半句'The project being delayed'是独立主格结构，表示原因。\n2. 后半句为主句，需要完整的谓语动词。\n3. 描述过去发生的事实，用一般过去时'worked'。\n4. 'work'原形不能作谓语，'working'非谓语，'were working'过去进行也可但不如一般过去简洁。",
+    "wrongOptionAnalysis": [
+      "work 原形不能作谓语，除非祈使句或主语非三单但这里主语单数。",
+      "正确，一般过去时。",
+      "working 不能作谓语。",
+      "were working 也可以，但语境是陈述过去事实，一般过去更直接。"
+    ],
+    "summaryTip": "独立主格结构：名词/代词 + 分词/形容词/介词短语，表示伴随、原因、条件等。"
+  },
+  {
+    "id": "toeic_p5_018",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "The quarterly financial report shows a ______ improvement in profit margins.",
+    "options": ["significance", "significantly", "significant", "signify"],
+    "options_cn": ["重要性(名词)", "显著地(副词)", "显著的(形容词)", "表示(动词)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "季度财务报告显示利润率有了显著改善。",
+    "keywords": [
+      {"word": "quarterly", "pos": "adj.", "meaning": "季度的"},
+      {"word": "financial", "pos": "adj.", "meaning": "财务的"},
+      {"word": "profit margin", "pos": "n.", "meaning": "利润率"},
+      {"word": "improvement", "pos": "n.", "meaning": "改善"}
+    ],
+    "solutionSteps": "1. 空格后是名词'improvement'，需要形容词修饰。\n2. 'significant'是形容词，意为'显著的'。\n3. 其他选项词性错误。",
+    "wrongOptionAnalysis": [
+      "significance 是名词，不能修饰名词。",
+      "significantly 是副词，修饰动词或形容词。",
+      "正确。",
+      "signify 是动词。"
+    ],
+    "summaryTip": "形容词修饰名词，副词修饰动词、形容词或句子。"
+  },
+  {
+    "id": "toeic_p5_019",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "______ the employees have completed the compliance training module.",
+    "options": ["Much of", "A large number of", "A great amount of", "A lot"],
+    "options_cn": ["许多(不可数)", "大量(可数)", "大量(不可数)", "很多(不完整)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "大量员工已经完成了合规培训模块。",
+    "keywords": [
+      {"word": "employees", "pos": "n.", "meaning": "员工(可数复数)"},
+      {"word": "compliance", "pos": "n.", "meaning": "合规"},
+      {"word": "training module", "pos": "n.", "meaning": "培训模块"}
+    ],
+    "solutionSteps": "1. 'employees'是可数名词复数。\n2. 修饰可数复数用'a large number of'，谓语动词用复数。\n3. 'much of'和'a great amount of'修饰不可数名词。\n4. 'a lot'后面缺'of'。",
+    "wrongOptionAnalysis": [
+      "much of 修饰不可数名词。",
+      "正确。",
+      "a great amount of 修饰不可数名词。",
+      "a lot of 才正确，单独a lot不修饰名词。"
+    ],
+    "summaryTip": "可数名词：a number of, many, several；不可数名词：an amount of, much, a great deal of。"
+  },
+  {
+    "id": "toeic_p5_020",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "______ from several vendors, the purchasing department finally chose the most cost-effective option.",
+    "options": ["Receiving", "Having received", "Received", "To receive"],
+    "options_cn": ["收到(主动现在分词)", "已经收到(主动完成分词)", "被收到(过去分词)", "为了收到(不定式)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "在收到几家供应商的报价后，采购部门最终选择了最具成本效益的方案。",
+    "keywords": [
+      {"word": "vendor", "pos": "n.", "meaning": "供应商"},
+      {"word": "purchasing department", "pos": "n.", "meaning": "采购部门"},
+      {"word": "cost-effective", "pos": "adj.", "meaning": "成本效益高的"}
+    ],
+    "solutionSteps": "1. 逻辑主语是'the purchasing department'，主动发出'receive'动作。\n2. 动作先后顺序：先收到报价，后选择。\n3. 完成时态的分词表示动作已完成，用'having received'。\n4. 'Receiving'表示同时，'Received'被动，'To receive'表目的。",
+    "wrongOptionAnalysis": [
+      "receiving 表示同时发生，不符。",
+      "正确，表示动作完成且主动。",
+      "received 被动，但部门主动接收。",
+      "to receive 不定式表目的，逻辑不对。"
+    ],
+    "summaryTip": "现在分词的完成式(having done)表示该动作发生在主句动作之前。"
+  },
+  {
+    "id": "toeic_p5_021",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The CEO ______ a press conference about the merger at 10 a.m. tomorrow.",
+    "options": ["holds", "held", "will be holding", "has held"],
+    "options_cn": ["举行(一般现在)", "举行(过去)", "将正在举行(将来进行)", "已经举行(现在完成)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "首席执行官明天上午10点将举行关于合并的新闻发布会。",
+    "keywords": [
+      {"word": "press conference", "pos": "n.", "meaning": "新闻发布会"},
+      {"word": "merger", "pos": "n.", "meaning": "合并"}
+    ],
+    "solutionSteps": "1. 时间状语'at 10 a.m. tomorrow'表示将来具体时刻。\n2. 将来进行时表示将来某个时间点正在进行的动作。\n3. 一般现在时表示日常安排，但不如将来进行时精确。\n4. 一般过去时和现在完成时不与tomorrow连用。",
+    "wrongOptionAnalysis": [
+      "holds 一般现在时可用于计划，但通常不用于具体将来时刻。",
+      "held 过去时，时间错误。",
+      "正确，将来进行时。",
+      "has held 现在完成时，不用于将来。"
+    ],
+    "summaryTip": "将来进行时(will be doing)表示将来某个时刻正在进行的动作。"
+  },
+  {
+    "id": "toeic_p5_022",
+    "part": "Part5",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "Our company specializes ______ providing cloud-based solutions for small businesses.",
+    "options": ["in", "at", "on", "for"],
+    "options_cn": ["在...方面", "在...地点", "在...上", "为了"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "我们公司专门为小企业提供基于云的解决方案。",
+    "keywords": [
+      {"word": "specialize", "pos": "v.", "meaning": "专门从事"},
+      {"word": "cloud-based", "pos": "adj.", "meaning": "基于云的"},
+      {"word": "solutions", "pos": "n.", "meaning": "解决方案"}
+    ],
+    "solutionSteps": "1. 动词'specialize'的固定搭配是'specialize in'。\n2. 后接名词或动名词，意为'专门从事...'。\n3. 其他介词不正确。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "specialize at 错误。",
+      "specialize on 错误。",
+      "specialize for 错误。"
+    ],
+    "summaryTip": "同义短语：be expert in, focus on, concentrate on。"
+  },
+  {
+    "id": "toeic_p5_023",
+    "part": "Part5",
+    "category": "词汇搭配",
+    "difficulty": 3,
+    "questionText": "The supplier failed to ______ the delivery deadline, resulting in a penalty fee.",
+    "options": ["meet", "make", "do", "reach"],
+    "options_cn": ["满足(期限)", "制作", "做", "到达"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "供应商未能按时交货，导致产生罚金。",
+    "keywords": [
+      {"word": "supplier", "pos": "n.", "meaning": "供应商"},
+      {"word": "delivery deadline", "pos": "n.", "meaning": "交货期限"},
+      {"word": "penalty fee", "pos": "n.", "meaning": "罚金"}
+    ],
+    "solutionSteps": "1. 固定搭配'meet a deadline'意为'按时完成，满足期限'。\n2. 'make a deadline'也偶有使用，但标准搭配是meet。\n3. 'do'和'reach'不用于deadline搭配。",
+    "wrongOptionAnalysis": [
+      "正确，meet a deadline。",
+      "make a deadline 口语中可接受，但meet更正式准确。",
+      "do a deadline 错误。",
+      "reach a deadline 不地道。"
+    ],
+    "summaryTip": "常见搭配：meet a deadline, miss a deadline, extend a deadline。"
+  },
+  {
+    "id": "toeic_p5_024",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 3,
+    "questionText": "The team worked overtime every night, ______ they managed to launch the product on time.",
+    "options": ["so", "but", "however", "for"],
+    "options_cn": ["所以", "但是", "然而", "因为"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "团队每晚加班，因此他们设法按时推出了产品。",
+    "keywords": [
+      {"word": "overtime", "pos": "n.", "meaning": "加班"},
+      {"word": "launch", "pos": "v.", "meaning": "推出"},
+      {"word": "on time", "pos": "phr.", "meaning": "按时"}
+    ],
+    "solutionSteps": "1. 前后句为因果关系：加班导致按时推出。\n2. 'so'表示结果，连接并列句。\n3. 'but'表转折，'however'表转折(需分号或句号隔开)，'for'表原因(较弱)。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "but 表转折，逻辑不符。",
+      "however 不能直接连接两个分句，需;however,。",
+      "for 表原因，但这里需要结果。"
+    ],
+    "summaryTip": "so表结果，because表原因。"
+  },
+  {
+    "id": "toeic_p5_025",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The memo ______ to all staff yesterday contained important updates about the new policy.",
+    "options": ["was sent", "sent", "sending", "having sent"],
+    "options_cn": ["被发送(谓语)", "被发送的(过去分词)", "发送(现在分词)", "已经发送(完成分词)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "昨天发给所有员工的备忘录包含了关于新政策的重要更新。",
+    "keywords": [
+      {"word": "memo", "pos": "n.", "meaning": "备忘录"},
+      {"word": "updates", "pos": "n.", "meaning": "更新信息"},
+      {"word": "policy", "pos": "n.", "meaning": "政策"}
+    ],
+    "solutionSteps": "1. 句子已有谓语动词'contained'，空格处应为非谓语动词作定语修饰'memo'。\n2. 'memo'与'send'之间是被动关系，用过去分词'sent'。\n3. 'was sent'是谓语，会导致两个谓语动词错误。\n4. 'sending'主动，'having sent'主动完成。",
+    "wrongOptionAnalysis": [
+      "was sent 作谓语，但contained也是谓语，错误。",
+      "正确，过去分词短语作定语。",
+      "sending 主动，但备忘录是被发送。",
+      "having sent 主动完成，不符。"
+    ],
+    "summaryTip": "过去分词短语作定语表示被动和完成，相当于定语从句that was sent。"
+  },
+  {
+    "id": "toeic_p5_026",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "It is essential that every employee ______ the safety training before operating machinery.",
+    "options": ["complete", "completes", "completed", "has completed"],
+    "options_cn": ["完成(原形)", "完成(三单)", "完成了(过去)", "已经完成"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "每位员工在操作机器之前必须完成安全培训。",
+    "keywords": [
+      {"word": "essential", "pos": "adj.", "meaning": "必要的"},
+      {"word": "safety training", "pos": "n.", "meaning": "安全培训"},
+      {"word": "machinery", "pos": "n.", "meaning": "机器"}
+    ],
+    "solutionSteps": "1. It is +形容词 + that从句中，形容词表示建议、要求、必要时，从句用虚拟语气。\n2. 虚拟语气形式：should + 动词原形，should可省略。\n3. 所以用动词原形'complete'。\n4. 'completes'是陈述语气，'completed'过去时，'has completed'完成时。",
+    "wrongOptionAnalysis": [
+      "正确，虚拟语气原形。",
+      "completes 陈述语气三单，不符合虚拟。",
+      "completed 过去时。",
+      "has completed 现在完成时。"
+    ],
+    "summaryTip": "表示建议、命令、要求的形容词(essential, important, necessary)后that从句用(should) do。"
+  },
+  {
+    "id": "toeic_p5_027",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "The HR department is conducting a ______ review of the employee benefits package.",
+    "options": ["comprehensive", "comprehensively", "comprehension", "comprehend"],
+    "options_cn": ["全面的(形容词)", "全面地(副词)", "理解力(名词)", "理解(动词)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "人力资源部正在对员工福利方案进行全面审查。",
+    "keywords": [
+      {"word": "HR department", "pos": "n.", "meaning": "人力资源部"},
+      {"word": "review", "pos": "n.", "meaning": "审查"},
+      {"word": "benefits package", "pos": "n.", "meaning": "福利方案"}
+    ],
+    "solutionSteps": "1. 空格后是名词'review'，需要形容词修饰。\n2. 'comprehensive'是形容词，意为'全面的'。\n3. 其他选项词性错误。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "comprehensively 副词，不能修饰名词。",
+      "comprehension 名词。",
+      "comprehend 动词。"
+    ],
+    "summaryTip": "形容词修饰名词，副词修饰动词、形容词或句子。"
+  },
+  {
+    "id": "toeic_p5_028",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "The series of quarterly meetings ______ scheduled to begin next week.",
+    "options": ["is", "are", "were", "have been"],
+    "options_cn": ["是(单数)", "是(复数)", "过去是", "已经"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "这一系列季度会议计划于下周开始。",
+    "keywords": [
+      {"word": "series", "pos": "n.", "meaning": "系列(单复同形)"},
+      {"word": "quarterly", "pos": "adj.", "meaning": "季度的"}
+    ],
+    "solutionSteps": "1. 主语是'The series'，'series'单复数同形，但此处被'a series of'修饰，中心词是'series'。\n2. 'a series of'通常视为单数概念。\n3. 谓语动词用单数'is'。\n4. 'are/were/have been'都是复数。",
+    "wrongOptionAnalysis": [
+      "正确，单数。",
+      "are 复数，错误。",
+      "were 过去式复数，错误。",
+      "have been 现在完成复数，错误。"
+    ],
+    "summaryTip": "a series of, a species of, a portion of 等短语后谓语动词用单数。"
+  },
+  {
+    "id": "toeic_p5_029",
+    "part": "Part5",
+    "category": "情态动词",
+    "difficulty": 3,
+    "questionText": "You ______ submit your travel reimbursement receipts within 30 days of the trip.",
+    "options": ["ought", "shall", "must", "could"],
+    "options_cn": ["应该(后跟to)", "应当(正式)", "必须", "可以"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "你必须在旅行结束后30天内提交差旅报销收据。",
+    "keywords": [
+      {"word": "travel reimbursement", "pos": "n.", "meaning": "差旅报销"},
+      {"word": "receipts", "pos": "n.", "meaning": "收据"},
+      {"word": "trip", "pos": "n.", "meaning": "旅行"}
+    ],
+    "solutionSteps": "1. 句子表达公司规定或义务，需用表示'必须'的情态动词。\n2. 'must'语气最强，表示义务。\n3. 'ought'后需加to，'ought to'表示应该，但不如must强制。\n4. 'shall'用于正式文件，但日常不如must常见；'could'表可能性。",
+    "wrongOptionAnalysis": [
+      "ought 缺少to，且语气较弱。",
+      "shall 可用于规定，但must更直接。",
+      "正确，must。",
+      "could 表示可能性或能力，不表义务。"
+    ],
+    "summaryTip": "must表示主观义务或强制规定；have to表示客观需要。"
+  },
+  {
+    "id": "toeic_p5_030",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The two companies signed a memorandum of understanding to ______ their partnership.",
+    "options": ["strengthen", "heighten", "intensify", "enlarge"],
+    "options_cn": ["加强(关系)", "提高(高度)", "加剧(程度)", "扩大(尺寸)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "两家公司签署了谅解备忘录以加强合作关系。",
+    "keywords": [
+      {"word": "memorandum of understanding", "pos": "n.", "meaning": "谅解备忘录"},
+      {"word": "partnership", "pos": "n.", "meaning": "合作伙伴关系"}
+    ],
+    "solutionSteps": "1. 搭配'strengthen partnership'意为'加强伙伴关系'，常见商业用语。\n2. 'heighten'指提高高度或强度，但多用于情感、风险等。\n3. 'intensify'指加剧(程度、强度)，常含负面意味。\n4. 'enlarge'指扩大尺寸或范围，不用于关系。",
+    "wrongOptionAnalysis": [
+      "正确，strengthen partnership。",
+      "heighten 不用于关系。",
+      "intensify 语气过强，且多用于负面。",
+      "enlarge 指物理尺寸放大。"
+    ],
+    "summaryTip": "partnership常用搭配：form, build, strengthen, dissolve a partnership。"
+  },
+  {
+    "id": "toeic_p5_031",
+    "part": "Part5",
+    "category": "定语从句",
+    "difficulty": 3,
+    "questionText": "The warehouse, ______ roof was damaged in the storm, will be closed for repairs.",
+    "options": ["whose", "which", "that", "of which the"],
+    "options_cn": ["谁的", "哪个", "那个", "其中...的"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "那个在暴风雨中屋顶受损的仓库将关闭维修。",
+    "keywords": [
+      {"word": "warehouse", "pos": "n.", "meaning": "仓库"},
+      {"word": "roof", "pos": "n.", "meaning": "屋顶"},
+      {"word": "storm", "pos": "n.", "meaning": "暴风雨"},
+      {"word": "repairs", "pos": "n.", "meaning": "维修"}
+    ],
+    "solutionSteps": "1. 先行词'The warehouse'，从句中缺少定语修饰'roof'。\n2. 关系代词'whose'表示'...的'，指人也可指物。\n3. 'which'和'that'不能直接作定语。\n4. 'of which the'可以构成'the roof of which'但不是标准形式。",
+    "wrongOptionAnalysis": [
+      "正确，whose表示所属关系。",
+      "which 不能表示所属。",
+      "that 不能表示所属。",
+      "of which the 可以但不如whose简洁，且通常写为the roof of which。"
+    ],
+    "summaryTip": "whose引导定语从句，相当于of which/whom。"
+  },
+  {
+    "id": "toeic_p5_032",
+    "part": "Part5",
+    "category": "倒装结构",
+    "difficulty": 5,
+    "questionText": "Not until the client approved the budget ______ to proceed with the marketing campaign.",
+    "options": ["we were able", "were we able", "we had been able", "able were we"],
+    "options_cn": ["我们能(正常语序)", "我们能(倒装)", "我们本已能", "能的我们"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "直到客户批准了预算，我们才能继续进行营销活动。",
+    "keywords": [
+      {"word": "client", "pos": "n.", "meaning": "客户"},
+      {"word": "approve", "pos": "v.", "meaning": "批准"},
+      {"word": "budget", "pos": "n.", "meaning": "预算"},
+      {"word": "proceed", "pos": "v.", "meaning": "继续进行"}
+    ],
+    "solutionSteps": "1. 'Not until...'位于句首时，主句需部分倒装。\n2. 倒装结构：助动词/情态动词 + 主语 + 谓语动词。\n3. 主句'we were able'中，were是be动词，倒装为'were we able'。\n4. 'we were able'未倒装，'we had been able'时态不对，'able were we'语序错误。",
+    "wrongOptionAnalysis": [
+      "未倒装。",
+      "正确倒装。",
+      "倒装形式错误，且时态不宜。",
+      "语序错误。"
+    ],
+    "summaryTip": "Not until + 从句/短语 + 主句(部分倒装)。"
+  },
+  {
+    "id": "toeic_p5_033",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "This year's operating costs are ______ lower than last year's.",
+    "options": ["significance", "significantly", "significant", "more significant"],
+    "options_cn": ["重要性(名词)", "显著地(副词)", "显著的(形容词)", "更显著的"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "今年的运营成本比去年显著降低。",
+    "keywords": [
+      {"word": "operating costs", "pos": "n.", "meaning": "运营成本"},
+      {"word": "lower", "pos": "adj.", "meaning": "更低的"}
+    ],
+    "solutionSteps": "1. 空格修饰形容词比较级'lower'，需用副词。\n2. 'significantly'是副词，意为'显著地'。\n3. 'significance'名词，'significant'形容词，'more significant'形容词比较级。",
+    "wrongOptionAnalysis": [
+      "significance 名词，不能修饰形容词。",
+      "正确，副词修饰比较级。",
+      "significant 形容词，不能修饰形容词。",
+      "more significant 形容词比较级，不能修饰另一个比较级。"
+    ],
+    "summaryTip": "副词修饰形容词或副词，如significantly lower, much lower。"
+  },
+  {
+    "id": "toeic_p5_034",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 3,
+    "questionText": "______ the budget has been allocated to research and development.",
+    "options": ["A few of", "A little of", "A small number of", "A small amount of"],
+    "options_cn": ["少数(可数)", "一点(不可数)", "少量(可数)", "少量(不可数)"],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "预算的一小部分已分配用于研发。",
+    "keywords": [
+      {"word": "budget", "pos": "n.", "meaning": "预算(可作不可数或可数)"},
+      {"word": "allocated", "pos": "v.", "meaning": "分配"},
+      {"word": "research and development", "pos": "n.", "meaning": "研发"}
+    ],
+    "solutionSteps": "1. 'budget'在此处作为不可数名词(指资金总额)。\n2. 修饰不可数名词表示'少量'用'a small amount of'。\n3. 'a few of/a small number of'修饰可数复数。\n4. 'a little of'后通常接特定名词，但不如a small amount of正式。",
+    "wrongOptionAnalysis": [
+      "a few of 修饰可数复数。",
+      "a little of 可以，但语气不如a small amount of正式。",
+      "a small number of 修饰可数名词。",
+      "正确。"
+    ],
+    "summaryTip": "amount of + 不可数；number of + 可数复数。"
+  },
+  {
+    "id": "toeic_p5_035",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "When a customer has a complaint, ______ should be directed to the customer service department.",
+    "options": ["they", "he", "it", "we"],
+    "options_cn": ["他们", "他", "它", "我们"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "当客户有投诉时，应将客户引导至客户服务部门。",
+    "keywords": [
+      {"word": "complaint", "pos": "n.", "meaning": "投诉"},
+      {"word": "customer service", "pos": "n.", "meaning": "客户服务"}
+    ],
+    "solutionSteps": "1. 主语是'a customer'，单数但性别中立。\n2. 后续代词用'they'指代单数不定人称。\n3. 'he'性别特定；'it'指物；'we'包括说话者。",
+    "wrongOptionAnalysis": [
+      "正确，单数they。",
+      "he 忽略女性客户。",
+      "it 不指代人。",
+      "we 不符合语境。"
+    ],
+    "summaryTip": "现代英语中，单数they被广泛接受，避免性别假设。"
+  },
+  {
+    "id": "toeic_p5_036",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The quarterly report is due Friday, ______ we still have not received the sales data.",
+    "options": ["so", "yet", "for", "or"],
+    "options_cn": ["所以", "然而", "因为", "否则"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "季度报告周五截止，然而我们仍未收到销售数据。",
+    "keywords": [
+      {"word": "due", "pos": "adj.", "meaning": "到期的"},
+      {"word": "sales data", "pos": "n.", "meaning": "销售数据"}
+    ],
+    "solutionSteps": "1. 前后句为转折关系：报告截止但没收到数据。\n2. 'yet'作为连词表示'然而，但是'。\n3. 'so'表因果；'for'表原因；'or'表选择。",
+    "wrongOptionAnalysis": [
+      "so 因果，不符。",
+      "正确，yet表转折。",
+      "for 原因，不符。",
+      "or 选择或警告。"
+    ],
+    "summaryTip": "yet作为并列连词，相当于but，但语气更强。"
+  },
+  {
+    "id": "toeic_p5_037",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "By the time the new CEO takes office, the restructuring plan ______ already ______.",
+    "options": ["will...be approved", "has...been approved", "will have...been approved", "is...approved"],
+    "options_cn": ["将被批准", "已经被批准", "将已经被批准", "被批准"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "到新CEO上任时，重组计划将已经获得批准。",
+    "keywords": [
+      {"word": "takes office", "pos": "v.", "meaning": "上任"},
+      {"word": "restructuring plan", "pos": "n.", "meaning": "重组计划"},
+      {"word": "approve", "pos": "v.", "meaning": "批准"}
+    ],
+    "solutionSteps": "1. 时间状语'By the time + 从句(一般现在时)'表示将来时间点。\n2. 主句表示在该时间点之前已经完成的动作，用将来完成时。\n3. 将来完成时结构：will have + 过去分词。\n4. 被动语态：will have been approved。",
+    "wrongOptionAnalysis": [
+      "will be approved 一般将来时，不强调完成。",
+      "has been approved 现在完成时，时间不对。",
+      "正确。",
+      "is approved 一般现在时，错误。"
+    ],
+    "summaryTip": "by the time + 现在时，主句用将来完成时(will have done)。"
+  },
+  {
+    "id": "toeic_p5_038",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The manager left the office early, ______ his assistant to handle the client call.",
+    "options": ["left", "leaving", "was leaving", "had left"],
+    "options_cn": ["离开(过去)", "离开(现在分词)", "正在离开", "已经离开"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "经理早早离开了办公室，留下他的助手处理客户电话。",
+    "keywords": [
+      {"word": "assistant", "pos": "n.", "meaning": "助手"},
+      {"word": "handle", "pos": "v.", "meaning": "处理"},
+      {"word": "client call", "pos": "n.", "meaning": "客户电话"}
+    ],
+    "solutionSteps": "1. 句子已有谓语动词'left'，空格处需非谓语动词作伴随状语。\n2. 'leaving'现在分词表示主动伴随动作。\n3. 'left'会变成两个谓语；'was leaving'谓语；'had left'谓语。",
+    "wrongOptionAnalysis": [
+      "left 与前面left冲突，不能有两个并列谓语无连词。",
+      "正确，现在分词表伴随。",
+      "was leaving 谓语动词。",
+      "had left 谓语动词。"
+    ],
+    "summaryTip": "现在分词作状语表示与主句动作同时发生或伴随结果。"
+  },
+  {
+    "id": "toeic_p5_039",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 5,
+    "questionText": "The presentation ______, the team proceeded to the Q&A session.",
+    "options": ["finishing", "finished", "having been finished", "was finished"],
+    "options_cn": ["结束(主动)", "被结束(过去分词)", "已经被结束(完成被动分词)", "被结束(谓语)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "演示结束后，团队进入了问答环节。",
+    "keywords": [
+      {"word": "presentation", "pos": "n.", "meaning": "演示"},
+      {"word": "Q&A session", "pos": "n.", "meaning": "问答环节"}
+    ],
+    "solutionSteps": "1. 前一部分是独立主格结构，由名词+分词构成。\n2. 'presentation'与'finish'是被动关系，且动作发生在主句动作之前。\n3. 完成被动式：having been finished。\n4. 'finishing'主动；'finished'过去分词可表被动但未强调完成先后；'was finished'是谓语。",
+    "wrongOptionAnalysis": [
+      "finishing 主动，但演示是被结束。",
+      "finished 可以，但未强调动作完成在先，独立主格常用having been done。",
+      "正确。",
+      "was finished 谓语动词，不能用于独立主格。"
+    ],
+    "summaryTip": "独立主格中，表示被动且先于主句的动作，用having been done。"
+  },
+  {
+    "id": "toeic_p5_040",
+    "part": "Part5",
+    "category": "平行结构",
+    "difficulty": 3,
+    "questionText": "The new software enables users to manage inventory, track shipments, and ______ sales reports.",
+    "options": ["generating", "to generate", "generate", "generated"],
+    "options_cn": ["生成(现在分词)", "生成(不定式)", "生成(原形)", "生成(过去)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "新软件使用户能够管理库存、跟踪货运和生成销售报告。",
+    "keywords": [
+      {"word": "software", "pos": "n.", "meaning": "软件"},
+      {"word": "inventory", "pos": "n.", "meaning": "库存"},
+      {"word": "shipments", "pos": "n.", "meaning": "货运"}
+    ],
+    "solutionSteps": "1. 平行结构：enable sb. to do A, do B, and do C。\n2. 三个动词不定式并列，后面的to可省略。\n3. 'manage', 'track'和空格处需保持形式一致，均为动词原形。\n4. 'generate'原形正确。",
+    "wrongOptionAnalysis": [
+      "generating 现在分词，不平行。",
+      "to generate 带to，但前面manage和track无to(因enable to manage, (to) track, (to) generate，第二个to可省，但第三个通常也省)。其实语法上可以保留to，但更常见省略。本题中manage和track都是原形，所以generate原形最平行。",
+      "正确。",
+      "generated 过去分词，不平行。"
+    ],
+    "summaryTip": "并列结构中，不定式并列可省略后面的to，保持原形即可。"
+  },
+  {
+    "id": "toeic_p5_041",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "The sudden resignation of the CFO came as a ______ to everyone in the company.",
+    "options": ["surprised", "surprising", "surprise", "surprisingly"],
+    "options_cn": ["感到惊讶的(形容词)", "令人惊讶的(形容词)", "惊讶(名词)", "惊讶地(副词)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "首席财务官的突然辞职对公司里的每个人来说都是一个意外。",
+    "keywords": [
+      {"word": "resignation", "pos": "n.", "meaning": "辞职"},
+      {"word": "CFO", "pos": "n.", "meaning": "首席财务官"}
+    ],
+    "solutionSteps": "1. 'came as a ______'，不定冠词'a'后需要可数名词单数。\n2. 'surprise'是名词，意为'意外的事情'。\n3. 'surprised/surprising'是形容词，'surprisingly'是副词。",
+    "wrongOptionAnalysis": [
+      "surprised 形容词，不能直接跟在a后。",
+      "surprising 形容词。",
+      "正确，名词。",
+      "surprisingly 副词。"
+    ],
+    "summaryTip": "a + 可数名词单数；系动词后可用形容词，但此处有冠词a。"
+  },
+  {
+    "id": "toeic_p5_042",
+    "part": "Part5",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "The company is currently in negotiations ______ a potential merger partner.",
+    "options": ["with", "for", "to", "at"],
+    "options_cn": ["与...一起", "为了", "到", "在"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司目前正在与一个潜在的合并伙伴进行谈判。",
+    "keywords": [
+      {"word": "negotiations", "pos": "n.", "meaning": "谈判"},
+      {"word": "potential", "pos": "adj.", "meaning": "潜在的"},
+      {"word": "merger partner", "pos": "n.", "meaning": "合并伙伴"}
+    ],
+    "solutionSteps": "1. 固定搭配'in negotiations with sb.'意为'与某人谈判'。\n2. 'with'表示共同参与。\n3. 其他介词不合适。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "for 表示目的，如negotiations for a contract。",
+      "to 错误。",
+      "at 错误。"
+    ],
+    "summaryTip": "negotiate with sb. over/about sth. 与某人谈判某事。"
+  },
+  {
+    "id": "toeic_p5_043",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The logistics coordinator was asked to ______ the cause of the shipping delay.",
+    "options": ["investigate", "examine", "inspect", "scrutinize"],
+    "options_cn": ["调查(原因)", "检查(细节)", "视察(现场)", "仔细审视"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "物流协调员被要求调查货运延误的原因。",
+    "keywords": [
+      {"word": "logistics coordinator", "pos": "n.", "meaning": "物流协调员"},
+      {"word": "shipping delay", "pos": "n.", "meaning": "货运延误"},
+      {"word": "cause", "pos": "n.", "meaning": "原因"}
+    ],
+    "solutionSteps": "1. 宾语是'the cause'，需要表示'调查原因'的动词。\n2. 'investigate'专门指调查事件原因。\n3. 'examine'检查细节；'inspect'视察或检查；'scrutinize'仔细审查。",
+    "wrongOptionAnalysis": [
+      "正确，investigate the cause。",
+      "examine 通常检查物体或状况，不强调原因。",
+      "inspect 多指官方检查，如inspect a factory。",
+      "scrutinize 强调细致入微的审查，但不如investigate常用搭配cause。"
+    ],
+    "summaryTip": "investigate = look into 调查；examine = 检查；inspect = 视察。"
+  },
+  {
+    "id": "toeic_p5_044",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "I wish the shipping company ______ more reliable; we have had so many delays.",
+    "options": ["is", "was", "were", "has been"],
+    "options_cn": ["是(现在)", "是(过去)", "是(虚拟)", "一直是"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "我希望这家货运公司更可靠一些；我们已经遭遇了太多次延误。",
+    "keywords": [
+      {"word": "shipping company", "pos": "n.", "meaning": "货运公司"},
+      {"word": "reliable", "pos": "adj.", "meaning": "可靠的"}
+    ],
+    "solutionSteps": "1. 'wish'后的宾语从句用虚拟语气，表示与现在事实相反。\n2. 虚拟语气中，be动词一律用'were'(不论主语人称)。\n3. 'is/was'是陈述语气，'has been'完成时。",
+    "wrongOptionAnalysis": [
+      "is 陈述语气。",
+      "was 口语中有时用，但标准虚拟用were。",
+      "正确，were。",
+      "has been 陈述语气。"
+    ],
+    "summaryTip": "wish后的虚拟：现在——过去式(be用were)；过去——had done；将来——would/could do。"
+  },
+  {
+    "id": "toeic_p5_045",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "The new employee handled the difficult customer very ______.",
+    "options": ["profession", "professional", "professionally", "professionalism"],
+    "options_cn": ["职业(名词)", "专业的(形容词)", "专业地(副词)", "专业精神(名词)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "新员工非常专业地处理了这位难缠的客户。",
+    "keywords": [
+      {"word": "handled", "pos": "v.", "meaning": "处理"},
+      {"word": "customer", "pos": "n.", "meaning": "客户"}
+    ],
+    "solutionSteps": "1. 空格修饰动词'handled'，需用副词。\n2. 'professionally'是副词，意为'专业地'。\n3. 其他选项词性错误。",
+    "wrongOptionAnalysis": [
+      "profession 名词。",
+      "professional 形容词。",
+      "正确。",
+      "professionalism 名词。"
+    ],
+    "summaryTip": "副词修饰动词，通常以-ly结尾。"
+  },
+  {
+    "id": "toeic_p5_046",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "Unfortunately, only ______ the applicants have the required qualifications.",
+    "options": ["a little", "a few of", "much of", "a great deal of"],
+    "options_cn": ["一点", "少数几个", "许多", "大量"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "不幸的是，只有少数申请人具备所需的资质。",
+    "keywords": [
+      {"word": "applicants", "pos": "n.", "meaning": "申请人(可数复数)"},
+      {"word": "qualifications", "pos": "n.", "meaning": "资质"}
+    ],
+    "solutionSteps": "1. 'applicants'是可数名词复数。\n2. 表示'少数几个'用'a few of'。\n3. 'a little/much/a great deal of'修饰不可数名词。",
+    "wrongOptionAnalysis": [
+      "a little 修饰不可数。",
+      "正确。",
+      "much of 修饰不可数。",
+      "a great deal of 修饰不可数。"
+    ],
+    "summaryTip": "a few of + 可数复数；a little + 不可数。"
+  },
+  {
+    "id": "toeic_p5_047",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "Ever since the merger was announced, the stock price ______ steadily.",
+    "options": ["rises", "rose", "has risen", "had risen"],
+    "options_cn": ["上升(一般现在)", "上升(过去)", "已经上升(现在完成)", "已经上升(过去完成)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "自从合并宣布以来，股价一直在稳步上升。",
+    "keywords": [
+      {"word": "merger", "pos": "n.", "meaning": "合并"},
+      {"word": "stock price", "pos": "n.", "meaning": "股价"},
+      {"word": "steadily", "pos": "adv.", "meaning": "稳定地"}
+    ],
+    "solutionSteps": "1. 时间状语'Ever since...'表示从过去某个时间点持续到现在。\n2. 主句需用现在完成时，表示动作延续至今。\n3. 'has risen'正确。\n4. 'rises'一般现在，'rose'一般过去，'had risen'过去完成(过去的过去)。",
+    "wrongOptionAnalysis": [
+      "rises 一般现在，不表示从过去开始。",
+      "rose 一般过去，不表示持续到现在。",
+      "正确。",
+      "had risen 过去完成，需有过去参照点。"
+    ],
+    "summaryTip": "Since/ever since + 过去时间点，主句用现在完成时。"
+  },
+  {
+    "id": "toeic_p5_048",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The proposal ______ at the meeting tomorrow needs to be revised.",
+    "options": ["discussed", "to be discussed", "discussing", "being discussed"],
+    "options_cn": ["被讨论的(过去)", "将被讨论的(不定式被动)", "讨论(主动)", "正在被讨论"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "明天会议上将要讨论的提案需要修改。",
+    "keywords": [
+      {"word": "proposal", "pos": "n.", "meaning": "提案"},
+      {"word": "revised", "pos": "v.", "meaning": "修改"},
+      {"word": "meeting", "pos": "n.", "meaning": "会议"}
+    ],
+    "solutionSteps": "1. 时间状语'tomorrow'表示未来动作。\n2. 不定式作定语表示将来，被动语态'to be discussed'。\n3. 'discussed'过去分词表完成或被动态，但不明确将来。\n4. 'discussing'主动，'being discussed'正在进行。",
+    "wrongOptionAnalysis": [
+      "discussed 可表示被动，但不含将来意义。",
+      "正确，表示将来被动。",
+      "discussing 主动错误。",
+      "being discussed 表示正在被讨论，与tomorrow矛盾。"
+    ],
+    "summaryTip": "不定式作定语常表示将来；过去分词作定语表示被动或完成。"
+  },
+  {
+    "id": "toeic_p5_049",
+    "part": "Part5",
+    "category": "定语从句",
+    "difficulty": 3,
+    "questionText": "The training program, ______ is designed for new hires, will last two weeks.",
+    "options": ["that", "this", "which", "it"],
+    "options_cn": ["那个(限定)", "这个", "哪个", "它"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "这个为新员工设计的培训项目将持续两周。",
+    "keywords": [
+      {"word": "training program", "pos": "n.", "meaning": "培训项目"},
+      {"word": "new hires", "pos": "n.", "meaning": "新员工"},
+      {"word": "last", "pos": "v.", "meaning": "持续"}
+    ],
+    "solutionSteps": "1. 非限制性定语从句，用逗号隔开，不能用'that'。\n2. 关系代词'which'指物，引导非限制性从句。\n3. 'this'和'it'不能引导定语从句。",
+    "wrongOptionAnalysis": [
+      "that 不能用于非限制性定语从句。",
+      "this 不是关系代词。",
+      "正确。",
+      "it 不能引导从句。"
+    ],
+    "summaryTip": "非限制性定语从句用which(指物)或who(指人)，不用that。"
+  },
+  {
+    "id": "toeic_p5_050",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "You will receive a confirmation email ______ your payment has been processed.",
+    "options": ["once", "while", "until", "whereas"],
+    "options_cn": ["一旦", "当...时", "直到", "然而"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "一旦您的付款处理完毕，您将收到一封确认邮件。",
+    "keywords": [
+      {"word": "confirmation email", "pos": "n.", "meaning": "确认邮件"},
+      {"word": "payment", "pos": "n.", "meaning": "付款"},
+      {"word": "processed", "pos": "v.", "meaning": "处理"}
+    ],
+    "solutionSteps": "1. 表示'一...就...'的条件关系，用'once'引导条件状语从句。\n2. 'while'表示同时；'until'直到；'whereas'表对比。",
+    "wrongOptionAnalysis": [
+      "正确，once表示条件。",
+      "while 表示同时，逻辑不符。",
+      "until 表示直到...才，需要否定主句？通常主句动词是延续性。",
+      "whereas 表示对比。"
+    ],
+    "summaryTip": "once = as soon as，引导时间/条件从句。"
+  },
+  {
+    "id": "toeic_p5_051",
+    "part": "Part5",
+    "category": "词汇搭配",
+    "difficulty": 3,
+    "questionText": "The company has decided to ______ a new customer relationship management system.",
+    "options": ["adopt", "adapt", "adept", "adjust"],
+    "options_cn": ["采用", "适应", "熟练的", "调整"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司已决定采用新的客户关系管理系统。",
+    "keywords": [
+      {"word": "customer relationship management", "pos": "n.", "meaning": "客户关系管理"},
+      {"word": "system", "pos": "n.", "meaning": "系统"}
+    ],
+    "solutionSteps": "1. 动词'采用(系统/技术)'用'adopt'。\n2. 'adapt'调整适应；'adept'形容词；'adjust'调整。",
+    "wrongOptionAnalysis": [
+      "正确，adopt a system。",
+      "adapt 后常接to，意为适应。",
+      "adept 形容词，意为熟练的。",
+      "adjust 调整，如adjust settings。"
+    ],
+    "summaryTip": "adopt = take up/start using; adapt = modify to suit。"
+  },
+  {
+    "id": "toeic_p5_052",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 3,
+    "questionText": "The number of employees working remotely ______ increased significantly this year.",
+    "options": ["has", "have", "is", "are"],
+    "options_cn": ["已经(单数)", "已经(复数)", "是(单数)", "是(复数)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "今年远程办公的员工数量显著增加。",
+    "keywords": [
+      {"word": "employees", "pos": "n.", "meaning": "员工"},
+      {"word": "remotely", "pos": "adv.", "meaning": "远程地"},
+      {"word": "increased", "pos": "v.", "meaning": "增加"}
+    ],
+    "solutionSteps": "1. 主语是'The number of ...'，中心词是'number'，单数。\n2. 谓语动词用单数'has'，表示数量增加。\n3. 'have'用于复数；'is/are'是系动词，但这里需要完成时。",
+    "wrongOptionAnalysis": [
+      "正确，has increased。",
+      "have 复数，错误。",
+      "is increased 被动语态，但increase可作不及物动词。",
+      "are increased 复数被动。"
+    ],
+    "summaryTip": "the number of + 复数名词 + 单数谓语；a number of + 复数名词 + 复数谓语。"
+  },
+  {
+    "id": "toeic_p5_053",
+    "part": "Part5",
+    "category": "情态动词",
+    "difficulty": 2,
+    "questionText": "You ______ not smoke in the office building according to company policy.",
+    "options": ["may", "might", "could", "must"],
+    "options_cn": ["可以", "可能", "能够", "必须"],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "根据公司政策，你不得在办公楼内吸烟。",
+    "keywords": [
+      {"word": "smoke", "pos": "v.", "meaning": "吸烟"},
+      {"word": "office building", "pos": "n.", "meaning": "办公楼"},
+      {"word": "policy", "pos": "n.", "meaning": "政策"}
+    ],
+    "solutionSteps": "1. 表示禁止用'must not'。\n2. 'may not'也可表示不允许，但语气较委婉；must not更强烈。\n3. 'might not/could not'表示可能性或能力。",
+    "wrongOptionAnalysis": [
+      "may not 可以表示不允许，但不如must not强硬。本题may not也正确？托业中通常选must not表示明确规定。但may not也有，需看语境。通常公司政策用must not。",
+      "might not 表示可能不。",
+      "could not 表示不能(能力)。",
+      "正确，must not 表示禁止。"
+    ],
+    "summaryTip": "must not 表示禁止；may not 表示不可以(较委婉)。"
+  },
+  {
+    "id": "toeic_p5_054",
+    "part": "Part5",
+    "category": "名词单复数",
+    "difficulty": 2,
+    "questionText": "The company provides various ______ to its employees, including health insurance and paid leave.",
+    "options": ["benefit", "benefits", "beneficial", "beneficiary"],
+    "options_cn": ["利益(单数)", "福利(复数)", "有益的", "受益人"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司为员工提供各种福利，包括健康保险和带薪休假。",
+    "keywords": [
+      {"word": "health insurance", "pos": "n.", "meaning": "健康保险"},
+      {"word": "paid leave", "pos": "n.", "meaning": "带薪休假"}
+    ],
+    "solutionSteps": "1. 'various'后需接可数名词复数。\n2. 'benefits'表示'福利'。\n3. 'benefit'单数；'beneficial'形容词；'beneficiary'受益人。",
+    "wrongOptionAnalysis": [
+      "benefit 单数，但various需要复数。",
+      "正确。",
+      "beneficial 形容词。",
+      "beneficiary 名词，意为受益人，不是福利。"
+    ],
+    "summaryTip": "employee benefits 员工福利；various + 可数名词复数。"
+  },
+  {
+    "id": "toeic_p5_055",
+    "part": "Part5",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "The manager apologized ______ the delay in processing the refund.",
+    "options": ["about", "for", "of", "over"],
+    "options_cn": ["关于", "因为", "...的", "在...之上"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "经理为退款处理延迟道歉。",
+    "keywords": [
+      {"word": "apologized", "pos": "v.", "meaning": "道歉"},
+      {"word": "delay", "pos": "n.", "meaning": "延迟"},
+      {"word": "refund", "pos": "n.", "meaning": "退款"}
+    ],
+    "solutionSteps": "1. 动词apologize的固定搭配：apologize for sth.。\n2. 'for'表示原因。\n3. 其他介词不正确。",
+    "wrongOptionAnalysis": [
+      "apologize about 非标准。",
+      "正确。",
+      "apologize of 错误。",
+      "apologize over 有时可用，但不及for常见。"
+    ],
+    "summaryTip": "apologize to sb. for sth. 因某事向某人道歉。"
+  },
+  {
+    "id": "toeic_p5_056",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The supplier increased the price due to ______ costs of raw materials.",
+    "options": ["rising", "arising", "raising", "risen"],
+    "options_cn": ["上涨的", "出现的", "提高的(及物)", "已经上涨的"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "由于原材料成本上涨，供应商提高了价格。",
+    "keywords": [
+      {"word": "supplier", "pos": "n.", "meaning": "供应商"},
+      {"word": "raw materials", "pos": "n.", "meaning": "原材料"}
+    ],
+    "solutionSteps": "1. 'costs'是名词，需要形容词修饰。\n2. 'rising costs' 上涨的成本，rise是不及物动词。\n3. 'arising' 出现；'raising' 及物；'risen' 过去分词作形容词也可，但通常用rising。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "arising 出现，不匹配。",
+      "raising 需要宾语。",
+      "risen 可以，但rising更常用。"
+    ],
+    "summaryTip": "rising prices/costs; increasing demand。"
+  },
+  {
+    "id": "toeic_p5_057",
+    "part": "Part5",
+    "category": "倒装结构",
+    "difficulty": 4,
+    "questionText": "Not only ______ the deadline, but the team also exceeded expectations.",
+    "options": ["the team met", "met the team", "did the team meet", "the team did meet"],
+    "options_cn": ["团队达到", "达到团队", "团队达到了(倒装)", "团队确实达到"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "团队不仅赶上了截止日期，而且超出了预期。",
+    "keywords": [
+      {"word": "deadline", "pos": "n.", "meaning": "截止日期"},
+      {"word": "exceeded", "pos": "v.", "meaning": "超过"},
+      {"word": "expectations", "pos": "n.", "meaning": "预期"}
+    ],
+    "solutionSteps": "1. 'Not only'位于句首时，所在分句需要部分倒装。\n2. 原句为'The team met the deadline'，倒装后'Did the team meet'。\n3. 'met the team'语序错误；'the team met'未倒装；'the team did meet'是强调句式，不是倒装。",
+    "wrongOptionAnalysis": [
+      "未倒装。",
+      "语序错误。",
+      "正确倒装。",
+      "强调句，非倒装。"
+    ],
+    "summaryTip": "Not only + 部分倒装，but also + 正常语序。"
+  },
+  {
+    "id": "toeic_p5_058",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The board of directors will hold ______ annual meeting next Monday.",
+    "options": ["its", "their", "his", "our"],
+    "options_cn": ["它的", "他们的", "他的", "我们的"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "董事会将于下周一举行年度会议。",
+    "keywords": [
+      {"word": "board of directors", "pos": "n.", "meaning": "董事会"},
+      {"word": "annual meeting", "pos": "n.", "meaning": "年会"}
+    ],
+    "solutionSteps": "1. 'the board of directors' 作为一个集体名词，视为单数。\n2. 因此用单数代词'its'。\n3. 'their' 可视为复数，但英式英语中常见；美式英语多用单数。托业通常选单数。\n4. 'his' 只指男性；'our' 包括说话者。",
+    "wrongOptionAnalysis": [
+      "正确，单数。",
+      "their 也可接受，但托业更倾向单数。",
+      "his 性别错误。",
+      "our 错误。"
+    ],
+    "summaryTip": "集体名词如board, committee, team, 美式英语常用单数代词。"
+  },
+  {
+    "id": "toeic_p5_059",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "Of the two candidates, Mr. Smith is clearly the ______ qualified.",
+    "options": ["more", "most", "better", "best"],
+    "options_cn": ["更(修饰形容词)", "最", "更好", "最好"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "在两位候选人中，史密斯先生显然更合格。",
+    "keywords": [
+      {"word": "candidates", "pos": "n.", "meaning": "候选人"},
+      {"word": "qualified", "pos": "adj.", "meaning": "合格的"}
+    ],
+    "solutionSteps": "1. 比较范围是'Of the two candidates'，两者之间用比较级。\n2. 'qualified'是多音节形容词，比较级加'more'。\n3. 'most'最高级用于三者以上；'better/best'是good的比较级/最高级。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "most 用于三者以上。",
+      "better 是good的比较级，不是qualified的比较级。",
+      "best 最高级。"
+    ],
+    "summaryTip": "两者比较用比较级，三者以上用最高级。多音节形容词用more/most。"
+  },
+  {
+    "id": "toeic_p5_060",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "By the end of this quarter, the company ______ three new branches overseas.",
+    "options": ["will open", "has opened", "will have opened", "is opening"],
+    "options_cn": ["将开设", "已经开设", "将已经开设", "正在开设"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "到本季度末，公司将在海外开设三家新分公司。",
+    "keywords": [
+      {"word": "branches", "pos": "n.", "meaning": "分公司"},
+      {"word": "overseas", "pos": "adv./adj.", "meaning": "海外(的)"}
+    ],
+    "solutionSteps": "1. 'By the end of this quarter' 表示将来某个时间点之前。\n2. 用将来完成时，表示到那时已经完成的动作。\n3. 'will have opened' 正确。\n4. 'will open'一般将来；'has opened'现在完成；'is opening'现在进行。",
+    "wrongOptionAnalysis": [
+      "will open 一般将来，不强调完成。",
+      "has opened 现在完成，时间不对。",
+      "正确。",
+      "is opening 现在进行，不表示将来完成。"
+    ],
+    "summaryTip": "by + 将来时间，主句用将来完成时(will have done)。"
+  },
+  {
+    "id": "toeic_p5_061",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The manager requires all reports ______ before 5 p.m. every Friday.",
+    "options": ["submitted", "to be submitted", "submitting", "are submitted"],
+    "options_cn": ["被提交(过去分词)", "被提交(不定式被动)", "提交(现在分词)", "被提交(谓语)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "经理要求所有报告在每周五下午5点之前提交。",
+    "keywords": [
+      {"word": "requires", "pos": "v.", "meaning": "要求"},
+      {"word": "reports", "pos": "n.", "meaning": "报告"}
+    ],
+    "solutionSteps": "1. 动词'require'的用法：require sth. to be done 要求某事被做。\n2. 'reports'是宾语，后接不定式被动式作宾补。\n3. 'submitted'过去分词可作宾补，但require sb. to do sth.，此处无sb.，用to be done。\n4. 'submitting'主动；'are submitted'谓语。",
+    "wrongOptionAnalysis": [
+      "submitted 有些动词如want, need后可接过去分词，但require不常用。",
+      "正确。",
+      "submitting 主动错误。",
+      "are submitted 谓语，但requires后不能直接跟that从句省略that。"
+    ],
+    "summaryTip": "require + object + to be done; require that sth. be done (虚拟)。"
+  },
+  {
+    "id": "toeic_p5_062",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "The proposal suggests that the company ______ its investment in renewable energy.",
+    "options": ["increase", "increases", "increased", "has increased"],
+    "options_cn": ["增加(原形)", "增加(三单)", "增加了", "已经增加"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "该提案建议公司增加对可再生能源的投资。",
+    "keywords": [
+      {"word": "proposal", "pos": "n.", "meaning": "提案"},
+      {"word": "investment", "pos": "n.", "meaning": "投资"},
+      {"word": "renewable energy", "pos": "n.", "meaning": "可再生能源"}
+    ],
+    "solutionSteps": "1. 动词'suggest'表示'建议'时，后接的that从句用虚拟语气。\n2. 虚拟形式：(should) + 动词原形。\n3. 因此用'increase'。\n4. 'increases'陈述语气，'increased'过去，'has increased'完成。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "increases 陈述语气。",
+      "increased 过去时。",
+      "has increased 完成时。"
+    ],
+    "summaryTip": "suggest/advise/recommend/propose + that + (should) do。"
+  },
+  {
+    "id": "toeic_p5_063",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "The company's ______ growth has attracted many investors.",
+    "options": ["remarkable", "remarkably", "remark", "remarked"],
+    "options_cn": ["显著的(形容词)", "显著地(副词)", "评论(动词/名词)", "评论过"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司显著的增长吸引了许多投资者。",
+    "keywords": [
+      {"word": "growth", "pos": "n.", "meaning": "增长"},
+      {"word": "investors", "pos": "n.", "meaning": "投资者"}
+    ],
+    "solutionSteps": "1. 修饰名词'growth'需用形容词。\n2. 'remarkable'形容词。\n3. 其他词性错误。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "remarkably 副词。",
+      "remark 名词或动词。",
+      "remarked 动词过去式/过去分词。"
+    ],
+    "summaryTip": "形容词作定语修饰名词。"
+  },
+  {
+    "id": "toeic_p5_064",
+    "part": "Part5",
+    "category": "平行结构",
+    "difficulty": 3,
+    "questionText": "The job requires strong communication skills, attention to detail, and ______ under pressure.",
+    "options": ["to work well", "the ability to work well", "working well", "work well"],
+    "options_cn": ["工作得好(不定式)", "在压力下良好工作的能力", "工作得好(现在分词)", "工作得好(原形)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "这份工作需要强大的沟通技巧、对细节的关注以及在压力下良好工作的能力。",
+    "keywords": [
+      {"word": "skills", "pos": "n.", "meaning": "技巧"},
+      {"word": "attention to detail", "pos": "n.", "meaning": "注重细节"},
+      {"word": "pressure", "pos": "n.", "meaning": "压力"}
+    ],
+    "solutionSteps": "1. 平行结构：名词短语并列。\n2. 'strong communication skills'和'attention to detail'都是名词短语。\n3. 第三个也应为名词短语，'the ability to work well under pressure'。\n4. 'to work well'不定式不能直接并列；'working well'动名词可但不如名词短语标准；'work well'动词原形。",
+    "wrongOptionAnalysis": [
+      "to work well 不定式，形式不平行。",
+      "正确，名词短语。",
+      "working well 动名词，可以但不如加the ability更平行。",
+      "work well 动词原形。"
+    ],
+    "summaryTip": "平行结构中，并列成分语法形式需一致。"
+  },
+  {
+    "id": "toeic_p5_065",
+    "part": "Part5",
+    "category": "词汇搭配",
+    "difficulty": 3,
+    "questionText": "The new policy will have a significant ______ on employee morale.",
+    "options": ["effect", "affect", "impact", "result"],
+    "options_cn": ["影响(名词)", "影响(动词)", "冲击/影响", "结果"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "新政策将对员工士气产生显著影响。",
+    "keywords": [
+      {"word": "policy", "pos": "n.", "meaning": "政策"},
+      {"word": "morale", "pos": "n.", "meaning": "士气"}
+    ],
+    "solutionSteps": "1. 'have a significant ______ on' 固定搭配，需要名词。\n2. 'effect' 名词，意为'影响'，搭配 have an effect on。\n3. 'affect' 动词；'impact' 也可说 have an impact on，但常用；'result' 搭配 have a result on 不标准。",
+    "wrongOptionAnalysis": [
+      "正确，have an effect on。",
+      "affect 是动词。",
+      "impact 也可以，但effect更常见于这种结构。托业中effect和impact皆可，但本题effect是标准答案。",
+      "result 多用于 as a result of。"
+    ],
+    "summaryTip": "effect (n.) 影响；affect (v.) 影响。"
+  },
+  {
+    "id": "toeic_p5_066",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "I ______ for the quarterly report when my computer crashed.",
+    "options": ["worked", "was working", "have worked", "had worked"],
+    "options_cn": ["工作(过去)", "正在工作(过去进行)", "已经工作(现在完成)", "已经工作(过去完成)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "当我的电脑崩溃时，我正在写季度报告。",
+    "keywords": [
+      {"word": "quarterly report", "pos": "n.", "meaning": "季度报告"},
+      {"word": "crashed", "pos": "v.", "meaning": "崩溃"}
+    ],
+    "solutionSteps": "1. 'when my computer crashed'是过去时间点。\n2. 主句表示在那个时间点正在进行的动作，用过去进行时。\n3. 'was working' 正确。\n4. 'worked' 一般过去，不强调进行；'have worked' 现在完成；'had worked' 过去完成(过去的过去)。",
+    "wrongOptionAnalysis": [
+      "worked 表示动作完成，但未体现同时性。",
+      "正确。",
+      "have worked 现在完成，与过去时间点冲突。",
+      "had worked 过去完成，表示在崩溃之前已经完成，但逻辑不对。"
+    ],
+    "summaryTip": "过去进行时与when引导的一般过去时连用，表示长动作被短动作打断。"
+  },
+  {
+    "id": "toeic_p5_067",
+    "part": "Part5",
+    "category": "定语从句",
+    "difficulty": 3,
+    "questionText": "The employee ______ you recommended for the promotion has been selected.",
+    "options": ["who", "whom", "which", "what"],
+    "options_cn": ["谁(主格)", "谁(宾格)", "哪个", "什么"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "你推荐晋升的那位员工已被选中。",
+    "keywords": [
+      {"word": "recommended", "pos": "v.", "meaning": "推荐"},
+      {"word": "promotion", "pos": "n.", "meaning": "晋升"}
+    ],
+    "solutionSteps": "1. 先行词是'The employee'，指人。\n2. 从句中'you recommended ______'，动词recommended缺少宾语。\n3. 关系代词在从句中作宾语，用'whom'。\n4. 'who'作主语；'which'指物；'what'不能引导定语从句。",
+    "wrongOptionAnalysis": [
+      "who 作主语，但这里需要宾语。",
+      "正确。",
+      "which 指物。",
+      "what 不能引导定语从句。"
+    ],
+    "summaryTip": "关系代词作宾语时可省略，或用whom(正式)。"
+  },
+  {
+    "id": "toeic_p5_068",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The shipment will arrive on time ______ there are no further customs delays.",
+    "options": ["provided", "lest", "unless", "whereas"],
+    "options_cn": ["假如", "以免", "除非", "然而"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "假如没有进一步的海关延误，货物将按时到达。",
+    "keywords": [
+      {"word": "shipment", "pos": "n.", "meaning": "货物"},
+      {"word": "customs", "pos": "n.", "meaning": "海关"}
+    ],
+    "solutionSteps": "1. 表示条件'假如'，用'provided (that)'。\n2. 'lest' 以免，引导目的状语从句；'unless' 除非，表示否定条件；'whereas' 然而。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "lest 表示为了避免，不符。",
+      "unless 表示如果不，逻辑相反。",
+      "whereas 对比。"
+    ],
+    "summaryTip": "provided/providing that 意为'如果，只要'，用于条件句。"
+  },
+  {
+    "id": "toeic_p5_069",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 5,
+    "questionText": "______ no further objections, the chairman closed the meeting.",
+    "options": ["There being", "There was", "Being there", "There were"],
+    "options_cn": ["如果没有任何(独立主格)", "有(谓语)", "在那里", "有(过去复数)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "如果没有进一步的反对意见，主席结束了会议。",
+    "keywords": [
+      {"word": "objections", "pos": "n.", "meaning": "反对意见"},
+      {"word": "chairman", "pos": "n.", "meaning": "主席"}
+    ],
+    "solutionSteps": "1. 独立主格结构'There being + 名词'表示'如果有...'或'由于有...'。\n2. 主句主语是'the chairman'，独立主格有自己逻辑主语'There'。\n3. 'There was/were'是谓语动词，不能作状语。\n4. 'Being there'错误。",
+    "wrongOptionAnalysis": [
+      "正确，独立主格。",
+      "There was 完整句子，不能作状语。",
+      "Being there 语序错误。",
+      "There were 谓语。"
+    ],
+    "summaryTip": "There being + 名词 构成独立主格，表示原因或条件。"
+  },
+  {
+    "id": "toeic_p5_070",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "We have only ______ time left to finish the project before the deadline.",
+    "options": ["few", "a few", "little", "a little"],
+    "options_cn": ["很少(可数)", "一些(可数)", "很少(不可数)", "一点(不可数)"],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "我们只剩下一点时间来完成这个项目了。",
+    "keywords": [
+      {"word": "time", "pos": "n.", "meaning": "时间(不可数)"},
+      {"word": "deadline", "pos": "n.", "meaning": "截止日期"}
+    ],
+    "solutionSteps": "1. 'time'是不可数名词。\n2. 'a little'表示'一点'，肯定意义。\n3. 'little'表示'很少'，否定意义。根据'only'，通常用'a little'表示还有一点。\n4. 'few/a few'修饰可数名词。",
+    "wrongOptionAnalysis": [
+      "few 修饰可数名词。",
+      "a few 修饰可数名词。",
+      "little 修饰不可数，但表示否定(几乎没有)，与only连用不太合适。",
+      "正确，a little 有一点。"
+    ],
+    "summaryTip": "a little + 不可数名词(肯定)；little + 不可数名词(否定)。"
+  },
+  {
+    "id": "toeic_p5_071",
+    "part": "Part5",
+    "category": "情态动词",
+    "difficulty": 3,
+    "questionText": "You ______ have submitted the report yesterday; the deadline is today.",
+    "options": ["should", "must", "could", "would"],
+    "options_cn": ["应该", "必须", "可以", "会"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "你本应该昨天提交报告；截止日期是今天。",
+    "keywords": [
+      {"word": "submitted", "pos": "v.", "meaning": "提交"},
+      {"word": "deadline", "pos": "n.", "meaning": "截止日期"}
+    ],
+    "solutionSteps": "1. 'should have + past participle'表示过去本应该做而未做。\n2. 语境：昨天没交，现在晚了。\n3. 'must have done'表示对过去的肯定推测；'could have done'表示本可能；'would have done'表示虚拟。",
+    "wrongOptionAnalysis": [
+      "正确，should have done。",
+      "must have done 表示推测，不是义务。",
+      "could have done 表示可能性。",
+      "would have done 用于虚拟条件句。"
+    ],
+    "summaryTip": "should have done = 后悔或责备；must have done = 肯定推测。"
+  },
+  {
+    "id": "toeic_p5_072",
+    "part": "Part5",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "The success of the project depends largely ______ the cooperation of all team members.",
+    "options": ["on", "of", "in", "at"],
+    "options_cn": ["在...上", "...的", "在...里", "在"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "项目的成功很大程度上取决于所有团队成员的配合。",
+    "keywords": [
+      {"word": "depends", "pos": "v.", "meaning": "依赖"},
+      {"word": "cooperation", "pos": "n.", "meaning": "合作"}
+    ],
+    "solutionSteps": "1. 动词'depend'的固定搭配：depend on/upon。\n2. 'on'正确。\n3. 其他介词错误。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "depend of 错误。",
+      "depend in 错误。",
+      "depend at 错误。"
+    ],
+    "summaryTip": "depend on = rely on。"
+  },
+  {
+    "id": "toeic_p5_073",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The quarterly earnings report ______ that the company is on track to meet its targets.",
+    "options": ["indicates", "implies", "infers", "suggests"],
+    "options_cn": ["指出/表明", "暗示(言外之意)", "推断(从证据中)", "提议/暗示"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "季度收益报告表明公司正按计划实现目标。",
+    "keywords": [
+      {"word": "earnings report", "pos": "n.", "meaning": "收益报告"},
+      {"word": "on track", "pos": "phr.", "meaning": "在正轨上"},
+      {"word": "targets", "pos": "n.", "meaning": "目标"}
+    ],
+    "solutionSteps": "1. 报告直接'显示/表明'事实，用'indicates'。\n2. 'implies'暗示，不直接；'infers'推断，主语通常是人；'suggests'提出或暗示。",
+    "wrongOptionAnalysis": [
+      "正确，indicates 直接表明。",
+      "implies 暗示，报告通常是直接数据。",
+      "infers 主语应为人，从报告中推断。",
+      "suggests 也可表示表明，但不如indicates直接。"
+    ],
+    "summaryTip": "indicate = show clearly; imply = suggest without stating directly。"
+  },
+  {
+    "id": "toeic_p5_074",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The candidate ______ next to me in the interview seemed very nervous.",
+    "options": ["sat", "sitting", "was sitting", "to sit"],
+    "options_cn": ["坐(过去)", "坐着的(现在分词)", "正在坐(谓语)", "去坐(不定式)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "面试时坐在我旁边的候选人显得很紧张。",
+    "keywords": [
+      {"word": "candidate", "pos": "n.", "meaning": "候选人"},
+      {"word": "interview", "pos": "n.", "meaning": "面试"},
+      {"word": "nervous", "pos": "adj.", "meaning": "紧张"}
+    ],
+    "solutionSteps": "1. 句子已有谓语动词'seemed'，空格处需要非谓语动词作定语修饰'candidate'。\n2. 'candidate'与'sit'之间是主动关系，用现在分词'sitting'。\n3. 'sat'过去式不能作定语；'was sitting'谓语；'to sit'不定式表将来。",
+    "wrongOptionAnalysis": [
+      "sat 过去式，不能作定语。",
+      "正确。",
+      "was sitting 谓语，导致两个谓语。",
+      "to sit 不定式，表将来，但这里描述当时情况。"
+    ],
+    "summaryTip": "现在分词短语作定语相当于主动进行的定语从句(who was sitting)。"
+  },
+  {
+    "id": "toeic_p5_075",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 3,
+    "questionText": "Each of the sales representatives ______ expected to achieve a quarterly target of $100,000.",
+    "options": ["are", "is", "were", "have been"],
+    "options_cn": ["是(复数)", "是(单数)", "过去是", "已经是"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "每位销售代表都被期望达到10万美元的季度目标。",
+    "keywords": [
+      {"word": "sales representatives", "pos": "n.", "meaning": "销售代表"},
+      {"word": "quarterly target", "pos": "n.", "meaning": "季度目标"}
+    ],
+    "solutionSteps": "1. 'Each of + 复数名词'作主语，谓语用单数。\n2. 'is'正确。\n3. 'are/were/have been'都是复数。",
+    "wrongOptionAnalysis": [
+      "are 复数错误。",
+      "正确。",
+      "were 过去复数。",
+      "have been 现在完成复数。"
+    ],
+    "summaryTip": "each/every + 单数名词或each of + 复数名词，谓语用单数。"
+  },
+  {
+    "id": "toeic_p5_076",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "Please handle this matter with ______ care.",
+    "options": ["extreme", "extremely", "extremity", "extremism"],
+    "options_cn": ["极度的(形容词)", "极度地(副词)", "极端(名词)", "极端主义"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "请极其小心地处理此事。",
+    "keywords": [
+      {"word": "handle", "pos": "v.", "meaning": "处理"},
+      {"word": "care", "pos": "n.", "meaning": "小心"}
+    ],
+    "solutionSteps": "1. 空格修饰名词'care'，需用形容词。\n2. 'extreme'形容词。\n3. 其他词性错误。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "extremely 副词。",
+      "extremity 名词。",
+      "extremism 名词。"
+    ],
+    "summaryTip": "形容词修饰名词。"
+  },
+  {
+    "id": "toeic_p5_077",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "The CEO ______ the company for 20 years before he retired last month.",
+    "options": ["has led", "led", "had led", "was leading"],
+    "options_cn": ["已经领导(现在完成)", "领导(过去)", "已经领导(过去完成)", "正在领导(过去进行)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "在上个月退休之前，这位CEO已经领导公司20年了。",
+    "keywords": [
+      {"word": "CEO", "pos": "n.", "meaning": "首席执行官"},
+      {"word": "retired", "pos": "v.", "meaning": "退休"}
+    ],
+    "solutionSteps": "1. 'before he retired'表示过去时间点。\n2. 领导动作发生在退休之前，且持续了一段时间，用过去完成时。\n3. 'had led'表示过去的过去。\n4. 'has led'现在完成；'led'一般过去；'was leading'过去进行。",
+    "wrongOptionAnalysis": [
+      "has led 现在完成，与过去时间冲突。",
+      "led 一般过去，不强调完成。",
+      "正确。",
+      "was leading 过去进行，不强调20年持续。"
+    ],
+    "summaryTip": "过去完成时表示在过去某个时间点之前已经完成的动作。"
+  },
+  {
+    "id": "toeic_p5_078",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "Without the timely intervention of the IT team, the system ______ down completely.",
+    "options": ["would have shut", "shut", "had shut", "would shut"],
+    "options_cn": ["本会关闭", "关闭了", "已经关闭", "会关闭"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "如果没有IT团队的及时干预，系统早就完全崩溃了。",
+    "keywords": [
+      {"word": "intervention", "pos": "n.", "meaning": "干预"},
+      {"word": "IT team", "pos": "n.", "meaning": "IT团队"},
+      {"word": "system", "pos": "n.", "meaning": "系统"}
+    ],
+    "solutionSteps": "1. 'Without...' 相当于if条件句，表示与过去事实相反。\n2. 主句用would have + 过去分词。\n3. 'would have shut'正确。\n4. 'shut'一般过去；'had shut'过去完成；'would shut'与现在相反。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "shut 陈述语气。",
+      "had shut 过去完成，但无虚拟。",
+      "would shut 与现在事实相反。"
+    ],
+    "summaryTip": "without + 名词，可表示虚拟条件，主句用would have done(过去)或would do(现在)。"
+  },
+  {
+    "id": "toeic_p5_079",
+    "part": "Part5",
+    "category": "词汇搭配",
+    "difficulty": 3,
+    "questionText": "The factory will ______ production next week after the maintenance is completed.",
+    "options": ["resume", "assume", "consume", "presume"],
+    "options_cn": ["恢复", "假设", "消耗", "推测"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "维修完成后，工厂将于下周恢复生产。",
+    "keywords": [
+      {"word": "factory", "pos": "n.", "meaning": "工厂"},
+      {"word": "production", "pos": "n.", "meaning": "生产"},
+      {"word": "maintenance", "pos": "n.", "meaning": "维修"}
+    ],
+    "solutionSteps": "1. 'resume production' 恢复生产，固定搭配。\n2. 'assume' 假设；'consume' 消耗；'presume' 推测。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "assume 假设，不符合。",
+      "consume 消耗。",
+      "presume 推测。"
+    ],
+    "summaryTip": "resume = restart; assume = suppose。"
+  },
+  {
+    "id": "toeic_p5_080",
+    "part": "Part5",
+    "category": "倒装结构",
+    "difficulty": 4,
+    "questionText": "Seldom ______ such a high level of customer satisfaction.",
+    "options": ["we have achieved", "have we achieved", "we achieved", "achieved we"],
+    "options_cn": ["我们已经达到", "我们已经达到(倒装)", "我们达到了", "达到我们"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "我们很少达到如此高的客户满意度。",
+    "keywords": [
+      {"word": "customer satisfaction", "pos": "n.", "meaning": "客户满意度"}
+    ],
+    "solutionSteps": "1. 否定副词'Seldom'位于句首，句子需部分倒装。\n2. 倒装结构：助动词 + 主语 + 谓语动词。\n3. 原句'We have achieved'，变为'have we achieved'。\n4. 'we have achieved'未倒装；'we achieved'未倒装且时态不同；'achieved we'错误。",
+    "wrongOptionAnalysis": [
+      "未倒装。",
+      "正确。",
+      "未倒装，且时态为一般过去。",
+      "语序错误。"
+    ],
+    "summaryTip": "否定副词(seldom, never, rarely, hardly)置于句首，主句部分倒装。"
+  },
+  {
+    "id": "toeic_p5_081",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "This software is ______ user-friendly than the previous version.",
+    "options": ["less", "fewer", "more less", "most"],
+    "options_cn": ["更少(修饰形容词)", "更少(修饰可数名词)", "更更少", "最"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "这款软件不如之前的版本用户友好。",
+    "keywords": [
+      {"word": "software", "pos": "n.", "meaning": "软件"},
+      {"word": "user-friendly", "pos": "adj.", "meaning": "用户友好的"},
+      {"word": "version", "pos": "n.", "meaning": "版本"}
+    ],
+    "solutionSteps": "1. 'than'是比较级标志。\n2. 'less + 形容词 + than'表示'不如...'。\n3. 'fewer'修饰可数名词；'more less'错误；'most'最高级。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "fewer 修饰可数名词。",
+      "more less 错误。",
+      "most 最高级，无than。"
+    ],
+    "summaryTip": "less ... than 表示比较级中的'不如'。"
+  },
+  {
+    "id": "toeic_p5_082",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "The memo ______ to all department heads requires immediate action.",
+    "options": ["having sent", "sending", "sent", "was sent"],
+    "options_cn": ["已经发送(主动完成)", "发送(主动)", "被发送的(过去分词)", "被发送(谓语)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "发给所有部门主管的备忘录需要立即采取行动。",
+    "keywords": [
+      {"word": "memo", "pos": "n.", "meaning": "备忘录"},
+      {"word": "department heads", "pos": "n.", "meaning": "部门主管"},
+      {"word": "immediate action", "pos": "n.", "meaning": "立即行动"}
+    ],
+    "solutionSteps": "1. 句子谓语是'requires'，空格处需非谓语动词作定语。\n2. 'memo'与'send'是被动关系，用过去分词'sent'。\n3. 'having sent'主动完成；'sending'主动；'was sent'谓语。",
+    "wrongOptionAnalysis": [
+      "having sent 主动完成，错误。",
+      "sending 主动。",
+      "正确。",
+      "was sent 谓语，导致双谓语。"
+    ],
+    "summaryTip": "过去分词作定语表被动和完成。"
+  },
+  {
+    "id": "toeic_p5_083",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 3,
+    "questionText": "The marketing campaign was successful, ______ the limited budget.",
+    "options": ["despite", "although", "however", "because of"],
+    "options_cn": ["尽管", "虽然(接从句)", "然而", "因为"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "尽管预算有限，营销活动还是成功了。",
+    "keywords": [
+      {"word": "marketing campaign", "pos": "n.", "meaning": "营销活动"},
+      {"word": "limited budget", "pos": "n.", "meaning": "有限的预算"}
+    ],
+    "solutionSteps": "1. 空格后是名词短语'the limited budget'，需用介词。\n2. 'despite' 是介词，后接名词。\n3. 'although' 是连词，后接从句；'however' 副词；'because of' 表原因，逻辑不符。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "although 需要从句。",
+      "however 不能直接接名词。",
+      "because of 表因果，逻辑反了。"
+    ],
+    "summaryTip": "despite/in spite of + 名词；although/though + 从句。"
+  },
+  {
+    "id": "toeic_p5_084",
+    "part": "Part5",
+    "category": "名词单复数",
+    "difficulty": 2,
+    "questionText": "All ______ regarding the new policy should be directed to the HR department.",
+    "options": ["inquiry", "inquiries", "inquiring", "inquired"],
+    "options_cn": ["询问(单数)", "询问(复数)", "询问(现在分词)", "询问(过去分词)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "所有关于新政策的询问都应联系人力资源部。",
+    "keywords": [
+      {"word": "policy", "pos": "n.", "meaning": "政策"},
+      {"word": "HR department", "pos": "n.", "meaning": "人力资源部"}
+    ],
+    "solutionSteps": "1. 'All' 后接可数名词复数或不可数名词。\n2. 'inquiry' 可数，复数'inquiries'。\n3. 单数不合适；'inquiring/inquired' 非名词。",
+    "wrongOptionAnalysis": [
+      "inquiry 单数，与all不搭配。",
+      "正确。",
+      "inquiring 动名词/形容词。",
+      "inquired 过去分词。"
+    ],
+    "summaryTip": "all + 可数复数 或 不可数名词。"
+  },
+  {
+    "id": "toeic_p5_085",
+    "part": "Part5",
+    "category": "情态动词",
+    "difficulty": 3,
+    "questionText": "The contract states that the supplier ______ deliver the goods within 30 days.",
+    "options": ["shall", "may", "can", "will"],
+    "options_cn": ["应当(合同用语)", "可以", "能够", "将要"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "合同规定供应商应在30天内交货。",
+    "keywords": [
+      {"word": "contract", "pos": "n.", "meaning": "合同"},
+      {"word": "supplier", "pos": "n.", "meaning": "供应商"},
+      {"word": "deliver", "pos": "v.", "meaning": "交付"}
+    ],
+    "solutionSteps": "1. 法律或合同文件中表示义务或规定，用'shall'。\n2. 'may' 表示许可；'can' 表示能力；'will' 表示将来意愿。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "may 表示允许，不强制。",
+      "can 表示能力。",
+      "will 表示将来，但合同义务用shall更正式。"
+    ],
+    "summaryTip": "在法律文本中，shall表示强制性义务；may表示许可。"
+  },
+  {
+    "id": "toeic_p5_086",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The annual report provides a detailed ______ of the company's financial performance.",
+    "options": ["analysis", "analyst", "analyze", "analytical"],
+    "options_cn": ["分析(名词)", "分析师", "分析(动词)", "分析的(形容词)"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "年度报告详细分析了公司的财务表现。",
+    "keywords": [
+      {"word": "annual report", "pos": "n.", "meaning": "年度报告"},
+      {"word": "financial performance", "pos": "n.", "meaning": "财务表现"}
+    ],
+    "solutionSteps": "1. 空格前有'a detailed'，后面需要单数名词。\n2. 'analysis' 是名词。\n3. 'analyst' 指人；'analyze' 动词；'analytical' 形容词。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "analyst 人。",
+      "analyze 动词。",
+      "analytical 形容词。"
+    ],
+    "summaryTip": "provide a(n) + 形容词+ 名词 结构。"
+  },
+  {
+    "id": "toeic_p5_087",
+    "part": "Part5",
+    "category": "定语从句",
+    "difficulty": 3,
+    "questionText": "The conference, ______ was originally scheduled for May, has been postponed to June.",
+    "options": ["that", "which", "it", "what"],
+    "options_cn": ["那个", "哪个", "它", "什么"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "原定于五月举行的会议已推迟到六月。",
+    "keywords": [
+      {"word": "conference", "pos": "n.", "meaning": "会议"},
+      {"word": "scheduled", "pos": "v.", "meaning": "安排"},
+      {"word": "postponed", "pos": "v.", "meaning": "推迟"}
+    ],
+    "solutionSteps": "1. 非限制性定语从句，用逗号隔开。\n2. 指物，用'which'。\n3. 'that'不能用于非限制性；'it/what'不能引导定语从句。",
+    "wrongOptionAnalysis": [
+      "that 不能用于非限制性。",
+      "正确。",
+      "it 不能引导。",
+      "what 不能引导。"
+    ],
+    "summaryTip": "非限制性定语从句只能用which(物)或who(人)。"
+  },
+  {
+    "id": "toeic_p5_088",
+    "part": "Part5",
+    "category": "平行结构",
+    "difficulty": 3,
+    "questionText": "The intern's responsibilities include answering phones, filing documents, and ______ emails.",
+    "options": ["replied to", "replying to", "to reply to", "reply to"],
+    "options_cn": ["回复了", "回复(动名词)", "回复(不定式)", "回复(原形)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "实习生的职责包括接电话、整理文件和回复邮件。",
+    "keywords": [
+      {"word": "intern", "pos": "n.", "meaning": "实习生"},
+      {"word": "responsibilities", "pos": "n.", "meaning": "职责"}
+    ],
+    "solutionSteps": "1. 动名词短语平行：answering, filing, and replying。\n2. 'replying to' 动名词。\n3. 'replied to'过去式；'to reply'不定式；'reply'原形。",
+    "wrongOptionAnalysis": [
+      "replied to 过去式/过去分词。",
+      "正确。",
+      "to reply to 不定式。",
+      "reply to 原形(祈使或省略to)。"
+    ],
+    "summaryTip": "include后接动名词作宾语，平行结构需一致。"
+  },
+  {
+    "id": "toeic_p5_089",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The team decided to postpone ______ decision until more data is available.",
+    "options": ["its", "their", "his", "our"],
+    "options_cn": ["它的", "他们的", "他的", "我们的"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "团队决定推迟其决定，直到获得更多数据。",
+    "keywords": [
+      {"word": "team", "pos": "n.", "meaning": "团队"},
+      {"word": "decision", "pos": "n.", "meaning": "决定"},
+      {"word": "data", "pos": "n.", "meaning": "数据"}
+    ],
+    "solutionSteps": "1. 'the team' 作为集体名词，美式英语常用单数代词'its'。\n2. 'their' 英式或口语用法，但托业倾向单数。\n3. 'his' 性别错误；'our' 包括说话者。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "their 也可接受，但单数更正式。",
+      "his 错误。",
+      "our 错误。"
+    ],
+    "summaryTip": "集体名词在美式英语中通常视为单数。"
+  },
+  {
+    "id": "toeic_p5_090",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "The customer service department ______ numerous complaints since the product launch.",
+    "options": ["receives", "received", "has received", "had received"],
+    "options_cn": ["收到(一般现在)", "收到(过去)", "已经收到(现在完成)", "已经收到(过去完成)"],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "自产品发布以来，客服部门已收到大量投诉。",
+    "keywords": [
+      {"word": "customer service department", "pos": "n.", "meaning": "客服部门"},
+      {"word": "complaints", "pos": "n.", "meaning": "投诉"},
+      {"word": "product launch", "pos": "n.", "meaning": "产品发布"}
+    ],
+    "solutionSteps": "1. 'since the product launch' 表示从过去某个点持续到现在。\n2. 主句用现在完成时'has received'。\n3. 'receives'一般现在；'received'一般过去；'had received'过去完成(需要过去参照点)。",
+    "wrongOptionAnalysis": [
+      "receives 一般现在，不强调从过去开始。",
+      "received 一般过去，不强调持续到现在。",
+      "正确。",
+      "had received 过去完成，但无过去的过去语境。"
+    ],
+    "summaryTip": "since + 过去时间点，主句用现在完成时。"
+  },
+  {
+    "id": "toeic_p5_091",
+    "part": "Part5",
+    "category": "介词搭配",
+    "difficulty": 2,
+    "questionText": "The manager was very pleased ______ the team's performance this quarter.",
+    "options": ["with", "at", "for", "about"],
+    "options_cn": ["对...满意", "在...方面", "为了", "关于"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "经理对本季度团队的表现非常满意。",
+    "keywords": [
+      {"word": "pleased", "pos": "adj.", "meaning": "满意的"},
+      {"word": "performance", "pos": "n.", "meaning": "表现"},
+      {"word": "quarter", "pos": "n.", "meaning": "季度"}
+    ],
+    "solutionSteps": "1. 形容词'pleased'的搭配：pleased with sb./sth.。\n2. 'with'表示对...满意。\n3. 'at'有时用于pleased at the news，但不如with通用；'for/about'不太合适。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "pleased at 也可，但通常跟事件，如pleased at the result。",
+      "pleased for 错误。",
+      "pleased about 可以，但with更直接。"
+    ],
+    "summaryTip": "pleased with + 人/具体事物；pleased at/about + 情况/消息。"
+  },
+  {
+    "id": "toeic_p5_092",
+    "part": "Part5",
+    "category": "词汇辨析",
+    "difficulty": 3,
+    "questionText": "The company decided to ______ its operations in Asia due to increasing demand.",
+    "options": ["expand", "extend", "expend", "expel"],
+    "options_cn": ["扩大(规模)", "延长(时间/长度)", "花费", "驱逐"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "由于需求不断增长，公司决定扩大在亚洲的业务。",
+    "keywords": [
+      {"word": "operations", "pos": "n.", "meaning": "业务"},
+      {"word": "demand", "pos": "n.", "meaning": "需求"}
+    ],
+    "solutionSteps": "1. 'expand operations' 扩大业务规模。\n2. 'extend' 延长(时间、长度)；'expend' 花费；'expel' 驱逐。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "extend 延伸，如extend a deadline。",
+      "expend 消耗(资源)。",
+      "expel 开除。"
+    ],
+    "summaryTip": "expand = grow in size/scope; extend = make longer。"
+  },
+  {
+    "id": "toeic_p5_093",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 3,
+    "questionText": "______ adequate funding, the research project will proceed as planned.",
+    "options": ["Assume", "Assuming", "Assumed", "To assume"],
+    "options_cn": ["假设(原形)", "假设(现在分词)", "被假设的", "为了假设"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "假设资金充足，研究项目将按计划进行。",
+    "keywords": [
+      {"word": "funding", "pos": "n.", "meaning": "资金"},
+      {"word": "research project", "pos": "n.", "meaning": "研究项目"},
+      {"word": "proceed", "pos": "v.", "meaning": "进行"}
+    ],
+    "solutionSteps": "1. 'Assuming' 作连词用，意为'假设'，引导条件状语。\n2. 现在分词短语可作条件状语。\n3. 'Assume' 动词原形不能引导从句；'Assumed' 被动；'To assume' 目的。",
+    "wrongOptionAnalysis": [
+      "Assume 动词原形，不能单独引导从句。",
+      "正确，assuming that 省略that。",
+      "Assumed 过去分词，表被动，不符合。",
+      "To assume 不定式，表目的。"
+    ],
+    "summaryTip": "assuming (that) = if it is assumed that。"
+  },
+  {
+    "id": "toeic_p5_094",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 4,
+    "questionText": "It is high time that the company ______ a new marketing strategy.",
+    "options": ["adopts", "adopted", "has adopted", "will adopt"],
+    "options_cn": ["采用(三单)", "采用(过去式)", "已经采用", "将采用"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司早该采用新的营销策略了。",
+    "keywords": [
+      {"word": "marketing strategy", "pos": "n.", "meaning": "营销策略"}
+    ],
+    "solutionSteps": "1. 'It is high time that...' 句型要求从句用虚拟语气，动词用过去式。\n2. 表示'早该做而没做'。\n3. 'adopted' 过去式正确。\n4. 'adopts' 现在式；'has adopted' 完成；'will adopt' 将来。",
+    "wrongOptionAnalysis": [
+      "adopts 陈述语气。",
+      "正确。",
+      "has adopted 完成式。",
+      "will adopt 将来。"
+    ],
+    "summaryTip": "It's (high/about) time + that从句 + 过去式(虚拟)。"
+  },
+  {
+    "id": "toeic_p5_095",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 1,
+    "questionText": "The new software is ______ easy to use that even beginners can master it quickly.",
+    "options": ["so", "such", "very", "too"],
+    "options_cn": ["如此(修饰形容词)", "如此(修饰名词)", "非常", "太"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "这款新软件非常易于使用，即使是初学者也能快速掌握。",
+    "keywords": [
+      {"word": "software", "pos": "n.", "meaning": "软件"},
+      {"word": "beginners", "pos": "n.", "meaning": "初学者"},
+      {"word": "master", "pos": "v.", "meaning": "掌握"}
+    ],
+    "solutionSteps": "1. 'so + adjective + that' 结构表示'如此...以至于'。\n2. 'easy' 是形容词，用'so'。\n3. 'such' 修饰名词短语；'very' 不引导that从句；'too' 表'太...而不能'，搭配to。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "such 后接名词，如such an easy software。",
+      "very 不用于so...that结构。",
+      "too ... to 结构，不是that。"
+    ],
+    "summaryTip": "so + adj./adv. + that; such + (a/an) + adj. + n. + that。"
+  },
+  {
+    "id": "toeic_p5_096",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 3,
+    "questionText": "Either the marketing director or the product managers ______ responsible for the launch delay.",
+    "options": ["is", "are", "was", "be"],
+    "options_cn": ["是(单数)", "是(复数)", "过去是", "原形"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "要么是市场总监，要么是产品经理对发布延迟负责。",
+    "keywords": [
+      {"word": "marketing director", "pos": "n.", "meaning": "市场总监"},
+      {"word": "product managers", "pos": "n.", "meaning": "产品经理"},
+      {"word": "launch delay", "pos": "n.", "meaning": "发布延迟"}
+    ],
+    "solutionSteps": "1. 'Either...or...' 连接主语，谓语动词遵循'就近原则'。\n2. 最近的主语是'the product managers'，复数。\n3. 因此用'are'。\n4. 'is/was' 单数；'be'原形。",
+    "wrongOptionAnalysis": [
+      "is 单数，但就近主语复数。",
+      "正确。",
+      "was 过去单数。",
+      "be 原形。"
+    ],
+    "summaryTip": "either...or... 谓语与最近主语一致。"
+  },
+  {
+    "id": "toeic_p5_097",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The company will continue to invest in R&D ______ the economic uncertainty.",
+    "options": ["despite of", "in spite", "although", "regardless of"],
+    "options_cn": ["尽管(错误)", "尽管(缺of)", "虽然", "无论"],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "无论经济不确定性如何，公司将继续投资研发。",
+    "keywords": [
+      {"word": "R&D", "pos": "n.", "meaning": "研发"},
+      {"word": "economic uncertainty", "pos": "n.", "meaning": "经济不确定性"}
+    ],
+    "solutionSteps": "1. 空格后是名词短语，需用介词短语。\n2. 'regardless of' 意为'不管，不顾'。\n3. 'despite of' 错误，应为despite或in spite of；'in spite' 缺of；'although' 连词接从句。",
+    "wrongOptionAnalysis": [
+      "despite of 错误，应为despite。",
+      "in spite 缺of。",
+      "although 需要从句。",
+      "正确。"
+    ],
+    "summaryTip": "regardless of = despite/in spite of。"
+  },
+  {
+    "id": "toeic_p5_098",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "There are ______ applicants for the position than we expected.",
+    "options": ["less", "fewer", "little", "more less"],
+    "options_cn": ["更少(不可数)", "更少(可数)", "很少(不可数)", "更更少"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "这个职位的申请者比我们预期的少。",
+    "keywords": [
+      {"word": "applicants", "pos": "n.", "meaning": "申请者(可数复数)"}
+    ],
+    "solutionSteps": "1. 'applicants' 是可数名词复数。\n2. 比较级用'fewer'。\n3. 'less' 用于不可数；'little' 原级；'more less' 错误。",
+    "wrongOptionAnalysis": [
+      "less 修饰不可数。",
+      "正确。",
+      "little 原级，且不可数。",
+      "more less 不存在。"
+    ],
+    "summaryTip": "fewer + 可数复数；less + 不可数。"
+  },
+  {
+    "id": "toeic_p5_099",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "While the CEO ______ the annual report, the board members took notes.",
+    "options": ["presented", "was presenting", "has presented", "had presented"],
+    "options_cn": ["展示了(过去)", "正在展示(过去进行)", "已经展示(现在完成)", "已经展示(过去完成)"],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "当首席执行官展示年度报告时，董事会成员在记笔记。",
+    "keywords": [
+      {"word": "annual report", "pos": "n.", "meaning": "年度报告"},
+      {"word": "board members", "pos": "n.", "meaning": "董事会成员"}
+    ],
+    "solutionSteps": "1. 'While' 引导的时间状语从句，强调动作进行。\n2. 主句用一般过去时'took notes'，从句用过去进行时。\n3. 'was presenting' 正确。\n4. 'presented' 一般过去，不强调进行；'has/had presented' 完成时。",
+    "wrongOptionAnalysis": [
+      "presented 一般过去，可表示同时但不如进行时精确。",
+      "正确。",
+      "has presented 现在完成。",
+      "had presented 过去完成，表示在记笔记之前已完成，不符。"
+    ],
+    "summaryTip": "while + 过去进行时，表示一个动作发生时另一个动作正在进行。"
+  },
+  {
+    "id": "toeic_p5_100",
+    "part": "Part5",
+    "category": "词汇搭配",
+    "difficulty": 3,
+    "questionText": "The company offered a severance package to employees who were ______ due to the restructuring.",
+    "options": ["laid off", "let down", "put off", "taken over"],
+    "options_cn": ["被解雇", "失望", "推迟", "接管"],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司向因重组而被解雇的员工提供了遣散费。",
+    "keywords": [
+      {"word": "severance package", "pos": "n.", "meaning": "遣散费"},
+      {"word": "restructuring", "pos": "n.", "meaning": "重组"}
+    ],
+    "solutionSteps": "1. 员工因重组失去工作，'laid off' 意为'解雇'。\n2. 'let down' 使失望；'put off' 推迟；'taken over' 接管。",
+    "wrongOptionAnalysis": [
+      "正确，lay off 裁员。",
+      "let down 辜负。",
+      "put off 推迟。",
+      "taken over 接管，与主语不匹配。"
+    ],
+    "summaryTip": "lay off = 解雇(通常因经济原因)；fire = 解雇(因表现)。"
+  }
+]

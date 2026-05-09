@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>📦 题库批量生成器</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f7fc;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 12px;
+        }
+        #app {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            border-radius: 32px 32px 24px 24px;
+            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.12);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 24px);
+        }
+        .header {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            padding: 16px 16px 14px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-left a {
+            background: rgba(255, 255, 255, 0.18);
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .header-left a:active { background: rgba(255, 255, 255, 0.30); }
+        .header h1 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+        .header h1 span { font-size: 20px; }
+        .header-nav {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .header-nav a {
+            flex: 1 1 calc(33.33% - 4px);
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            padding: 6px 6px;
+            border-radius: 14px;
+            font-size: 11px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .header-nav a:active { background: rgba(255, 255, 255, 0.30); }
+        .header-nav .current { background: rgba(255, 255, 255, 0.35); font-weight: 600; }
+
+        .content { flex: 1; padding: 16px 18px 20px; overflow-y: auto; }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 16px 18px;
+            margin-bottom: 14px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .card-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .key-input-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .key-input-group input {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            background: #f8fafc;
+            color: #1e293b;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .key-input-group input:focus {
+            border-color: #7c3aed;
+            background: #fff;
+        }
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .setting-row span {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        select {
+            padding: 8px 14px;
+            border-radius: 40px;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            font-size: 0.85rem;
+            color: #1e293b;
+            outline: none;
+        }
+
+        .btn {
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: transform 0.1s, opacity 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn:active { transform: scale(0.96); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-primary { background: #7c3aed; }
+        .btn-primary:active { background: #6d28d9; }
+        .btn-success { background: #16a34a; }
+        .btn-success:active { background: #15803d; }
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+        }
+        .btn-secondary:active { background: #e2e8f0; }
+        .btn-danger {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        .btn-sm {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+
+        .count-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .count-btn {
+            padding: 8px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: #fff;
+            color: #475569;
+            transition: all 0.2s;
+        }
+        .count-btn.active {
+            border-color: #7c3aed;
+            background: #f5f3ff;
+            color: #7c3aed;
+        }
+        .count-btn:active { transform: scale(0.96); }
+
+        .custom-count {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .custom-count input {
+            width: 80px;
+            padding: 8px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            text-align: center;
+            outline: none;
+        }
+        .custom-count input:focus { border-color: #7c3aed; }
+
+        .progress-card {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .progress-card.show { display: block; }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #7c3aed;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin: 0 auto 12px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .progress-text {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 8px;
+        }
+        .progress-sub {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .error-message {
+            color: #dc2626;
+            background: #fee2e2;
+            padding: 10px;
+            border-radius: 16px;
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .result-card { display: none; }
+        .result-card.show { display: block; }
+
+        .result-score {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #7c3aed;
+            line-height: 1;
+        }
+        .result-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 16px 0;
+        }
+        .result-stat {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 12px 8px;
+            text-align: center;
+        }
+        .result-stat .stat-num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .result-stat .stat-label {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .question-preview-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .question-preview-item {
+            background: #f8fafc;
+            border-left: 4px solid #7c3aed;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 14px;
+            font-size: 0.82rem;
+        }
+        .question-preview-item .q-text {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .question-preview-item .q-meta {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 6px;
+        }
+        .diff-badge {
+            display: inline-block;
+            background: #fef9c3;
+            color: #a16207;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-left: 6px;
+        }
+
+        .batch-history-item {
+            background: #f8fafc;
+            padding: 10px 12px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .batch-history-item .batch-info {
+            font-size: 0.82rem;
+            color: #475569;
+        }
+        .batch-history-item .batch-time {
+            font-size: 0.72rem;
+            color: #94a3b8;
+        }
+
+        .bottom-nav {
+            display: flex;
+            border-top: 1px solid #f1f5f9;
+            background: #fff;
+            flex-shrink: 0;
+        }
+        .bottom-nav a {
+            flex: 1;
+            border: none;
+            background: none;
+            padding: 10px 0 12px;
+            font-size: 12px;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: color 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .bottom-nav a .nav-icon { font-size: 20px; }
+        .bottom-nav a:active { opacity: 0.6; }
+        .bottom-nav a.active { color: #7c3aed; }
+
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        @media (max-width: 420px) {
+            .header h1 { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <header class="header">
+        <div class="header-main">
+            <div class="header-left">
+                <a href="index.html" aria-label="返回主页">🏠</a>
+                <h1><span>📦</span> 批量生成题库</h1>
+            </div>
+        </div>
+        <div class="header-nav">
+            <a href="index.html">🏠 主页</a>
+            <a href="vocabulary_app.html">📘 单词</a>
+            <a href="practice_coach.html">🧠 刷题</a>
+            <a href="question_batch_generator.html" class="current">📦 批量生成</a>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <div class="card">
+            <div class="card-label">🔐 API Key</div>
+            <div class="key-input-group">
+                <input type="password" id="apiKeyInput" placeholder="ARK_API_KEY">
+                <button class="btn btn-sm btn-secondary" id="toggleKeyBtn">👁</button>
+                <button class="btn btn-sm btn-primary" id="saveKeyBtn">保存</button>
+            </div>
+            <div id="keyHint" style="font-size:0.75rem; color:#64748b; margin-top:4px; display:none;"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">🎯 生成设置</div>
+            <div class="setting-row">
+                <span>难度：</span>
+                <select id="difficultySelect">
+                    <option value="平衡">平衡（L1~L5）</option>
+                    <option value="L1-L3" selected>中等（L1~L3）</option>
+                    <option value="L4-L5">高分挑战（L4~L5）</option>
+                </select>
+            </div>
+            <div class="setting-row">
+                <span>每套题数：</span>
+            </div>
+            <div class="count-selector">
+                <button class="count-btn" data-count="10">10 题</button>
+                <button class="count-btn active" data-count="30">30 题（推荐）</button>
+                <button class="count-btn" data-count="50">50 题</button>
+            </div>
+            <div class="custom-count">
+                <span style="font-size:0.82rem; color:#64748b;">自定义：</span>
+                <input type="number" id="customCount" min="1" max="100" placeholder="数量">
+                <button class="btn btn-sm btn-secondary" id="applyCustomBtn">确定</button>
+            </div>
+            <div class="setting-row" style="margin-top:12px;">
+                <span>当前设置：<strong id="currentSetting">30 题 · 中等</strong></span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">🚀 开始生成</div>
+            <button class="btn btn-primary" id="generateBtn" style="width:100%; padding:14px;">
+                ✨ 生成一套题（30题）
+            </button>
+            <div style="margin-top:10px; font-size:0.78rem; color:#94a3b8; text-align:center;">
+                生成后可直接下载 JSON 文件，用于导入刷题页的本地题库
+            </div>
+        </div>
+
+        <div class="card progress-card" id="progressCard">
+            <div class="spinner"></div>
+            <div class="progress-text" id="progressText">🔄 正在生成题目，请稍候...</div>
+            <div class="progress-sub" id="progressSub">预计需要 20-40 秒</div>
+        </div>
+
+        <div class="card result-card" id="resultCard">
+            <div style="text-align:center; margin-bottom:12px;">
+                <div style="font-size:48px; margin-bottom:8px;">🎉</div>
+                <div class="result-score" id="resultCount">30</div>
+                <div class="result-label">道题目生成完成</div>
+            </div>
+            <div class="result-stats" id="resultStats"></div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+                <button class="btn btn-success" id="downloadBtn" style="flex:1;">📥 下载 JSON 文件</button>
+                <button class="btn btn-primary" id="copyBtn" style="flex:1;">📋 复制 JSON</button>
+            </div>
+            <div style="margin-top:8px;">
+                <button class="btn btn-secondary" id="generateAnotherBtn" style="width:100%;">🔄 再生成一套</button>
+            </div>
+        </div>
+
+        <div class="card" id="previewCard" style="display:none;">
+            <div class="card-label">📋 题目预览</div>
+            <div class="question-preview-list" id="previewList"></div>
+        </div>
+
+        <div class="card" id="historyCard" style="display:none;">
+            <div class="card-label">📚 生成记录</div>
+            <div id="historyList"></div>
+        </div>
+
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html">
+            <span class="nav-icon">🏠</span> 首页
+        </a>
+        <a href="vocabulary_app.html">
+            <span class="nav-icon">📘</span> 单词
+        </a>
+        <a href="practice_coach.html">
+            <span class="nav-icon">🧠</span> 刷题
+        </a>
+        <a href="question_batch_generator.html" class="active">
+            <span class="nav-icon">📦</span> 批量生成
+        </a>
+    </nav>
+</div>
+
+<script>
+    const DEFAULT_API_KEY = 'ark-4e222f43-9b79-499c-bbf8-eb94caa9c9e5-819a1';
+    let apiKey = localStorage.getItem('toeic_ark_key') || DEFAULT_API_KEY;
+    let selectedCount = 30;
+    let generatedQuestions = [];
+    let batchHistory = JSON.parse(localStorage.getItem('batch_gen_history') || '[]');
+
+    const apiInput = document.getElementById('apiKeyInput');
+    const toggleKeyBtn = document.getElementById('toggleKeyBtn');
+    const keyHint = document.getElementById('keyHint');
+    const saveBtn = document.getElementById('saveKeyBtn');
+    const generateBtn = document.getElementById('generateBtn');
+    const difficultySelect = document.getElementById('difficultySelect');
+    const progressCard = document.getElementById('progressCard');
+    const resultCard = document.getElementById('resultCard');
+    const previewCard = document.getElementById('previewCard');
+    const historyCard = document.getElementById('historyCard');
+
+    if (apiKey) apiInput.value = apiKey;
+
+    toggleKeyBtn.onclick = () => {
+        if (apiInput.type === 'password') {
+            apiInput.type = 'text';
+            toggleKeyBtn.textContent = '🙈';
+        } else {
+            apiInput.type = 'password';
+            toggleKeyBtn.textContent = '👁';
+        }
+    };
+
+    saveBtn.onclick = () => {
+        const key = apiInput.value.trim();
+        if (key) {
+            apiKey = key;
+            localStorage.setItem('toeic_ark_key', key);
+            keyHint.textContent = '✅ API Key 已保存';
+            keyHint.style.display = 'block';
+            keyHint.style.color = '#16a34a';
+            setTimeout(() => { keyHint.style.display = 'none'; }, 2000);
+        } else {
+            keyHint.textContent = '❌ 请输入 Key';
+            keyHint.style.display = 'block';
+            keyHint.style.color = '#dc2626';
+        }
+    };
+
+    const ALL_CATEGORIES = ['词性判断', '动词时态', '非谓语动词', '介词搭配', '虚拟语气', '倒装结构', '独立主格', '词汇搭配', '代词指代', '比较级', '词汇辨析', '定语从句', '连词辨析', '情态动词', '主谓一致', '名词单复数', '平行结构', '数量词辨析'];
+    const BUSINESS_SCENES = ['邮件通讯', '例会纪要', '季度财务报告', '人事调动', '产品采购', '供应链延迟', '合约谈判', '差旅报销', '客户服务', '市场策略', '物流管理', '投资分析', '企业并购', '员工培训', '预算审批', '设备租赁', '国际运输', '展会策划', '绩效考核', '危机公关'];
+
+    let wordDatabase = [];
+    async function loadWordDatabase() {
+        try {
+            const response = await fetch('word_database.json');
+            if (!response.ok) throw new Error('无法加载');
+            wordDatabase = await response.json();
+            console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
+        } catch (error) {
+            console.error('加载单词数据库失败:', error);
+            wordDatabase = [
+                { word: "increase", pos: ["名", "动"], meaning: "增加" },
+                { word: "include", pos: ["动"], meaning: "包含" },
+                { word: "currently", pos: ["副"], meaning: "目前" },
+                { word: "advertising", pos: ["名"], meaning: "广告，宣传" },
+                { word: "charge", pos: ["动", "名"], meaning: "收费，充电，指责；费用，责任" }
+            ];
+        }
+    }
+
+    function getRandomWords(count) {
+        if (wordDatabase.length === 0) return [];
+        const shuffled = [...wordDatabase];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        const selected = [];
+        const usedPos = new Set();
+        for (const word of shuffled) {
+            if (selected.length >= count) break;
+            const hasNewPos = word.pos.some(pos => !usedPos.has(pos));
+            if (hasNewPos || Math.random() < 0.3) {
+                selected.push(word);
+                word.pos.forEach(pos => usedPos.add(pos));
+            }
+        }
+        if (selected.length < count) {
+            const remaining = shuffled.filter(w => !selected.includes(w));
+            selected.push(...remaining.slice(0, count - selected.length));
+        }
+        return selected;
+    }
+
+    function generateWordBasedPrompt() {
+        const randomWords = getRandomWords(20);
+        const wordList = randomWords.map(w => {
+            const posStr = Array.isArray(w.pos) ? w.pos.join('/') : w.pos || '未知';
+            const synonyms = w.synonyms ? ` (同义词: ${Array.isArray(w.synonyms) ? w.synonyms.join(', ') : w.synonyms})` : '';
+            const antonyms = w.antonyms ? ` (反义词: ${Array.isArray(w.antonyms) ? w.antonyms.join(', ') : w.antonyms})` : '';
+            return `${w.word} (${posStr}): ${w.meaning}${synonyms}${antonyms}`;
+        }).join('; ');
+        return `以下单词请优先在题目中使用，确保题目多样性: ${wordList}`;
+    }
+
+    async function generateBatch(count) {
+        if (!apiKey) throw new Error('请先保存 API Key');
+        const difficultyHint = difficultySelect.value;
+        const wordPrompt = generateWordBasedPrompt();
+        const selectedScenes = [...BUSINESS_SCENES]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 15)
+            .join('、');
+
+        const prompt = `你是资深托业出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
+
+全局要求：
+- 难度均为: ${difficultyHint}
+- 商务场景：从以下列表中随机选择，确保场景多样性：${selectedScenes}
+- 考点必须均衡覆盖，尤其优先考虑低频考点（倒装结构、独立主格、虚拟语气、平行结构、词汇辨析等）。
+- ${wordPrompt}
+- 每道题的结构必须包含以下全部字段（JSON 字段名必须完全一致）：
+{
+  "id": "toeic_p5_序号（自增三位数，如001,002）",
+  "part": "Part5",
+  "category": "考点类别（必须从以下选取：词性判断/动词时态/非谓语动词/介词搭配/虚拟语气/倒装结构/独立主格/词汇搭配/代词指代/比较级/词汇辨析/定语从句/连词辨析/情态动词/主谓一致/名词单复数/平行结构/数量词辨析）",
+  "difficulty": 1-5的整数,
+  "questionText": "英文题干（含空格）",
+  "options": ["A选项文本", "B选项文本", "C选项文本", "D选项文本"],
+  "options_cn": ["A选项中文注释（词性/用法说明）", "B选项中文注释", "C选项中文注释", "D选项中文注释"],
+  "correctIndex": 0-3的整数（0=A,1=B,2=C,3=D）",
+  "correctAnswer": "A或B或C或D（与correctIndex对应）",
+  "translation": "题目完整中文翻译",
+  "keywords": [{"word":"单词", "pos":"词性", "meaning":"中文释义"}],
+  "solutionSteps": "分步解题步骤，每步用数字标注，用换行符分隔",
+  "wrongOptionAnalysis": ["A选项错误原因", "B选项错误原因", "C选项错误原因", "D选项错误原因"],
+  "summaryTip": "考点小结/记忆技巧"
+}
+
+特别注意：
+1. 题目内容必须多样化，避免相似的语法结构或词汇选择
+2. 选项设计要有区分度，避免明显的干扰项
+3. wrongOptionAnalysis 数组中每个元素是对应选项的错误原因分析，不要出现A/B/C/D字母前缀
+4. 正确选项的 wrongOptionAnalysis 分析应说明"这是正确选项"或"正确拼写/用法"
+5. correctIndex 随机分布，不要集中在某个位置
+6. 关键词尽量使用提供的单词数据库中的词汇
+7. solutionSteps 中用换行符 \\n 分隔各步骤
+8. difficulty 难度分布建议：L1-L3占70%，L4-L5占30%
+9. 返回格式严格为: [ {...}, {...}, ... ] 只输出数组，不要用markdown代码块包裹
+
+开始生成。`;
+
+        const requestBody = {
+            model: "ep-20260505172500-db99v",
+            stream: false,
+            temperature: 0.4,
+            max_output_tokens: Math.min(2800 + count * 200, 8000),
+            input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }]
+        };
+        const resp = await fetch('https://ark.cn-beijing.volces.com/api/v3/responses', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody)
+        });
+        if (!resp.ok) throw new Error(`API ${resp.status}`);
+        const data = await resp.json();
+        let raw = '';
+        if (data.output?.[0]?.content?.[0]?.text) raw = data.output[0].content[0].text;
+        else if (data.output?.choices?.[0]?.message?.content) raw = data.output.choices[0].message.content;
+        else if (data.choices?.[0]?.message?.content) raw = data.choices[0].message.content;
+        else throw new Error('返回格式错误');
+        let cleaned = raw.trim();
+        const arrayMatch = cleaned.match(/\[[\s\S]*\]/);
+        if (arrayMatch) cleaned = arrayMatch[0];
+        let questions = JSON.parse(cleaned);
+        if (!Array.isArray(questions)) throw new Error('返回不是数组');
+        return questions.map((q, idx) => {
+            if (!q.id) q.id = `toeic_p5_${String(idx + 1).padStart(3, '0')}`;
+            if (!q.part) q.part = "Part5";
+            if (!q.options_cn) q.options_cn = ['','','',''];
+            if (!Array.isArray(q.wrongOptionAnalysis) || q.wrongOptionAnalysis.length < 4) q.wrongOptionAnalysis = ['','','',''];
+            if (!q.keywords) q.keywords = [];
+            if (!q.translation) q.translation = '';
+            if (!q.solutionSteps) q.solutionSteps = '';
+            if (!q.summaryTip) q.summaryTip = '';
+            if (!q.category) q.category = '未分类';
+            if (q.correctIndex === undefined && q.correctAnswer) {
+                q.correctIndex = ['A','B','C','D'].indexOf(q.correctAnswer);
+            }
+            if (!q.correctAnswer && q.correctIndex !== undefined) {
+                q.correctAnswer = ['A','B','C','D'][q.correctIndex];
+            }
+            if (!q.difficulty) q.difficulty = 2;
+            return q;
+        });
+    }
+
+    function updateCurrentSetting() {
+        const diff = difficultySelect.value;
+        document.getElementById('currentSetting').textContent = `${selectedCount} 题 · ${diff}`;
+        generateBtn.textContent = `✨ 生成一套题（${selectedCount}题）`;
+    }
+
+    document.querySelectorAll('.count-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedCount = parseInt(btn.getAttribute('data-count'));
+            document.getElementById('customCount').value = '';
+            updateCurrentSetting();
+        });
+    });
+
+    document.getElementById('applyCustomBtn').onclick = () => {
+        const val = parseInt(document.getElementById('customCount').value);
+        if (val >= 1 && val <= 100) {
+            selectedCount = val;
+            document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+            updateCurrentSetting();
+        }
+    };
+
+    difficultySelect.onchange = () => updateCurrentSetting();
+
+    generateBtn.onclick = async () => {
+        if (!apiKey) { alert('请先填写 API Key'); return; }
+
+        generateBtn.disabled = true;
+        progressCard.classList.add('show');
+        resultCard.classList.remove('show');
+        previewCard.style.display = 'none';
+        document.getElementById('progressText').textContent = `🔄 正在生成 ${selectedCount} 道题目...`;
+        document.getElementById('progressSub').textContent = '预计需要 20-40 秒';
+
+        try {
+            if (wordDatabase.length === 0) await loadWordDatabase();
+            generatedQuestions = await generateBatch(selectedCount);
+
+            progressCard.classList.remove('show');
+            resultCard.classList.add('show');
+            previewCard.style.display = 'block';
+
+            document.getElementById('resultCount').textContent = generatedQuestions.length;
+            renderResultStats();
+            renderPreview();
+
+            batchHistory.unshift({
+                count: generatedQuestions.length,
+                difficulty: difficultySelect.value,
+                time: new Date().toLocaleString('zh-CN'),
+                categories: [...new Set(generatedQuestions.map(q => q.category))].length
+            });
+            if (batchHistory.length > 10) batchHistory = batchHistory.slice(0, 10);
+            localStorage.setItem('batch_gen_history', JSON.stringify(batchHistory));
+            renderHistory();
+        } catch (err) {
+            progressCard.classList.remove('show');
+            alert('❌ 生成失败: ' + err.message + '\n请检查 API Key 或网络。');
+        } finally {
+            generateBtn.disabled = false;
+        }
+    };
+
+    function renderResultStats() {
+        const cats = {};
+        const diffs = {};
+        generatedQuestions.forEach(q => {
+            const cat = q.category || '未分类';
+            cats[cat] = (cats[cat] || 0) + 1;
+            const diff = q.difficulty || 2;
+            diffs[diff] = (diffs[diff] || 0) + 1;
+        });
+
+        const catCount = Object.keys(cats).length;
+        const avgDiff = Object.entries(diffs).reduce((sum, [d, c]) => sum + parseInt(d) * c, 0) / generatedQuestions.length;
+
+        document.getElementById('resultStats').innerHTML = `
+            <div class="result-stat">
+                <div class="stat-num">${catCount}</div>
+                <div class="stat-label">考点类别</div>
+            </div>
+            <div class="result-stat">
+                <div class="stat-num">L${avgDiff.toFixed(1)}</div>
+                <div class="stat-label">平均难度</div>
+            </div>
+            <div class="result-stat">
+                <div class="stat-num">${Object.keys(diffs).length}</div>
+                <div class="stat-label">难度层级</div>
+            </div>
+        `;
+    }
+
+    function renderPreview() {
+        const letters = ['A','B','C','D'];
+        const list = document.getElementById('previewList');
+        list.innerHTML = generatedQuestions.map((q, idx) => {
+            const correctLetter = q.correctAnswer || letters[q.correctIndex] || '?';
+            const qText = (q.questionText || '').length > 60 ? (q.questionText || '').slice(0, 60) + '…' : (q.questionText || '');
+            return `<div class="question-preview-item">
+                <div class="q-text">${idx + 1}. ${qText}
+                    <span class="category-badge">${q.category || '未分类'}</span>
+                    <span class="diff-badge">L${q.difficulty || '?'}</span>
+                </div>
+                <div class="q-meta">答案: <strong style="color:#16a34a;">${correctLetter}</strong> · ${q.options?.[q.correctIndex] || ''}</div>
+            </div>`;
+        }).join('');
+    }
+
+    function renderHistory() {
+        if (batchHistory.length === 0) {
+            historyCard.style.display = 'none';
+            return;
+        }
+        historyCard.style.display = 'block';
+        document.getElementById('historyList').innerHTML = batchHistory.map(h => `
+            <div class="batch-history-item">
+                <div>
+                    <div class="batch-info">📦 ${h.count} 题 · ${h.difficulty} · ${h.categories} 类考点</div>
+                    <div class="batch-time">${h.time}</div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    document.getElementById('downloadBtn').onclick = () => {
+        if (generatedQuestions.length === 0) return;
+        const content = JSON.stringify(generatedQuestions, null, 2);
+        const blob = new Blob([content], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+        a.download = `toeic_set_${generatedQuestions.length}q_${timestamp}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    };
+
+    document.getElementById('copyBtn').onclick = () => {
+        if (generatedQuestions.length === 0) return;
+        navigator.clipboard.writeText(JSON.stringify(generatedQuestions, null, 2)).then(() => {
+            const btn = document.getElementById('copyBtn');
+            const orig = btn.textContent;
+            btn.textContent = '✅ 已复制';
+            setTimeout(() => { btn.textContent = orig; }, 1500);
+        });
+    };
+
+    document.getElementById('generateAnotherBtn').onclick = () => {
+        resultCard.classList.remove('show');
+        previewCard.style.display = 'none';
+        generatedQuestions = [];
+        generateBtn.click();
+    };
+
+    updateCurrentSetting();
+    renderHistory();
+</script>
+</body>
+</html>

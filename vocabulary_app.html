@@ -38,17 +38,22 @@
         /* ===== 顶部栏 ===== */
         .header {
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            padding: 20px 20px 16px;
+            padding: 16px 16px 14px;
             color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .header-main {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-shrink: 0;
         }
         .header-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         .header-left button {
             background: rgba(255, 255, 255, 0.18);
@@ -68,7 +73,7 @@
             background: rgba(255, 255, 255, 0.30);
         }
         .header h1 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             letter-spacing: 0.5px;
             display: flex;
@@ -77,11 +82,11 @@
             margin: 0;
         }
         .header h1 span {
-            font-size: 22px;
+            font-size: 20px;
         }
         .header-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
         .header-actions button {
@@ -100,6 +105,32 @@
         }
         .header-actions button:active {
             background: rgba(255, 255, 255, 0.30);
+        }
+        .header-nav {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .header-nav a {
+            flex: 1 1 calc(33.33% - 4px);
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            padding: 6px 6px;
+            border-radius: 14px;
+            font-size: 11px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .header-nav a:active {
+            background: rgba(255, 255, 255, 0.30);
+        }
+        .header-nav .current {
+            background: rgba(255, 255, 255, 0.35);
+            font-weight: 600;
         }
         .stat-badge {
             background: rgba(255, 255, 255, 0.20);
@@ -630,14 +661,20 @@
 
         <!-- ===== 顶部栏 ===== -->
         <header class="header">
-            <div class="header-left">
-                <button id="btnBack" aria-label="返回" style="display:none;">←</button>
-                <h1><span>📘</span> 托业单词</h1>
+            <div class="header-main">
+                <div class="header-left">
+                    <a href="index.html" aria-label="返回主页" title="返回主页">🏠</a>
+                    <h1><span>📘</span> 托业单词</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="btnSearch" aria-label="搜索">🔍</button>
+                </div>
             </div>
-            <div class="header-actions">
-                <span class="stat-badge" id="statBadge">📊 0 / 0</span>
-                <button id="btnSearch" aria-label="搜索">🔍</button>
-                <button id="btnHome" aria-label="主页" title="返回主页">🏠</button>
+            <div class="header-nav">
+                <a href="index.html">🏠 主页</a>
+                <a href="vocabulary_app.html" class="current">📘 单词</a>
+                <a href="practice_coach.html">🧠 刷题</a>
+                <a href="question_batch_generator.html">📦 批量生成</a>
             </div>
         </header>
 
@@ -672,6 +709,10 @@
                 </div>
                 <span id="knowCount">✅ 0</span>
             </div>
+            <div id="filterBar" style="display:none; margin-bottom:12px; padding:8px 12px; background:#eef2ff; border-radius:16px; font-size:13px; display:flex; justify-content:space-between; align-items:center;">
+                <span id="filterLabel">筛选模式</span>
+                <button id="clearFilterBtn" style="background:#f87171; color:white; border:none; padding:4px 12px; border-radius:20px; font-size:12px;">清除筛选</button>
+            </div>
 
             <div class="card-container">
                 <div class="card-flip" id="cardFlip">
@@ -696,6 +737,12 @@
                     <button class="action-btn star" id="btnStar">⭐ 收藏</button>
                 </div>
                 <button class="nav-btn" id="btnNext">▶</button>
+            </div>
+            <div class="filter-btns" id="filterBtns" style="display:flex; gap:8px; justify-content:center; margin-top:8px; flex-wrap:wrap;">
+                <button class="action-btn" id="filterKnow" style="font-size:11px; padding:6px 12px;">只看认识</button>
+                <button class="action-btn" id="filterDunno" style="font-size:11px; padding:6px 12px;">只看不认识</button>
+                <button class="action-btn" id="filterStar" style="font-size:11px; padding:6px 12px;">只看收藏</button>
+                <button class="action-btn" id="filterAll" style="font-size:11px; padding:6px 12px; background:#e2e8f0;">全部显示</button>
             </div>
         </div>
 
@@ -735,11 +782,14 @@
             // ============================================================
             const STORAGE_KEY = 'toeic_vocab_data';
             const PROGRESS_KEY = 'toeic_vocab_progress';
+            const FILTER_KEY = 'toeic_vocab_filter';
 
             let vocabData = []; // 全部单词数组
+            let filteredVocabData = []; // 筛选后的数组
             let currentIndex = 0;
             let isFlipped = false;
             let progress = {}; // { index: 'know' | 'dunno' | 'star' }
+            let currentFilter = null; // 'know' | 'dunno' | 'star' | null
 
             // DOM 引用
             const $ = id => document.getElementById(id);
@@ -768,7 +818,9 @@
             const progressLabel = $('progressLabel');
             const progressFill = $('progressFill');
             const knowCount = $('knowCount');
-            const statBadge = $('statBadge');
+            const filterBar = $('filterBar');
+            const filterLabel = $('filterLabel');
+            const clearFilterBtn = $('clearFilterBtn');
 
             // ============================================================
             //  2. 数据管理
@@ -818,21 +870,51 @@
                     progress[index] = status;
                 }
                 saveProgress();
+                applyFilter();
                 updateStats();
+            }
+
+            // ============================================================
+            //  2b. 筛选功能
+            // ============================================================
+            function applyFilter() {
+                if (!currentFilter) {
+                    filteredVocabData = vocabData.map((item, i) => ({ item, origIndex: i }));
+                } else {
+                    filteredVocabData = [];
+                    for (let i = 0; i < vocabData.length; i++) {
+                        const st = getWordStatus(i);
+                        if (st === currentFilter) {
+                            filteredVocabData.push({ item: vocabData[i], origIndex: i });
+                        }
+                    }
+                }
+                if (currentIndex >= filteredVocabData.length) {
+                    currentIndex = 0;
+                }
+                // Update filter bar visibility
+                filterBar.style.display = currentFilter ? 'flex' : 'none';
+                if (currentFilter) {
+                    const filterNames = { know: '认识', dunno: '不认识', star: '收藏' };
+                    filterLabel.textContent = `只看: ${filterNames[currentFilter] || currentFilter} (${filteredVocabData.length}个)`;
+                }
             }
 
             // ============================================================
             //  3. 渲染单词卡片
             // ============================================================
             function renderCard(index) {
-                if (!vocabData.length || index < 0 || index >= vocabData.length) {
+                if (!filteredVocabData.length || index < 0 || index >= filteredVocabData.length) {
                     cardWord.textContent = '---';
                     cardPos.textContent = '---';
                     cardMeaning.textContent = '---';
-                    cardDetails.textContent = '';
+                    cardDetails.textContent = currentFilter ? '无匹配单词' : '请先导入词库';
+                    updateBtnStyles(null);
                     return;
                 }
-                const item = vocabData[index];
+                const data = filteredVocabData[index];
+                const item = data.item;
+                const origIndex = data.origIndex;
                 cardWord.textContent = item.word || '---';
                 const posText = Array.isArray(item.pos) ? item.pos.join(' / ') : (item.pos || '');
                 cardPos.textContent = posText;
@@ -874,13 +956,20 @@
                 }
 
                 updateStats();
+                updateBtnStyles(getWordStatus(origIndex));
+            }
+
+            function updateBtnStyles(status) {
+                btnKnow.style.opacity = status === 'know' ? '1' : '0.6';
+                btnDunno.style.opacity = status === 'dunno' ? '1' : '0.6';
+                btnStar.style.opacity = status === 'star' ? '1' : '0.6';
             }
 
             // ============================================================
             //  4. 统计信息
             // ============================================================
             function updateStats() {
-                const total = vocabData.length;
+                const total = filteredVocabData.length;
                 const known = Object.keys(progress).filter(k => progress[k] === 'know').length;
                 const starred = Object.keys(progress).filter(k => progress[k] === 'star').length;
                 const dunno = Object.keys(progress).filter(k => progress[k] === 'dunno').length;
@@ -890,7 +979,6 @@
                 const pct = total > 0 ? ((currentIndex + 1) / total * 100) : 0;
                 progressFill.style.width = Math.min(pct, 100) + '%';
                 knowCount.textContent = `✅ ${known}`;
-                statBadge.textContent = `📊 ${known} / ${total}`;
             }
 
             // ============================================================
@@ -903,11 +991,10 @@
                 navBtns.forEach(b => {
                     b.classList.toggle('active', b.dataset.page === pageId);
                 });
-                // 切换到搜索时自动聚焦
                 if (pageId === 'search') {
                     setTimeout(() => searchInput.focus(), 200);
                 }
-                if (pageId === 'learn' && vocabData.length) {
+                if (pageId === 'learn' && filteredVocabData.length) {
                     renderCard(currentIndex);
                 }
             }
@@ -929,26 +1016,26 @@
             //  6. 卡片交互
             // ============================================================
             cardFlip.addEventListener('click', () => {
-                if (!vocabData.length) return;
+                if (!filteredVocabData.length) return;
                 cardFlip.classList.toggle('flipped');
                 isFlipped = !isFlipped;
             });
 
             function goPrev() {
-                if (!vocabData.length) return;
+                if (!filteredVocabData.length) return;
                 if (currentIndex > 0) {
                     currentIndex--;
                     renderCard(currentIndex);
                 } else {
                     // 循环到末尾
-                    currentIndex = vocabData.length - 1;
+                    currentIndex = filteredVocabData.length - 1;
                     renderCard(currentIndex);
                 }
             }
 
             function goNext() {
-                if (!vocabData.length) return;
-                if (currentIndex < vocabData.length - 1) {
+                if (!filteredVocabData.length) return;
+                if (currentIndex < filteredVocabData.length - 1) {
                     currentIndex++;
                     renderCard(currentIndex);
                 } else {
@@ -970,7 +1057,7 @@
                 touchStartY = t.clientY;
             }, { passive: true });
             cardContainer.addEventListener('touchend', (e) => {
-                if (!vocabData.length) return;
+                if (!filteredVocabData.length) return;
                 const t = e.changedTouches[0];
                 const dx = t.clientX - touchStartX;
                 const dy = t.clientY - touchStartY;
@@ -992,38 +1079,83 @@
             // ============================================================
             //  7. 标记功能
             // ============================================================
+            function getCurrentOrigIndex() {
+                if (!filteredVocabData.length || currentIndex < 0 || currentIndex >= filteredVocabData.length) return -1;
+                return filteredVocabData[currentIndex].origIndex;
+            }
+
             btnKnow.addEventListener('click', () => {
-                if (!vocabData.length) return;
-                const st = getWordStatus(currentIndex);
+                if (!filteredVocabData.length) return;
+                const origIdx = getCurrentOrigIndex();
+                if (origIdx < 0) return;
+                const st = getWordStatus(origIdx);
                 if (st === 'know') {
-                    setWordStatus(currentIndex, null);
+                    setWordStatus(origIdx, null);
                 } else {
-                    setWordStatus(currentIndex, 'know');
+                    setWordStatus(origIdx, 'know');
                 }
-                updateStats();
+                updateBtnStyles(getWordStatus(origIdx));
             });
 
             btnDunno.addEventListener('click', () => {
-                if (!vocabData.length) return;
-                const st = getWordStatus(currentIndex);
+                if (!filteredVocabData.length) return;
+                const origIdx = getCurrentOrigIndex();
+                if (origIdx < 0) return;
+                const st = getWordStatus(origIdx);
                 if (st === 'dunno') {
-                    setWordStatus(currentIndex, null);
+                    setWordStatus(origIdx, null);
                 } else {
-                    setWordStatus(currentIndex, 'dunno');
+                    setWordStatus(origIdx, 'dunno');
                 }
-                updateStats();
+                updateBtnStyles(getWordStatus(origIdx));
             });
 
             btnStar.addEventListener('click', () => {
-                if (!vocabData.length) return;
-                const st = getWordStatus(currentIndex);
+                if (!filteredVocabData.length) return;
+                const origIdx = getCurrentOrigIndex();
+                if (origIdx < 0) return;
+                const st = getWordStatus(origIdx);
                 if (st === 'star') {
-                    setWordStatus(currentIndex, null);
+                    setWordStatus(origIdx, null);
                 } else {
-                    setWordStatus(currentIndex, 'star');
+                    setWordStatus(origIdx, 'star');
                 }
-                updateStats();
+                updateBtnStyles(getWordStatus(origIdx));
             });
+
+            // ============================================================
+            //  7b. 筛选按钮
+            // ============================================================
+            const filterBtns = document.getElementById('filterBtns');
+            const filterKnow = document.getElementById('filterKnow');
+            const filterDunno = document.getElementById('filterDunno');
+            const filterStar = document.getElementById('filterStar');
+            const filterAll = document.getElementById('filterAll');
+
+            function setFilter(filter) {
+                currentFilter = filter;
+                applyFilter();
+                renderCard(currentIndex);
+                updateFilterBtnStyles();
+            }
+
+            function updateFilterBtnStyles() {
+                filterKnow.style.background = currentFilter === 'know' ? '#dcfce7' : '#f1f5f9';
+                filterKnow.style.color = currentFilter === 'know' ? '#16a34a' : '#1e293b';
+                filterDunno.style.background = currentFilter === 'dunno' ? '#fee2e2' : '#f1f5f9';
+                filterDunno.style.color = currentFilter === 'dunno' ? '#dc2626' : '#1e293b';
+                filterStar.style.background = currentFilter === 'star' ? '#fef9c3' : '#f1f5f9';
+                filterStar.style.color = currentFilter === 'star' ? '#ca8a04' : '#1e293b';
+                filterAll.style.background = !currentFilter ? '#e2e8f0' : '#f1f5f9';
+                filterAll.style.fontWeight = !currentFilter ? '600' : '400';
+            }
+
+            filterKnow.addEventListener('click', () => setFilter(currentFilter === 'know' ? null : 'know'));
+            filterDunno.addEventListener('click', () => setFilter(currentFilter === 'dunno' ? null : 'dunno'));
+            filterStar.addEventListener('click', () => setFilter(currentFilter === 'star' ? null : 'star'));
+            filterAll.addEventListener('click', () => setFilter(null));
+
+            clearFilterBtn.addEventListener('click', () => setFilter(null));
 
             // ============================================================
             //  8. 搜索功能 (模糊)
@@ -1079,9 +1211,17 @@
                 // 点击结果跳转
                 searchResults.querySelectorAll('.result-item').forEach(el => {
                     el.addEventListener('click', function() {
-                        const idx = parseInt(this.dataset.index);
-                        if (!isNaN(idx) && idx >= 0 && idx < vocabData.length) {
-                            currentIndex = idx;
+                        const origIdx = parseInt(this.dataset.index);
+                        if (!isNaN(origIdx) && origIdx >= 0 && origIdx < vocabData.length) {
+                            // 清除筛选，找到在filteredVocabData中的位置
+                            currentFilter = null;
+                            applyFilter();
+                            const foundIdx = filteredVocabData.findIndex(f => f.origIndex === origIdx);
+                            if (foundIdx >= 0) {
+                                currentIndex = foundIdx;
+                            } else {
+                                currentIndex = 0;
+                            }
                             showPage('learn');
                             renderCard(currentIndex);
                         }
@@ -1120,6 +1260,8 @@
                 }
                 vocabData = data;
                 currentIndex = 0;
+                currentFilter = null;
+                applyFilter();
                 progress = {};
                 saveToStorage();
                 saveProgress();
@@ -1129,6 +1271,7 @@
                 renderCard(0);
                 // 更新搜索
                 if (searchInput.value.trim()) performSearch(searchInput.value);
+                updateFilterBtnStyles();
                 return true;
             }
 
@@ -1255,42 +1398,72 @@
             // ============================================================
             //  11. 初始化
             // ============================================================
-            function init() {
+            async function loadWordDatabase() {
+                try {
+                    const response = await fetch('word_database.json');
+                    if (!response.ok) throw new Error('无法加载');
+                    const data = await response.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        return data;
+                    }
+                } catch (e) {
+                    console.log('自动加载词库失败:', e.message);
+                }
+                return null;
+            }
+
+            async function init() {
                 const hasStorage = loadFromStorage();
+                
+                // 尝试自动加载 word_database.json
+                const defaultData = await loadWordDatabase();
+                
                 if (hasStorage && vocabData.length) {
                     loadProgress();
+                    applyFilter();
                     showPage('learn');
-                    // 恢复上次学习位置（从进度中找第一个未学习的？简单起见从0开始）
+                    currentIndex = 0;
+                    renderCard(0);
+                } else if (defaultData) {
+                    vocabData = defaultData;
+                    saveToStorage();
+                    loadProgress();
+                    applyFilter();
+                    showPage('learn');
                     currentIndex = 0;
                     renderCard(0);
                 } else {
-                    // 尝试从 localStorage 清除无效数据
                     localStorage.removeItem(STORAGE_KEY);
                     localStorage.removeItem(PROGRESS_KEY);
                     vocabData = [];
                     progress = {};
+                    applyFilter();
                     showPage('upload');
                 }
+                updateFilterBtnStyles();
                 // 如果URL带有 ?demo 参数，自动加载示例
                 if (window.location.search.includes('demo') && !vocabData.length) {
                     setTimeout(() => btnLoadDemo.click(), 300);
                 }
             }
 
-            init();
+            init().catch(console.error);
 
             // ============================================================
             //  12. 暴露全局 (调试)
             // ============================================================
             window.__app = {
                 vocabData,
+                filteredVocabData,
                 currentIndex,
                 progress,
                 renderCard,
                 goPrev,
                 goNext,
                 performSearch,
-                loadData
+                loadData,
+                setFilter,
+                currentFilter
             };
 
         })();
