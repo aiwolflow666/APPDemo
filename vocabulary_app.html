@@ -1401,7 +1401,7 @@
             // ============================================================
             async function loadWordDatabase() {
                 try {
-                    const response = await fetch('word_database.json');
+                    const response = await fetch('word_database.json?t=' + Date.now());
                     if (!response.ok) throw new Error('无法加载');
                     const data = await response.json();
                     if (Array.isArray(data) && data.length > 0) {

@@ -1093,7 +1093,7 @@
     let wordDatabase = [];
     async function loadWordDatabase() {
         try {
-            const response = await fetch('word_database.json');
+            const response = await fetch('word_database.json?t=' + Date.now());
             if (!response.ok) throw new Error('无法加载单词数据库');
             wordDatabase = await response.json();
             console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
@@ -1278,7 +1278,7 @@
 
     async function loadLocalQuestionBank() {
         try {
-            const resp = await fetch('toeic_questions_sample.json');
+            const resp = await fetch('toeic_questions_sample.json?t=' + Date.now());
             if (!resp.ok) throw new Error('无法加载');
             const data = await resp.json();
             localQuestionBank = Array.isArray(data) ? data : [];

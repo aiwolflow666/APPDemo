@@ -4,8 +4,6 @@ import socketserver
 import socket
 import os
 
-PORT = 8000
-
 def get_local_ip():
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -19,15 +17,25 @@ def get_local_ip():
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 handler = http.server.SimpleHTTPRequestHandler
+socketserver.TCPServer.allow_reuse_address = True
 
-with socketserver.TCPServer(("", PORT), handler) as httpd:
-    ip = get_local_ip()
-    print("=" * 50)
-    print("  TOEIC Study App - Local Server")
-    print("=" * 50)
-    print(f"  PC:   http://localhost:{PORT}/index.html")
-    print(f"  Phone: http://{ip}:{PORT}/index.html")
-    print("=" * 50)
-    print("  Press Ctrl+C to stop")
-    print()
-    httpd.serve_forever()
+for port in [8000, 8080, 3000, 5000, 9000]:
+    try:
+        httpd = socketserver.TCPServer(("", port), handler)
+        break
+    except OSError:
+        continue
+else:
+    print("No available port found.")
+    exit(1)
+
+ip = get_local_ip()
+print("=" * 50)
+print("  TOEIC Study App - Local Server")
+print("=" * 50)
+print(f"  PC:    http://localhost:{port}/index.html")
+print(f"  Phone: http://{ip}:{port}/index.html")
+print("=" * 50)
+print("  Press Ctrl+C to stop")
+print()
+httpd.serve_forever()
