@@ -5678,5 +5678,3505 @@
       "import 是动词/名词，但语义不符。"
     ],
     "summaryTip": "the + 名词 + of。"
+  },
+  {
+    "id": "toeic_p5_131",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 2,
+    "questionText": "It is required that all employees ______ the annual compliance training.",
+    "options": [
+      "complete",
+      "completes",
+      "completed",
+      "have completed"
+    ],
+    "options_cn": [
+      "完成(原形)",
+      "完成(三单)",
+      "完成(过去)",
+      "已经完成"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "要求所有员工完成年度合规培训。",
+    "keywords": [
+      {
+        "word": "required",
+        "pos": "adj.",
+        "meaning": "要求的"
+      },
+      {
+        "word": "compliance training",
+        "pos": "n.",
+        "meaning": "合规培训"
+      }
+    ],
+    "solutionSteps": "1. 看到 'It is required that'，判断为虚拟语气。\n2. 从句谓语用动词原形。\n3. 'complete' 是原形。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "completes 是三单。",
+      "completed 是过去式。",
+      "have completed 是完成时。"
+    ],
+    "summaryTip": "required/requested/demanded + that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_132",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The project manager suggested ______ the budget review until next month.",
+    "options": [
+      "delay",
+      "to delay",
+      "delaying",
+      "delayed"
+    ],
+    "options_cn": [
+      "推迟(原形)",
+      "推迟(不定式)",
+      "推迟(动名词)",
+      "推迟(过去)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "项目经理建议把预算审查推迟到下个月。",
+    "keywords": [
+      {
+        "word": "suggested",
+        "pos": "v.",
+        "meaning": "建议(过去)"
+      },
+      {
+        "word": "budget review",
+        "pos": "n.",
+        "meaning": "预算审查"
+      }
+    ],
+    "solutionSteps": "1. 'suggest' 后面接动名词 (doing)。\n2. 'delaying' 是动名词，正确。",
+    "wrongOptionAnalysis": [
+      "suggest doing，不能用原形。",
+      "suggest doing，不能用 to do。",
+      "正确。",
+      "suggest doing，不能用过去式。"
+    ],
+    "summaryTip": "suggest/recommend/avoid/consider + doing。"
+  },
+  {
+    "id": "toeic_p5_133",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "Every one of the team members ______ expected to attend the meeting.",
+    "options": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "options_cn": [
+      "是(复数)",
+      "是(单数)",
+      "是(过去复数)",
+      "是(完成复数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "团队中的每个人都被期望出席会议。",
+    "keywords": [
+      {
+        "word": "Every one",
+        "pos": "pron.",
+        "meaning": "每一个(单数)"
+      },
+      {
+        "word": "team members",
+        "pos": "n.",
+        "meaning": "团队成员(复数)"
+      }
+    ],
+    "solutionSteps": "1. 'Every one of' 核心主语是 'Every one'（单数）。\n2. 谓语用单数。\n3. 'is' 正确。",
+    "wrongOptionAnalysis": [
+      "are 是复数。",
+      "正确。",
+      "were 是过去复数。",
+      "have been 是完成复数。"
+    ],
+    "summaryTip": "Every one / Each / Neither / Either of + 复数名词 + 谓语单数。"
+  },
+  {
+    "id": "toeic_p5_134",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the construction team resumed work after the storm.",
+    "options": [
+      "The weather cleared",
+      "The weather clearing",
+      "The weather clears",
+      "The weather clear"
+    ],
+    "options_cn": [
+      "天气放晴(句子)",
+      "天气放晴(独立主格)",
+      "天气放晴(句子)",
+      "天气放晴(不完整)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "天气放晴后，施工队恢复了工作。",
+    "keywords": [
+      {
+        "word": "weather",
+        "pos": "n.",
+        "meaning": "天气"
+      },
+      {
+        "word": "clearing",
+        "pos": "v-ing",
+        "meaning": "放晴"
+      }
+    ],
+    "solutionSteps": "1. 无连词，逗号连接，判断为独立主格。\n2. 'The weather clearing' 是名词 + 现在分词，正确。",
+    "wrongOptionAnalysis": [
+      "是完整句子，不能作状语。",
+      "正确。",
+      "是完整句子，不能作状语。",
+      "缺少分词 being/clearing。"
+    ],
+    "summaryTip": "独立主格 = 名词 + 分词，表示原因/条件/时间。"
+  },
+  {
+    "id": "toeic_p5_135",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The finance department has submitted ______ report for the quarterly review.",
+    "options": [
+      "them",
+      "their",
+      "its",
+      "it"
+    ],
+    "options_cn": [
+      "它们(宾格)",
+      "他们的(复数所有格)",
+      "它的(单数所有格)",
+      "它(宾格)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "财务部已提交其季度审查报告。",
+    "keywords": [
+      {
+        "word": "finance department",
+        "pos": "n.",
+        "meaning": "财务部(单数)"
+      },
+      {
+        "word": "quarterly review",
+        "pos": "n.",
+        "meaning": "季度审查"
+      }
+    ],
+    "solutionSteps": "1. 'finance department' 是单数机构。\n2. 需要单数所有格修饰 'report'。\n3. 'its' 正确。",
+    "wrongOptionAnalysis": [
+      "them 是复数宾格。",
+      "their 是复数所有格。",
+      "正确。",
+      "it 是主格/宾格，不能修饰名词。"
+    ],
+    "summaryTip": "部门/公司/团队 概念为单数，用 its。"
+  },
+  {
+    "id": "toeic_p5_136",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "The new marketing strategy is ______ than the old one.",
+    "options": [
+      "more effective",
+      "more effectively",
+      "effective",
+      "much effective"
+    ],
+    "options_cn": [
+      "更有效(形容词)",
+      "更有效地(副词)",
+      "有效(原级)",
+      "有效(错误)"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "新的营销策略比旧策略更有效。",
+    "keywords": [
+      {
+        "word": "effective",
+        "pos": "adj.",
+        "meaning": "有效的"
+      }
+    ],
+    "solutionSteps": "1. 看到 'than'，判断为比较级。\n2. 'is' 后接形容词。\n3. 'more effective' 正确。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "more effectively 是副词。",
+      "effective 是原级，无 than 时用。",
+      "much effective 错误，应为 much more effective。"
+    ],
+    "summaryTip": "than 前面用 more + 形容词原形。"
+  },
+  {
+    "id": "toeic_p5_137",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The company decided to expand operations abroad ______ the high costs.",
+    "options": [
+      "because",
+      "so",
+      "despite",
+      "although"
+    ],
+    "options_cn": [
+      "因为",
+      "所以",
+      "尽管",
+      "虽然"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "尽管成本高昂，公司仍决定向海外扩张业务。",
+    "keywords": [
+      {
+        "word": "high costs",
+        "pos": "n.",
+        "meaning": "高昂成本"
+      }
+    ],
+    "solutionSteps": "1. 空格后是名词短语 'the high costs'。\n2. 需要介词。\n3. 'despite' 是介词，正确。",
+    "wrongOptionAnalysis": [
+      "because 是连词，接从句。",
+      "so 是连词，接结果句。",
+      "正确。",
+      "although 是连词，接从句。"
+    ],
+    "summaryTip": "despite + 名词；although + 从句。"
+  },
+  {
+    "id": "toeic_p5_138",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "The project requires ______ resources than we originally estimated.",
+    "options": [
+      "fewer",
+      "less",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(可数)",
+      "更少(不可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "该项目需要的资源比我们原先估计的要少。",
+    "keywords": [
+      {
+        "word": "resources",
+        "pos": "n.",
+        "meaning": "资源(通常视为不可数)"
+      }
+    ],
+    "solutionSteps": "1. 'resources' 在此视为不可数名词。\n2. 比较级用 'less'。",
+    "wrongOptionAnalysis": [
+      "fewer 用于可数。",
+      "正确。",
+      "little 是原级。",
+      "more less 不存在。"
+    ],
+    "summaryTip": "less + 不可数；fewer + 可数。"
+  },
+  {
+    "id": "toeic_p5_139",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "By the time the manager arrived, the team ______ the presentation for hours.",
+    "options": [
+      "prepared",
+      "has prepared",
+      "had been preparing",
+      "prepares"
+    ],
+    "options_cn": [
+      "准备(过去)",
+      "准备(现在完成)",
+      "一直在准备(过去完成进行)",
+      "准备(一般现在)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "经理到达时，团队已经准备演示文稿好几个小时了。",
+    "keywords": [
+      {
+        "word": "arrived",
+        "pos": "v.",
+        "meaning": "到达(过去)"
+      },
+      {
+        "word": "for hours",
+        "pos": "time",
+        "meaning": "好几个小时"
+      }
+    ],
+    "solutionSteps": "1. 'By the time...arrived' 表示过去时间点。\n2. 'for hours' 强调动作持续。\n3. 用过去完成进行时 'had been preparing'。",
+    "wrongOptionAnalysis": [
+      "prepared 一般过去，不强调持续。",
+      "has prepared 现在完成，时态不符。",
+      "正确。",
+      "prepares 一般现在，不符。"
+    ],
+    "summaryTip": "by the time + 过去时 + 过去完成进行时，表示持续到过去的动作。"
+  },
+  {
+    "id": "toeic_p5_140",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The new software operates ______ than the old version.",
+    "options": [
+      "efficient",
+      "efficiently",
+      "more efficient",
+      "more efficiently"
+    ],
+    "options_cn": [
+      "高效(形容词)",
+      "高效地(副词)",
+      "更高效(形容词)",
+      "更高效地(副词)"
+    ],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "新软件比旧版本运行得更高效。",
+    "keywords": [
+      {
+        "word": "operates",
+        "pos": "v.",
+        "meaning": "运行(动词)"
+      }
+    ],
+    "solutionSteps": "1. 空格修饰动词 'operates'，需用副词。\n2. 看到 'than'，比较级。\n3. 'more efficiently' 是副词比较级。",
+    "wrongOptionAnalysis": [
+      "efficient 形容词。",
+      "efficiently 副词原级，无 than 时用。",
+      "more efficient 形容词比较级。",
+      "正确。"
+    ],
+    "summaryTip": "修饰动词用副词，比较级用 more + 副词原形。"
+  },
+  {
+    "id": "toeic_p5_141",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 3,
+    "questionText": "The CEO insisted that the project ______ completed by the end of the month.",
+    "options": [
+      "is",
+      "be",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(一般现在)",
+      "是(原形)",
+      "是(一般过去)",
+      "是(现在完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "CEO坚持项目必须在本月底前完成。",
+    "keywords": [
+      {
+        "word": "insisted",
+        "pos": "v.",
+        "meaning": "坚持(过去)"
+      }
+    ],
+    "solutionSteps": "1. 'insisted that' 引导虚拟语气。\n2. 从句谓语用 '(should) + 动词原形'。\n3. 'be completed' 是被动语态原形。",
+    "wrongOptionAnalysis": [
+      "is 陈述语气。",
+      "正确。",
+      "was 陈述语气过去时。",
+      "has been 完成时。"
+    ],
+    "summaryTip": "insist/demand/require/suggest that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_142",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The customer service team aims ______ all complaints within 24 hours.",
+    "options": [
+      "resolve",
+      "to resolve",
+      "resolving",
+      "resolved"
+    ],
+    "options_cn": [
+      "解决(原形)",
+      "解决(不定式)",
+      "解决(动名词)",
+      "解决(过去)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "客户服务团队目标在24小时内解决所有投诉。",
+    "keywords": [
+      {
+        "word": "aims",
+        "pos": "v.",
+        "meaning": "旨在"
+      }
+    ],
+    "solutionSteps": "1. 'aim' 后面接不定式 (to do)。\n2. 'to resolve' 正确。",
+    "wrongOptionAnalysis": [
+      "aim to do，不能用原形。",
+      "正确。",
+      "aim to do，不能用 doing。",
+      "aim to do，不能用过去式。"
+    ],
+    "summaryTip": "aim/decide/plan/want + to do。"
+  },
+  {
+    "id": "toeic_p5_143",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 3,
+    "questionText": "A number of employees ______ to work from home during the pandemic.",
+    "options": [
+      "was",
+      "were",
+      "has",
+      "is"
+    ],
+    "options_cn": [
+      "是(单数)",
+      "是(复数)",
+      "有(单数)",
+      "是(单数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "疫情期间，许多员工选择在家工作。",
+    "keywords": [
+      {
+        "word": "A number of",
+        "pos": "phrase",
+        "meaning": "许多(复数)"
+      },
+      {
+        "word": "employees",
+        "pos": "n.",
+        "meaning": "员工"
+      }
+    ],
+    "solutionSteps": "1. 'A number of + 复数名词' 谓语用复数。\n2. 'were' 是复数过去式。",
+    "wrongOptionAnalysis": [
+      "was 是单数。",
+      "正确。",
+      "has 是单数。",
+      "is 是单数。"
+    ],
+    "summaryTip": "A number of + 复数名词 + 谓语复数；The number of + 复数名词 + 谓语单数。"
+  },
+  {
+    "id": "toeic_p5_144",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the conference was rescheduled for next Monday.",
+    "options": [
+      "The venue was unavailable",
+      "The venue being unavailable",
+      "The venue is unavailable",
+      "The venue unavailable"
+    ],
+    "options_cn": [
+      "场地不可用(句子)",
+      "场地不可用(独立主格)",
+      "场地不可用(句子)",
+      "场地不可用(不完整)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "由于场地不可用，会议被重新安排到下周一。",
+    "keywords": [
+      {
+        "word": "venue",
+        "pos": "n.",
+        "meaning": "场地"
+      },
+      {
+        "word": "unavailable",
+        "pos": "adj.",
+        "meaning": "不可用"
+      }
+    ],
+    "solutionSteps": "1. 无连词，逗号连接，独立主格。\n2. 'The venue being unavailable' 正确。",
+    "wrongOptionAnalysis": [
+      "完整句子。",
+      "正确。",
+      "完整句子。",
+      "缺少 being。"
+    ],
+    "summaryTip": "独立主格中 being 可表示 '存在/是' 的状态。"
+  },
+  {
+    "id": "toeic_p5_145",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The human resources department will post ______ job openings on the company website.",
+    "options": [
+      "them",
+      "their",
+      "its",
+      "it"
+    ],
+    "options_cn": [
+      "它们(宾格)",
+      "它们的(复数所有格)",
+      "它的(单数所有格)",
+      "它(宾格)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "人力资源部将在公司网站上发布其职位空缺。",
+    "keywords": [
+      {
+        "word": "human resources department",
+        "pos": "n.",
+        "meaning": "人力资源部(单数)"
+      },
+      {
+        "word": "job openings",
+        "pos": "n.",
+        "meaning": "职位空缺"
+      }
+    ],
+    "solutionSteps": "1. 'HR department' 是单数机构。\n2. 用所有格 'its' 修饰 'openings'。",
+    "wrongOptionAnalysis": [
+      "them 宾格。",
+      "their 复数所有格。",
+      "正确。",
+      "it 主格/宾格。"
+    ],
+    "summaryTip": "机构名称视为单数，用 its。"
+  },
+  {
+    "id": "toeic_p5_146",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 3,
+    "questionText": "The new employee learns much ______ than his colleagues.",
+    "options": [
+      "fast",
+      "faster",
+      "more fast",
+      "fastly"
+    ],
+    "options_cn": [
+      "快(原级)",
+      "更快",
+      "更快(错误)",
+      "快地(错误)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "新员工比他的同事学得快得多。",
+    "keywords": [
+      {
+        "word": "much",
+        "pos": "adv.",
+        "meaning": "得多"
+      },
+      {
+        "word": "learns",
+        "pos": "v.",
+        "meaning": "学习"
+      }
+    ],
+    "solutionSteps": "1. 'than' 比较级，修饰动词 learns 用副词比较级。\n2. 'fast' 的副词比较级是 'faster'。\n3. 'much' 修饰比较级。",
+    "wrongOptionAnalysis": [
+      "fast 原级。",
+      "正确。",
+      "more fast 错误。",
+      "fastly 词性不对。"
+    ],
+    "summaryTip": "副词比较级一般加 -er (fast-faster) 或 more + 副词。"
+  },
+  {
+    "id": "toeic_p5_147",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The shipping delay was caused ______ the port strike.",
+    "options": [
+      "because",
+      "because of",
+      "so",
+      "although"
+    ],
+    "options_cn": [
+      "因为(连词)",
+      "因为(介词短语)",
+      "所以",
+      "虽然"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "运输延误是由港口罢工引起的。",
+    "keywords": [
+      {
+        "word": "port strike",
+        "pos": "n.",
+        "meaning": "港口罢工"
+      }
+    ],
+    "solutionSteps": "1. 空格后是名词短语，需要介词。\n2. 'because of' 是介词短语，正确。\n3. 'because' 接从句。",
+    "wrongOptionAnalysis": [
+      "because 接从句。",
+      "正确。",
+      "so 接结果。",
+      "although 接从句。"
+    ],
+    "summaryTip": "because + 从句；because of + 名词/动名词。"
+  },
+  {
+    "id": "toeic_p5_148",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "There is ______ milk left in the refrigerator than yesterday.",
+    "options": [
+      "fewer",
+      "less",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(可数)",
+      "更少(不可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "冰箱里的牛奶比昨天少了。",
+    "keywords": [
+      {
+        "word": "milk",
+        "pos": "n.",
+        "meaning": "牛奶(不可数)"
+      }
+    ],
+    "solutionSteps": "1. 'milk' 不可数。\n2. 比较级用 'less'。",
+    "wrongOptionAnalysis": [
+      "fewer 用于可数。",
+      "正确。",
+      "little 原级。",
+      "more less 错误。"
+    ],
+    "summaryTip": "less + 不可数名词。"
+  },
+  {
+    "id": "toeic_p5_149",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The company ______ in the automotive industry since 1990.",
+    "options": [
+      "operates",
+      "operated",
+      "has operated",
+      "is operating"
+    ],
+    "options_cn": [
+      "运营(一般现在)",
+      "运营(过去)",
+      "已经运营(现在完成)",
+      "正在运营(现在进行)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "这家公司自1990年以来一直从事汽车行业。",
+    "keywords": [
+      {
+        "word": "since 1990",
+        "pos": "time",
+        "meaning": "自从1990年"
+      }
+    ],
+    "solutionSteps": "1. 'since + 过去时间点' 用现在完成时。\n2. 'has operated' 正确。",
+    "wrongOptionAnalysis": [
+      "operates 一般现在。",
+      "operated 过去时。",
+      "正确。",
+      "is operating 现在进行。"
+    ],
+    "summaryTip": "since + 过去时间点 → 现在完成时。"
+  },
+  {
+    "id": "toeic_p5_150",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The team achieved ______ results in the first quarter.",
+    "options": [
+      "impress",
+      "impressive",
+      "impressively",
+      "impression"
+    ],
+    "options_cn": [
+      "印象(动词)",
+      "印象深刻的(形容词)",
+      "印象深刻地(副词)",
+      "印象(名词)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "团队在第一季度取得了令人印象深刻的结果。",
+    "keywords": [
+      {
+        "word": "results",
+        "pos": "n.",
+        "meaning": "结果"
+      }
+    ],
+    "solutionSteps": "1. 修饰名词 'results' 用形容词。\n2. 'impressive' 正确。",
+    "wrongOptionAnalysis": [
+      "impress 动词。",
+      "正确。",
+      "impressively 副词。",
+      "impression 名词。"
+    ],
+    "summaryTip": "修饰名词用形容词。"
+  },
+  {
+    "id": "toeic_p5_151",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 2,
+    "questionText": "It is advisable that he ______ the contract before signing it.",
+    "options": [
+      "reviews",
+      "review",
+      "reviewed",
+      "has reviewed"
+    ],
+    "options_cn": [
+      "审查(三单)",
+      "审查(原形)",
+      "审查(过去)",
+      "已经审查"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "建议他在签署合同前先审查一遍。",
+    "keywords": [
+      {
+        "word": "advisable",
+        "pos": "adj.",
+        "meaning": "明智的"
+      },
+      {
+        "word": "contract",
+        "pos": "n.",
+        "meaning": "合同"
+      }
+    ],
+    "solutionSteps": "1. 'It is advisable that' 虚拟语气。\n2. 从句用原形 'review'。",
+    "wrongOptionAnalysis": [
+      "reviews 三单。",
+      "正确。",
+      "reviewed 过去式。",
+      "has reviewed 完成时。"
+    ],
+    "summaryTip": "It is advisable/important/necessary that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_152",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The employees refused ______ overtime during the holiday season.",
+    "options": [
+      "work",
+      "to work",
+      "working",
+      "worked"
+    ],
+    "options_cn": [
+      "工作(原形)",
+      "工作(不定式)",
+      "工作(动名词)",
+      "工作(过去)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "员工们拒绝在假期加班。",
+    "keywords": [
+      {
+        "word": "refused",
+        "pos": "v.",
+        "meaning": "拒绝(过去)"
+      }
+    ],
+    "solutionSteps": "1. 'refuse' 后接不定式 (to do)。\n2. 'to work' 正确。",
+    "wrongOptionAnalysis": [
+      "refuse to do，不能用原形。",
+      "正确。",
+      "refuse to do，不能用 doing。",
+      "refuse to do，不能用过去式。"
+    ],
+    "summaryTip": "refuse/decide/plan/want + to do。"
+  },
+  {
+    "id": "toeic_p5_153",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "Either the supervisor or the assistants ______ responsible for the error.",
+    "options": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(单数)",
+      "是(复数)",
+      "是(过去单数)",
+      "是(完成单数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "要么是主管，要么是助理们对错误负责。",
+    "keywords": [
+      {
+        "word": "assistants",
+        "pos": "n.",
+        "meaning": "助理(复数)"
+      }
+    ],
+    "solutionSteps": "1. 'Either...or...' 遵循就近原则。\n2. 谓语与 'assistants'（复数）一致。\n3. 'are' 正确。",
+    "wrongOptionAnalysis": [
+      "is 单数。",
+      "正确。",
+      "was 单数过去时。",
+      "has been 单数。"
+    ],
+    "summaryTip": "Either...or... / Neither...nor... 谓语与最近的主语一致。"
+  },
+  {
+    "id": "toeic_p5_154",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the company decided to launch the product immediately.",
+    "options": [
+      "The market is ready",
+      "The market ready",
+      "The market being ready",
+      "The market was ready"
+    ],
+    "options_cn": [
+      "市场准备好(句子)",
+      "市场准备好(不完整)",
+      "市场准备好(独立主格)",
+      "市场准备好(句子)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "市场准备就绪，公司决定立即推出产品。",
+    "keywords": [
+      {
+        "word": "market",
+        "pos": "n.",
+        "meaning": "市场"
+      },
+      {
+        "word": "ready",
+        "pos": "adj.",
+        "meaning": "准备好的"
+      }
+    ],
+    "solutionSteps": "1. 无连词，独立主格。\n2. 'The market being ready' 正确。",
+    "wrongOptionAnalysis": [
+      "完整句子。",
+      "缺少 being。",
+      "正确。",
+      "完整句子。"
+    ],
+    "summaryTip": "独立主格 = 名词 + 分词/形容词。"
+  },
+  {
+    "id": "toeic_p5_155",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 3,
+    "questionText": "The committee found ______ necessary to revise the budget proposal.",
+    "options": [
+      "them",
+      "their",
+      "itself",
+      "it"
+    ],
+    "options_cn": [
+      "他们(宾格)",
+      "他们的",
+      "它自己",
+      "它"
+    ],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "委员会认为有必要修订预算提案。",
+    "keywords": [
+      {
+        "word": "committee",
+        "pos": "n.",
+        "meaning": "委员会(单数)"
+      },
+      {
+        "word": "revise",
+        "pos": "v.",
+        "meaning": "修订"
+      }
+    ],
+    "solutionSteps": "1. 'find + it + adj. + to do' 结构。\n2. 'it' 作形式宾语。",
+    "wrongOptionAnalysis": [
+      "them 复数。",
+      "their 所有格。",
+      "itself 反身代词。",
+      "正确。"
+    ],
+    "summaryTip": "find/think/believe/make + it + adj. + to do/that...。"
+  },
+  {
+    "id": "toeic_p5_156",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "Of all the candidates, she has the ______ experience in project management.",
+    "options": [
+      "more",
+      "most",
+      "the most",
+      "the more"
+    ],
+    "options_cn": [
+      "更多",
+      "最多(普遍)",
+      "最多(有冠词)",
+      "更多(有冠词)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "在所有候选人中，她拥有最丰富的项目管理经验。",
+    "keywords": [
+      {
+        "word": "Of all",
+        "pos": "prep.",
+        "meaning": "在所有...中"
+      },
+      {
+        "word": "experience",
+        "pos": "n.",
+        "meaning": "经验"
+      }
+    ],
+    "solutionSteps": "1. 'Of all' 表示最高级。\n2. 用 'the most'。",
+    "wrongOptionAnalysis": [
+      "more 比较级。",
+      "most 缺少 the。",
+      "正确。",
+      "the more 比较级。"
+    ],
+    "summaryTip": "of all + 最高级 (the + -est / the most)。"
+  },
+  {
+    "id": "toeic_p5_157",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The company offered a bonus ______ employees worked overtime.",
+    "options": [
+      "because",
+      "because of",
+      "so",
+      "despite"
+    ],
+    "options_cn": [
+      "因为(连词)",
+      "因为(介词)",
+      "所以",
+      "尽管"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司提供了奖金，因为员工加班了。",
+    "keywords": [
+      {
+        "word": "overtime",
+        "pos": "n.",
+        "meaning": "加班"
+      }
+    ],
+    "solutionSteps": "1. 空格后是完整句子 'employees worked overtime'。\n2. 需要连词。\n3. 'because' 正确。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "because of 接名词。",
+      "so 接结果。",
+      "despite 接名词。"
+    ],
+    "summaryTip": "because + 从句；because of + 名词/动名词。"
+  },
+  {
+    "id": "toeic_p5_158",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 3,
+    "questionText": "We have ______ than 50 applicants to interview this week.",
+    "options": [
+      "less",
+      "fewer",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(不可数)",
+      "更少(可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "我们本周要面试的申请者少于50人。",
+    "keywords": [
+      {
+        "word": "applicants",
+        "pos": "n.",
+        "meaning": "申请者(可数)"
+      }
+    ],
+    "solutionSteps": "1. 'applicants' 可数复数。\n2. 比较级用 'fewer'。",
+    "wrongOptionAnalysis": [
+      "less 用于不可数。",
+      "正确。",
+      "little 原级。",
+      "more less 错误。"
+    ],
+    "summaryTip": "fewer than + 可数名词。"
+  },
+  {
+    "id": "toeic_p5_159",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The company ______ a new warehouse next year.",
+    "options": [
+      "builds",
+      "built",
+      "will build",
+      "has built"
+    ],
+    "options_cn": [
+      "建造(一般现在)",
+      "建造(过去)",
+      "将建造(将来)",
+      "已经建造(现在完成)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "公司明年将建造一个新仓库。",
+    "keywords": [
+      {
+        "word": "next year",
+        "pos": "time",
+        "meaning": "明年"
+      }
+    ],
+    "solutionSteps": "1. 'next year' 将来时间。\n2. 用一般将来时 'will build'。",
+    "wrongOptionAnalysis": [
+      "builds 一般现在。",
+      "built 过去时。",
+      "正确。",
+      "has built 现在完成。"
+    ],
+    "summaryTip": "next year / tomorrow → 一般将来时 (will do)。"
+  },
+  {
+    "id": "toeic_p5_160",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The proposal was ______ accepted by the board of directors.",
+    "options": [
+      "unanimous",
+      "unanimously",
+      "unanimity",
+      "unanimousness"
+    ],
+    "options_cn": [
+      "一致的(形容词)",
+      "一致地(副词)",
+      "一致(名词)",
+      "一致(名词)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "该提案被董事会一致接受。",
+    "keywords": [
+      {
+        "word": "accepted",
+        "pos": "v.",
+        "meaning": "被接受"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'accepted' 用副词。\n2. 'unanimously' 正确。",
+    "wrongOptionAnalysis": [
+      "unanimous 形容词。",
+      "正确。",
+      "unanimity 名词。",
+      "unanimousness 名词。"
+    ],
+    "summaryTip": "修饰动词用副词。"
+  },
+  {
+    "id": "toeic_p5_161",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 2,
+    "questionText": "It is urgent that the report ______ completed by Friday.",
+    "options": [
+      "is",
+      "be",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(一般现在)",
+      "是(原形)",
+      "是(一般过去)",
+      "是(现在完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "报告必须在周五前完成，这很紧急。",
+    "keywords": [
+      {
+        "word": "urgent",
+        "pos": "adj.",
+        "meaning": "紧急的"
+      }
+    ],
+    "solutionSteps": "1. 'It is urgent that' 虚拟语气。\n2. 从句用 '(should) + 动词原形'。\n3. 'be completed' 被动原形。",
+    "wrongOptionAnalysis": [
+      "is 陈述语气。",
+      "正确。",
+      "was 过去时。",
+      "has been 完成时。"
+    ],
+    "summaryTip": "It is urgent/essential/necessary that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_162",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The company plans ______ a new branch in Singapore next year.",
+    "options": [
+      "open",
+      "to open",
+      "opening",
+      "opened"
+    ],
+    "options_cn": [
+      "开(原形)",
+      "开(不定式)",
+      "开(动名词)",
+      "开(过去)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司计划明年在新加坡开设一个新分部。",
+    "keywords": [
+      {
+        "word": "plans",
+        "pos": "v.",
+        "meaning": "计划"
+      }
+    ],
+    "solutionSteps": "1. 'plan' 后接不定式 (to do)。\n2. 'to open' 正确。",
+    "wrongOptionAnalysis": [
+      "plan to do，不能用原形。",
+      "正确。",
+      "plan to do，不能用 doing。",
+      "plan to do，不能用过去式。"
+    ],
+    "summaryTip": "plan/decide/hope/want + to do。"
+  },
+  {
+    "id": "toeic_p5_163",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "The cost of raw materials ______ significantly over the past month.",
+    "options": [
+      "have increased",
+      "has increased",
+      "have been increasing",
+      "are increasing"
+    ],
+    "options_cn": [
+      "已经增加(复数)",
+      "已经增加(单数)",
+      "一直在增加(复数)",
+      "正在增加(复数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "过去一个月，原材料成本显著增加。",
+    "keywords": [
+      {
+        "word": "cost",
+        "pos": "n.",
+        "meaning": "成本(单数)"
+      },
+      {
+        "word": "raw materials",
+        "pos": "n.",
+        "meaning": "原材料(复数)"
+      }
+    ],
+    "solutionSteps": "1. 核心主语是 'The cost'（单数），不是 'materials'。\n2. 谓语用单数 'has increased'。",
+    "wrongOptionAnalysis": [
+      "have increased 复数。",
+      "正确。",
+      "have been increasing 复数。",
+      "are increasing 复数。"
+    ],
+    "summaryTip": "The cost of + 名词 → 谓语单数。"
+  },
+  {
+    "id": "toeic_p5_164",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the negotiations continued into the night.",
+    "options": [
+      "No agreement was reached",
+      "No agreement being reached",
+      "No agreement is reached",
+      "No agreement reached"
+    ],
+    "options_cn": [
+      "未达成协议(句子)",
+      "未达成协议(独立主格)",
+      "未达成协议(句子)",
+      "未达成协议(不完整)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "没有达成任何协议，谈判持续到了深夜。",
+    "keywords": [
+      {
+        "word": "agreement",
+        "pos": "n.",
+        "meaning": "协议"
+      },
+      {
+        "word": "reached",
+        "pos": "v.",
+        "meaning": "达成"
+      }
+    ],
+    "solutionSteps": "1. 无连词，独立主格。\n2. 'No agreement being reached' 正确（被动分词）。",
+    "wrongOptionAnalysis": [
+      "完整句子。",
+      "正确。",
+      "完整句子。",
+      "缺少 being。"
+    ],
+    "summaryTip": "独立主格可用 '名词 + being + 过去分词' 表示被动。"
+  },
+  {
+    "id": "toeic_p5_165",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The accounting department submitted ______ quarterly report yesterday.",
+    "options": [
+      "them",
+      "their",
+      "its",
+      "it"
+    ],
+    "options_cn": [
+      "它们(宾格)",
+      "它们的(复数所有格)",
+      "它的(单数所有格)",
+      "它(宾格)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "会计部昨天提交了其季度报告。",
+    "keywords": [
+      {
+        "word": "accounting department",
+        "pos": "n.",
+        "meaning": "会计部(单数)"
+      }
+    ],
+    "solutionSteps": "1. 'accounting department' 单数机构。\n2. 用 'its'。",
+    "wrongOptionAnalysis": [
+      "them 宾格。",
+      "their 复数所有格。",
+      "正确。",
+      "it 主格/宾格。"
+    ],
+    "summaryTip": "机构视为单数，用 its。"
+  },
+  {
+    "id": "toeic_p5_166",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "The new model is ______ than the previous one.",
+    "options": [
+      "more expensive",
+      "more expensively",
+      "expensive",
+      "much expensive"
+    ],
+    "options_cn": [
+      "更贵(形容词)",
+      "更贵地(副词)",
+      "贵(原级)",
+      "贵(错误)"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "新款比旧款更贵。",
+    "keywords": [
+      {
+        "word": "expensive",
+        "pos": "adj.",
+        "meaning": "昂贵的"
+      }
+    ],
+    "solutionSteps": "1. 看到 'than' 用比较级。\n2. 'is' 后接形容词。\n3. 'more expensive' 正确。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "more expensively 副词。",
+      "expensive 原级。",
+      "much expensive 错误。"
+    ],
+    "summaryTip": "than 前面用 more + 形容词原形。"
+  },
+  {
+    "id": "toeic_p5_167",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The flight was cancelled ______ the heavy fog.",
+    "options": [
+      "because",
+      "because of",
+      "so",
+      "although"
+    ],
+    "options_cn": [
+      "因为(连词)",
+      "因为(介词短语)",
+      "所以",
+      "虽然"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "航班因浓雾取消。",
+    "keywords": [
+      {
+        "word": "heavy fog",
+        "pos": "n.",
+        "meaning": "浓雾"
+      }
+    ],
+    "solutionSteps": "1. 空格后是名词短语，用介词短语。\n2. 'because of' 正确。",
+    "wrongOptionAnalysis": [
+      "because 接从句。",
+      "正确。",
+      "so 接结果。",
+      "although 接从句。"
+    ],
+    "summaryTip": "because of + 名词；because + 从句。"
+  },
+  {
+    "id": "toeic_p5_168",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "The company has ______ than 100 employees worldwide.",
+    "options": [
+      "less",
+      "fewer",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(不可数)",
+      "更少(可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司在全球有少于100名员工。",
+    "keywords": [
+      {
+        "word": "employees",
+        "pos": "n.",
+        "meaning": "员工(可数)"
+      }
+    ],
+    "solutionSteps": "1. 'employees' 可数。\n2. 比较级用 'fewer'。",
+    "wrongOptionAnalysis": [
+      "less 不可数。",
+      "正确。",
+      "little 原级。",
+      "more less 错误。"
+    ],
+    "summaryTip": "fewer than + 可数名词。"
+  },
+  {
+    "id": "toeic_p5_169",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "The CEO ______ the company since 2015.",
+    "options": [
+      "leads",
+      "led",
+      "has led",
+      "is leading"
+    ],
+    "options_cn": [
+      "领导(一般现在)",
+      "领导(过去)",
+      "已经领导(现在完成)",
+      "正在领导(现在进行)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "CEO自2015年以来一直领导公司。",
+    "keywords": [
+      {
+        "word": "since 2015",
+        "pos": "time",
+        "meaning": "自2015年"
+      }
+    ],
+    "solutionSteps": "1. 'since + 过去时间点' 用现在完成时。\n2. 'has led' 正确。",
+    "wrongOptionAnalysis": [
+      "leads 一般现在。",
+      "led 过去时。",
+      "正确。",
+      "is leading 现在进行。"
+    ],
+    "summaryTip": "since + 过去时间点 → 现在完成时。"
+  },
+  {
+    "id": "toeic_p5_170",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The new employee quickly adapted to the ______ work environment.",
+    "options": [
+      "competition",
+      "competitive",
+      "competitively",
+      "compete"
+    ],
+    "options_cn": [
+      "竞争(名词)",
+      "竞争激烈的(形容词)",
+      "竞争地(副词)",
+      "竞争(动词)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "新员工很快适应了竞争激烈的工作环境。",
+    "keywords": [
+      {
+        "word": "work environment",
+        "pos": "n.",
+        "meaning": "工作环境"
+      }
+    ],
+    "solutionSteps": "1. 修饰名词 'environment' 用形容词。\n2. 'competitive' 正确。",
+    "wrongOptionAnalysis": [
+      "competition 名词。",
+      "正确。",
+      "competitively 副词。",
+      "compete 动词。"
+    ],
+    "summaryTip": "修饰名词用形容词。"
+  },
+  {
+    "id": "toeic_p5_171",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 3,
+    "questionText": "The lawyer proposed that the contract ______ revised before signing.",
+    "options": [
+      "is",
+      "be",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(一般现在)",
+      "是(原形)",
+      "是(一般过去)",
+      "是(现在完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "律师提议在签署前修改合同。",
+    "keywords": [
+      {
+        "word": "proposed",
+        "pos": "v.",
+        "meaning": "提议(过去)"
+      }
+    ],
+    "solutionSteps": "1. 'proposed that' 虚拟语气。\n2. 从句用 '(should) + 原形'。\n3. 'be revised' 被动原形。",
+    "wrongOptionAnalysis": [
+      "is 陈述语气。",
+      "正确。",
+      "was 过去时。",
+      "has been 完成时。"
+    ],
+    "summaryTip": "propose/suggest/recommend that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_172",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The customer denied ______ the product before the warranty expired.",
+    "options": [
+      "return",
+      "to return",
+      "returning",
+      "returned"
+    ],
+    "options_cn": [
+      "退回(原形)",
+      "退回(不定式)",
+      "退回(动名词)",
+      "退回(过去)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "客户否认在保修期到期前退回产品。",
+    "keywords": [
+      {
+        "word": "denied",
+        "pos": "v.",
+        "meaning": "否认(过去)"
+      }
+    ],
+    "solutionSteps": "1. 'deny' 后接动名词 (doing)。\n2. 'returning' 正确。",
+    "wrongOptionAnalysis": [
+      "deny doing，不能用原形。",
+      "deny doing，不能用不定式。",
+      "正确。",
+      "deny doing，不能用过去式。"
+    ],
+    "summaryTip": "deny/admit/avoid/consider + doing。"
+  },
+  {
+    "id": "toeic_p5_173",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 3,
+    "questionText": "The sales figures, which were published yesterday, ______ a positive trend.",
+    "options": [
+      "shows",
+      "show",
+      "showed",
+      "has shown"
+    ],
+    "options_cn": [
+      "显示(单数)",
+      "显示(复数)",
+      "显示(过去)",
+      "显示(完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "昨天公布的销售数据显示出积极趋势。",
+    "keywords": [
+      {
+        "word": "sales figures",
+        "pos": "n.",
+        "meaning": "销售数据(复数)"
+      }
+    ],
+    "solutionSteps": "1. 主语 'The sales figures' 是复数。\n2. 谓语用复数 'show'。",
+    "wrongOptionAnalysis": [
+      "shows 单数。",
+      "正确。",
+      "showed 过去时，但题干无明确过去时间。",
+      "has shown 单数。"
+    ],
+    "summaryTip": "主谓一致：主语是复数，谓语用复数。"
+  },
+  {
+    "id": "toeic_p5_174",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the project was completed ahead of schedule.",
+    "options": [
+      "All obstacles were removed",
+      "All obstacles being removed",
+      "All obstacles are removed",
+      "All obstacles removed"
+    ],
+    "options_cn": [
+      "所有障碍被移除(句子)",
+      "所有障碍被移除(独立主格)",
+      "所有障碍被移除(句子)",
+      "所有障碍被移除(不完整)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "所有障碍被移除后，项目提前完成。",
+    "keywords": [
+      {
+        "word": "obstacles",
+        "pos": "n.",
+        "meaning": "障碍"
+      },
+      {
+        "word": "removed",
+        "pos": "v.",
+        "meaning": "被移除"
+      }
+    ],
+    "solutionSteps": "1. 无连词，独立主格。\n2. 'All obstacles being removed' 正确。",
+    "wrongOptionAnalysis": [
+      "完整句子。",
+      "正确。",
+      "完整句子。",
+      "缺少 being。"
+    ],
+    "summaryTip": "名词 + being + 过去分词，表示被动独立主格。"
+  },
+  {
+    "id": "toeic_p5_175",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The IT department updated ______ security protocols last week.",
+    "options": [
+      "them",
+      "their",
+      "its",
+      "it"
+    ],
+    "options_cn": [
+      "它们(宾格)",
+      "它们的(复数所有格)",
+      "它的(单数所有格)",
+      "它(宾格)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "IT部门上周更新了其安全协议。",
+    "keywords": [
+      {
+        "word": "IT department",
+        "pos": "n.",
+        "meaning": "IT部门(单数)"
+      }
+    ],
+    "solutionSteps": "1. 'IT department' 单数机构。\n2. 用 'its'。",
+    "wrongOptionAnalysis": [
+      "them 宾格。",
+      "their 复数所有格。",
+      "正确。",
+      "it 主格/宾格。"
+    ],
+    "summaryTip": "部门/公司用 its。"
+  },
+  {
+    "id": "toeic_p5_176",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 3,
+    "questionText": "The new server processes data ______ than the old one.",
+    "options": [
+      "quick",
+      "quicker",
+      "more quickly",
+      "quickly"
+    ],
+    "options_cn": [
+      "快(形容词)",
+      "更快(形容词)",
+      "更快地(副词)",
+      "快地(副词)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "新服务器处理数据比旧服务器更快。",
+    "keywords": [
+      {
+        "word": "processes",
+        "pos": "v.",
+        "meaning": "处理"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'processes' 用副词。\n2. 'than' 比较级。\n3. 'more quickly' 正确。",
+    "wrongOptionAnalysis": [
+      "quick 形容词。",
+      "quicker 形容词比较级。",
+      "正确。",
+      "quickly 副词原级。"
+    ],
+    "summaryTip": "修饰动词用副词比较级 (more + 副词)。"
+  },
+  {
+    "id": "toeic_p5_177",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The team won the contract ______ the tight deadline.",
+    "options": [
+      "because",
+      "so",
+      "despite",
+      "although"
+    ],
+    "options_cn": [
+      "因为",
+      "所以",
+      "尽管",
+      "虽然"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "尽管最后期限很紧，团队还是赢得了合同。",
+    "keywords": [
+      {
+        "word": "tight deadline",
+        "pos": "n.",
+        "meaning": "紧张的最后期限"
+      }
+    ],
+    "solutionSteps": "1. 空格后名词短语，用介词。\n2. 'despite' 正确。",
+    "wrongOptionAnalysis": [
+      "because 接从句。",
+      "so 接结果。",
+      "正确。",
+      "although 接从句。"
+    ],
+    "summaryTip": "despite + 名词；although + 从句。"
+  },
+  {
+    "id": "toeic_p5_178",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "The new policy has caused ______ problems than expected.",
+    "options": [
+      "fewer",
+      "less",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(可数)",
+      "更少(不可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "新政策导致的问题比预期的少。",
+    "keywords": [
+      {
+        "word": "problems",
+        "pos": "n.",
+        "meaning": "问题(可数)"
+      }
+    ],
+    "solutionSteps": "1. 'problems' 可数复数。\n2. 比较级用 'fewer'。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "less 不可数。",
+      "little 原级。",
+      "more less 错误。"
+    ],
+    "summaryTip": "fewer + 可数名词。"
+  },
+  {
+    "id": "toeic_p5_179",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The company ______ a new product line last month.",
+    "options": [
+      "launches",
+      "launched",
+      "has launched",
+      "will launch"
+    ],
+    "options_cn": [
+      "推出(一般现在)",
+      "推出(过去)",
+      "已经推出(现在完成)",
+      "将推出(将来)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司上月推出了一条新产品线。",
+    "keywords": [
+      {
+        "word": "last month",
+        "pos": "time",
+        "meaning": "上个月"
+      }
+    ],
+    "solutionSteps": "1. 'last month' 过去时间。\n2. 用一般过去时 'launched'。",
+    "wrongOptionAnalysis": [
+      "launches 一般现在。",
+      "正确。",
+      "has launched 现在完成。",
+      "will launch 将来。"
+    ],
+    "summaryTip": "last month/year/week → 一般过去时。"
+  },
+  {
+    "id": "toeic_p5_180",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The report was ______ reviewed by the legal team.",
+    "options": [
+      "thorough",
+      "thoroughly",
+      "thoroughness",
+      "thoroughway"
+    ],
+    "options_cn": [
+      "彻底的(形容词)",
+      "彻底地(副词)",
+      "彻底(名词)",
+      "彻底(错误)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "报告被法律团队彻底审查了。",
+    "keywords": [
+      {
+        "word": "reviewed",
+        "pos": "v.",
+        "meaning": "审查(过去分词)"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'reviewed' 用副词。\n2. 'thoroughly' 正确。",
+    "wrongOptionAnalysis": [
+      "thorough 形容词。",
+      "正确。",
+      "thoroughness 名词。",
+      "thoroughway 错误。"
+    ],
+    "summaryTip": "修饰动词用副词。"
+  },
+  {
+    "id": "toeic_p5_181",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 2,
+    "questionText": "It is critical that the software ______ installed correctly.",
+    "options": [
+      "is",
+      "be",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(一般现在)",
+      "是(原形)",
+      "是(一般过去)",
+      "是(现在完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "关键在于软件要正确安装。",
+    "keywords": [
+      {
+        "word": "critical",
+        "pos": "adj.",
+        "meaning": "关键的"
+      }
+    ],
+    "solutionSteps": "1. 'It is critical that' 虚拟语气。\n2. 从句用 '(should) + 原形'。\n3. 'be installed' 被动原形。",
+    "wrongOptionAnalysis": [
+      "is 陈述语气。",
+      "正确。",
+      "was 过去时。",
+      "has been 完成时。"
+    ],
+    "summaryTip": "It is critical/vital/essential that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_182",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The company offered ______ the cost of the training program.",
+    "options": [
+      "cover",
+      "to cover",
+      "covering",
+      "covered"
+    ],
+    "options_cn": [
+      "覆盖(原形)",
+      "覆盖(不定式)",
+      "覆盖(动名词)",
+      "覆盖(过去)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司提出承担培训项目的费用。",
+    "keywords": [
+      {
+        "word": "offered",
+        "pos": "v.",
+        "meaning": "提出(过去)"
+      }
+    ],
+    "solutionSteps": "1. 'offer' 后接不定式 (to do)。\n2. 'to cover' 正确。",
+    "wrongOptionAnalysis": [
+      "offer to do，不能用原形。",
+      "正确。",
+      "offer to do，不能用 doing。",
+      "offer to do，不能用过去式。"
+    ],
+    "summaryTip": "offer/decide/plan/want + to do。"
+  },
+  {
+    "id": "toeic_p5_183",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "The performance of the new employees ______ improving.",
+    "options": [
+      "are",
+      "is",
+      "were",
+      "have been"
+    ],
+    "options_cn": [
+      "是(复数)",
+      "是(单数)",
+      "是(过去复数)",
+      "是(完成复数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "新员工的表现正在改善。",
+    "keywords": [
+      {
+        "word": "performance",
+        "pos": "n.",
+        "meaning": "表现(单数)"
+      },
+      {
+        "word": "employees",
+        "pos": "n.",
+        "meaning": "员工(复数)"
+      }
+    ],
+    "solutionSteps": "1. 核心主语 'The performance' 单数。\n2. 谓语用单数 'is'。",
+    "wrongOptionAnalysis": [
+      "are 复数。",
+      "正确。",
+      "were 复数过去时。",
+      "have been 复数完成时。"
+    ],
+    "summaryTip": "The performance of + 名词 → 谓语单数。"
+  },
+  {
+    "id": "toeic_p5_184",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the employees were allowed to leave early.",
+    "options": [
+      "The work was done",
+      "The work being done",
+      "The work is done",
+      "The work done"
+    ],
+    "options_cn": [
+      "工作完成(句子)",
+      "工作完成(独立主格)",
+      "工作完成(句子)",
+      "工作完成(不完整)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "工作完成后，员工们被允许早退。",
+    "keywords": [
+      {
+        "word": "work",
+        "pos": "n.",
+        "meaning": "工作"
+      },
+      {
+        "word": "done",
+        "pos": "v.",
+        "meaning": "完成"
+      }
+    ],
+    "solutionSteps": "1. 无连词，独立主格。\n2. 'The work being done' 正确。",
+    "wrongOptionAnalysis": [
+      "完整句子。",
+      "正确。",
+      "完整句子。",
+      "缺少 being。"
+    ],
+    "summaryTip": "名词 + being + 过去分词 (被动独立主格)。"
+  },
+  {
+    "id": "toeic_p5_185",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 3,
+    "questionText": "The board considered ______ wise to postpone the decision.",
+    "options": [
+      "them",
+      "their",
+      "itself",
+      "it"
+    ],
+    "options_cn": [
+      "他们(宾格)",
+      "他们的",
+      "它自己",
+      "它"
+    ],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "董事会认为推迟决定是明智的。",
+    "keywords": [
+      {
+        "word": "board",
+        "pos": "n.",
+        "meaning": "董事会(单数)"
+      }
+    ],
+    "solutionSteps": "1. 'consider + it + adj. + to do' 结构。\n2. 'it' 作形式宾语。",
+    "wrongOptionAnalysis": [
+      "them 复数。",
+      "their 所有格。",
+      "itself 反身代词。",
+      "正确。"
+    ],
+    "summaryTip": "consider/find/make + it + adj. + to do/that...。"
+  },
+  {
+    "id": "toeic_p5_186",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "Among all the candidates, she speaks English ______.",
+    "options": [
+      "more fluently",
+      "most fluently",
+      "fluently",
+      "the most fluent"
+    ],
+    "options_cn": [
+      "更流利(比较)",
+      "最流利(最高)",
+      "流利(原级)",
+      "最流利(形容词)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "在所有候选人中，她英语说得最流利。",
+    "keywords": [
+      {
+        "word": "Among all",
+        "pos": "prep.",
+        "meaning": "在所有的...中"
+      },
+      {
+        "word": "speaks",
+        "pos": "v.",
+        "meaning": "说"
+      }
+    ],
+    "solutionSteps": "1. 'Among all' 最高级标志。\n2. 修饰动词 'speaks' 用副词最高级 'most fluently'。",
+    "wrongOptionAnalysis": [
+      "more fluently 比较级。",
+      "正确。",
+      "fluently 原级。",
+      "the most fluent 形容词最高级，不能用。"
+    ],
+    "summaryTip": "among + 最高级 (most + 副词)。"
+  },
+  {
+    "id": "toeic_p5_187",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The team completed the project on time ______ many difficulties.",
+    "options": [
+      "because",
+      "so",
+      "despite",
+      "although"
+    ],
+    "options_cn": [
+      "因为",
+      "所以",
+      "尽管",
+      "虽然"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "尽管有很多困难，团队按时完成了项目。",
+    "keywords": [
+      {
+        "word": "difficulties",
+        "pos": "n.",
+        "meaning": "困难"
+      }
+    ],
+    "solutionSteps": "1. 空格后名词，用介词。\n2. 'despite' 正确。",
+    "wrongOptionAnalysis": [
+      "because 接从句。",
+      "so 接结果。",
+      "正确。",
+      "although 接从句。"
+    ],
+    "summaryTip": "despite + 名词；although + 从句。"
+  },
+  {
+    "id": "toeic_p5_188",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "The company needs ______ staff to handle the increased workload.",
+    "options": [
+      "less",
+      "fewer",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(不可数)",
+      "更少(可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司需要更少的员工来处理增加的工作量。",
+    "keywords": [
+      {
+        "word": "staff",
+        "pos": "n.",
+        "meaning": "员工(集合名词，在此视作可数)"
+      }
+    ],
+    "solutionSteps": "1. 'staff' 在此指员工个体，可数。\n2. 比较级用 'fewer'。",
+    "wrongOptionAnalysis": [
+      "less 不可数。",
+      "正确。",
+      "little 原级。",
+      "more less 错误。"
+    ],
+    "summaryTip": "fewer + 可数名词；less + 不可数。"
+  },
+  {
+    "id": "toeic_p5_189",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "By the time the CEO arrives, the team ______ the presentation.",
+    "options": [
+      "finishes",
+      "has finished",
+      "will have finished",
+      "finished"
+    ],
+    "options_cn": [
+      "完成(一般现在)",
+      "完成(现在完成)",
+      "将已经完成(将来完成)",
+      "完成(过去)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "到CEO到达时，团队将已经完成演示。",
+    "keywords": [
+      {
+        "word": "By the time",
+        "pos": "time",
+        "meaning": "到...时候"
+      },
+      {
+        "word": "arrives",
+        "pos": "v.",
+        "meaning": "到达(一般现在表示将来)"
+      }
+    ],
+    "solutionSteps": "1. 'By the time' 从句用一般现在表示将来。\n2. 主句用将来完成时 'will have finished'。",
+    "wrongOptionAnalysis": [
+      "finishes 一般现在。",
+      "has finished 现在完成。",
+      "正确。",
+      "finished 过去时。"
+    ],
+    "summaryTip": "by the time + 一般现在时 → 主句用将来完成时 (will have done)。"
+  },
+  {
+    "id": "toeic_p5_190",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The manager spoke ______ about the company's future plans.",
+    "options": [
+      "optimistic",
+      "optimistically",
+      "optimism",
+      "optimist"
+    ],
+    "options_cn": [
+      "乐观的(形容词)",
+      "乐观地(副词)",
+      "乐观(名词)",
+      "乐观者(名词)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "经理乐观地谈到了公司的未来计划。",
+    "keywords": [
+      {
+        "word": "spoke",
+        "pos": "v.",
+        "meaning": "说话(过去)"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'spoke' 用副词。\n2. 'optimistically' 正确。",
+    "wrongOptionAnalysis": [
+      "optimistic 形容词。",
+      "正确。",
+      "optimism 名词。",
+      "optimist 名词。"
+    ],
+    "summaryTip": "修饰动词用副词。"
+  },
+  {
+    "id": "toeic_p5_191",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 2,
+    "questionText": "It is vital that the patient ______ the medication on time.",
+    "options": [
+      "takes",
+      "take",
+      "took",
+      "has taken"
+    ],
+    "options_cn": [
+      "服用(三单)",
+      "服用(原形)",
+      "服用(过去)",
+      "已经服用"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "病人按时服药至关重要。",
+    "keywords": [
+      {
+        "word": "vital",
+        "pos": "adj.",
+        "meaning": "至关重要的"
+      },
+      {
+        "word": "medication",
+        "pos": "n.",
+        "meaning": "药物"
+      }
+    ],
+    "solutionSteps": "1. 看到 'It is vital that'，判断为虚拟语气。\n2. 从句谓语用动词原形。\n3. 'take' 是原形，正确。",
+    "wrongOptionAnalysis": [
+      "takes 是三单，不符合虚拟语气。",
+      "正确。",
+      "took 是过去式。",
+      "has taken 是完成时。"
+    ],
+    "summaryTip": "It is vital/essential/necessary that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_192",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The employee admitted ______ the confidential documents.",
+    "options": [
+      "leak",
+      "to leak",
+      "leaking",
+      "leaked"
+    ],
+    "options_cn": [
+      "泄露(原形)",
+      "泄露(不定式)",
+      "泄露(动名词)",
+      "泄露(过去)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "该员工承认泄露了机密文件。",
+    "keywords": [
+      {
+        "word": "admitted",
+        "pos": "v.",
+        "meaning": "承认(过去)"
+      },
+      {
+        "word": "confidential",
+        "pos": "adj.",
+        "meaning": "机密的"
+      }
+    ],
+    "solutionSteps": "1. 'admit' 后面必须接动名词 (doing)。\n2. 'leaking' 是动名词，正确。",
+    "wrongOptionAnalysis": [
+      "admit doing，不能用原形。",
+      "admit doing，不能用 to do。",
+      "正确。",
+      "admit doing，不能用过去式。"
+    ],
+    "summaryTip": "admit/deny/avoid/consider/risk + doing。"
+  },
+  {
+    "id": "toeic_p5_193",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "The quality of the products ______ improved significantly this year.",
+    "options": [
+      "have",
+      "has",
+      "were",
+      "are"
+    ],
+    "options_cn": [
+      "已经(复数)",
+      "已经(单数)",
+      "是(过去复数)",
+      "是(复数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "产品质量今年显著提高。",
+    "keywords": [
+      {
+        "word": "quality",
+        "pos": "n.",
+        "meaning": "质量(单数)"
+      },
+      {
+        "word": "products",
+        "pos": "n.",
+        "meaning": "产品(复数)"
+      }
+    ],
+    "solutionSteps": "1. 核心主语是 'The quality'（单数），不是 'products'。\n2. 谓语用单数 'has'。\n3. 'has improved' 正确。",
+    "wrongOptionAnalysis": [
+      "have 是复数。",
+      "正确。",
+      "were 是复数过去式。",
+      "are 是复数现在时。"
+    ],
+    "summaryTip": "The quality of + 名词 → 谓语单数。"
+  },
+  {
+    "id": "toeic_p5_194",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the company decided to recall the defective products.",
+    "options": [
+      "The complaints increased",
+      "The complaints increasing",
+      "The complaints increase",
+      "The complaints increased"
+    ],
+    "options_cn": [
+      "投诉增加(句子)",
+      "投诉增加(独立主格)",
+      "投诉增加(句子)",
+      "投诉增加(句子重复)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "投诉增加，公司决定召回有缺陷的产品。",
+    "keywords": [
+      {
+        "word": "complaints",
+        "pos": "n.",
+        "meaning": "投诉"
+      },
+      {
+        "word": "increasing",
+        "pos": "v-ing",
+        "meaning": "增加"
+      }
+    ],
+    "solutionSteps": "1. 无连词，逗号连接，判断为独立主格。\n2. 'The complaints increasing' 是名词 + 现在分词，正确。",
+    "wrongOptionAnalysis": [
+      "是完整句子，不能作状语。",
+      "正确。",
+      "是完整句子，不能作状语。",
+      "重复选项。"
+    ],
+    "summaryTip": "独立主格 = 名词 + 现在分词，表示原因或伴随。"
+  },
+  {
+    "id": "toeic_p5_195",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The marketing department presented ______ strategy for the new campaign.",
+    "options": [
+      "them",
+      "their",
+      "its",
+      "it"
+    ],
+    "options_cn": [
+      "它们(宾格)",
+      "它们的(复数所有格)",
+      "它的(单数所有格)",
+      "它(宾格)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "市场部展示了其新活动的策略。",
+    "keywords": [
+      {
+        "word": "marketing department",
+        "pos": "n.",
+        "meaning": "市场部(单数)"
+      },
+      {
+        "word": "strategy",
+        "pos": "n.",
+        "meaning": "策略"
+      }
+    ],
+    "solutionSteps": "1. 'marketing department' 是单数机构。\n2. 需要单数所有格修饰 'strategy'。\n3. 'its' 正确。",
+    "wrongOptionAnalysis": [
+      "them 是复数宾格。",
+      "their 是复数所有格。",
+      "正确。",
+      "it 是主格/宾格，不能修饰名词。"
+    ],
+    "summaryTip": "部门/公司/团队 概念为单数，用 its。"
+  },
+  {
+    "id": "toeic_p5_196",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "The new system is ______ than the old one in terms of speed.",
+    "options": [
+      "more reliable",
+      "more reliably",
+      "reliable",
+      "much reliable"
+    ],
+    "options_cn": [
+      "更可靠(形容词)",
+      "更可靠地(副词)",
+      "可靠(原级)",
+      "可靠(错误)"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "新系统在速度方面比旧系统更可靠。",
+    "keywords": [
+      {
+        "word": "reliable",
+        "pos": "adj.",
+        "meaning": "可靠的"
+      }
+    ],
+    "solutionSteps": "1. 看到 'than'，判断为比较级。\n2. 'is' 是系动词，后面接形容词。\n3. 'more reliable' 是形容词比较级，正确。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "more reliably 是副词。",
+      "reliable 是原级，无 than 时用。",
+      "much reliable 错误，应为 much more reliable。"
+    ],
+    "summaryTip": "than 前面用 more + 形容词原形。"
+  },
+  {
+    "id": "toeic_p5_197",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The company continued operations ______ the supply chain disruptions.",
+    "options": [
+      "because",
+      "so",
+      "despite",
+      "although"
+    ],
+    "options_cn": [
+      "因为",
+      "所以",
+      "尽管",
+      "虽然"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "尽管供应链中断，公司仍继续运营。",
+    "keywords": [
+      {
+        "word": "supply chain",
+        "pos": "n.",
+        "meaning": "供应链"
+      },
+      {
+        "word": "disruptions",
+        "pos": "n.",
+        "meaning": "中断"
+      }
+    ],
+    "solutionSteps": "1. 空格后是名词短语 'the supply chain disruptions'。\n2. 需要介词。\n3. 'despite' 是介词，正确。",
+    "wrongOptionAnalysis": [
+      "because 是连词，接从句。",
+      "so 是连词，接结果句。",
+      "正确。",
+      "although 是连词，接从句。"
+    ],
+    "summaryTip": "despite + 名词；although + 从句。"
+  },
+  {
+    "id": "toeic_p5_198",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "We have ______ meetings scheduled for this week than last week.",
+    "options": [
+      "less",
+      "fewer",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(不可数)",
+      "更少(可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "我们本周安排的会议比上周少。",
+    "keywords": [
+      {
+        "word": "meetings",
+        "pos": "n.",
+        "meaning": "会议(可数复数)"
+      }
+    ],
+    "solutionSteps": "1. 'meetings' 是可数名词复数。\n2. 比较级用 'fewer'。",
+    "wrongOptionAnalysis": [
+      "less 用于不可数。",
+      "正确。",
+      "little 是原级。",
+      "more less 不存在。"
+    ],
+    "summaryTip": "fewer + 可数复数；less + 不可数。"
+  },
+  {
+    "id": "toeic_p5_199",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 3,
+    "questionText": "The company ______ in the Asian market for over a decade before it failed.",
+    "options": [
+      "operated",
+      "has operated",
+      "had operated",
+      "operates"
+    ],
+    "options_cn": [
+      "运营(过去)",
+      "运营(现在完成)",
+      "运营(过去完成)",
+      "运营(一般现在)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "公司在失败之前已经在亚洲市场运营了十多年。",
+    "keywords": [
+      {
+        "word": "failed",
+        "pos": "v.",
+        "meaning": "失败(过去)"
+      },
+      {
+        "word": "for over a decade",
+        "pos": "time",
+        "meaning": "十多年"
+      }
+    ],
+    "solutionSteps": "1. 'failed' 是过去时间点。\n2. 'before' 暗示动作发生在 'failed' 之前。\n3. 过去完成时 'had operated' 正确。",
+    "wrongOptionAnalysis": [
+      "operated 一般过去，不强调先后顺序。",
+      "has operated 现在完成，与 failed 矛盾。",
+      "正确。",
+      "operates 一般现在，时态错误。"
+    ],
+    "summaryTip": "过去完成时 = 发生在过去某一动作之前的动作。"
+  },
+  {
+    "id": "toeic_p5_200",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The new policy was ______ beneficial to small businesses.",
+    "options": [
+      "significance",
+      "significant",
+      "significantly",
+      "signify"
+    ],
+    "options_cn": [
+      "重要性(名词)",
+      "重要的(形容词)",
+      "显著地(副词)",
+      "表示(动词)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "新政策对小企业显著有利。",
+    "keywords": [
+      {
+        "word": "beneficial",
+        "pos": "adj.",
+        "meaning": "有利的"
+      }
+    ],
+    "solutionSteps": "1. 修饰形容词 'beneficial' 用副词。\n2. 'significantly' 是副词，正确。",
+    "wrongOptionAnalysis": [
+      "significance 是名词。",
+      "significant 是形容词。",
+      "正确。",
+      "signify 是动词。"
+    ],
+    "summaryTip": "修饰形容词用副词。"
+  },
+  {
+    "id": "toeic_p5_201",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 3,
+    "questionText": "The CEO demanded that the budget ______ cut by 10% immediately.",
+    "options": [
+      "is",
+      "be",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(一般现在)",
+      "是(原形)",
+      "是(一般过去)",
+      "是(现在完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "CEO要求立即将预算削减10%。",
+    "keywords": [
+      {
+        "word": "demanded",
+        "pos": "v.",
+        "meaning": "要求(过去)"
+      }
+    ],
+    "solutionSteps": "1. 'demanded that' 引导虚拟语气。\n2. 从句用 '(should) + 动词原形'。\n3. 'be cut' 是被动语态原形，正确。",
+    "wrongOptionAnalysis": [
+      "is 是陈述语气。",
+      "正确。",
+      "was 是陈述语气过去时。",
+      "has been 是完成时。"
+    ],
+    "summaryTip": "demand/require/insist/suggest that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_202",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The company plans ______ its product line next year.",
+    "options": [
+      "expand",
+      "to expand",
+      "expanding",
+      "expanded"
+    ],
+    "options_cn": [
+      "扩展(原形)",
+      "扩展(不定式)",
+      "扩展(动名词)",
+      "扩展(过去)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司计划明年扩展其产品线。",
+    "keywords": [
+      {
+        "word": "plans",
+        "pos": "v.",
+        "meaning": "计划"
+      },
+      {
+        "word": "product line",
+        "pos": "n.",
+        "meaning": "产品线"
+      }
+    ],
+    "solutionSteps": "1. 'plan' 后面接不定式 (to do)。\n2. 'to expand' 正确。",
+    "wrongOptionAnalysis": [
+      "plan to do，不能用原形。",
+      "正确。",
+      "plan to do，不能用 doing。",
+      "plan to do，不能用过去式。"
+    ],
+    "summaryTip": "plan/decide/hope/want/offer + to do。"
+  },
+  {
+    "id": "toeic_p5_203",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 3,
+    "questionText": "Not only the manager but also his assistants ______ responsible for the error.",
+    "options": [
+      "is",
+      "are",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(单数)",
+      "是(复数)",
+      "是(过去单数)",
+      "是(完成单数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "不仅经理，他的助理们也对错误负责。",
+    "keywords": [
+      {
+        "word": "assistants",
+        "pos": "n.",
+        "meaning": "助理们(复数)"
+      }
+    ],
+    "solutionSteps": "1. 'Not only...but also...' 遵循就近原则。\n2. 谓语动词与最近的主语 'assistants'（复数）一致。\n3. 'are' 正确。",
+    "wrongOptionAnalysis": [
+      "is 是单数。",
+      "正确。",
+      "was 是单数过去时。",
+      "has been 是单数完成时。"
+    ],
+    "summaryTip": "Not only...but also... / Either...or... / Neither...nor... 谓语与最近的主语一致。"
+  },
+  {
+    "id": "toeic_p5_204",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the company was able to avoid bankruptcy.",
+    "options": [
+      "A loan was granted",
+      "A loan being granted",
+      "A loan is granted",
+      "A loan granted"
+    ],
+    "options_cn": [
+      "贷款获批(句子)",
+      "贷款获批(独立主格)",
+      "贷款获批(句子)",
+      "贷款获批(不完整)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "贷款获批后，公司得以避免破产。",
+    "keywords": [
+      {
+        "word": "loan",
+        "pos": "n.",
+        "meaning": "贷款"
+      },
+      {
+        "word": "granted",
+        "pos": "v.",
+        "meaning": "被批准"
+      }
+    ],
+    "solutionSteps": "1. 无连词，逗号连接，判断为独立主格。\n2. 'A loan being granted' 是名词 + 现在分词被动，正确。",
+    "wrongOptionAnalysis": [
+      "是完整句子，不能作状语。",
+      "正确。",
+      "是完整句子，不能作状语。",
+      "缺少 being。"
+    ],
+    "summaryTip": "独立主格中 'being + 过去分词' 表示被动。"
+  },
+  {
+    "id": "toeic_p5_205",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 2,
+    "questionText": "The company's legal team has prepared ______ defense for the upcoming trial.",
+    "options": [
+      "them",
+      "their",
+      "its",
+      "it"
+    ],
+    "options_cn": [
+      "它们(宾格)",
+      "它们的(复数所有格)",
+      "它的(单数所有格)",
+      "它(宾格)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "公司的法律团队已为即将到来的审判准备其辩护。",
+    "keywords": [
+      {
+        "word": "legal team",
+        "pos": "n.",
+        "meaning": "法律团队(单数)"
+      },
+      {
+        "word": "defense",
+        "pos": "n.",
+        "meaning": "辩护"
+      }
+    ],
+    "solutionSteps": "1. 'legal team' 是单数机构。\n2. 需要单数所有格修饰 'defense'。\n3. 'its' 正确。",
+    "wrongOptionAnalysis": [
+      "them 是复数宾格。",
+      "their 是复数所有格。",
+      "正确。",
+      "it 是主格/宾格，不能修饰名词。"
+    ],
+    "summaryTip": "团队/部门视为单数，用 its。"
+  },
+  {
+    "id": "toeic_p5_206",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 3,
+    "questionText": "The new manager handles conflicts ______ than his predecessor.",
+    "options": [
+      "good",
+      "better",
+      "well",
+      "best"
+    ],
+    "options_cn": [
+      "好(形容词)",
+      "更好(副词)",
+      "好(副词原级)",
+      "最好"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "新经理处理冲突比他的前任更好。",
+    "keywords": [
+      {
+        "word": "handles",
+        "pos": "v.",
+        "meaning": "处理"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'handles' 用副词。\n2. 看到 'than'，比较级。\n3. 'well' 的副词比较级是 'better'。",
+    "wrongOptionAnalysis": [
+      "good 是形容词。",
+      "正确。",
+      "well 是原级。",
+      "best 是最高级。"
+    ],
+    "summaryTip": "well 的比较级是 better，最高级是 best。"
+  },
+  {
+    "id": "toeic_p5_207",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The company succeeded ______ the high competition in the market.",
+    "options": [
+      "because",
+      "so",
+      "despite",
+      "although"
+    ],
+    "options_cn": [
+      "因为",
+      "所以",
+      "尽管",
+      "虽然"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "尽管市场竞争激烈，公司还是成功了。",
+    "keywords": [
+      {
+        "word": "competition",
+        "pos": "n.",
+        "meaning": "竞争"
+      }
+    ],
+    "solutionSteps": "1. 空格后是名词短语 'the high competition'。\n2. 需要介词。\n3. 'despite' 是介词，正确。",
+    "wrongOptionAnalysis": [
+      "because 是连词，接从句。",
+      "so 是连词，接结果句。",
+      "正确。",
+      "although 是连词，接从句。"
+    ],
+    "summaryTip": "despite + 名词；although + 从句。"
+  },
+  {
+    "id": "toeic_p5_208",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "The project requires ______ than 100 hours of work.",
+    "options": [
+      "less",
+      "fewer",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(不可数)",
+      "更少(可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "该项目需要少于100小时的工作。",
+    "keywords": [
+      {
+        "word": "hours",
+        "pos": "n.",
+        "meaning": "小时(在此视为不可数时间)"
+      }
+    ],
+    "solutionSteps": "1. 'hours' 作为时间单位，通常视为不可数。\n2. 比较级用 'less'。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "fewer 用于可数名词。",
+      "little 是原级。",
+      "more less 不存在。"
+    ],
+    "summaryTip": "less than + 时间/金钱/距离等不可数概念。"
+  },
+  {
+    "id": "toeic_p5_209",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The company ______ a new building next year.",
+    "options": [
+      "constructs",
+      "constructed",
+      "will construct",
+      "has constructed"
+    ],
+    "options_cn": [
+      "建造(一般现在)",
+      "建造(过去)",
+      "将建造(将来)",
+      "已经建造(现在完成)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "公司明年将建造一栋新大楼。",
+    "keywords": [
+      {
+        "word": "next year",
+        "pos": "time",
+        "meaning": "明年"
+      }
+    ],
+    "solutionSteps": "1. 'next year' 是将来时间。\n2. 用一般将来时 'will construct'。",
+    "wrongOptionAnalysis": [
+      "constructs 一般现在。",
+      "constructed 过去时。",
+      "正确。",
+      "has constructed 现在完成。"
+    ],
+    "summaryTip": "next year / tomorrow → 一般将来时 (will do)。"
+  },
+  {
+    "id": "toeic_p5_210",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The report was ______ written by the research team.",
+    "options": [
+      "care",
+      "careful",
+      "carefully",
+      "carefulness"
+    ],
+    "options_cn": [
+      "关心(动词)",
+      "仔细的(形容词)",
+      "仔细地(副词)",
+      "仔细(名词)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "这份报告是研究团队仔细撰写的。",
+    "keywords": [
+      {
+        "word": "written",
+        "pos": "v.",
+        "meaning": "撰写(过去分词)"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'written' 用副词。\n2. 'carefully' 是副词，正确。",
+    "wrongOptionAnalysis": [
+      "care 是动词。",
+      "careful 是形容词。",
+      "正确。",
+      "carefulness 是名词。"
+    ],
+    "summaryTip": "修饰动词用副词。"
+  },
+  {
+    "id": "toeic_p5_211",
+    "part": "Part5",
+    "category": "虚拟语气",
+    "difficulty": 2,
+    "questionText": "It is desirable that the project ______ completed on time.",
+    "options": [
+      "is",
+      "be",
+      "was",
+      "has been"
+    ],
+    "options_cn": [
+      "是(一般现在)",
+      "是(原形)",
+      "是(一般过去)",
+      "是(现在完成)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "希望项目按时完成。",
+    "keywords": [
+      {
+        "word": "desirable",
+        "pos": "adj.",
+        "meaning": "可取的/希望的"
+      }
+    ],
+    "solutionSteps": "1. 'It is desirable that' 虚拟语气。\n2. 从句用 '(should) + 动词原形'。\n3. 'be completed' 是被动原形。",
+    "wrongOptionAnalysis": [
+      "is 陈述语气。",
+      "正确。",
+      "was 过去时。",
+      "has been 完成时。"
+    ],
+    "summaryTip": "It is desirable/advisable/essential that + (should) + 动词原形。"
+  },
+  {
+    "id": "toeic_p5_212",
+    "part": "Part5",
+    "category": "非谓语动词",
+    "difficulty": 2,
+    "questionText": "The company risked ______ its market share by launching the product too early.",
+    "options": [
+      "lose",
+      "to lose",
+      "losing",
+      "lost"
+    ],
+    "options_cn": [
+      "失去(原形)",
+      "失去(不定式)",
+      "失去(动名词)",
+      "失去(过去)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "公司因过早推出产品而面临失去市场份额的风险。",
+    "keywords": [
+      {
+        "word": "risked",
+        "pos": "v.",
+        "meaning": "冒险(过去)"
+      },
+      {
+        "word": "market share",
+        "pos": "n.",
+        "meaning": "市场份额"
+      }
+    ],
+    "solutionSteps": "1. 'risk' 后面必须接动名词 (doing)。\n2. 'losing' 是动名词，正确。",
+    "wrongOptionAnalysis": [
+      "risk doing，不能用原形。",
+      "risk doing，不能用 to do。",
+      "正确。",
+      "risk doing，不能用过去式。"
+    ],
+    "summaryTip": "risk/avoid/consider/admit/deny + doing。"
+  },
+  {
+    "id": "toeic_p5_213",
+    "part": "Part5",
+    "category": "主谓一致",
+    "difficulty": 2,
+    "questionText": "A total of 50 employees ______ selected for the training program.",
+    "options": [
+      "was",
+      "were",
+      "has",
+      "is"
+    ],
+    "options_cn": [
+      "是(单数)",
+      "是(复数)",
+      "有(单数)",
+      "是(单数)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "共有50名员工被选中参加培训项目。",
+    "keywords": [
+      {
+        "word": "employees",
+        "pos": "n.",
+        "meaning": "员工(复数)"
+      }
+    ],
+    "solutionSteps": "1. 'A total of' 核心是后面的复数名词 'employees'。\n2. 谓语用复数 'were'。",
+    "wrongOptionAnalysis": [
+      "was 是单数。",
+      "正确。",
+      "has 是单数。",
+      "is 是单数。"
+    ],
+    "summaryTip": "A total of + 复数名词 → 谓语复数。"
+  },
+  {
+    "id": "toeic_p5_214",
+    "part": "Part5",
+    "category": "独立主格",
+    "difficulty": 3,
+    "questionText": "______, the company decided to lay off 20% of its workforce.",
+    "options": [
+      "The sales declined",
+      "The sales declining",
+      "The sales decline",
+      "The sales declined"
+    ],
+    "options_cn": [
+      "销售下降(句子)",
+      "销售下降(独立主格)",
+      "销售下降(句子)",
+      "销售下降(句子重复)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "销售额下降，公司决定裁员20%。",
+    "keywords": [
+      {
+        "word": "sales",
+        "pos": "n.",
+        "meaning": "销售额"
+      },
+      {
+        "word": "declining",
+        "pos": "v-ing",
+        "meaning": "下降"
+      }
+    ],
+    "solutionSteps": "1. 无连词，逗号连接，判断为独立主格。\n2. 'The sales declining' 正确。",
+    "wrongOptionAnalysis": [
+      "完整句子。",
+      "正确。",
+      "完整句子。",
+      "重复。"
+    ],
+    "summaryTip": "独立主格 = 名词 + 现在分词，表示原因。"
+  },
+  {
+    "id": "toeic_p5_215",
+    "part": "Part5",
+    "category": "代词指代",
+    "difficulty": 3,
+    "questionText": "The committee made ______ clear that the deadline is final.",
+    "options": [
+      "them",
+      "their",
+      "itself",
+      "it"
+    ],
+    "options_cn": [
+      "他们(宾格)",
+      "他们的",
+      "它自己",
+      "它"
+    ],
+    "correctIndex": 3,
+    "correctAnswer": "D",
+    "translation": "委员会明确表示最后期限是最终决定。",
+    "keywords": [
+      {
+        "word": "committee",
+        "pos": "n.",
+        "meaning": "委员会(单数)"
+      }
+    ],
+    "solutionSteps": "1. 'make + it + clear + that...' 结构。\n2. 'it' 作形式宾语。",
+    "wrongOptionAnalysis": [
+      "them 复数。",
+      "their 所有格。",
+      "itself 反身代词。",
+      "正确。"
+    ],
+    "summaryTip": "make/find/think + it + adj. + that... 中 it 作形式宾语。"
+  },
+  {
+    "id": "toeic_p5_216",
+    "part": "Part5",
+    "category": "比较级",
+    "difficulty": 2,
+    "questionText": "Of all the products, this one has the ______ design.",
+    "options": [
+      "more",
+      "most",
+      "the most",
+      "the more"
+    ],
+    "options_cn": [
+      "更多",
+      "最多(普遍)",
+      "最多(有冠词)",
+      "更多(有冠词)"
+    ],
+    "correctIndex": 2,
+    "correctAnswer": "C",
+    "translation": "在所有产品中，这款设计最好。",
+    "keywords": [
+      {
+        "word": "Of all",
+        "pos": "prep.",
+        "meaning": "在所有...中"
+      },
+      {
+        "word": "design",
+        "pos": "n.",
+        "meaning": "设计"
+      }
+    ],
+    "solutionSteps": "1. 'Of all' 表示最高级。\n2. 用 'the most' 修饰 'design'。",
+    "wrongOptionAnalysis": [
+      "more 比较级。",
+      "most 缺 the。",
+      "正确。",
+      "the more 比较级。"
+    ],
+    "summaryTip": "of all + the + 最高级。"
+  },
+  {
+    "id": "toeic_p5_217",
+    "part": "Part5",
+    "category": "连词辨析",
+    "difficulty": 2,
+    "questionText": "The team lost the match ______ the weather conditions.",
+    "options": [
+      "because",
+      "because of",
+      "so",
+      "although"
+    ],
+    "options_cn": [
+      "因为(连词)",
+      "因为(介词短语)",
+      "所以",
+      "虽然"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "球队因天气原因输掉了比赛。",
+    "keywords": [
+      {
+        "word": "weather conditions",
+        "pos": "n.",
+        "meaning": "天气状况"
+      }
+    ],
+    "solutionSteps": "1. 空格后是名词短语，需要介词短语。\n2. 'because of' 正确。",
+    "wrongOptionAnalysis": [
+      "because 接从句。",
+      "正确。",
+      "so 接结果。",
+      "although 接从句。"
+    ],
+    "summaryTip": "because of + 名词；because + 从句。"
+  },
+  {
+    "id": "toeic_p5_218",
+    "part": "Part5",
+    "category": "数量词辨析",
+    "difficulty": 2,
+    "questionText": "The company has ______ than 20 years of experience in this field.",
+    "options": [
+      "less",
+      "fewer",
+      "little",
+      "more less"
+    ],
+    "options_cn": [
+      "更少(不可数)",
+      "更少(可数)",
+      "很少(不可数)",
+      "更更少"
+    ],
+    "correctIndex": 0,
+    "correctAnswer": "A",
+    "translation": "公司在该领域拥有少于20年的经验。",
+    "keywords": [
+      {
+        "word": "years",
+        "pos": "n.",
+        "meaning": "年(作为时间段被视为不可数)"
+      }
+    ],
+    "solutionSteps": "1. 'years' 作为时间段，通常视为不可数。\n2. 比较级用 'less'。",
+    "wrongOptionAnalysis": [
+      "正确。",
+      "fewer 用于可数名词。",
+      "little 是原级。",
+      "more less 不存在。"
+    ],
+    "summaryTip": "less than + 时间段/距离/金钱。"
+  },
+  {
+    "id": "toeic_p5_219",
+    "part": "Part5",
+    "category": "动词时态",
+    "difficulty": 2,
+    "questionText": "The company ______ a new branch office in Tokyo last year.",
+    "options": [
+      "opens",
+      "opened",
+      "has opened",
+      "will open"
+    ],
+    "options_cn": [
+      "开(一般现在)",
+      "开(过去)",
+      "已经开(现在完成)",
+      "将开(将来)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "公司去年在东京开设了一个新的分支机构。",
+    "keywords": [
+      {
+        "word": "last year",
+        "pos": "time",
+        "meaning": "去年"
+      }
+    ],
+    "solutionSteps": "1. 'last year' 是过去时间。\n2. 用一般过去时 'opened'。",
+    "wrongOptionAnalysis": [
+      "opens 一般现在。",
+      "正确。",
+      "has opened 现在完成。",
+      "will open 将来。"
+    ],
+    "summaryTip": "last year / yesterday / in 2020 → 一般过去时。"
+  },
+  {
+    "id": "toeic_p5_220",
+    "part": "Part5",
+    "category": "词性判断",
+    "difficulty": 2,
+    "questionText": "The project was ______ delayed by the technical issues.",
+    "options": [
+      "serious",
+      "seriously",
+      "seriousness",
+      "serioused"
+    ],
+    "options_cn": [
+      "严重的(形容词)",
+      "严重地(副词)",
+      "严重(名词)",
+      "严重(错误动词)"
+    ],
+    "correctIndex": 1,
+    "correctAnswer": "B",
+    "translation": "该项目因技术问题被严重延误。",
+    "keywords": [
+      {
+        "word": "delayed",
+        "pos": "v.",
+        "meaning": "延误(过去分词)"
+      }
+    ],
+    "solutionSteps": "1. 修饰动词 'delayed' 用副词。\n2. 'seriously' 是副词，正确。",
+    "wrongOptionAnalysis": [
+      "serious 形容词。",
+      "正确。",
+      "seriousness 名词。",
+      "serioused 不存在。"
+    ],
+    "summaryTip": "修饰动词用副词。"
   }
 ]
