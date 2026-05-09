@@ -33,10 +33,6 @@
 - 支持选择生成数量和难度
 - 生成的题目可直接在题库练习中使用
 
-### 词汇故事 (`TOEIC词汇故事.html`)
-
-- 通过故事语境串联托业核心词汇，加深记忆
-
 ### 统一入口 (`index.html`)
 
 - 美观的主页面，一键跳转所有功能模块
@@ -56,7 +52,6 @@
 ├── vocabulary_app.html           # 单词记忆应用
 ├── practice_coach.html           # 题库练习应用（含模拟考试）
 ├── question_batch_generator.html # 批量题目生成器
-├── TOEIC词汇故事.html             # 词汇故事学习
 ├── word_database.json            # 托业核心词库（1000+ 单词）
 ├── toeic_questions_sample.json   # 本地题库样本
 ├── questions_local.json          # 本地题库
