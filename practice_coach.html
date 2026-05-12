@@ -845,6 +845,12 @@
         <div class="card">
             <div class="card-label">🗂 数据管理</div>
             <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn btn-sm btn-primary" id="exportDataBtn">📥 备份学习数据</button>
+                <button class="btn btn-sm btn-outline" id="importDataBtn">📤 恢复学习数据</button>
+            </div>
+            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史、题目缓存</div>
+            <input type="file" id="importDataInput" accept=".json" style="display:none;">
+            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
                 <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空记录</button>
                 <button class="btn btn-sm btn-warning" id="clearHashesBtn">🔄 清空题目缓存</button>
                 <button class="btn btn-sm btn-secondary" id="viewBankBtn">📚 查看题库</button>
@@ -1252,6 +1258,99 @@
             await clearQuestionHashes();
             alert('题目缓存已清除');
         }
+    };
+
+    // ---------- 学习数据备份/恢复 ----------
+    const exportDataBtn = document.getElementById('exportDataBtn');
+    const importDataBtn = document.getElementById('importDataBtn');
+    const importDataInput = document.getElementById('importDataInput');
+
+    exportDataBtn.onclick = async () => {
+        try {
+            const records = await getAllRecords();
+            const examHistory = await getAllExamHistory();
+            const hashes = await getAllQuestionHashes();
+            const categoryCount = await getCategoryCount();
+            const vocabProgress = localStorage.getItem('toeic_vocab_progress') || '{}';
+            const vocabData = localStorage.getItem('toeic_vocab_data') || '[]';
+            const arkKey = localStorage.getItem('toeic_ark_key') || '';
+
+            const backup = {
+                version: 1,
+                exportDate: new Date().toISOString(),
+                records: records,
+                examHistory: examHistory,
+                questionHashes: hashes,
+                categoryCount: categoryCount,
+                vocabProgress: JSON.parse(vocabProgress),
+                vocabData: JSON.parse(vocabData),
+                arkKey: arkKey,
+            };
+
+            const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            const dateStr = new Date().toISOString().slice(0, 10);
+            a.download = `toeic_backup_${dateStr}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            alert(`备份成功！包含 ${records.length} 条刷题记录、${examHistory.length} 次考试记录`);
+        } catch (err) {
+            alert('备份失败: ' + err.message);
+        }
+    };
+
+    importDataBtn.onclick = () => importDataInput.click();
+
+    importDataInput.onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        try {
+            const text = await file.text();
+            const backup = JSON.parse(text);
+            if (!backup.version || !backup.records) {
+                throw new Error('不是有效的备份文件');
+            }
+
+            const msg = `确认恢复备份？\n\n` +
+                `导出时间: ${backup.exportDate ? new Date(backup.exportDate).toLocaleString() : '未知'}\n` +
+                `刷题记录: ${backup.records.length} 条\n` +
+                `考试记录: ${(backup.examHistory || []).length} 次\n\n` +
+                `注意：这将覆盖当前所有数据！`;
+
+            if (!confirm(msg)) return;
+
+            await clearAllRecords();
+            for (const rec of backup.records) {
+                await saveRecord(rec);
+            }
+
+            if (backup.examHistory && backup.examHistory.length > 0) {
+                await clearExamHistory();
+                for (const entry of backup.examHistory) {
+                    await saveExamHistory(entry);
+                }
+            }
+
+            if (backup.vocabProgress) {
+                localStorage.setItem('toeic_vocab_progress', JSON.stringify(backup.vocabProgress));
+            }
+            if (backup.vocabData) {
+                localStorage.setItem('toeic_vocab_data', JSON.stringify(backup.vocabData));
+            }
+            if (backup.arkKey) {
+                localStorage.setItem('toeic_ark_key', backup.arkKey);
+                apiKey = backup.arkKey;
+                apiInput.value = backup.arkKey;
+            }
+
+            await updateAllStatsAndRecords();
+            alert('数据恢复成功！');
+        } catch (err) {
+            alert('恢复失败: ' + err.message);
+        }
+        importDataInput.value = '';
     };
 
     refreshRecordBtn.onclick = () => updateAllStatsAndRecords();
@@ -1877,7 +1976,7 @@
                     <div class="exam-title">模拟考试</div>
                     <div class="exam-desc">
                         标准托业 Part 5 模拟测试<br>
-                        ${bankCount} 道题库随机抽取 ${EXAM_QUESTION_COUNT} 题 · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
+                        ${bankCount > 0 ? `题库 ${bankCount} 道题，随机抽取 ${Math.min(EXAM_QUESTION_COUNT, bankCount)} 题` : '暂无题库题目'} · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
                         考试结束后 AI 分析不足与改进点
                     </div>
                     <div class="exam-stats">
@@ -1925,9 +2024,9 @@
         if (localQuestionBank.length === 0) {
             await loadLocalQuestionBank();
         }
-        if (localQuestionBank.length < 10) {
-            alert('本地题库题目不足10道，请先通过刷题或批量生成添加题目');
-            return;
+        const actualCount = Math.min(EXAM_QUESTION_COUNT, localQuestionBank.length);
+        if (actualCount < EXAM_QUESTION_COUNT) {
+            if (!confirm(`题库仅有 ${localQuestionBank.length} 道题，不足 ${EXAM_QUESTION_COUNT} 道。是否用 ${actualCount} 道题开始考试？`)) return;
         }
         const pool = [...localQuestionBank].sort(() => Math.random() - 0.5);
         const selected = pool.slice(0, Math.min(EXAM_QUESTION_COUNT, pool.length));
@@ -1995,9 +2094,10 @@
 
     function renderExamQuestion() {
         const q = examQuestions[examCurrentIdx];
+        const examTotal = examQuestions.length;
         const answered = Object.keys(examAnswers).length;
         const answeredCount = answered;
-        const progressPct = Math.round((answeredCount / EXAM_QUESTION_COUNT) * 100);
+        const progressPct = Math.round((answeredCount / examTotal) * 100);
         const mins = Math.floor(examTimeLeft / 60);
         const secs = examTimeLeft % 60;
         const timerClass = examTimeLeft <= 60 ? 'danger' : examTimeLeft <= 180 ? 'warning' : '';
@@ -2032,14 +2132,14 @@
             <div class="exam-progress">
                 <div class="exam-progress-text">
                     <span>进度</span>
-                    <span>${answeredCount}/${EXAM_QUESTION_COUNT} 题已答</span>
+                    <span>${answeredCount}/${examTotal} 题已答</span>
                 </div>
                 <div class="exam-progress-bar">
                     <div class="exam-progress-fill" style="width:${progressPct}%"></div>
                 </div>
             </div>
             <div class="card">
-                <div class="exam-question-num">第 ${examCurrentIdx + 1} / ${EXAM_QUESTION_COUNT} 题</div>
+                <div class="exam-question-num">第 ${examCurrentIdx + 1} / ${examTotal} 题</div>
                 <div class="question-text">${q.questionText}</div>
                 <div>${optionsHtml}</div>
                 <div style="margin-top:10px;">
@@ -2050,7 +2150,7 @@
                 </div>
                 <div style="display:flex; gap:8px; margin-top:12px;">
                     <button class="btn btn-secondary" id="examPrevBtn" style="flex:1" ${examCurrentIdx === 0 ? 'disabled' : ''}>◀ 上一题</button>
-                    <button class="btn btn-primary" id="examNextBtn" style="flex:1">${examCurrentIdx === EXAM_QUESTION_COUNT - 1 ? '提交考试 ▶' : '下一题 ▶'}</button>
+                    <button class="btn btn-primary" id="examNextBtn" style="flex:1">${examCurrentIdx === examTotal - 1 ? '提交考试 ▶' : '下一题 ▶'}</button>
                 </div>
                 <div class="exam-question-picker">${pickerHtml}</div>
             </div>
@@ -2079,7 +2179,7 @@
         };
 
         document.getElementById('examNextBtn').onclick = () => {
-            if (examCurrentIdx === EXAM_QUESTION_COUNT - 1) {
+            if (examCurrentIdx === examTotal - 1) {
                 submitExam();
             } else {
                 examCurrentIdx++;
@@ -2104,11 +2204,11 @@
             else btn.classList.add('unanswered');
         });
         const answered = Object.keys(examAnswers).length;
-        const progressPct = Math.round((answered / EXAM_QUESTION_COUNT) * 100);
+        const progressPct = Math.round((answered / examQuestions.length) * 100);
         const fill = document.querySelector('.exam-progress-fill');
         if (fill) fill.style.width = progressPct + '%';
         const countEl = document.querySelector('.exam-progress-text span:last-child');
-        if (countEl) countEl.textContent = `${answered}/${EXAM_QUESTION_COUNT} 题已答`;
+        if (countEl) countEl.textContent = `${answered}/${examQuestions.length} 题已答`;
     }
 
     async function submitExam() {
