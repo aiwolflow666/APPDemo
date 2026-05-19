@@ -8,7 +8,18 @@
     async function init() {
         if (db) return db;
         SQL = await initSqlJs({
-            locateFile: file => `js/${file}`
+            locateFile: file => {
+                var base = document.querySelector('base');
+                var prefix = base ? base.getAttribute('href') : '';
+                if (!prefix) {
+                    var scripts = document.querySelectorAll('script[src]');
+                    for (var i = 0; i < scripts.length; i++) {
+                        var m = scripts[i].src.match(/^(.+\/)js\/sql-wasm/);
+                        if (m) { prefix = m[1]; break; }
+                    }
+                }
+                return prefix + 'js/' + file;
+            }
         });
         const saved = localStorage.getItem('toeic_sqlite_db');
         if (saved) {

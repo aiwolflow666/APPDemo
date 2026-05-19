@@ -1,29 +1,6 @@
-var CACHE_NAME = 'eng-pwa-v1';
-var ASSETS = [
-  '/',
-  '/index.html',
-  '/vocabulary_app.html',
-  '/practice_coach.html',
-  '/vocab_story.html',
-  '/question_batch_generator.html',
-  '/question_bank.html',
-  '/js/db.js',
-  '/js/sql-wasm.js',
-  '/js/sql-wasm.wasm',
-  '/word_database.dat',
-  '/question_bank.dat',
-  '/js/data_decrypt.js',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png'
-];
+var CACHE_NAME = 'eng-pwa-v2';
 
 self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(ASSETS);
-    })
-  );
   self.skipWaiting();
 });
 
@@ -41,6 +18,8 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(e) {
   if (e.request.method !== 'GET') return;
+  var url = new URL(e.request.url);
+  if (url.origin !== self.location.origin) return;
   e.respondWith(
     caches.match(e.request).then(function(cached) {
       var fetchPromise = fetch(e.request).then(function(resp) {
