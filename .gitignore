@@ -6,3 +6,5 @@ Thumbs.db
 *.zip
 *.rar
 *.7z
+node_modules/
+package-lock.json

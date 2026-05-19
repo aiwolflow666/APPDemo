@@ -1,0 +1,27 @@
+{
+  "name": "toeicapp",
+  "version": "1.0.0",
+  "description": "一站式托业(TOEIC)英语学习平台，纯前端实现，数据存储在本地浏览器，支持电脑和手机访问。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiwolflow666/APPDemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aiwolflow666/APPDemo/issues"
+  },
+  "homepage": "https://github.com/aiwolflow666/APPDemo#readme",
+  "dependencies": {
+    "@capacitor-community/sqlite": "^8.1.0",
+    "@capacitor/cli": "^8.3.4",
+    "@capacitor/core": "^8.3.4",
+    "sql.js": "^1.14.1"
+  }
+}

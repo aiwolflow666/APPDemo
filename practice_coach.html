@@ -755,6 +755,8 @@
         }
         .btn-save-bank:active { background: #b45309; }
     </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
 </head>
 <body>
 
@@ -776,6 +778,7 @@
             <a href="vocabulary_app.html">📘 单词</a>
             <a href="practice_coach.html" class="current">🧠 刷题</a>
             <a href="vocab_story.html">📖 故事</a>
+            <a href="question_bank.html">🗄️ 题库</a>
             <a href="question_batch_generator.html">📦 批量生成</a>
         </div>
     </header>
@@ -2780,6 +2783,9 @@ ${trendInfo}
     (async () => {
         await initQuiz();
     })();
+</script>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(e){console.log('SW registration failed:',e)})}
 </script>
 </body>
 </html>

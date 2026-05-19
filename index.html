@@ -239,6 +239,8 @@
             .card-icon { font-size: 1.8rem; width: 46px; height: 46px; }
         }
     </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
 </head>
 <body>
     <div id="app">
@@ -254,6 +256,7 @@
                 <a href="vocabulary_app.html">📘 单词</a>
                 <a href="practice_coach.html">🧠 刷题</a>
                 <a href="vocab_story.html">📖 故事</a>
+                <a href="question_bank.html">🗄️ 题库</a>
                 <a href="question_batch_generator.html">📦 批量生成</a>
             </div>
         </header>
@@ -317,6 +320,24 @@
                 </div>
             </a>
 
+            <a href="question_bank.html" class="feature-card">
+                <div class="card-header">
+                    <div class="card-icon">🗄️</div>
+                    <div class="card-title-wrap">
+                        <div class="card-title">题库管理</div>
+                        <div class="card-subtitle">SQLite本地题库 · 导入导出</div>
+                    </div>
+                </div>
+                <div class="card-desc">
+                    管理本地SQLite题库，支持JSON导入导出、自动去重、分类统计、搜索删除。题目数据独立于应用，方便维护。
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat primary">🗄️ SQLite</span>
+                    <span class="card-stat">📥 导入去重</span>
+                    <span class="card-stat">🔍 搜索管理</span>
+                </div>
+            </a>
+
             <a href="question_batch_generator.html" class="feature-card">
                 <div class="card-header">
                     <div class="card-icon">📦</div>
@@ -349,10 +370,16 @@
             <a href="vocab_story.html">
                 <span class="nav-icon">📖</span> 故事
             </a>
+            <a href="question_bank.html">
+                <span class="nav-icon">🗄️</span> 题库
+            </a>
             <a href="question_batch_generator.html">
                 <span class="nav-icon">📦</span> 批量生成
             </a>
         </nav>
     </div>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(e){console.log('SW registration failed:',e)})}
+</script>
 </body>
 </html>
