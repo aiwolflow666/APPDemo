@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>📘 托业单词背记</title>
+    <title>📘 英语单词背记</title>
     <style>
         /* ===== 全局重置 & 主题 ===== */
         * {
@@ -666,7 +666,7 @@
             <div class="header-main">
                 <div class="header-left">
                     <a href="index.html" aria-label="返回主页" title="返回主页">🏠</a>
-                    <h1><span>📘</span> 托业单词</h1>
+                    <h1><span>📘</span> 英语单词</h1>
                 </div>
                 <div class="header-actions">
                     <button id="btnSearch" aria-label="搜索">🔍</button>
@@ -687,7 +687,7 @@
             <div class="upload-icon">📂</div>
             <div class="upload-title">导入词库</div>
             <div class="upload-desc">
-                上传您之前整理的 <strong>托业单词.json</strong> 文件，<br />数据仅保存在您本地设备中。
+                上传您之前整理的 <strong>英语单词.json</strong> 文件，<br />数据仅保存在您本地设备中。
             </div>
             <div class="upload-drop" id="uploadDrop">
                 <input type="file" id="fileInput" accept=".json" />
@@ -777,6 +777,7 @@
 
     </div>
 
+    <script src="js/data_decrypt.js"></script>
     <script>
         (function() {
             'use strict';
@@ -1404,9 +1405,7 @@
             // ============================================================
             async function loadWordDatabase() {
                 try {
-                    const response = await fetch('word_database.json?t=' + Date.now());
-                    if (!response.ok) throw new Error('无法加载');
-                    const data = await response.json();
+                    const data = await DataDecrypt.fetchAndDecrypt('word_database.dat');
                     if (Array.isArray(data) && data.length > 0) {
                         return data;
                     }

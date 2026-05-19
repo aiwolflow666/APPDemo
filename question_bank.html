@@ -91,6 +91,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;b
 </div>
 <script src="js/sql-wasm.js"></script>
 <script src="js/db.js"></script>
+<script src="js/data_decrypt.js"></script>
 <script>
 (function(){
 'use strict';
@@ -189,7 +190,7 @@ input.onchange=function(e){if(e.target.files[0])handleFile(e.target.files[0])};
 
 document.getElementById('loadDefaultBtn').onclick=function(){
 result.innerHTML='<div class="spinner"></div>';
-fetch('toeic_questions_sample.json?t='+Date.now()).then(function(r){return r.json()}).then(function(data){
+ DataDecrypt.fetchAndDecrypt('question_bank.dat').then(function(data){
 var questions=Array.isArray(data)?data:[];
 var r=ToeicDB.importQuestions(questions);
 result.innerHTML='<div class="result-msg success">内置题库导入完成：新增 '+r.added+' 题，跳过 '+r.skipped+' 题（已存在），共 '+r.total+' 题</div>';

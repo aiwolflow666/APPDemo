@@ -1,4 +1,4 @@
-var CACHE_NAME = 'toeic-pwa-v1';
+var CACHE_NAME = 'eng-pwa-v1';
 var ASSETS = [
   '/',
   '/index.html',
@@ -10,8 +10,9 @@ var ASSETS = [
   '/js/db.js',
   '/js/sql-wasm.js',
   '/js/sql-wasm.wasm',
-  '/word_database.json',
-  '/toeic_questions_sample.json',
+  '/word_database.dat',
+  '/question_bank.dat',
+  '/js/data_decrypt.js',
   '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png'

@@ -533,9 +533,10 @@
     </nav>
 </div>
 
+<script src="js/data_decrypt.js"></script>
 <script>
-    const DEFAULT_API_KEY = 'ark-4e222f43-9b79-499c-bbf8-eb94caa9c9e5-819a1';
-    let apiKey = localStorage.getItem('toeic_ark_key') || DEFAULT_API_KEY;
+    const DEFAULT_API_KEY = '';
+    let apiKey = localStorage.getItem('toeic_ark_key') || '';
     let selectedCount = 30;
     let generatedQuestions = [];
     let batchHistory = JSON.parse(localStorage.getItem('batch_gen_history') || '[]');
@@ -585,9 +586,7 @@
     let wordDatabase = [];
     async function loadWordDatabase() {
         try {
-            const response = await fetch('word_database.json?t=' + Date.now());
-            if (!response.ok) throw new Error('无法加载');
-            wordDatabase = await response.json();
+            wordDatabase = await DataDecrypt.fetchAndDecrypt('word_database.dat');
             console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
         } catch (error) {
             console.error('加载单词数据库失败:', error);
@@ -645,7 +644,7 @@
             .slice(0, 15)
             .join('、');
 
-        const prompt = `你是资深托业出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
+        const prompt = `你是资深商务英语出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
 
 全局要求：
 - 难度均为: ${difficultyHint}
@@ -684,7 +683,7 @@
 开始生成。`;
 
         const requestBody = {
-            model: "ep-20260505172500-db99v",
+            model: "YOUR_MODEL_ENDPOINT",
             stream: false,
             temperature: 0.4,
             max_output_tokens: Math.min(2800 + count * 200, 8000),

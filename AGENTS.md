@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-TOEIC study app — pure frontend (HTML/CSS/JS), no build tools. All data stored browser-side (localStorage + IndexedDB). Runs via a simple Python HTTP server.
+XX study app — pure frontend (HTML/CSS/JS), no build tools. All data stored browser-side (localStorage + IndexedDB). Runs via a simple Python HTTP server.
 
 ## Dev Server
 

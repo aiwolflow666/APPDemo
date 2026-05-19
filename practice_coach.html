@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>🧠 托业刷题</title>
+    <title>🧠 刷题练习</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
@@ -767,7 +767,7 @@
         <div class="header-main">
             <div class="header-left">
                 <a href="index.html" aria-label="返回主页">🏠</a>
-                <h1><span>🧠</span> 托业刷题</h1>
+                <h1><span>🧠</span> 刷题练习</h1>
             </div>
             <div class="header-actions">
                 <button id="btnSettings" aria-label="设置">⚙️</button>
@@ -915,6 +915,7 @@
 
 </div>
 
+<script src="js/data_decrypt.js"></script>
 <script>
     // ---------- 页面导航 ----------
     const navBtns = document.querySelectorAll('.bottom-nav button');
@@ -1046,8 +1047,8 @@
     }
 
     // ---------- 全局变量 ----------
-    const DEFAULT_API_KEY = 'ark-4e222f43-9b79-499c-bbf8-eb94caa9c9e5-819a1';
-    let apiKey = localStorage.getItem('toeic_ark_key') || DEFAULT_API_KEY;
+    const DEFAULT_API_KEY = '';
+    let apiKey = localStorage.getItem('toeic_ark_key') || '';
     let currentQuestion = null;
     let selectedLetter = null;
     let questionPool = [];
@@ -1091,10 +1092,10 @@
     };
 
     resetKeyBtn.onclick = () => {
-        apiInput.value = DEFAULT_API_KEY;
-        apiKey = DEFAULT_API_KEY;
-        localStorage.setItem('toeic_ark_key', DEFAULT_API_KEY);
-        keyHint.textContent = '✅ 已重置为默认Key';
+        apiInput.value = '';
+        apiKey = '';
+        localStorage.removeItem('toeic_ark_key');
+        keyHint.textContent = '✅ 已清除Key，请重新输入';
         keyHint.style.display = 'block';
         keyHint.style.color = '#16a34a';
         setTimeout(() => { keyHint.style.display = 'none'; }, 2000);
@@ -1106,9 +1107,7 @@
     let wordDatabase = [];
     async function loadWordDatabase() {
         try {
-            const response = await fetch('word_database.json?t=' + Date.now());
-            if (!response.ok) throw new Error('无法加载单词数据库');
-            wordDatabase = await response.json();
+            wordDatabase = await DataDecrypt.fetchAndDecrypt('word_database.dat');
             console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
         } catch (error) {
             console.error('加载单词数据库失败:', error);
@@ -1384,10 +1383,8 @@
 
     async function loadLocalQuestionBank() {
         try {
-            const resp = await fetch('toeic_questions_sample.json?t=' + Date.now());
-            if (!resp.ok) throw new Error('无法加载');
-            const data = await resp.json();
-            localQuestionBank = Array.isArray(data) ? data : [];
+            localQuestionBank = await DataDecrypt.fetchAndDecrypt('question_bank.dat');
+            localQuestionBank = Array.isArray(localQuestionBank) ? localQuestionBank : [];
             console.log(`✅ 本地题库: ${localQuestionBank.length} 道题`);
             return localQuestionBank;
         } catch (error) {
@@ -1440,7 +1437,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'toeic_questions_sample.json';
+        a.download = 'questions_export.json';
         a.click();
         URL.revokeObjectURL(url);
     }
@@ -1504,7 +1501,7 @@
             .slice(0, 10)
             .join('、');
 
-        const prompt = `你是资深托业出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
+        const prompt = `你是资深商务英语出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
 
 全局要求：
 - 难度均为: ${difficultyHint}
@@ -1544,7 +1541,7 @@
 开始生成。`;
 
         const requestBody = {
-            model: "ep-20260505172500-db99v",
+            model: "YOUR_MODEL_ENDPOINT",
             stream: false,
             temperature: 0.4,
             max_output_tokens: Math.min(2800 + count * 200, 8000),
@@ -1978,7 +1975,7 @@
                     <div class="exam-icon">📝</div>
                     <div class="exam-title">模拟考试</div>
                     <div class="exam-desc">
-                        标准托业 Part 5 模拟测试<br>
+                        标准商务英语 Part 5 模拟测试<br>
                         ${bankCount > 0 ? `题库 ${bankCount} 道题，随机抽取 ${Math.min(EXAM_QUESTION_COUNT, bankCount)} 题` : '暂无题库题目'} · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
                         考试结束后 AI 分析不足与改进点
                     </div>
@@ -2538,7 +2535,7 @@
             return `${cat}: ${stat.correct}/${stat.total} (${pct}%)`;
         }).join('\n');
 
-        const prompt = `你是一位专业的托业英语考试辅导老师。请根据以下考试数据，给出详细的学习分析和改进建议。
+        const prompt = `你是一位专业的商务英语考试辅导老师。请根据以下考试数据，给出详细的学习分析和改进建议。
 
 本次考试数据：
 - 正确率: ${accuracy}% (${correct}/${total})
@@ -2558,7 +2555,7 @@ ${trendInfo}
 
         try {
             const requestBody = {
-                model: "ep-20260505172500-db99v",
+                model: "YOUR_MODEL_ENDPOINT",
                 stream: false,
                 temperature: 0.5,
                 max_output_tokens: 2000,

@@ -1,7 +1,7 @@
 {
   "name": "toeicapp",
   "version": "1.0.0",
-  "description": "一站式托业(TOEIC)英语学习平台，纯前端实现，数据存储在本地浏览器，支持电脑和手机访问。",
+  "description": "一站式英语学习平台，纯前端实现，数据存储在本地浏览器，支持电脑和手机访问。",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
