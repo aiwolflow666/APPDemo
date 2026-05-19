@@ -9,16 +9,15 @@
         if (db) return db;
         SQL = await initSqlJs({
             locateFile: file => {
-                var base = document.querySelector('base');
-                var prefix = base ? base.getAttribute('href') : '';
-                if (!prefix) {
-                    var scripts = document.querySelectorAll('script[src]');
-                    for (var i = 0; i < scripts.length; i++) {
-                        var m = scripts[i].src.match(/^(.+\/)js\/sql-wasm/);
-                        if (m) { prefix = m[1]; break; }
+                var scripts = document.querySelectorAll('script[src*="sql-wasm"]');
+                for (var i = 0; i < scripts.length; i++) {
+                    var src = scripts[i].getAttribute('src');
+                    if (src && src.indexOf('sql-wasm') !== -1) {
+                        var base = src.substring(0, src.lastIndexOf('/') + 1);
+                        return base + file;
                     }
                 }
-                return prefix + 'js/' + file;
+                return 'js/' + file;
             }
         });
         const saved = localStorage.getItem('toeic_sqlite_db');

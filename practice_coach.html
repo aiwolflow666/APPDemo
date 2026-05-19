@@ -1918,7 +1918,7 @@
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.5';
             prevBtn.disabled = true;
-            nextNavBtn.disabled = true;
+            setTimeout(() => { nextNavBtn.disabled = false; }, 500);
             document.querySelectorAll('.option').forEach(opt => {
                 const l = opt.getAttribute('data-letter');
                 if (l === question.correctAnswer) opt.style.border = '2px solid #16a34a';
