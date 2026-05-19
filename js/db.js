@@ -5,6 +5,43 @@
     let db = null;
     let SQL = null;
 
+    const IDB_NAME = 'toeic_sqlite_store';
+    const IDB_STORE = 'db';
+    const IDB_KEY = 'main';
+
+    function openIDB() {
+        return new Promise(function(resolve, reject) {
+            var req = indexedDB.open(IDB_NAME, 1);
+            req.onupgradeneeded = function() {
+                req.result.createObjectStore(IDB_STORE);
+            };
+            req.onsuccess = function() { resolve(req.result); };
+            req.onerror = function() { reject(req.error); };
+        });
+    }
+
+    function saveToIDB(data) {
+        return openIDB().then(function(idb) {
+            return new Promise(function(resolve, reject) {
+                var tx = idb.transaction(IDB_STORE, 'readwrite');
+                tx.objectStore(IDB_STORE).put(data, IDB_KEY);
+                tx.oncomplete = function() { resolve(); };
+                tx.onerror = function() { reject(tx.error); };
+            });
+        });
+    }
+
+    function loadFromIDB() {
+        return openIDB().then(function(idb) {
+            return new Promise(function(resolve, reject) {
+                var tx = idb.transaction(IDB_STORE, 'readonly');
+                var req = tx.objectStore(IDB_STORE).get(IDB_KEY);
+                req.onsuccess = function() { resolve(req.result || null); };
+                req.onerror = function() { reject(req.error); };
+            });
+        });
+    }
+
     async function init() {
         if (db) return db;
         SQL = await initSqlJs({
@@ -20,12 +57,23 @@
                 return 'js/' + file;
             }
         });
-        const saved = localStorage.getItem('toeic_sqlite_db');
-        if (saved) {
-            const buf = Uint8Array.from(atob(saved), c => c.charCodeAt(0));
-            db = new SQL.Database(buf);
-        } else {
-            db = new SQL.Database();
+        try {
+            var saved = await loadFromIDB();
+            if (saved) {
+                db = new SQL.Database(new Uint8Array(saved));
+            } else {
+                db = new SQL.Database();
+            }
+        } catch(e) {
+            console.warn('IDB load failed, trying localStorage fallback', e);
+            var ls = localStorage.getItem('toeic_sqlite_db');
+            if (ls) {
+                var buf = Uint8Array.from(atob(ls), c => c.charCodeAt(0));
+                db = new SQL.Database(buf);
+                localStorage.removeItem('toeic_sqlite_db');
+            } else {
+                db = new SQL.Database();
+            }
         }
         createTables();
         return db;
@@ -101,11 +149,12 @@
     function save() {
         if (!db) return;
         try {
-            const data = db.export();
-            const buf = String.fromCharCode(...new Uint8Array(data));
-            localStorage.setItem('toeic_sqlite_db', btoa(buf));
+            var data = db.export();
+            saveToIDB(new Uint8Array(data)).catch(function(e) {
+                console.error('Failed to save SQLite to IDB:', e);
+            });
         } catch (e) {
-            console.error('Failed to save SQLite DB:', e);
+            console.error('Failed to export SQLite DB:', e);
         }
     }
 
