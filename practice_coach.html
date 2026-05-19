@@ -774,12 +774,12 @@
             </div>
         </div>
         <div class="header-nav">
-            <a href="index.html">🏠 主页</a>
-            <a href="vocabulary_app.html">📘 单词</a>
-            <a href="practice_coach.html" class="current">🧠 刷题</a>
-            <a href="vocab_story.html">📖 故事</a>
-            <a href="question_batch_generator.html">📦 批量生成</a>
-        </div>
+<a href="vocabulary_app.html">📘 单词</a>
+<a href="practice_coach.html" class="current">🧠 刷题</a>
+<a href="vocab_story.html">📖 故事</a>
+<a href="question_bank.html">🗄 题库</a>
+<a href="question_batch_generator.html">📦 AI生成</a>
+</div>
     </header>
 
     <!-- ===== 刷题页 ===== -->
@@ -873,20 +873,8 @@
         <div class="card" id="bankDetailCard" style="display:none;">
             <div class="card-label">📝 题库题目列表</div>
             <div id="bankDetailList" style="max-height:300px; overflow-y:auto;"></div>
-        </div>
-
-        <div class="card">
-            <div class="card-label">🗄️ SQLite 题库</div>
-            <div id="sqliteStats" style="font-size:0.85rem; color:#64748b; margin-bottom:10px;">加载中...</div>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                <button class="btn btn-sm btn-primary" id="loadBuiltinBtn">📄 加载内置题库</button>
-                <button class="btn btn-sm btn-outline" id="importSqliteBtn">📤 导入JSON</button>
-                <button class="btn btn-sm btn-secondary" id="exportSqliteBtn">📥 导出JSON</button>
-            </div>
-            <input type="file" id="importSqliteInput" accept=".json" style="display:none;">
-            <div id="sqliteResult" style="margin-top:8px;"></div>
-        </div>
-    </div>
+         </div>
+     </div>
 
     <!-- ===== 记录页 ===== -->
     <div id="page-records" class="page">
@@ -927,8 +915,6 @@
 </div>
 
 <script src="js/data_decrypt.js"></script>
-<script src="js/sql-wasm.js"></script>
-<script src="js/db.js"></script>
 <script>
     // ---------- 页面导航 ----------
     const navBtns = document.querySelectorAll('.bottom-nav button');
@@ -1501,67 +1487,6 @@
         }
         e.target.value = '';
     };
-
-    // ---------- SQLite 题库管理 ----------
-    (async function() {
-        var statsDiv = document.getElementById('sqliteStats');
-        var resultDiv = document.getElementById('sqliteResult');
-        try {
-            await ToeicDB.init();
-            var cnt = ToeicDB.getQuestionCount();
-            var cats = ToeicDB.getQuestionsByCategory();
-            statsDiv.innerHTML = '题库共 <strong>' + cnt + '</strong> 道题，<strong>' + cats.length + '</strong> 个分类';
-        } catch(e) {
-            statsDiv.innerHTML = 'SQLite 初始化失败: ' + e.message;
-            return;
-        }
-
-        document.getElementById('loadBuiltinBtn').onclick = async function() {
-            resultDiv.innerHTML = '⏳ 正在加载...';
-            try {
-                var data = await DataDecrypt.fetchAndDecrypt('question_bank.dat');
-                var questions = Array.isArray(data) ? data : [];
-                var r = ToeicDB.importQuestions(questions);
-                resultDiv.innerHTML = '<span style="color:#16a34a">✅ 导入完成：新增 ' + r.added + ' 题，跳过 ' + r.skipped + ' 题（已存在），共 ' + r.total + ' 题</span>';
-                var cnt = ToeicDB.getQuestionCount();
-                statsDiv.innerHTML = '题库共 <strong>' + cnt + '</strong> 道题';
-            } catch(e) {
-                resultDiv.innerHTML = '<span style="color:#dc2626">❌ 加载失败: ' + e.message + '</span>';
-            }
-        };
-
-        document.getElementById('importSqliteBtn').onclick = function() {
-            document.getElementById('importSqliteInput').click();
-        };
-
-        document.getElementById('importSqliteInput').onchange = async function(e) {
-            var file = e.target.files[0];
-            if (!file) return;
-            try {
-                var text = await file.text();
-                var data = JSON.parse(text);
-                var questions = Array.isArray(data) ? data : (data.questions || []);
-                var r = ToeicDB.importQuestions(questions);
-                resultDiv.innerHTML = '<span style="color:#16a34a">✅ 导入完成：新增 ' + r.added + ' 题，跳过 ' + r.skipped + ' 题（去重），共 ' + r.total + ' 题</span>';
-                var cnt = ToeicDB.getQuestionCount();
-                statsDiv.innerHTML = '题库共 <strong>' + cnt + '</strong> 道题';
-            } catch(err) {
-                resultDiv.innerHTML = '<span style="color:#dc2626">❌ 导入失败: ' + err.message + '</span>';
-            }
-            e.target.value = '';
-        };
-
-        document.getElementById('exportSqliteBtn').onclick = function() {
-            var json = ToeicDB.exportAsJSON();
-            var blob = new Blob([JSON.stringify(json.questions, null, 2)], {type: 'application/json'});
-            var url = URL.createObjectURL(blob);
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = 'questions_export_' + new Date().toISOString().slice(0,10) + '.json';
-            a.click();
-            URL.revokeObjectURL(url);
-        };
-    })();
 
     // ---------- 批量生成 ----------
     async function generateBatch(count) {
