@@ -61,19 +61,14 @@
             var saved = await loadFromIDB();
             if (saved) {
                 db = new SQL.Database(new Uint8Array(saved));
+                console.log('SQLite DB loaded from IDB, size:', saved.byteLength || saved.length);
             } else {
                 db = new SQL.Database();
+                console.log('SQLite DB created fresh (no saved data)');
             }
         } catch(e) {
-            console.warn('IDB load failed, trying localStorage fallback', e);
-            var ls = localStorage.getItem('toeic_sqlite_db');
-            if (ls) {
-                var buf = Uint8Array.from(atob(ls), c => c.charCodeAt(0));
-                db = new SQL.Database(buf);
-                localStorage.removeItem('toeic_sqlite_db');
-            } else {
-                db = new SQL.Database();
-            }
+            console.warn('IDB load failed, creating fresh DB:', e);
+            db = new SQL.Database();
         }
         createTables();
         return db;
@@ -146,16 +141,30 @@
         save();
     }
 
+    var _saveTimer = null;
+    var _lastSaveData = null;
+
     function save() {
         if (!db) return;
         try {
             var data = db.export();
-            saveToIDB(new Uint8Array(data)).catch(function(e) {
-                console.error('Failed to save SQLite to IDB:', e);
-            });
+            _lastSaveData = new Uint8Array(data);
         } catch (e) {
             console.error('Failed to export SQLite DB:', e);
+            return;
         }
+        if (_saveTimer) clearTimeout(_saveTimer);
+        _saveTimer = setTimeout(function() {
+            _doSave(_lastSaveData);
+        }, 100);
+    }
+
+    function _doSave(uint8) {
+        saveToIDB(uint8).then(function() {
+            console.log('SQLite DB saved to IDB, size:', uint8.length);
+        }).catch(function(e) {
+            console.error('Failed to save SQLite to IDB:', e);
+        });
     }
 
     function hashText(text) {
