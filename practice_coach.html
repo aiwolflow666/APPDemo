@@ -819,7 +819,8 @@
             <div class="setting-row">
                 <span>题目来源：</span>
                 <select id="questionSource">
-                    <option value="local" selected>📖 本地题库优先</option>
+                    <option value="builtIn" selected>📖 原题库</option>
+                    <option value="ppt600">🧾 PPT600题库</option>
                     <option value="ai">🤖 AI 生成</option>
                 </select>
             </div>
@@ -1378,16 +1379,29 @@
 
     // ---------- 本地题库管理 ----------
     let localQuestionBank = [];
-    let questionSource = 'ai';
+    const QUESTION_BANK_FILES = {
+        builtIn: { file: 'question_bank.dat', label: '原题库' },
+        ppt600: { file: 'question_bank_ppt600.dat', label: 'PPT600题库' }
+    };
 
-    async function loadLocalQuestionBank() {
+    function isBankSource() {
+        return !!QUESTION_BANK_FILES[questionSourceSelect.value];
+    }
+
+    function getCurrentBankLabel() {
+        return QUESTION_BANK_FILES[questionSourceSelect.value]?.label || '本地题库';
+    }
+
+    async function loadLocalQuestionBank(force) {
+        const source = questionSourceSelect.value;
+        const cfg = QUESTION_BANK_FILES[source] || QUESTION_BANK_FILES.builtIn;
         try {
-            localQuestionBank = await DataDecrypt.fetchAndDecrypt('question_bank.dat');
+            localQuestionBank = await DataDecrypt.fetchAndDecrypt(cfg.file);
             localQuestionBank = Array.isArray(localQuestionBank) ? localQuestionBank : [];
-            console.log(`✅ 本地题库: ${localQuestionBank.length} 道题`);
+            console.log(`✅ ${cfg.label}: ${localQuestionBank.length} 道题`);
             return localQuestionBank;
         } catch (error) {
-            console.error('加载本地题库失败:', error);
+            console.error(`加载${cfg.label}失败:`, error);
             localQuestionBank = [];
             return [];
         }
@@ -1595,7 +1609,7 @@
         poolReady = false;
         if (wordDatabase.length === 0) await loadWordDatabase();
 
-        if (questionSourceSelect.value === 'local') {
+        if (isBankSource()) {
             if (localQuestionBank.length === 0) await loadLocalQuestionBank();
             if (localQuestionBank.length > 0) {
                 const shuffled = [...localQuestionBank]
@@ -1661,6 +1675,7 @@
             throw new Error("题目池已空，请点击「开始刷题」重新生成");
         }
         const q = questionPool.shift();
+        if (isBankSource()) return q;
         const targetBatch = parseInt(batchSizeSelect.value);
         const currentPoolSize = questionPool.length;
         if (currentPoolSize < Math.max(3, Math.floor(targetBatch / 4))) {
@@ -1676,7 +1691,7 @@
     }
 
     function renderQuestion(question, poolRemaining, showNavBtns, isLocal) {
-        if (isLocal === undefined) isLocal = questionSourceSelect.value === 'local';
+        if (isLocal === undefined) isLocal = isBankSource();
         quizArea.innerHTML = '';
         const card = document.createElement('div');
         card.className = 'card';
@@ -1744,7 +1759,7 @@
         nextNavBtn.innerText = '下一题 ▶';
         nextNavBtn.style.flex = '1';
         nextNavBtn.onclick = () => {
-            if (questionSourceSelect.value === 'local') {
+            if (isBankSource()) {
                 fetchAndDisplayLocal();
             } else {
                 fetchAndDisplay();
@@ -1764,7 +1779,7 @@
         const poolInfo = document.createElement('div');
         poolInfo.className = 'pool-info';
         if (isLocal) {
-            poolInfo.innerText = `📖 本地题库剩余: ${poolRemaining} 道`;
+            poolInfo.innerText = `📖 ${getCurrentBankLabel()}剩余: ${poolRemaining} 道`;
         } else {
             poolInfo.innerText = `📦 AI题池剩余: ${poolRemaining} 题`;
         }
@@ -1849,8 +1864,8 @@
                 if (l === question.correctAnswer) opt.style.border = '2px solid #16a34a';
                 if (l === selectedLetter && l !== question.correctAnswer) opt.style.border = '2px solid #dc2626';
             });
-            const isLocalMode = questionSourceSelect.value === 'local';
-            poolInfo.innerText = isLocalMode ? `📖 本地题库剩余: ${poolRemaining} 道` : `📦 AI题池剩余: ${poolRemaining} 题`;
+            const isLocalMode = isBankSource();
+            poolInfo.innerText = isLocalMode ? `📖 ${getCurrentBankLabel()}剩余: ${poolRemaining} 道` : `📦 AI题池剩余: ${poolRemaining} 题`;
         };
     }
 
@@ -1860,7 +1875,7 @@
         const q = questionHistory[questionIndex];
         currentQuestion = q;
         selectedLetter = null;
-        renderQuestion(q, questionPool.length, true, questionSourceSelect.value === 'local');
+        renderQuestion(q, questionPool.length, true, isBankSource());
     }
 
     async function fetchAndDisplay() {
@@ -1880,7 +1895,7 @@
     }
 
     newBtn.onclick = async () => {
-        if (questionSourceSelect.value !== 'local' && !apiKey) { alert('请先保存 API Key'); return; }
+        if (!isBankSource() && !apiKey) { alert('请先保存 API Key'); return; }
         questionHistory = [];
         questionIndex = -1;
         const batchSize = parseInt(batchSizeSelect.value);
@@ -1892,17 +1907,21 @@
         Object.values(pages).forEach(p => p.classList.remove('active'));
         pages.quiz.classList.add('active');
 
-        quizArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>🔄 正在生成 ${batchSize} 道题目，请稍候...</div></div>`;
+        quizArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>${isBankSource() ? '🔄 正在加载' + getCurrentBankLabel() : '🔄 正在生成 ' + batchSize + ' 道题目'}，请稍候...</div></div>`;
         try {
             await resetAndFillPool(batchSize);
-            const firstQ = getNextQuestionFromPool();
-            currentQuestion = firstQ;
-            selectedLetter = null;
-            questionHistory.push(firstQ);
-            questionIndex = 0;
-            renderQuestion(firstQ, questionPool.length, true, false);
+            if (isBankSource()) {
+                await loadQuestionsFromLocal();
+            } else {
+                const firstQ = getNextQuestionFromPool();
+                currentQuestion = firstQ;
+                selectedLetter = null;
+                questionHistory.push(firstQ);
+                questionIndex = 0;
+                renderQuestion(firstQ, questionPool.length, true, false);
+            }
         } catch (err) {
-            quizArea.innerHTML = `<div class="card"><div class="error-message">重置失败: ${err.message}<br>请检查 API Key 或网络。</div><button class="btn btn-primary" id="retryResetBtn" style="margin-top:12px; width:100%;">重试</button></div>`;
+            quizArea.innerHTML = `<div class="card"><div class="error-message">重置失败: ${err.message}<br>${isBankSource() ? '请检查题库文件是否存在。' : '请检查 API Key 或网络。'}</div><button class="btn btn-primary" id="retryResetBtn" style="margin-top:12px; width:100%;">重试</button></div>`;
             const retry = document.getElementById('retryResetBtn');
             if (retry) retry.onclick = () => newBtn.onclick();
         } finally {
@@ -1911,7 +1930,7 @@
     };
 
     difficultySelect.addEventListener('change', async () => {
-        if (apiKey && questionSourceSelect.value !== 'local') await newBtn.onclick();
+        if (apiKey && !isBankSource()) await newBtn.onclick();
     });
     batchSizeSelect.addEventListener('change', async () => {
         currentBatchSize = parseInt(batchSizeSelect.value);
@@ -1920,19 +1939,15 @@
         questionPool = [];
         questionHistory = [];
         questionIndex = -1;
-        if (questionSourceSelect.value === 'local') {
+        if (isBankSource()) {
+            await loadLocalQuestionBank(true);
             if (localQuestionBank.length > 0) {
                 await loadQuestionsFromLocal();
             } else {
-                await loadLocalQuestionBank();
-                if (localQuestionBank.length > 0) {
-                    await loadQuestionsFromLocal();
-                } else {
-                    quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
-                        <div style="font-size:48px; margin-bottom:12px;">📖</div>
-                        <div>本地题库为空，请先切换为「AI生成」生成题目</div>
-                    </div>`;
-                }
+                quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
+                    <div style="font-size:48px; margin-bottom:12px;">📖</div>
+                    <div>${getCurrentBankLabel()}为空，请检查题库文件或切换为「AI生成」</div>
+                </div>`;
             }
         } else {
             if (apiKey) await newBtn.onclick();
@@ -1975,7 +1990,7 @@
                     <div class="exam-title">模拟考试</div>
                     <div class="exam-desc">
                         标准商务英语 Part 5 模拟测试<br>
-                        ${bankCount > 0 ? `题库 ${bankCount} 道题，随机抽取 ${Math.min(EXAM_QUESTION_COUNT, bankCount)} 题` : '暂无题库题目'} · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
+                        ${bankCount > 0 ? `${getCurrentBankLabel()} ${bankCount} 道题，随机抽取 ${Math.min(EXAM_QUESTION_COUNT, bankCount)} 题` : '暂无题库题目'} · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
                         考试结束后 AI 分析不足与改进点
                     </div>
                     <div class="exam-stats">
@@ -1999,7 +2014,7 @@
                         📋 查看历史记录与成绩曲线
                     </button>
                     <div style="margin-top:12px; font-size:0.75rem; color:#94a3b8;">
-                        题目从本地题库随机抽取，无需 API Key
+                        题目从当前选择题库随机抽取，无需 API Key
                     </div>
                 </div>
             </div>
@@ -2020,9 +2035,7 @@
     }
 
     async function startExam() {
-        if (localQuestionBank.length === 0) {
-            await loadLocalQuestionBank();
-        }
+        await loadLocalQuestionBank(true);
         const actualCount = Math.min(EXAM_QUESTION_COUNT, localQuestionBank.length);
         if (actualCount < EXAM_QUESTION_COUNT) {
             if (!confirm(`题库仅有 ${localQuestionBank.length} 道题，不足 ${EXAM_QUESTION_COUNT} 道。是否用 ${actualCount} 道题开始考试？`)) return;
@@ -2704,7 +2717,7 @@ ${trendInfo}
         };
     }
 
-    // ---------- 刷题入口：优先本地题库，无题再生成 ----------
+    // ---------- 刷题入口：按当前题目来源加载 ----------
     async function initQuiz() {
         await openDB();
         await loadWordDatabase();
@@ -2715,14 +2728,15 @@ ${trendInfo}
         } else {
             quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
                 <div style="font-size:48px; margin-bottom:12px;">🤖</div>
-                <div style="font-size:15px; font-weight:500;">本地题库为空</div>
-                <div style="font-size:0.85rem; margin-top:8px;">请在设置中切换为「AI生成」来获取题目</div>
-                <div style="font-size:0.78rem; margin-top:6px; color:#cbd5e1;">AI题目做完后可一键加入本地题库</div>
+                <div style="font-size:15px; font-weight:500;">${getCurrentBankLabel()}为空</div>
+                <div style="font-size:0.85rem; margin-top:8px;">请在设置中切换题库或切换为「AI生成」</div>
+                <div style="font-size:0.78rem; margin-top:6px; color:#cbd5e1;">原题库和PPT600题库互相独立，可任意切换</div>
             </div>`;
         }
     }
 
     async function loadQuestionsFromLocal() {
+        questionPool = [];
         const shuffled = [...localQuestionBank]
             .sort(() => Math.random() - 0.5)
             .map(q => {

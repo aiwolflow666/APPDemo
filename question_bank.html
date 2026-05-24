@@ -135,8 +135,9 @@ content.innerHTML=''
 +'</div>'
 +'<div id="importResult"></div>'
 +'<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">'
-+'<button class="btn btn-primary btn-sm" id="loadDefaultBtn">📄 \u52a0\u8f7d\u5185\u7f6e\u9898\u5e93</button>'
-+'<button class="btn btn-outline btn-sm" id="exportBtn">📥 \u5bfc\u51fa\u4e3aJSON</button>'
++'<button class="btn btn-primary btn-sm" id="loadDefaultBtn">📄 加载内置题库</button>'
++'<button class="btn btn-primary btn-sm" id="loadPpt600Btn">🧾 加载PPT600题库</button>'
++'<button class="btn btn-outline btn-sm" id="exportBtn">📥 导出为JSON</button>'
 +'</div></div>'
 +'<div class="card"><div class="card-label">📂 \u5206\u7c7b\u7edf\u8ba1</div>'+catHtml+'</div>'
 +'<div class="card"><div class="card-label">🔍 \u641c\u7d22\u9898\u76ee</div>'
@@ -165,16 +166,24 @@ area.ondragleave=function(){area.classList.remove('dragover')};
 area.ondrop=function(e){e.preventDefault();area.classList.remove('dragover');if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0])};
 input.onchange=function(e){if(e.target.files[0])handleFile(e.target.files[0])};
 
-document.getElementById('loadDefaultBtn').onclick=function(){
+function loadDatBank(file,label){
 result.innerHTML='<div class="spinner"></div>';
-DataDecrypt.fetchAndDecrypt('question_bank.dat').then(function(data){
+DataDecrypt.fetchAndDecrypt(file).then(function(data){
 var questions=Array.isArray(data)?data:[];
 var r=ToeicDB.importQuestions(questions);
-result.innerHTML='<div class="result-msg success">\u5185\u7f6e\u9898\u5e93\u5bfc\u5165\u5b8c\u6210\uff1a\u65b0\u589e '+r.added+' \u9898\uff0c\u8df3\u8fc7 '+r.skipped+' \u9898\uff08\u5df2\u5b58\u5728\uff09\uff0c\u5171 '+r.total+' \u9898</div>';
+result.innerHTML='<div class="result-msg success">'+label+'导入完成：新增 '+r.added+' 题，跳过 '+r.skipped+' 题（已存在），共 '+r.total+' 题</div>';
 renderMain();
 }).catch(function(e){
-result.innerHTML='<div class="result-msg error">\u52a0\u8f7d\u5931\u8d25: '+e.message+'</div>';
+result.innerHTML='<div class="result-msg error">'+label+'加载失败: '+e.message+'</div>';
 });
+}
+
+document.getElementById('loadDefaultBtn').onclick=function(){
+loadDatBank('question_bank.dat','内置题库');
+};
+
+document.getElementById('loadPpt600Btn').onclick=function(){
+loadDatBank('question_bank_ppt600.dat','PPT600题库');
 };
 
 document.getElementById('exportBtn').onclick=function(){

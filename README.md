@@ -12,7 +12,7 @@
 - **筛选模式**：只看认识 / 只看不认识 / 只看收藏 / 全部显示
 - **搜索功能**：按单词、释义、词性实时模糊搜索
 - **学习进度**：顶部进度条显示当前学习位置和已认识数量
-- **内置词库**：`word_database.json` 包含 1000+ 托业核心词汇
+- **内置词库**：`word_database.dat` 包含 1000+ 托业核心词汇
 
 ### 2. 题库练习 (`practice_coach.html`)
 
@@ -62,8 +62,9 @@
 ├── practice_coach.html           # 题库练习 + 模拟考试
 ├── vocab_story.html              # 词汇故事应用
 ├── question_batch_generator.html # 批量题目生成器
-├── word_database.json            # 托业核心词库（1000+ 单词）
-├── toeic_questions_sample.json   # 本地题库
+├── word_database.dat             # 加密托业核心词库（1000+ 单词）
+├── question_bank.dat             # 加密原始题库
+├── question_bank_ppt600.dat      # 加密PPT600题库
 ├── local_test.py                 # 启动本地服务器
 └── README.md
 ```
