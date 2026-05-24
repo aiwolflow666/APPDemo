@@ -793,10 +793,24 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="card-label">📚 选择题库</div>
+            <div class="setting-row">
+                <span>当前题库：</span>
+                <select id="quickQuestionSource">
+                    <option value="builtIn">📖 原题库</option>
+                    <option value="ppt600">🧾 PPT600题库（600题）</option>
+                    <option value="ai">🤖 AI 生成</option>
+                </select>
+            </div>
+            <div id="quickBankStatus" style="font-size:0.78rem; color:#64748b; margin-top:8px;">正在读取题库...</div>
+            <button class="btn btn-primary" id="quickStartBtn" style="width:100%; margin-top:12px;">✨ 开始刷题</button>
+        </div>
+
         <div id="quizArea">
             <div class="card" style="text-align:center; color:#94a3b8; padding:40px 20px;">
                 <div style="font-size:48px; margin-bottom:12px;">🧠</div>
-                <div style="font-size:15px; font-weight:500;">点击「开始刷题」启动</div>
+                <div style="font-size:15px; font-weight:500;">选择题库后点击「开始刷题」启动</div>
             </div>
         </div>
     </div>
@@ -1068,6 +1082,9 @@
     const difficultySelect = document.getElementById('difficultySelect');
     const batchSizeSelect = document.getElementById('batchSizeSelect');
     const questionSourceSelect = document.getElementById('questionSource');
+    const quickQuestionSource = document.getElementById('quickQuestionSource');
+    const quickBankStatus = document.getElementById('quickBankStatus');
+    const quickStartBtn = document.getElementById('quickStartBtn');
     const quizArea = document.getElementById('quizArea');
     const totalSpan = document.getElementById('totalCount');
     const accuracySpan = document.getElementById('accuracyRate');
@@ -1392,6 +1409,21 @@
         return QUESTION_BANK_FILES[questionSourceSelect.value]?.label || '本地题库';
     }
 
+    function syncQuestionSource(value) {
+        questionSourceSelect.value = value;
+        quickQuestionSource.value = value;
+        localStorage.setItem('toeic_question_source', value);
+    }
+
+    function renderQuickBankStatus() {
+        if (!quickBankStatus) return;
+        if (isBankSource()) {
+            quickBankStatus.textContent = `当前：${getCurrentBankLabel()}，共 ${localQuestionBank.length} 题`;
+        } else {
+            quickBankStatus.textContent = '当前：AI 生成模式（需要 API Key）';
+        }
+    }
+
     async function loadLocalQuestionBank(force) {
         const source = questionSourceSelect.value;
         const cfg = QUESTION_BANK_FILES[source] || QUESTION_BANK_FILES.builtIn;
@@ -1399,10 +1431,12 @@
             localQuestionBank = await DataDecrypt.fetchAndDecrypt(cfg.file);
             localQuestionBank = Array.isArray(localQuestionBank) ? localQuestionBank : [];
             console.log(`✅ ${cfg.label}: ${localQuestionBank.length} 道题`);
+            renderQuickBankStatus();
             return localQuestionBank;
         } catch (error) {
             console.error(`加载${cfg.label}失败:`, error);
             localQuestionBank = [];
+            renderQuickBankStatus();
             return [];
         }
     }
@@ -1935,24 +1969,37 @@
     batchSizeSelect.addEventListener('change', async () => {
         currentBatchSize = parseInt(batchSizeSelect.value);
     });
-    questionSourceSelect.addEventListener('change', async () => {
+    async function handleQuestionSourceChange(value, autoStart) {
+        syncQuestionSource(value);
         questionPool = [];
         questionHistory = [];
         questionIndex = -1;
         if (isBankSource()) {
             await loadLocalQuestionBank(true);
-            if (localQuestionBank.length > 0) {
+            if (autoStart && localQuestionBank.length > 0) {
                 await loadQuestionsFromLocal();
-            } else {
+            } else if (localQuestionBank.length === 0) {
                 quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
                     <div style="font-size:48px; margin-bottom:12px;">📖</div>
                     <div>${getCurrentBankLabel()}为空，请检查题库文件或切换为「AI生成」</div>
                 </div>`;
             }
         } else {
-            if (apiKey) await newBtn.onclick();
+            localQuestionBank = [];
+            renderQuickBankStatus();
+            if (autoStart && apiKey) await newBtn.onclick();
         }
+    }
+
+    questionSourceSelect.addEventListener('change', async () => {
+        await handleQuestionSourceChange(questionSourceSelect.value, false);
     });
+
+    quickQuestionSource.addEventListener('change', async () => {
+        await handleQuestionSourceChange(quickQuestionSource.value, false);
+    });
+
+    quickStartBtn.onclick = () => newBtn.onclick();
 
     // ============================================================
     //  模拟考试模式
@@ -2721,18 +2768,16 @@ ${trendInfo}
     async function initQuiz() {
         await openDB();
         await loadWordDatabase();
-        await loadLocalQuestionBank();
+        const savedSource = localStorage.getItem('toeic_question_source') || 'builtIn';
+        syncQuestionSource(QUESTION_BANK_FILES[savedSource] || savedSource === 'ai' ? savedSource : 'builtIn');
+        if (isBankSource()) await loadLocalQuestionBank(true);
+        else renderQuickBankStatus();
         await updateAllStatsAndRecords();
-        if (localQuestionBank.length > 0) {
-            await loadQuestionsFromLocal();
-        } else {
-            quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
-                <div style="font-size:48px; margin-bottom:12px;">🤖</div>
-                <div style="font-size:15px; font-weight:500;">${getCurrentBankLabel()}为空</div>
-                <div style="font-size:0.85rem; margin-top:8px;">请在设置中切换题库或切换为「AI生成」</div>
-                <div style="font-size:0.78rem; margin-top:6px; color:#cbd5e1;">原题库和PPT600题库互相独立，可任意切换</div>
-            </div>`;
-        }
+        quizArea.innerHTML = `<div class="card" style="text-align:center; color:#94a3b8; padding:40px 20px;">
+            <div style="font-size:48px; margin-bottom:12px;">🧠</div>
+            <div style="font-size:15px; font-weight:500;">当前：${isBankSource() ? getCurrentBankLabel() + '（' + localQuestionBank.length + '题）' : 'AI生成'}</div>
+            <div style="font-size:0.85rem; margin-top:8px;">点击上方「开始刷题」启动</div>
+        </div>`;
     }
 
     async function loadQuestionsFromLocal() {
