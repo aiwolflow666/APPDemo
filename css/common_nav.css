@@ -1,0 +1,10 @@
+.header-nav{display:flex;gap:4px;flex-wrap:wrap}
+.header-nav a{flex:1 1 calc(33.33% - 4px);background:rgba(255,255,255,.15);border:none;color:#fff;padding:6px 6px;border-radius:14px;font-size:10px;cursor:pointer;text-align:center;text-decoration:none;white-space:nowrap}
+.header-nav a:active{background:rgba(255,255,255,.3)}
+.header-nav .current{background:rgba(255,255,255,.35);font-weight:600}
+.bottom-nav{display:flex;border-top:1px solid #f1f5f9;background:#fff;flex-shrink:0}
+.bottom-nav a,.bottom-nav button{flex:1;border:none;background:none;padding:10px 0 12px;font-size:12px;color:#94a3b8;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:500;text-decoration:none;position:relative}
+.bottom-nav a .nav-icon,.bottom-nav button .nav-icon{font-size:20px}
+.bottom-nav a:active,.bottom-nav button:active{opacity:.6}
+.bottom-nav a.active,.bottom-nav button.active{color:#2563eb;font-weight:600}
+.bottom-nav button.active::after{content:'';position:absolute;top:0px;left:50%;transform:translateX(-50%);width:24px;height:3px;border-radius:999px;background:#2563eb}
