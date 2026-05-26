@@ -795,11 +795,11 @@
         </div>
 
         <div class="card">
-            <div class="card-label">📚 选择题库</div>
+            <div class="card-label">📚 题库来源</div>
             <div class="setting-row">
                 <span>当前题库：</span>
                 <select id="quickQuestionSource">
-                    <option value="builtIn">📖 原题库</option>
+                    <option value="builtIn">📖 基础题库（220题）</option>
                     <option value="ppt600">🧾 PPT600题库（600题）</option>
                     <option value="ai">🤖 AI 生成</option>
                 </select>
@@ -830,16 +830,9 @@
         </div>
 
         <div class="card">
-            <div class="card-label">📊 刷题设置</div>
-            <div class="setting-row">
-                <span>题目来源：</span>
-                <select id="questionSource">
-                    <option value="builtIn" selected>📖 原题库</option>
-                    <option value="ppt600">🧾 PPT600题库</option>
-                    <option value="ai">🤖 AI 生成</option>
-                </select>
-            </div>
-            <div class="setting-row">
+            <div class="card-label">🤖 AI 生成设置</div>
+            <div style="font-size:0.78rem; color:#94a3b8; margin-bottom:8px;">以下设置仅在「AI 生成」模式下生效</div>
+            <div class="setting-row" id="aiDiffRow">
                 <span>难度：</span>
                 <select id="difficultySelect">
                     <option value="平衡">平衡（L1~L5）</option>
@@ -847,16 +840,13 @@
                     <option value="L4-L5">高分挑战（L4~L5）</option>
                 </select>
             </div>
-            <div class="setting-row">
+            <div class="setting-row" id="aiBatchRow">
                 <span>预生成数量：</span>
                 <select id="batchSizeSelect">
                     <option value="5">5 题</option>
                     <option value="15" selected>15 题（推荐）</option>
                     <option value="30">30 题</option>
                 </select>
-            </div>
-            <div style="margin-top:14px;">
-                <button class="btn btn-primary" id="newQuestionBtn" style="width:100%;">✨ 开始刷题</button>
             </div>
         </div>
 
@@ -866,30 +856,14 @@
                 <button class="btn btn-sm btn-primary" id="exportDataBtn">📥 备份学习数据</button>
                 <button class="btn btn-sm btn-outline" id="importDataBtn">📤 恢复学习数据</button>
             </div>
-            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史、题目缓存</div>
+            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史、AI去重记录</div>
             <input type="file" id="importDataInput" accept=".json" style="display:none;">
             <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
                 <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空记录</button>
-                <button class="btn btn-sm btn-warning" id="clearHashesBtn">🔄 清空题目缓存</button>
-                <button class="btn btn-sm btn-secondary" id="viewBankBtn">📚 查看题库</button>
+                <button class="btn btn-sm btn-warning" id="clearHashesBtn">🔄 清空AI去重记录</button>
             </div>
         </div>
 
-        <div class="card" id="bankInfoCard" style="display:none;">
-            <div class="card-label">📊 本地题库统计</div>
-            <div id="bankStats"></div>
-            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
-                <button class="btn btn-sm btn-secondary" id="refreshBankBtn">🔄 刷新</button>
-                <button class="btn btn-sm btn-outline" id="importBankBtn">📤 导入题库</button>
-                <button class="btn btn-sm btn-primary" id="exportBankBtn">📥 导出题库</button>
-            </div>
-            <input type="file" id="importBankInput" accept=".json" style="display:none;">
-        </div>
-
-        <div class="card" id="bankDetailCard" style="display:none;">
-            <div class="card-label">📝 题库题目列表</div>
-            <div id="bankDetailList" style="max-height:300px; overflow-y:auto;"></div>
-         </div>
      </div>
 
     <!-- ===== 记录页 ===== -->
@@ -1079,13 +1053,11 @@
     const resetKeyBtn = document.getElementById('resetKeyBtn');
     const keyHint = document.getElementById('keyHint');
     const saveBtn = document.getElementById('saveKeyBtn');
-    const newBtn = document.getElementById('newQuestionBtn');
+    const newBtn = document.getElementById('quickStartBtn');
     const difficultySelect = document.getElementById('difficultySelect');
     const batchSizeSelect = document.getElementById('batchSizeSelect');
-    const questionSourceSelect = document.getElementById('questionSource');
-    const quickQuestionSource = document.getElementById('quickQuestionSource');
+    const questionSourceSelect = document.getElementById('quickQuestionSource');
     const quickBankStatus = document.getElementById('quickBankStatus');
-    const quickStartBtn = document.getElementById('quickStartBtn');
     const quizArea = document.getElementById('quizArea');
     const totalSpan = document.getElementById('totalCount');
     const accuracySpan = document.getElementById('accuracyRate');
@@ -1412,7 +1384,7 @@
 
     function syncQuestionSource(value) {
         questionSourceSelect.value = value;
-        quickQuestionSource.value = value;
+        questionSourceSelect.value = value;
         localStorage.setItem('toeic_question_source', value);
     }
 
@@ -1449,102 +1421,6 @@
         }
     }
 
-    function renderBankStats() {
-        const bankStats = document.getElementById('bankStats');
-        const bankDetailList = document.getElementById('bankDetailList');
-        const total = localQuestionBank.length;
-        const cats = {};
-        const diffs = {};
-        localQuestionBank.forEach(q => {
-            const cat = q.category || '未分类';
-            cats[cat] = (cats[cat] || 0) + 1;
-            const diff = q.difficulty || '?';
-            diffs[diff] = (diffs[diff] || 0) + 1;
-        });
-        const letters = ['A','B','C','D'];
-        bankStats.innerHTML = `
-            <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:10px;">
-                <div class="stats-item">📚 共 <strong>${total}</strong> 道题</div>
-                <div class="stats-item">📂 <strong>${Object.keys(cats).length}</strong> 个类别</div>
-                <div class="stats-item">📊 难度 L1-L5</div>
-            </div>
-            <div style="font-size:0.78rem; color:#64748b; margin-bottom:8px;">难度分布：${Object.entries(diffs).sort((a,b)=>a[0]-b[0]).map(([d,c])=>`L${d}: ${c}题`).join(' · ')}</div>
-            <div style="font-size:0.78rem; color:#64748b;">类别：${Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([cat,c])=>`${cat}(${c})`).join(' · ')}</div>
-        `;
-        bankDetailList.innerHTML = localQuestionBank.map((q, idx) => {
-            const correctLetter = q.correctAnswer || (q.correctIndex !== undefined ? letters[q.correctIndex] : '?');
-            return `<div class="record-item" style="margin-bottom:8px;">
-                <div class="record-question">
-                    ${idx+1}. ${(q.questionText||'').length > 50 ? (q.questionText||'').slice(0,50)+'…' : (q.questionText||'')}
-                    <span class="category-badge">${q.category||'未分类'}</span>
-                    <span class="category-badge" style="background:#fef9c3; color:#a16207;">L${q.difficulty||'?'}</span>
-                </div>
-                <div style="font-size:0.72rem; color:#94a3b8; margin-top:4px;">
-                    答案: <strong style="color:#16a34a;">${correctLetter}</strong> · ${q.options_cn?.[q.correctIndex] || q.correctAnswer || ''}
-                </div>
-            </div>`;
-        }).join('');
-    }
-
-    async function saveLocalQuestionBank(questions) {
-        const content = JSON.stringify(questions, null, 2);
-        const blob = new Blob([content], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'questions_export.json';
-        a.click();
-        URL.revokeObjectURL(url);
-    }
-
-    document.getElementById('viewBankBtn').onclick = async () => {
-        const bankInfoCard = document.getElementById('bankInfoCard');
-        const bankDetailCard = document.getElementById('bankDetailCard');
-        if (bankInfoCard.style.display === 'none') {
-            await loadLocalQuestionBank();
-            renderBankStats();
-            bankInfoCard.style.display = 'block';
-            bankDetailCard.style.display = 'block';
-        } else {
-            bankInfoCard.style.display = 'none';
-            bankDetailCard.style.display = 'none';
-        }
-    };
-
-    document.getElementById('refreshBankBtn').onclick = async () => {
-        DataDecrypt.clearCache();
-        _loadedBankKey = null;
-        await loadLocalQuestionBank(true);
-        renderBankStats();
-    };
-
-    document.getElementById('exportBankBtn').onclick = () => {
-        saveLocalQuestionBank(localQuestionBank);
-    };
-
-    document.getElementById('importBankBtn').onclick = () => {
-        document.getElementById('importBankInput').click();
-    };
-
-    document.getElementById('importBankInput').onchange = async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        try {
-            const text = await file.text();
-            const imported = JSON.parse(text);
-            if (!Array.isArray(imported)) throw new Error('格式错误：不是数组');
-            const existing = new Set(localQuestionBank.map(q => (q.questionText||'').substring(0,50)));
-            const newOnes = imported.filter(q => !existing.has((q.questionText||'').substring(0,50)));
-            const merged = [...localQuestionBank, ...newOnes];
-            await saveLocalQuestionBank(merged);
-            await loadLocalQuestionBank();
-            renderBankStats();
-            alert(`✅ 导入成功！新增 ${newOnes.length} 道题（去重后）。合并后共 ${merged.length} 道题`);
-        } catch (err) {
-            alert('❌ 导入失败: ' + err.message);
-        }
-        e.target.value = '';
-    };
 
     // ---------- 批量生成 ----------
     async function generateBatch(count) {
@@ -1849,8 +1725,16 @@
                 alert('这些题目已在题库中，无需重复保存');
                 return;
             }
-            saveLocalQuestionBank([...localQuestionBank, ...newOnes]);
-            alert(`✅ 已保存 ${newOnes.length} 道新题到题库，请下载后替换原文件`);
+            const merged = [...localQuestionBank, ...newOnes];
+            const content = JSON.stringify(merged, null, 2);
+            const blob = new Blob([content], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'questions_export.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('已导出 ' + newOnes.length + ' 道新题，请用导出的JSON文件到「题库」页面导入');
         };
 
         submitBtn.onclick = async () => {
@@ -1985,6 +1869,11 @@
         questionPool = [];
         questionHistory = [];
         questionIndex = -1;
+        var aiRows = document.querySelectorAll('#aiDiffRow, #aiBatchRow');
+        aiRows.forEach(function(r) {
+            r.style.opacity = isBankSource() ? '0.4' : '1';
+            r.style.pointerEvents = isBankSource() ? 'none' : 'auto';
+        });
         if (isBankSource()) {
             await loadLocalQuestionBank(false);
             if (autoStart && localQuestionBank.length > 0) {
@@ -2007,11 +1896,6 @@
         await handleQuestionSourceChange(questionSourceSelect.value, false);
     });
 
-    quickQuestionSource.addEventListener('change', async () => {
-        await handleQuestionSourceChange(quickQuestionSource.value, false);
-    });
-
-    quickStartBtn.onclick = () => newBtn.onclick();
 
     // ============================================================
     //  模拟考试模式
@@ -2784,6 +2668,11 @@ ${trendInfo}
         syncQuestionSource(QUESTION_BANK_FILES[savedSource] || savedSource === 'ai' ? savedSource : 'builtIn');
         if (isBankSource()) await loadLocalQuestionBank(true);
         else renderQuickBankStatus();
+        var aiRows = document.querySelectorAll('#aiDiffRow, #aiBatchRow');
+        aiRows.forEach(function(r) {
+            r.style.opacity = isBankSource() ? '0.4' : '1';
+            r.style.pointerEvents = isBankSource() ? 'none' : 'auto';
+        });
         await updateAllStatsAndRecords();
         quizArea.innerHTML = `<div class="card" style="text-align:center; color:#94a3b8; padding:40px 20px;">
             <div style="font-size:48px; margin-bottom:12px;">🧠</div>
