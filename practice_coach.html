@@ -1425,18 +1425,25 @@
         }
     }
 
+    var _loadedBankKey = null;
     async function loadLocalQuestionBank(force) {
         const source = questionSourceSelect.value;
         const cfg = QUESTION_BANK_FILES[source] || QUESTION_BANK_FILES.builtIn;
+        if (!force && _loadedBankKey === source && localQuestionBank.length > 0) {
+            renderQuickBankStatus();
+            return localQuestionBank;
+        }
         try {
-            localQuestionBank = await DataDecrypt.fetchAndDecrypt(cfg.file);
+            localQuestionBank = await DataDecrypt.fetchAndDecrypt(cfg.file, !!force);
             localQuestionBank = Array.isArray(localQuestionBank) ? localQuestionBank : [];
-            console.log(`✅ ${cfg.label}: ${localQuestionBank.length} 道题`);
+            _loadedBankKey = source;
+            console.log('OK ' + cfg.label + ': ' + localQuestionBank.length);
             renderQuickBankStatus();
             return localQuestionBank;
         } catch (error) {
-            console.error(`加载${cfg.label}失败:`, error);
+            console.error('load bank fail:', error);
             localQuestionBank = [];
+            _loadedBankKey = null;
             renderQuickBankStatus();
             return [];
         }
@@ -1505,7 +1512,9 @@
     };
 
     document.getElementById('refreshBankBtn').onclick = async () => {
-        await loadLocalQuestionBank();
+        DataDecrypt.clearCache();
+        _loadedBankKey = null;
+        await loadLocalQuestionBank(true);
         renderBankStats();
     };
 
@@ -1944,10 +1953,11 @@
 
         quizArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>${isBankSource() ? '🔄 正在加载' + getCurrentBankLabel() : '🔄 正在生成 ' + batchSize + ' 道题目'}，请稍候...</div></div>`;
         try {
-            await resetAndFillPool(batchSize);
             if (isBankSource()) {
+                await loadLocalQuestionBank(false);
                 await loadQuestionsFromLocal();
             } else {
+                await resetAndFillPool(batchSize);
                 const firstQ = getNextQuestionFromPool();
                 currentQuestion = firstQ;
                 selectedLetter = null;
@@ -1976,7 +1986,7 @@
         questionHistory = [];
         questionIndex = -1;
         if (isBankSource()) {
-            await loadLocalQuestionBank(true);
+            await loadLocalQuestionBank(false);
             if (autoStart && localQuestionBank.length > 0) {
                 await loadQuestionsFromLocal();
             } else if (localQuestionBank.length === 0) {
@@ -1987,6 +1997,7 @@
             }
         } else {
             localQuestionBank = [];
+            _loadedBankKey = null;
             renderQuickBankStatus();
             if (autoStart && apiKey) await newBtn.onclick();
         }

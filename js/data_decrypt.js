@@ -1,5 +1,6 @@
 var DataDecrypt = (function() {
     var KEY = 'EngLearn2026XX';
+    var _cache = {};
 
     function xorDecrypt(data, key) {
         var keyBytes = [];
@@ -11,7 +12,10 @@ var DataDecrypt = (function() {
         return result;
     }
 
-    function fetchAndDecrypt(url) {
+    function fetchAndDecrypt(url, noCache) {
+        if (!noCache && _cache[url]) {
+            return Promise.resolve(_cache[url]);
+        }
         return fetch(url + '?t=' + Date.now())
             .then(function(r) { return r.arrayBuffer(); })
             .then(function(buf) {
@@ -20,9 +24,13 @@ var DataDecrypt = (function() {
                 for (var i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
                 var decrypted = xorDecrypt(bytes, KEY);
                 var text = new TextDecoder().decode(decrypted);
-                return JSON.parse(text);
+                var parsed = JSON.parse(text);
+                _cache[url] = parsed;
+                return parsed;
             });
     }
 
-    return { fetchAndDecrypt: fetchAndDecrypt };
+    function clearCache() { _cache = {}; }
+
+    return { fetchAndDecrypt: fetchAndDecrypt, clearCache: clearCache };
 })();
