@@ -859,7 +859,7 @@
             <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史、AI去重记录</div>
             <input type="file" id="importDataInput" accept=".json" style="display:none;">
             <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
-                <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空记录</button>
+                <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空刷题与考试记录</button>
                 <button class="btn btn-sm btn-warning" id="clearHashesBtn">🔄 清空AI去重记录</button>
             </div>
         </div>
@@ -1096,6 +1096,7 @@
 
     let wordDatabase = [];
     async function loadWordDatabase() {
+        if (wordDatabase.length > 0) return;
         try {
             wordDatabase = await DataDecrypt.fetchAndDecrypt('word_database.dat');
             console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
@@ -1239,16 +1240,16 @@
     }
 
     clearHistoryBtn.onclick = async () => {
-        if (confirm('清除所有练习记录？不可恢复。')) {
+        if (confirm('清除所有刷题与考试记录？不可恢复。')) {
             await clearAllRecords();
             await updateAllStatsAndRecords();
         }
     };
 
     clearHashesBtn.onclick = async () => {
-        if (confirm('清除题目缓存？这将允许生成之前出现过的题目。')) {
+        if (confirm('清除AI去重记录？这将允许生成之前出现过的题目。')) {
             await clearQuestionHashes();
-            alert('题目缓存已清除');
+            alert('AI去重记录已清除');
         }
     };
 
@@ -1610,8 +1611,29 @@
         return q;
     }
 
+    function shuffleQuestionOptions(q) {
+        if (q.correctIndex === undefined) return q;
+        const q2 = {...q};
+        const indices = [0,1,2,3];
+        for (let i = 3; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        const letters = ['A','B','C','D'];
+        q2.options = indices.map(i => (q.options||[])[i]);
+        q2.options_cn = indices.map(i => (q.options_cn||['','','',''])[i]);
+        q2.wrongOptionAnalysis = indices.map(i => (q.wrongOptionAnalysis||['','','',''])[i]);
+        q2.correctAnswer = letters[indices.indexOf(q.correctIndex)];
+        q2.correctIndex = indices.indexOf(q.correctIndex);
+        return q2;
+    }
+
     function renderQuestion(question, poolRemaining, showNavBtns, isLocal) {
         if (isLocal === undefined) isLocal = isBankSource();
+        if (isLocal && question.correctIndex !== undefined) {
+            question = shuffleQuestionOptions(question);
+            if (currentQuestion) currentQuestion = question;
+        }
         quizArea.innerHTML = '';
         const card = document.createElement('div');
         card.className = 'card';
@@ -1978,7 +2000,7 @@
     }
 
     async function startExam() {
-        await loadLocalQuestionBank(true);
+        await loadLocalQuestionBank(false);
         const actualCount = Math.min(EXAM_QUESTION_COUNT, localQuestionBank.length);
         if (actualCount < EXAM_QUESTION_COUNT) {
             if (!confirm(`题库仅有 ${localQuestionBank.length} 道题，不足 ${EXAM_QUESTION_COUNT} 道。是否用 ${actualCount} 道题开始考试？`)) return;
@@ -2662,11 +2684,12 @@ ${trendInfo}
 
     // ---------- 刷题入口：按当前题目来源加载 ----------
     async function initQuiz() {
+        quizArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>正在初始化，请稍候...</div></div>`;
         await openDB();
         await loadWordDatabase();
         const savedSource = localStorage.getItem('toeic_question_source') || 'builtIn';
         syncQuestionSource(QUESTION_BANK_FILES[savedSource] || savedSource === 'ai' ? savedSource : 'builtIn');
-        if (isBankSource()) await loadLocalQuestionBank(true);
+        if (isBankSource()) await loadLocalQuestionBank(false);
         else renderQuickBankStatus();
         var aiRows = document.querySelectorAll('#aiDiffRow, #aiBatchRow');
         aiRows.forEach(function(r) {
@@ -2683,27 +2706,14 @@ ${trendInfo}
 
     async function loadQuestionsFromLocal() {
         questionPool = [];
-        const shuffled = [...localQuestionBank]
-            .sort(() => Math.random() - 0.5)
-            .map(q => {
-                const letters = ['A','B','C','D'];
-                const q2 = {...q};
-                if (q2.correctIndex !== undefined) {
-                    const correctIdx = q2.correctIndex;
-                    const indices = [0,1,2,3];
-                    for (let i = indices.length-1; i>0; i--) {
-                        const j = Math.floor(Math.random()*(i+1));
-                        [indices[i], indices[j]] = [indices[j], indices[i]];
-                    }
-                    q2.options = indices.map(i=>(q2.options||[])[i]);
-                    q2.options_cn = indices.map(i=>(q2.options_cn||['','','',''])[i]);
-                    q2.wrongOptionAnalysis = indices.map(i=>(q2.wrongOptionAnalysis||['','','',''])[i]);
-                    q2.correctAnswer = letters[indices.indexOf(correctIdx)];
-                    q2.correctIndex = indices.indexOf(correctIdx);
-                }
-                return q2;
-            });
-        questionPool.push(...shuffled);
+        const indices = localQuestionBank.map((_, i) => i);
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        for (const idx of indices) {
+            questionPool.push(localQuestionBank[idx]);
+        }
         poolReady = true;
         questionHistory = [];
         questionIndex = -1;
