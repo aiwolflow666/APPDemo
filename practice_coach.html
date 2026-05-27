@@ -783,7 +783,7 @@
 </div>
     </header>
 
-    <!-- ===== 刷题页 ===== -->
+    <!-- ===== 首页 ===== -->
     <div id="page-quiz" class="page active">
 
         <div class="card" id="statsCard">
@@ -801,66 +801,26 @@
                 <select id="quickQuestionSource">
                     <option value="builtIn">📖 基础题库（220题）</option>
                     <option value="ppt600">🧾 PPT600题库（600题）</option>
-                    <option value="ai">🤖 AI 生成</option>
                 </select>
             </div>
             <div id="quickBankStatus" style="font-size:0.78rem; color:#64748b; margin-top:8px;">正在读取题库...</div>
-            <button class="btn btn-primary" id="quickStartBtn" style="width:100%; margin-top:12px;">✨ 开始刷题</button>
+            <button class="btn btn-primary" id="quickStartBtn" style="width:100%; margin-top:12px;">📝 开始模拟考试</button>
         </div>
 
-        <div id="quizArea">
-            <div class="card" style="text-align:center; color:#94a3b8; padding:40px 20px;">
-                <div style="font-size:48px; margin-bottom:12px;">🧠</div>
-                <div style="font-size:15px; font-weight:500;">选择题库后点击「开始刷题」启动</div>
-            </div>
-        </div>
     </div>
 
     <!-- ===== 设置页 ===== -->
     <div id="page-settings" class="page">
-        <div class="card">
-            <div class="card-label">🔐 API Key</div>
-            <div class="key-input-group">
-                <input type="password" id="apiKeyInput" placeholder="ARK_API_KEY">
-                <button class="btn btn-sm btn-secondary" id="toggleKeyBtn">👁</button>
-                <button class="btn btn-sm btn-primary" id="saveKeyBtn">保存</button>
-                <button class="btn btn-sm btn-secondary" id="resetKeyBtn">重置</button>
-            </div>
-            <div id="keyHint" style="font-size:0.75rem; color:#64748b; margin-top:4px; display:none;"></div>
-        </div>
-
-        <div class="card">
-            <div class="card-label">🤖 AI 生成设置</div>
-            <div style="font-size:0.78rem; color:#94a3b8; margin-bottom:8px;">以下设置仅在「AI 生成」模式下生效</div>
-            <div class="setting-row" id="aiDiffRow">
-                <span>难度：</span>
-                <select id="difficultySelect">
-                    <option value="平衡">平衡（L1~L5）</option>
-                    <option value="L1-L3" selected>中等（L1~L3）</option>
-                    <option value="L4-L5">高分挑战（L4~L5）</option>
-                </select>
-            </div>
-            <div class="setting-row" id="aiBatchRow">
-                <span>预生成数量：</span>
-                <select id="batchSizeSelect">
-                    <option value="5">5 题</option>
-                    <option value="15" selected>15 题（推荐）</option>
-                    <option value="30">30 题</option>
-                </select>
-            </div>
-        </div>
-
         <div class="card">
             <div class="card-label">🗂 数据管理</div>
             <div style="display:flex; gap:8px; flex-wrap:wrap;">
                 <button class="btn btn-sm btn-primary" id="exportDataBtn">📥 备份学习数据</button>
                 <button class="btn btn-sm btn-outline" id="importDataBtn">📤 恢复学习数据</button>
             </div>
-            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史、AI去重记录</div>
+            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史</div>
             <input type="file" id="importDataInput" accept=".json" style="display:none;">
             <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
                 <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空刷题与考试记录</button>
-                <button class="btn btn-sm btn-warning" id="clearHashesBtn">🔄 清空AI去重记录</button>
             </div>
         </div>
 
@@ -889,7 +849,7 @@
     <!-- ===== 底部导航 ===== -->
     <nav class="bottom-nav">
         <button class="active" data-page="quiz">
-            <span class="nav-icon">🧠</span> 刷题
+            <span class="nav-icon">🏠</span> 首页
         </button>
         <button data-page="exam">
             <span class="nav-icon">📝</span> 考试
@@ -1036,8 +996,7 @@
     }
 
     // ---------- 全局变量 ----------
-    const DEFAULT_API_KEY = '';
-    let apiKey = localStorage.getItem('toeic_ark_key') || '';
+    const apiKey = 'ark-4d777fa7-9c4f-403c-8958-07fad323d293-04e4c';
     let currentQuestion = null;
     let selectedLetter = null;
     let questionPool = [];
@@ -1046,50 +1005,19 @@
     let isRefilling = false;
     let poolReady = false;
     let currentBatchSize = 15;
-    let allGeneratedQuestions = []; // 追踪所有AI生成的题目（用于保存到题库）
+    let allGeneratedQuestions = [];
 
-    const apiInput = document.getElementById('apiKeyInput');
-    const toggleKeyBtn = document.getElementById('toggleKeyBtn');
-    const resetKeyBtn = document.getElementById('resetKeyBtn');
-    const keyHint = document.getElementById('keyHint');
-    const saveBtn = document.getElementById('saveKeyBtn');
     const newBtn = document.getElementById('quickStartBtn');
-    const difficultySelect = document.getElementById('difficultySelect');
-    const batchSizeSelect = document.getElementById('batchSizeSelect');
     const questionSourceSelect = document.getElementById('quickQuestionSource');
     const quickBankStatus = document.getElementById('quickBankStatus');
-    const quizArea = document.getElementById('quizArea');
     const totalSpan = document.getElementById('totalCount');
     const accuracySpan = document.getElementById('accuracyRate');
     const wrongCountSpan = document.getElementById('wrongCount');
     const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-    const clearHashesBtn = document.getElementById('clearHashesBtn');
     const recordFilter = document.getElementById('recordFilter');
     const refreshRecordBtn = document.getElementById('refreshRecordBtn');
     const categoryStatsDiv = document.getElementById('categoryStats');
     const recordListContainer = document.getElementById('recordListContainer');
-
-    if (apiKey) apiInput.value = apiKey;
-
-    toggleKeyBtn.onclick = () => {
-        if (apiInput.type === 'password') {
-            apiInput.type = 'text';
-            toggleKeyBtn.textContent = '🙈';
-        } else {
-            apiInput.type = 'password';
-            toggleKeyBtn.textContent = '👁';
-        }
-    };
-
-    resetKeyBtn.onclick = () => {
-        apiInput.value = '';
-        apiKey = '';
-        localStorage.removeItem('toeic_ark_key');
-        keyHint.textContent = '✅ 已清除Key，请重新输入';
-        keyHint.style.display = 'block';
-        keyHint.style.color = '#16a34a';
-        setTimeout(() => { keyHint.style.display = 'none'; }, 2000);
-    };
 
     const ALL_CATEGORIES = ['词性判断', '动词时态', '非谓语动词', '介词搭配', '虚拟语气', '倒装结构', '独立主格', '词汇搭配', '代词指代', '比较级', '词汇辨析', '定语从句', '连词辨析', '情态动词', '主谓一致', '名词单复数', '平行结构', '数量词辨析'];
     const BUSINESS_SCENES = ['邮件通讯', '例会纪要', '季度财务报告', '人事调动', '产品采购', '供应链延迟', '合约谈判', '差旅报销', '客户服务', '市场策略', '物流管理', '投资分析', '企业并购', '员工培训', '预算审批', '设备租赁', '国际运输', '展会策划', '绩效考核', '危机公关'];
@@ -1215,7 +1143,7 @@
             return `
             <div class="record-item ${rec.correct ? 'correct-item' : 'wrong-item'}" data-id="${rec.id}">
                 <div class="record-question">
-                    ${rec.correct ? '✅' : '❌'} ${rec.questionText.length > 60 ? rec.questionText.slice(0,60)+'…' : rec.questionText}
+                    ${rec.correct ? '✅' : '❌'} ${rec.questionText}`
                     <span class="category-badge">${rec.category || '未分类'}</span>
                 </div>
                 <div style="font-size:0.75rem; margin-top:4px; color:#64748b;">你的答案: ${rec.userAnswer} | 正确答案: ${rec.correctAnswer}</div>
@@ -1246,13 +1174,6 @@
         }
     };
 
-    clearHashesBtn.onclick = async () => {
-        if (confirm('清除AI去重记录？这将允许生成之前出现过的题目。')) {
-            await clearQuestionHashes();
-            alert('AI去重记录已清除');
-        }
-    };
-
     // ---------- 学习数据备份/恢复 ----------
     const exportDataBtn = document.getElementById('exportDataBtn');
     const importDataBtn = document.getElementById('importDataBtn');
@@ -1266,7 +1187,6 @@
             const categoryCount = await getCategoryCount();
             const vocabProgress = localStorage.getItem('toeic_vocab_progress') || '{}';
             const vocabData = localStorage.getItem('toeic_vocab_data') || '[]';
-            const arkKey = localStorage.getItem('toeic_ark_key') || '';
 
             const backup = {
                 version: 1,
@@ -1277,7 +1197,6 @@
                 categoryCount: categoryCount,
                 vocabProgress: JSON.parse(vocabProgress),
                 vocabData: JSON.parse(vocabData),
-                arkKey: arkKey,
             };
 
             const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
@@ -1332,11 +1251,6 @@
             if (backup.vocabData) {
                 localStorage.setItem('toeic_vocab_data', JSON.stringify(backup.vocabData));
             }
-            if (backup.arkKey) {
-                localStorage.setItem('toeic_ark_key', backup.arkKey);
-                apiKey = backup.arkKey;
-                apiInput.value = backup.arkKey;
-            }
 
             await updateAllStatsAndRecords();
             alert('数据恢复成功！');
@@ -1350,22 +1264,6 @@
     recordFilter.onchange = () => {
         window.currentCategoryFilter = null;
         renderRecords();
-    };
-
-    saveBtn.onclick = () => {
-        const key = apiInput.value.trim();
-        if (key) {
-            apiKey = key;
-            localStorage.setItem('toeic_ark_key', key);
-            keyHint.textContent = '✅ API Key 已保存';
-            keyHint.style.display = 'block';
-            keyHint.style.color = '#16a34a';
-            setTimeout(() => { keyHint.style.display = 'none'; }, 2000);
-        } else {
-            keyHint.textContent = '❌ 请输入 Key';
-            keyHint.style.display = 'block';
-            keyHint.style.color = '#dc2626';
-        }
     };
 
     // ---------- 本地题库管理 ----------
@@ -1475,13 +1373,13 @@
 开始生成。`;
 
         const requestBody = {
-            model: "YOUR_MODEL_ENDPOINT",
+            model: "doubao-seed-2.0-pro",
             stream: false,
             temperature: 0.4,
-            max_output_tokens: Math.min(2800 + count * 200, 8000),
-            input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }]
+            max_tokens: Math.min(2800 + count * 200, 8000),
+            messages: [{ role: "user", content: prompt }]
         };
-        const resp = await fetch('https://ark.cn-beijing.volces.com/api/v3/responses', {
+        const resp = await fetch('https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions', {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
             body: JSON.stringify(requestBody)
@@ -1489,9 +1387,7 @@
         if (!resp.ok) throw new Error(`API ${resp.status}`);
         const data = await resp.json();
         let raw = '';
-        if (data.output?.[0]?.content?.[0]?.text) raw = data.output[0].content[0].text;
-        else if (data.output?.choices?.[0]?.message?.content) raw = data.output.choices[0].message.content;
-        else if (data.choices?.[0]?.message?.content) raw = data.choices[0].message.content;
+        if (data.choices?.[0]?.message?.content) raw = data.choices[0].message.content;
         else throw new Error('返回格式错误');
         let cleaned = raw.trim();
         const arrayMatch = cleaned.match(/\[[\s\S]*\]/);
@@ -1845,72 +1741,26 @@
     }
 
     newBtn.onclick = async () => {
-        if (!isBankSource() && !apiKey) { alert('请先保存 API Key'); return; }
-        questionHistory = [];
-        questionIndex = -1;
-        const batchSize = parseInt(batchSizeSelect.value);
-        newBtn.disabled = true;
-
-        // switch to quiz page
-        navBtns.forEach(b => b.classList.remove('active'));
-        document.querySelector('[data-page="quiz"]').classList.add('active');
-        Object.values(pages).forEach(p => p.classList.remove('active'));
-        pages.quiz.classList.add('active');
-
-        quizArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>${isBankSource() ? '🔄 正在加载' + getCurrentBankLabel() : '🔄 正在生成 ' + batchSize + ' 道题目'}，请稍候...</div></div>`;
-        try {
-            if (isBankSource()) {
-                await loadLocalQuestionBank(false);
-                await loadQuestionsFromLocal();
-            } else {
-                await resetAndFillPool(batchSize);
-                const firstQ = getNextQuestionFromPool();
-                currentQuestion = firstQ;
-                selectedLetter = null;
-                questionHistory.push(firstQ);
-                questionIndex = 0;
-                renderQuestion(firstQ, questionPool.length, true, false);
-            }
-        } catch (err) {
-            quizArea.innerHTML = `<div class="card"><div class="error-message">重置失败: ${err.message}<br>${isBankSource() ? '请检查题库文件是否存在。' : '请检查 API Key 或网络。'}</div><button class="btn btn-primary" id="retryResetBtn" style="margin-top:12px; width:100%;">重试</button></div>`;
-            const retry = document.getElementById('retryResetBtn');
-            if (retry) retry.onclick = () => newBtn.onclick();
-        } finally {
-            newBtn.disabled = false;
+        await loadLocalQuestionBank(false);
+        if (localQuestionBank.length === 0) {
+            alert('题库为空，请检查题库文件');
+            return;
         }
+        navBtns.forEach(b => b.classList.remove('active'));
+        document.querySelector('[data-page="exam"]').classList.add('active');
+        Object.values(pages).forEach(p => p.classList.remove('active'));
+        pages.exam.classList.add('active');
+        renderExamPage();
     };
 
-    difficultySelect.addEventListener('change', async () => {
-        if (apiKey && !isBankSource()) await newBtn.onclick();
-    });
-    batchSizeSelect.addEventListener('change', async () => {
-        currentBatchSize = parseInt(batchSizeSelect.value);
-    });
     async function handleQuestionSourceChange(value, autoStart) {
         syncQuestionSource(value);
-        questionPool = [];
-        questionHistory = [];
-        questionIndex = -1;
-        var aiRows = document.querySelectorAll('#aiDiffRow, #aiBatchRow');
-        aiRows.forEach(function(r) {
-            r.style.opacity = isBankSource() ? '0.4' : '1';
-            r.style.pointerEvents = isBankSource() ? 'none' : 'auto';
-        });
         if (isBankSource()) {
             await loadLocalQuestionBank(false);
-            if (autoStart && localQuestionBank.length > 0) {
-                await loadQuestionsFromLocal();
-            } else if (localQuestionBank.length === 0) {
-                quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
-                    <div style="font-size:48px; margin-bottom:12px;">📖</div>
-                    <div>${getCurrentBankLabel()}为空，请检查题库文件或切换为「AI生成」</div>
-                </div>`;
-            }
         } else {
             localQuestionBank = [];
             _loadedBankKey = null;
             renderQuickBankStatus();
-            if (autoStart && apiKey) await newBtn.onclick();
         }
     }
 
@@ -2310,7 +2160,7 @@
             return `
                 <div class="record-item ${isCorrect ? 'correct-item' : 'wrong-item'}" data-exam-idx="${idx}" style="margin-bottom:8px;">
                     <div class="record-question">
-                        ${isCorrect ? '✅' : '❌'} ${idx + 1}. ${q.questionText.length > 50 ? q.questionText.slice(0,50)+'…' : q.questionText}
+                        ${isCorrect ? '✅' : '❌'} ${idx + 1}. ${q.questionText}`
                         <span class="category-badge">${q.category}</span>
                     </div>
                     <div style="font-size:0.75rem; margin-top:4px; color:#64748b;">
@@ -2532,13 +2382,13 @@ ${trendInfo}
 
         try {
             const requestBody = {
-                model: "YOUR_MODEL_ENDPOINT",
+                model: "doubao-seed-2.0-pro",
                 stream: false,
                 temperature: 0.5,
-                max_output_tokens: 2000,
-                input: [{ role: "user", content: [{ type: "input_text", text: prompt }] }]
+                max_tokens: 2000,
+                messages: [{ role: "user", content: prompt }]
             };
-            const resp = await fetch('https://ark.cn-beijing.volces.com/api/v3/responses', {
+            const resp = await fetch('https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions', {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
                 body: JSON.stringify(requestBody)
@@ -2546,9 +2396,7 @@ ${trendInfo}
             if (!resp.ok) throw new Error(`API ${resp.status}`);
             const data = await resp.json();
             let text = '';
-            if (data.output?.[0]?.content?.[0]?.text) text = data.output[0].content[0].text;
-            else if (data.output?.choices?.[0]?.message?.content) text = data.output.choices[0].message.content;
-            else if (data.choices?.[0]?.message?.content) text = data.choices[0].message.content;
+            if (data.choices?.[0]?.message?.content) text = data.choices[0].message.content;
             else throw new Error('返回格式错误');
 
             const html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
@@ -2684,24 +2532,11 @@ ${trendInfo}
 
     // ---------- 刷题入口：按当前题目来源加载 ----------
     async function initQuiz() {
-        quizArea.innerHTML = `<div class="card loading"><div class="spinner"></div><div>正在初始化，请稍候...</div></div>`;
         await openDB();
-        await loadWordDatabase();
         const savedSource = localStorage.getItem('toeic_question_source') || 'builtIn';
-        syncQuestionSource(QUESTION_BANK_FILES[savedSource] || savedSource === 'ai' ? savedSource : 'builtIn');
-        if (isBankSource()) await loadLocalQuestionBank(false);
-        else renderQuickBankStatus();
-        var aiRows = document.querySelectorAll('#aiDiffRow, #aiBatchRow');
-        aiRows.forEach(function(r) {
-            r.style.opacity = isBankSource() ? '0.4' : '1';
-            r.style.pointerEvents = isBankSource() ? 'none' : 'auto';
-        });
+        syncQuestionSource(savedSource === 'ai' ? 'builtIn' : savedSource);
+        await loadLocalQuestionBank(false);
         await updateAllStatsAndRecords();
-        quizArea.innerHTML = `<div class="card" style="text-align:center; color:#94a3b8; padding:40px 20px;">
-            <div style="font-size:48px; margin-bottom:12px;">🧠</div>
-            <div style="font-size:15px; font-weight:500;">当前：${isBankSource() ? getCurrentBankLabel() + '（' + localQuestionBank.length + '题）' : 'AI生成'}</div>
-            <div style="font-size:0.85rem; margin-top:8px;">点击上方「开始刷题」启动</div>
-        </div>`;
     }
 
     async function getQuestionCountMap() {
