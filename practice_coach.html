@@ -1131,7 +1131,7 @@
             return `
             <div class="record-item ${rec.correct ? 'correct-item' : 'wrong-item'}" data-id="${rec.id}">
                 <div class="record-question">
-                    ${rec.correct ? '✅' : '❌'} ${rec.questionText}`
+                    ${rec.correct ? '✅' : '❌'} ${rec.questionText}
                     <span class="category-badge">${rec.category || '未分类'}</span>
                 </div>
                 <div style="font-size:0.75rem; margin-top:4px; color:#64748b;">你的答案: ${rec.userAnswer} | 正确答案: ${rec.correctAnswer}</div>
@@ -2148,7 +2148,7 @@
             return `
                 <div class="record-item ${isCorrect ? 'correct-item' : 'wrong-item'}" data-exam-idx="${idx}" style="margin-bottom:8px;">
                     <div class="record-question">
-                        ${isCorrect ? '✅' : '❌'} ${idx + 1}. ${q.questionText}`
+                        ${isCorrect ? '✅' : '❌'} ${idx + 1}. ${q.questionText}
                         <span class="category-badge">${q.category}</span>
                     </div>
                     <div style="font-size:0.75rem; margin-top:4px; color:#64748b;">
