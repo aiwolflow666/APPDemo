@@ -776,55 +776,17 @@
         </div>
         <div class="header-nav">
 <a href="vocabulary_app.html">📘 单词</a>
-<a href="practice_coach.html" class="current">🧠 刷题</a>
+<a href="practice_coach.html" class="current">📝 考试</a>
 <a href="vocab_story.html">📖 故事</a>
 <a href="question_bank.html">🗄 题库</a>
 <a href="question_batch_generator.html">📦 AI生成</a>
 </div>
     </header>
 
-    <!-- ===== 首页 ===== -->
-    <div id="page-quiz" class="page active">
-
-        <div class="card" id="statsCard">
-            <div class="stats-row">
-                <div class="stats-item">📚 总练习 <strong id="totalCount">0</strong></div>
-                <div class="stats-item">✅ 正确率 <strong id="accuracyRate">0</strong>%</div>
-                <div class="stats-item">❌ 错题 <strong id="wrongCount">0</strong></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-label">📚 题库来源</div>
-            <div class="setting-row">
-                <span>当前题库：</span>
-                <select id="quickQuestionSource">
-                    <option value="builtIn">📖 基础题库（220题）</option>
-                    <option value="ppt600">🧾 PPT600题库（600题）</option>
-                </select>
-            </div>
-            <div id="quickBankStatus" style="font-size:0.78rem; color:#64748b; margin-top:8px;">正在读取题库...</div>
-            <button class="btn btn-primary" id="quickStartBtn" style="width:100%; margin-top:12px;">📝 开始模拟考试</button>
-        </div>
-
+    <!-- ===== 模拟考试页（默认页） ===== -->
+    <div id="page-exam" class="page active">
+        <div id="examArea"></div>
     </div>
-
-    <!-- ===== 设置页 ===== -->
-    <div id="page-settings" class="page">
-        <div class="card">
-            <div class="card-label">🗂 数据管理</div>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                <button class="btn btn-sm btn-primary" id="exportDataBtn">📥 备份学习数据</button>
-                <button class="btn btn-sm btn-outline" id="importDataBtn">📤 恢复学习数据</button>
-            </div>
-            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史</div>
-            <input type="file" id="importDataInput" accept=".json" style="display:none;">
-            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
-                <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空刷题与考试记录</button>
-            </div>
-        </div>
-
-     </div>
 
     <!-- ===== 记录页 ===== -->
     <div id="page-records" class="page">
@@ -841,17 +803,29 @@
         <div id="recordListContainer" style="flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;"></div>
     </div>
 
-    <!-- ===== 模拟考试页 ===== -->
-    <div id="page-exam" class="page">
-        <div id="examArea"></div>
+    <!-- ===== 设置页（隐藏，仅通过右上角齿轮访问） ===== -->
+    <div id="page-settings" class="page">
+        <div style="display:flex; align-items:center; margin-bottom:16px;">
+            <button class="btn btn-sm btn-secondary" id="settingsBackBtn">← 返回</button>
+            <span style="margin-left:12px; font-weight:600;">设置</span>
+        </div>
+        <div class="card">
+            <div class="card-label">🗂 数据管理</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn btn-sm btn-primary" id="exportDataBtn">📥 备份学习数据</button>
+                <button class="btn btn-sm btn-outline" id="importDataBtn">📤 恢复学习数据</button>
+            </div>
+            <div style="font-size:0.75rem; color:#94a3b8; margin-top:8px;">备份包含：刷题记录、考试历史</div>
+            <input type="file" id="importDataInput" accept=".json" style="display:none;">
+            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+                <button class="btn btn-sm btn-danger" id="clearHistoryBtn">🗑 清空刷题与考试记录</button>
+            </div>
+        </div>
     </div>
 
     <!-- ===== 底部导航 ===== -->
     <nav class="bottom-nav">
-        <button class="active" data-page="quiz">
-            <span class="nav-icon">🏠</span> 首页
-        </button>
-        <button data-page="exam">
+        <button class="active" data-page="exam">
             <span class="nav-icon">📝</span> 考试
         </button>
         <button data-page="records">
@@ -865,29 +839,31 @@
 <script>
     // ---------- 页面导航 ----------
     const navBtns = document.querySelectorAll('.bottom-nav button');
+    const pageSettings = document.getElementById('page-settings');
     const pages = {
-        quiz: document.getElementById('page-quiz'),
         exam: document.getElementById('page-exam'),
         records: document.getElementById('page-records'),
-        settings: document.getElementById('page-settings'),
     };
+    function showPage(name) {
+        navBtns.forEach(b => b.classList.remove('active'));
+        Object.values(pages).forEach(p => p.classList.remove('active'));
+        pageSettings.classList.remove('active');
+        if (pages[name]) {
+            pages[name].classList.add('active');
+            document.querySelector(`[data-page="${name}"]`)?.classList.add('active');
+        }
+        if (name === 'exam') renderExamPage();
+        if (name === 'records') updateAllStatsAndRecords();
+    }
     navBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-page');
-            navBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            Object.values(pages).forEach(p => p.classList.remove('active'));
-            pages[target].classList.add('active');
-            if (target === 'exam') renderExamPage();
-            if (target === 'records') updateAllStatsAndRecords();
-        });
+        btn.addEventListener('click', () => showPage(btn.getAttribute('data-page')));
     });
     document.getElementById('btnSettings').addEventListener('click', () => {
         navBtns.forEach(b => b.classList.remove('active'));
-        document.querySelector('[data-page="settings"]').classList.add('active');
         Object.values(pages).forEach(p => p.classList.remove('active'));
-        pages.settings.classList.add('active');
+        pageSettings.classList.add('active');
     });
+    document.getElementById('settingsBackBtn').addEventListener('click', () => showPage('exam'));
 
     // ---------- IndexedDB ----------
     const DB_NAME = 'ToeicTrainerDB_final';
@@ -994,13 +970,9 @@
     let currentBatchSize = 15;
     let allGeneratedQuestions = [];
 
-    const newBtn = document.getElementById('quickStartBtn');
-    const questionSourceSelect = document.getElementById('quickQuestionSource');
-    const quickBankStatus = document.getElementById('quickBankStatus');
+    let currentQuestionSource = localStorage.getItem('toeic_question_source') || 'builtIn';
     const quizArea = document.getElementById('quizArea') || document.createElement('div');
-    const totalSpan = document.getElementById('totalCount');
-    const accuracySpan = document.getElementById('accuracyRate');
-    const wrongCountSpan = document.getElementById('wrongCount');
+    let statsTotal = 0, statsAccuracy = 0, statsWrong = 0;
     const clearHistoryBtn = document.getElementById('clearHistoryBtn');
     const recordFilter = document.getElementById('recordFilter');
     const refreshRecordBtn = document.getElementById('refreshRecordBtn');
@@ -1077,9 +1049,9 @@
         const correctNum = records.filter(r => r.correct === true).length;
         const wrongNum = total - correctNum;
         const accuracy = total === 0 ? 0 : Math.round((correctNum / total) * 100);
-        totalSpan.innerText = total;
-        accuracySpan.innerText = accuracy;
-        wrongCountSpan.innerText = wrongNum;
+        statsTotal = total;
+        statsAccuracy = accuracy;
+        statsWrong = wrongNum;
 
         const categoryStats = {};
         records.forEach(rec => {
@@ -1262,31 +1234,27 @@
     };
 
     function isBankSource() {
-        return !!QUESTION_BANK_FILES[questionSourceSelect.value];
+        return !!QUESTION_BANK_FILES[currentQuestionSource];
     }
 
     function getCurrentBankLabel() {
-        return QUESTION_BANK_FILES[questionSourceSelect.value]?.label || '本地题库';
+        return QUESTION_BANK_FILES[currentQuestionSource]?.label || '本地题库';
     }
 
     function syncQuestionSource(value) {
-        questionSourceSelect.value = value;
-        questionSourceSelect.value = value;
+        currentQuestionSource = value;
         localStorage.setItem('toeic_question_source', value);
     }
 
     function renderQuickBankStatus() {
-        if (!quickBankStatus) return;
         if (isBankSource()) {
-            quickBankStatus.textContent = `当前：${getCurrentBankLabel()}，共 ${localQuestionBank.length} 题`;
-        } else {
-            quickBankStatus.textContent = '当前：AI 生成模式（需要 API Key）';
+            console.log(`当前：${getCurrentBankLabel()}，共 ${localQuestionBank.length} 题`);
         }
     }
 
     var _loadedBankKey = null;
     async function loadLocalQuestionBank(force) {
-        const source = questionSourceSelect.value;
+        const source = currentQuestionSource;
         const cfg = QUESTION_BANK_FILES[source] || QUESTION_BANK_FILES.builtIn;
         if (!force && _loadedBankKey === source && localQuestionBank.length > 0) {
             renderQuickBankStatus();
@@ -1724,22 +1692,18 @@
         } catch (err) {
             quizArea.innerHTML = `<div class="card"><div class="error-message">❌ ${err.message}</div><button class="btn btn-primary" id="forceResetBtn" style="margin-top:12px; width:100%;">重新生成</button></div>`;
             const resetBtn = document.getElementById('forceResetBtn');
-            if (resetBtn) resetBtn.onclick = () => newBtn.onclick();
+            if (resetBtn) resetBtn.onclick = () => goToExamPage();
         }
     }
 
-    newBtn.onclick = async () => {
+    async function goToExamPage() {
         await loadLocalQuestionBank(false);
         if (localQuestionBank.length === 0) {
             alert('题库为空，请检查题库文件');
             return;
         }
-        navBtns.forEach(b => b.classList.remove('active'));
-        document.querySelector('[data-page="exam"]').classList.add('active');
-        Object.values(pages).forEach(p => p.classList.remove('active'));
-        pages.exam.classList.add('active');
-        renderExamPage();
-    };
+        showPage('exam');
+    }
 
     async function handleQuestionSourceChange(value, autoStart) {
         syncQuestionSource(value);
@@ -1751,11 +1715,6 @@
             renderQuickBankStatus();
         }
     }
-
-    questionSourceSelect.addEventListener('change', async () => {
-        await handleQuestionSourceChange(questionSourceSelect.value, false);
-    });
-
 
     // ============================================================
     //  模拟考试模式
@@ -1782,9 +1741,9 @@
     }
 
     function renderExamStart() {
-        const total = parseInt(totalSpan.textContent) || 0;
-        const accuracy = parseInt(accuracySpan.textContent) || 0;
-        const wrong = parseInt(wrongCountSpan.textContent) || 0;
+        const total = statsTotal;
+        const accuracy = statsAccuracy;
+        const wrong = statsWrong;
         const bankCount = localQuestionBank.length || 0;
         examArea.innerHTML = `
             <div class="card">
@@ -1813,6 +1772,13 @@
                     <button class="btn btn-primary" id="startExamBtn" style="width:100%; margin-top:8px;">
                         🚀 开始考试
                     </button>
+                    <div style="margin-top:10px;">
+                        <select id="examSourceSelect" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.85rem;">
+                            <option value="builtIn">📖 基础题库（220题）</option>
+                            <option value="ppt600">🧾 PPT600题库（600题）</option>
+                        </select>
+                        <div id="examBankStatus" style="font-size:0.75rem; color:#64748b; margin-top:4px;"></div>
+                    </div>
                     <button class="btn btn-secondary btn-sm" id="viewHistoryBtn" style="width:100%; margin-top:8px;">
                         📋 查看历史记录与成绩曲线
                     </button>
@@ -1835,6 +1801,14 @@
         `;
         document.getElementById('startExamBtn').onclick = startExam;
         document.getElementById('viewHistoryBtn').onclick = () => renderExamHistory();
+        const examSourceSelect = document.getElementById('examSourceSelect');
+        examSourceSelect.value = currentQuestionSource;
+        examSourceSelect.addEventListener('change', async () => {
+            await handleQuestionSourceChange(examSourceSelect.value, false);
+            renderExamStart();
+        });
+        const examBankStatus = document.getElementById('examBankStatus');
+        examBankStatus.textContent = localQuestionBank.length > 0 ? `已加载 ${localQuestionBank.length} 道题` : '题库未加载';
     }
 
     async function startExam() {
@@ -2525,6 +2499,7 @@ ${trendInfo}
         syncQuestionSource(savedSource === 'ai' ? 'builtIn' : savedSource);
         await loadLocalQuestionBank(false);
         await updateAllStatsAndRecords();
+        renderExamPage();
     }
 
     async function getQuestionCountMap() {
@@ -2566,8 +2541,8 @@ ${trendInfo}
                 <button class="btn btn-secondary" style="margin-top:8px;" id="reloadLocalBtn">🔄 重新做题</button>
             </div>`;
             document.getElementById('switchToAiBtn').onclick = async () => {
-                questionSourceSelect.value = 'ai';
-                if (apiKey) await newBtn.onclick();
+                syncQuestionSource('ai');
+                if (apiKey) await goToExamPage();
             };
             document.getElementById('reloadLocalBtn').onclick = async () => {
                 await loadQuestionsFromLocal();
