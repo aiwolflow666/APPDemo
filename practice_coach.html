@@ -857,9 +857,6 @@
         <button data-page="records">
             <span class="nav-icon">📋</span> 记录
         </button>
-        <button data-page="settings">
-            <span class="nav-icon">⚙️</span> 设置
-        </button>
     </nav>
 
 </div>
@@ -877,22 +874,12 @@
     navBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const target = btn.getAttribute('data-page');
-            if (target === 'exam') {
-                navBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                Object.values(pages).forEach(p => p.classList.remove('active'));
-                pages.exam.classList.add('active');
-                renderExamPage();
-                return;
-            }
             navBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             Object.values(pages).forEach(p => p.classList.remove('active'));
             pages[target].classList.add('active');
+            if (target === 'exam') renderExamPage();
             if (target === 'records') updateAllStatsAndRecords();
-            if (target === 'quiz') {
-                document.getElementById('statsCard').style.display = 'block';
-            }
         });
     });
     document.getElementById('btnSettings').addEventListener('click', () => {
@@ -1010,6 +997,7 @@
     const newBtn = document.getElementById('quickStartBtn');
     const questionSourceSelect = document.getElementById('quickQuestionSource');
     const quickBankStatus = document.getElementById('quickBankStatus');
+    const quizArea = document.getElementById('quizArea') || document.createElement('div');
     const totalSpan = document.getElementById('totalCount');
     const accuracySpan = document.getElementById('accuracyRate');
     const wrongCountSpan = document.getElementById('wrongCount');
