@@ -941,99 +941,15 @@
         return res?.value || [];
     }
 
-    async function clearQuestionHashes() {
-        if (!db) await openDB();
-        const tx = db.transaction(META_STORE, 'readwrite');
-        await tx.objectStore(META_STORE).put({ key: 'allQuestionHashes', value: [] });
-        return new Promise((resolve) => { tx.oncomplete = resolve; });
-    }
-
-    async function saveQuestionHash(hash) {
-        if (!db) await openDB();
-        const tx = db.transaction(META_STORE, 'readwrite');
-        const hashes = (await tx.objectStore(META_STORE).get('allQuestionHashes'))?.value || [];
-        if (!hashes.includes(hash)) hashes.push(hash);
-        if (hashes.length > 200) hashes = hashes.slice(-200);
-        await tx.objectStore(META_STORE).put({ key: 'allQuestionHashes', value: hashes });
-        return new Promise((resolve) => { tx.oncomplete = resolve; });
-    }
 
     // ---------- 全局变量 ----------
-    const apiKey = 'ark-4d777fa7-9c4f-403c-8958-07fad323d293-04e4c';
-    let currentQuestion = null;
-    let selectedLetter = null;
-    let questionPool = [];
-    let questionHistory = [];
-    let questionIndex = -1;
-    let isRefilling = false;
-    let poolReady = false;
-    let currentBatchSize = 15;
-    let allGeneratedQuestions = [];
-
     let currentQuestionSource = localStorage.getItem('toeic_question_source') || 'builtIn';
-    const quizArea = document.getElementById('quizArea') || document.createElement('div');
     let statsTotal = 0, statsAccuracy = 0, statsWrong = 0;
     const clearHistoryBtn = document.getElementById('clearHistoryBtn');
     const recordFilter = document.getElementById('recordFilter');
     const refreshRecordBtn = document.getElementById('refreshRecordBtn');
     const categoryStatsDiv = document.getElementById('categoryStats');
     const recordListContainer = document.getElementById('recordListContainer');
-
-    const ALL_CATEGORIES = ['词性判断', '动词时态', '非谓语动词', '介词搭配', '虚拟语气', '倒装结构', '独立主格', '词汇搭配', '代词指代', '比较级', '词汇辨析', '定语从句', '连词辨析', '情态动词', '主谓一致', '名词单复数', '平行结构', '数量词辨析'];
-    const BUSINESS_SCENES = ['邮件通讯', '例会纪要', '季度财务报告', '人事调动', '产品采购', '供应链延迟', '合约谈判', '差旅报销', '客户服务', '市场策略', '物流管理', '投资分析', '企业并购', '员工培训', '预算审批', '设备租赁', '国际运输', '展会策划', '绩效考核', '危机公关'];
-
-    let wordDatabase = [];
-    async function loadWordDatabase() {
-        if (wordDatabase.length > 0) return;
-        try {
-            wordDatabase = await DataDecrypt.fetchAndDecrypt('word_database.dat');
-            console.log(`✅ 已加载 ${wordDatabase.length} 个单词`);
-        } catch (error) {
-            console.error('加载单词数据库失败:', error);
-            wordDatabase = [
-                { word: "increase", pos: ["名", "动"], meaning: "增加" },
-                { word: "include", pos: ["动"], meaning: "包含" },
-                { word: "currently", pos: ["副"], meaning: "目前" },
-                { word: "advertising", pos: ["名"], meaning: "广告，宣传" },
-                { word: "charge", pos: ["动", "名"], meaning: "收费，充电，指责；费用，责任" }
-            ];
-        }
-    }
-
-    function getRandomWords(count) {
-        if (wordDatabase.length === 0) return [];
-        const shuffled = [...wordDatabase];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        const selected = [];
-        const usedPos = new Set();
-        for (const word of shuffled) {
-            if (selected.length >= count) break;
-            const hasNewPos = word.pos.some(pos => !usedPos.has(pos));
-            if (hasNewPos || Math.random() < 0.3) {
-                selected.push(word);
-                word.pos.forEach(pos => usedPos.add(pos));
-            }
-        }
-        if (selected.length < count) {
-            const remaining = shuffled.filter(w => !selected.includes(w));
-            selected.push(...remaining.slice(0, count - selected.length));
-        }
-        return selected;
-    }
-
-    function generateWordBasedPrompt() {
-        const randomWords = getRandomWords(20);
-        const wordList = randomWords.map(w => {
-            const posStr = Array.isArray(w.pos) ? w.pos.join('/') : w.pos || '未知';
-            const synonyms = w.synonyms ? ` (同义词: ${Array.isArray(w.synonyms) ? w.synonyms.join(', ') : w.synonyms})` : '';
-            const antonyms = w.antonyms ? ` (反义词: ${Array.isArray(w.antonyms) ? w.antonyms.join(', ') : w.antonyms})` : '';
-            return `${w.word} (${posStr}): ${w.meaning}${synonyms}${antonyms}`;
-        }).join('; ');
-        return `以下单词请优先在题目中使用，确保题目多样性: ${wordList}`;
-    }
 
     function renderKeywords(keywords) {
         if (!keywords || !Array.isArray(keywords)) return '—';
@@ -1246,18 +1162,11 @@
         localStorage.setItem('toeic_question_source', value);
     }
 
-    function renderQuickBankStatus() {
-        if (isBankSource()) {
-            console.log(`当前：${getCurrentBankLabel()}，共 ${localQuestionBank.length} 题`);
-        }
-    }
-
     var _loadedBankKey = null;
     async function loadLocalQuestionBank(force) {
         const source = currentQuestionSource;
         const cfg = QUESTION_BANK_FILES[source] || QUESTION_BANK_FILES.builtIn;
         if (!force && _loadedBankKey === source && localQuestionBank.length > 0) {
-            renderQuickBankStatus();
             return localQuestionBank;
         }
         try {
@@ -1265,445 +1174,15 @@
             localQuestionBank = Array.isArray(localQuestionBank) ? localQuestionBank : [];
             _loadedBankKey = source;
             console.log('OK ' + cfg.label + ': ' + localQuestionBank.length);
-            renderQuickBankStatus();
             return localQuestionBank;
         } catch (error) {
             console.error('load bank fail:', error);
             localQuestionBank = [];
             _loadedBankKey = null;
-            renderQuickBankStatus();
             return [];
         }
     }
 
-
-    // ---------- 批量生成 ----------
-    async function generateBatch(count) {
-        if (!apiKey) throw new Error('请先保存 API Key');
-        const difficultyHint = difficultySelect.value;
-        const recentHashes = await getAllQuestionHashes();
-        const recentHashHint = recentHashes.slice(-60).join('；');
-        const wordPrompt = generateWordBasedPrompt();
-        const selectedScenes = [...BUSINESS_SCENES]
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 10)
-            .join('、');
-
-        const prompt = `你是资深商务英语出题专家。请一次性生成 ${count} 道不同的 Part 5 语法/词汇单选题，输出为一个JSON数组，不要有任何额外文本。
-
-全局要求：
-- 难度均为: ${difficultyHint}
-- 商务场景：从以下列表中随机选择，确保场景多样性：${selectedScenes}
-- 考点必须均衡覆盖，尤其优先考虑低频考点（倒装结构、独立主格、虚拟语气、平行结构、词汇辨析等）。
-- 避免与以下最近已出题目的题干重复（前80字符）: ${recentHashHint}
-- ${wordPrompt}
-- 每道题的结构必须包含以下全部字段（JSON 字段名必须完全一致）：
-{
-  "id": "toeic_p5_序号（自增三位数，如001,002）",
-  "part": "Part5",
-  "category": "考点类别（必须从以下选取：词性判断/动词时态/非谓语动词/介词搭配/虚拟语气/倒装结构/独立主格/词汇搭配/代词指代/比较级/词汇辨析/定语从句/连词辨析/情态动词/主谓一致/名词单复数/平行结构/数量词辨析）",
-  "difficulty": 1-5的整数,
-  "questionText": "英文题干（含空格）",
-  "options": ["A选项文本", "B选项文本", "C选项文本", "D选项文本"],
-  "options_cn": ["A选项中文注释（词性/用法说明）", "B选项中文注释", "C选项中文注释", "D选项中文注释"],
-  "correctIndex": 0-3的整数（0=A,1=B,2=C,3=D）",
-  "correctAnswer": "A或B或C或D（与correctIndex对应）",
-  "translation": "题目完整中文翻译",
-  "keywords": [{"word":"单词", "pos":"词性", "meaning":"中文释义"}],
-  "solutionSteps": "分步解题步骤，每步用数字标注，用换行符分隔",
-  "wrongOptionAnalysis": ["A选项错误原因", "B选项错误原因", "C选项错误原因", "D选项错误原因"],
-  "summaryTip": "考点小结/记忆技巧"
-}
-
-特别注意：
-1. 题目内容必须多样化，避免相似的语法结构或词汇选择
-2. 选项设计要有区分度，避免明显的干扰项
-3. wrongOptionAnalysis 数组中每个元素是对应选项的错误原因分析，不要出现A/B/C/D字母前缀
-4. 正确选项的 wrongOptionAnalysis 分析应说明"这是正确选项"或"正确拼写/用法"
-5. correctIndex 随机分布，不要集中在某个位置
-6. 关键词尽量使用提供的单词数据库中的词汇
-7. solutionSteps 中用换行符 \\n 分隔各步骤
-8. difficulty 难度分布建议：L1-L3占70%，L4-L5占30%
-9. 返回格式严格为: [ {...}, {...}, ... ] 只输出数组，不要用markdown代码块包裹
-
-开始生成。`;
-
-        const requestBody = {
-            model: "doubao-seed-2.0-pro",
-            stream: false,
-            temperature: 0.4,
-            max_tokens: Math.min(2800 + count * 200, 8000),
-            messages: [{ role: "user", content: prompt }]
-        };
-        const resp = await fetch('https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions', {
-            method: 'POST',
-            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestBody)
-        });
-        if (!resp.ok) throw new Error(`API ${resp.status}`);
-        const data = await resp.json();
-        let raw = '';
-        if (data.choices?.[0]?.message?.content) raw = data.choices[0].message.content;
-        else throw new Error('返回格式错误');
-        let cleaned = raw.trim();
-        const arrayMatch = cleaned.match(/\[[\s\S]*\]/);
-        if (arrayMatch) cleaned = arrayMatch[0];
-        let questions = JSON.parse(cleaned);
-        if (!Array.isArray(questions)) throw new Error('返回不是数组');
-        return questions.map(q => {
-            if (!q.options_cn) q.options_cn = ['','','',''];
-            if (!Array.isArray(q.wrongOptionAnalysis)) q.wrongOptionAnalysis = ['','','',''];
-            if (!q.keywords) q.keywords = [];
-            if (!q.translation) q.translation = '';
-            if (!q.solutionSteps) q.solutionSteps = '';
-            if (!q.summaryTip) q.summaryTip = '';
-            if (!q.category) q.category = '未分类';
-            return q;
-        });
-    }
-
-    function shuffleQuestion(question) {
-        const indices = [0,1,2,3];
-        for (let i = indices.length-1; i>0; i--) {
-            const j = Math.floor(Math.random()*(i+1));
-            [indices[i], indices[j]] = [indices[j], indices[i]];
-        }
-        const newOptions = indices.map(i=>question.options[i]);
-        const newOptionsCn = indices.map(i=>question.options_cn[i]);
-        const newWrongAnalysis = indices.map(i=>question.wrongOptionAnalysis[i]);
-        const newCorrectIndex = indices.indexOf(question.correctIndex);
-        const newCorrectLetter = String.fromCharCode(65+newCorrectIndex);
-        return {...question, options:newOptions, options_cn:newOptionsCn, wrongOptionAnalysis:newWrongAnalysis, correctAnswer:newCorrectLetter, correctIndex:newCorrectIndex};
-    }
-
-    async function resetAndFillPool(targetCount) {
-        questionPool = [];
-        isRefilling = false;
-        poolReady = false;
-        if (wordDatabase.length === 0) await loadWordDatabase();
-
-        if (isBankSource()) {
-            if (localQuestionBank.length === 0) await loadLocalQuestionBank();
-            if (localQuestionBank.length > 0) {
-                const shuffled = [...localQuestionBank]
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, targetCount)
-                    .map(q => {
-                        const letters = ['A','B','C','D'];
-                        const q2 = {...q};
-                        if (q2.correctIndex !== undefined) {
-                            const correctIdx = q2.correctIndex;
-                            const indices = [0,1,2,3];
-                            for (let i = indices.length-1; i>0; i--) {
-                                const j = Math.floor(Math.random()*(i+1));
-                                [indices[i], indices[j]] = [indices[j], indices[i]];
-                            }
-                            q2.options = indices.map(i=>q2.options[i]);
-                            q2.options_cn = indices.map(i=>(q2.options_cn||['','','',''])[i]);
-                            q2.wrongOptionAnalysis = indices.map(i=>(q2.wrongOptionAnalysis||['','','',''])[i]);
-                            q2.correctAnswer = letters[indices.indexOf(correctIdx)];
-                            q2.correctIndex = indices.indexOf(correctIdx);
-                        }
-                        return q2;
-                    });
-                questionPool.push(...shuffled);
-                poolReady = true;
-                return;
-            }
-        }
-
-        const newQuestions = await generateBatch(targetCount);
-        const shuffledBatch = newQuestions.map(q => shuffleQuestion(q));
-        questionPool.push(...shuffledBatch);
-        poolReady = true;
-        allGeneratedQuestions.push(...newQuestions);
-        for (const q of newQuestions) {
-            const hash = q.questionText.substring(0, 80).replace(/\s+/g, ' ');
-            await saveQuestionHash(hash);
-        }
-    }
-
-    async function backgroundRefill(targetCount) {
-        if (isRefilling) return;
-        isRefilling = true;
-        try {
-            const newQuestions = await generateBatch(targetCount);
-            const shuffledBatch = newQuestions.map(q => shuffleQuestion(q));
-            questionPool.push(...shuffledBatch);
-            allGeneratedQuestions.push(...newQuestions);
-            for (const q of newQuestions) {
-                const hash = q.questionText.substring(0, 80).replace(/\s+/g, ' ');
-                await saveQuestionHash(hash);
-            }
-            console.log(`✅ 后台补充了 ${newQuestions.length} 道新题目`);
-        } catch (err) {
-            console.error("后台补充失败", err);
-        } finally {
-            isRefilling = false;
-        }
-    }
-
-    function getNextQuestionFromPool() {
-        if (questionPool.length === 0) {
-            throw new Error("题目池已空，请点击「开始刷题」重新生成");
-        }
-        const q = questionPool.shift();
-        if (isBankSource()) return q;
-        const targetBatch = parseInt(batchSizeSelect.value);
-        const currentPoolSize = questionPool.length;
-        if (currentPoolSize < Math.max(3, Math.floor(targetBatch / 4))) {
-            backgroundRefill(targetBatch).catch(e=>console.error);
-        } else if (currentPoolSize < Math.max(5, Math.floor(targetBatch / 2))) {
-            setTimeout(() => {
-                if (questionPool.length < Math.max(3, Math.floor(targetBatch / 3))) {
-                    backgroundRefill(targetBatch).catch(e=>console.error);
-                }
-            }, 1000);
-        }
-        return q;
-    }
-
-    function shuffleQuestionOptions(q) {
-        if (q.correctIndex === undefined) return q;
-        const q2 = {...q};
-        const indices = [0,1,2,3];
-        for (let i = 3; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [indices[i], indices[j]] = [indices[j], indices[i]];
-        }
-        const letters = ['A','B','C','D'];
-        q2.options = indices.map(i => (q.options||[])[i]);
-        q2.options_cn = indices.map(i => (q.options_cn||['','','',''])[i]);
-        q2.wrongOptionAnalysis = indices.map(i => (q.wrongOptionAnalysis||['','','',''])[i]);
-        q2.correctAnswer = letters[indices.indexOf(q.correctIndex)];
-        q2.correctIndex = indices.indexOf(q.correctIndex);
-        return q2;
-    }
-
-    function renderQuestion(question, poolRemaining, showNavBtns, isLocal) {
-        if (isLocal === undefined) isLocal = isBankSource();
-        if (isLocal && question.correctIndex !== undefined) {
-            question = shuffleQuestionOptions(question);
-            if (currentQuestion) currentQuestion = question;
-        }
-        quizArea.innerHTML = '';
-        const card = document.createElement('div');
-        card.className = 'card';
-
-        const qDiv = document.createElement('div');
-        qDiv.className = 'question-text';
-        qDiv.innerText = question.questionText;
-        card.appendChild(qDiv);
-
-        const optsDiv = document.createElement('div');
-        const letters = ['A','B','C','D'];
-        question.options.forEach((optText, idx) => {
-            const letter = letters[idx];
-            const optDiv = document.createElement('div');
-            optDiv.className = 'option';
-            optDiv.setAttribute('data-letter', letter);
-            optDiv.innerHTML = `<span class="prefix">${letter}.</span> <span class="option-text">${optText}</span>`;
-            optDiv.onclick = () => {
-                document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
-                optDiv.classList.add('selected');
-                selectedLetter = letter;
-            };
-            optsDiv.appendChild(optDiv);
-        });
-        card.appendChild(optsDiv);
-
-        const transBtn = document.createElement('button');
-        transBtn.innerText = '🔍 显示选项中文';
-        transBtn.className = 'btn btn-outline';
-        transBtn.style.marginTop = '4px';
-        const transDiv = document.createElement('div');
-        transDiv.style.display = 'none';
-        transDiv.className = 'options-translation';
-        transBtn.onclick = () => {
-            if (transDiv.style.display === 'none') {
-                let html = '<div><strong>📖 选项中文释义：</strong></div>';
-                letters.forEach((letter, idx) => {
-                    const eng = question.options[idx];
-                    const cn = question.options_cn[idx] || '';
-                    html += `<div class="translation-item">${letter}. ${eng} → ${cn}</div>`;
-                });
-                transDiv.innerHTML = html;
-                transDiv.style.display = 'block';
-                transBtn.innerText = '🙈 隐藏选项中文';
-            } else {
-                transDiv.style.display = 'none';
-                transBtn.innerText = '🔍 显示选项中文';
-            }
-        };
-        card.appendChild(transBtn);
-        card.appendChild(transDiv);
-
-        const submitBtn = document.createElement('button');
-        submitBtn.innerText = '📥 提交答案';
-        submitBtn.className = 'btn btn-primary';
-        submitBtn.style.flex = '1';
-        const prevBtn = document.createElement('button');
-        prevBtn.className = 'btn btn-secondary';
-        prevBtn.innerText = '◀ 上一题';
-        prevBtn.disabled = questionIndex <= 0;
-        prevBtn.style.flex = '1';
-        prevBtn.onclick = () => goToQuestion(questionIndex - 1);
-        const nextNavBtn = document.createElement('button');
-        nextNavBtn.className = 'btn btn-success';
-        nextNavBtn.innerText = '下一题 ▶';
-        nextNavBtn.style.flex = '1';
-        nextNavBtn.onclick = () => {
-            if (isBankSource()) {
-                fetchAndDisplayLocal();
-            } else {
-                fetchAndDisplay();
-            }
-        };
-        const btnRow = document.createElement('div');
-        btnRow.style.cssText = 'display:flex; gap:8px; margin-top:12px;';
-        btnRow.appendChild(submitBtn);
-        btnRow.appendChild(prevBtn);
-        btnRow.appendChild(nextNavBtn);
-        card.appendChild(btnRow);
-
-        const feedbackDiv = document.createElement('div');
-        feedbackDiv.id = 'feedbackArea';
-        card.appendChild(feedbackDiv);
-
-        const poolInfo = document.createElement('div');
-        poolInfo.className = 'pool-info';
-        if (isLocal) {
-            poolInfo.innerText = `📖 ${getCurrentBankLabel()}剩余: ${poolRemaining} 道`;
-        } else {
-            poolInfo.innerText = `📦 AI题池剩余: ${poolRemaining} 题`;
-        }
-        card.appendChild(poolInfo);
-
-        // 保存到题库提示条（仅AI模式且有新题时显示）
-        const saveBar = document.createElement('div');
-        saveBar.className = 'save-bank-bar' + (allGeneratedQuestions.length > 0 ? ' show' : '');
-        saveBar.innerHTML = `
-            <div class="save-bank-info">🤖 本次已生成 <strong>${allGeneratedQuestions.length}</strong> 道新题</div>
-            <button class="btn-save-bank" id="btnSaveToBank">📥 保存到题库</button>
-        `;
-        card.appendChild(saveBar);
-
-        quizArea.appendChild(card);
-
-        // 保存到题库功能
-        document.getElementById('btnSaveToBank').onclick = () => {
-            if (allGeneratedQuestions.length === 0) return;
-            const existing = new Set(localQuestionBank.map(q => (q.questionText||'').substring(0, 50)));
-            const newOnes = allGeneratedQuestions.filter(q => !existing.has((q.questionText||'').substring(0, 50)));
-            if (newOnes.length === 0) {
-                alert('这些题目已在题库中，无需重复保存');
-                return;
-            }
-            const merged = [...localQuestionBank, ...newOnes];
-            const content = JSON.stringify(merged, null, 2);
-            const blob = new Blob([content], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'questions_export.json';
-            a.click();
-            URL.revokeObjectURL(url);
-            alert('已导出 ' + newOnes.length + ' 道新题，请用导出的JSON文件到「题库」页面导入');
-        };
-
-        submitBtn.onclick = async () => {
-            if (!selectedLetter) { alert('请选择一项'); return; }
-            const isCorrect = (selectedLetter === question.correctAnswer);
-            await saveRecord({
-                id: Date.now(),
-                timestamp: Date.now(),
-                questionText: question.questionText,
-                options: question.options,
-                options_cn: question.options_cn,
-                userAnswer: selectedLetter,
-                correctAnswer: question.correctAnswer,
-                correct: isCorrect,
-                category: question.category,
-                translation: question.translation,
-                keywords: question.keywords,
-                solutionSteps: question.solutionSteps,
-                wrongOptionAnalysis: question.wrongOptionAnalysis,
-                summaryTip: question.summaryTip
-            });
-            await updateAllStatsAndRecords();
-            const correctIdx = letters.indexOf(question.correctAnswer);
-            const correctText = question.options[correctIdx];
-            const correctCn = question.options_cn[correctIdx] || '';
-            let keywordsHtml = renderKeywords(question.keywords);
-            let analysisHtml = '';
-            if (Array.isArray(question.wrongOptionAnalysis) && question.wrongOptionAnalysis.length === 4) {
-                analysisHtml = '<div style="margin-top:8px;"><strong>⚠️ 选项分析：</strong></div>';
-                letters.forEach((letter, idx) => {
-                    const analysis = question.wrongOptionAnalysis[idx];
-                    const optText = question.options[idx];
-                    const isCorrectOpt = (idx === question.correctIndex);
-                    analysisHtml += `<div class="analysis-item ${isCorrectOpt ? 'correct-opt' : ''}">${isCorrectOpt ? '✅' : '❌'} <strong>${letter}. ${optText}</strong>: ${analysis}</div>`;
-                });
-            } else {
-                analysisHtml = `<div><strong>⚠️ 错误分析：</strong> ${question.wrongOptionAnalysis || '—'}</div>`;
-            }
-            let html = `<div class="feedback">
-                <div>${isCorrect ? '<span class="correct-badge">✔ 回答正确</span>' : '<span class="wrong-badge">✘ 回答错误</span>'} &nbsp; 正确答案：${question.correctAnswer}. ${correctText} ${correctCn ? '('+correctCn+')' : ''}</div>
-                <div><strong>📖 翻译：</strong> ${question.translation}</div>
-                <div><strong>🔑 核心词汇：</strong> ${keywordsHtml}</div>
-                <div><strong>🎯 解题步骤：</strong> ${question.solutionSteps || '—'}</div>
-                ${analysisHtml}
-                <div><strong>📚 考点小结：</strong> ${question.summaryTip || '—'}</div>
-                <div><em>考点类别：${question.category || '未分类'}</em></div>
-            </div>`;
-            feedbackDiv.innerHTML = html;
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.5';
-            prevBtn.disabled = true;
-            setTimeout(() => { nextNavBtn.disabled = false; }, 500);
-            document.querySelectorAll('.option').forEach(opt => {
-                const l = opt.getAttribute('data-letter');
-                if (l === question.correctAnswer) opt.style.border = '2px solid #16a34a';
-                if (l === selectedLetter && l !== question.correctAnswer) opt.style.border = '2px solid #dc2626';
-            });
-            const isLocalMode = isBankSource();
-            poolInfo.innerText = isLocalMode ? `📖 ${getCurrentBankLabel()}剩余: ${poolRemaining} 道` : `📦 AI题池剩余: ${poolRemaining} 题`;
-        };
-    }
-
-    function goToQuestion(targetIdx) {
-        if (targetIdx < 0 || targetIdx >= questionHistory.length) return;
-        questionIndex = targetIdx;
-        const q = questionHistory[questionIndex];
-        currentQuestion = q;
-        selectedLetter = null;
-        renderQuestion(q, questionPool.length, true, isBankSource());
-    }
-
-    async function fetchAndDisplay() {
-        if (!apiKey) { alert('请先填写 API Key'); return; }
-        try {
-            const q = getNextQuestionFromPool();
-            currentQuestion = q;
-            selectedLetter = null;
-            questionHistory.push(q);
-            questionIndex = questionHistory.length - 1;
-            renderQuestion(q, questionPool.length, true, false);
-        } catch (err) {
-            quizArea.innerHTML = `<div class="card"><div class="error-message">❌ ${err.message}</div><button class="btn btn-primary" id="forceResetBtn" style="margin-top:12px; width:100%;">重新生成</button></div>`;
-            const resetBtn = document.getElementById('forceResetBtn');
-            if (resetBtn) resetBtn.onclick = () => goToExamPage();
-        }
-    }
-
-    async function goToExamPage() {
-        await loadLocalQuestionBank(false);
-        if (localQuestionBank.length === 0) {
-            alert('题库为空，请检查题库文件');
-            return;
-        }
-        showPage('exam');
-    }
 
     async function handleQuestionSourceChange(value, autoStart) {
         syncQuestionSource(value);
@@ -1712,7 +1191,6 @@
         } else {
             localQuestionBank = [];
             _loadedBankKey = null;
-            renderQuickBankStatus();
         }
     }
 
@@ -1817,8 +1295,17 @@
         if (actualCount < EXAM_QUESTION_COUNT) {
             if (!confirm(`题库仅有 ${localQuestionBank.length} 道题，不足 ${EXAM_QUESTION_COUNT} 道。是否用 ${actualCount} 道题开始考试？`)) return;
         }
-        const pool = [...localQuestionBank].sort(() => Math.random() - 0.5);
-        const selected = pool.slice(0, Math.min(EXAM_QUESTION_COUNT, pool.length));
+        const records = await getAllRecords();
+        const countMap = {};
+        records.forEach(r => {
+            const key = (r.questionText || '').substring(0, 60);
+            countMap[key] = (countMap[key] || 0) + 1;
+        });
+        const sorted = localQuestionBank.map((q, i) => ({
+            q, count: countMap[(q.questionText || '').substring(0, 60)] || 0, rand: Math.random()
+        }));
+        sorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
+        const selected = sorted.slice(0, Math.min(EXAM_QUESTION_COUNT, sorted.length)).map(s => s.q);
         const letters = ['A','B','C','D'];
         examQuestions = selected.map((q, idx) => {
             const q2 = {...q};
@@ -2502,60 +1989,6 @@ ${trendInfo}
         renderExamPage();
     }
 
-    async function getQuestionCountMap() {
-        const records = await getAllRecords();
-        const countMap = {};
-        records.forEach(r => {
-            const key = (r.questionText || '').substring(0, 60);
-            countMap[key] = (countMap[key] || 0) + 1;
-        });
-        return countMap;
-    }
-
-    async function loadQuestionsFromLocal() {
-        questionPool = [];
-        const countMap = await getQuestionCountMap();
-        const items = localQuestionBank.map((q, i) => ({
-            q: q,
-            count: countMap[(q.questionText || '').substring(0, 60)] || 0,
-            rand: Math.random()
-        }));
-        items.sort((a, b) => {
-            if (a.count !== b.count) return a.count - b.count;
-            return a.rand - b.rand;
-        });
-        questionPool = items.map(item => item.q);
-        poolReady = true;
-        questionHistory = [];
-        questionIndex = -1;
-        await fetchAndDisplayLocal();
-    }
-
-    function fetchAndDisplayLocal() {
-        if (questionPool.length === 0) {
-            quizArea.innerHTML = `<div class="card" style="text-align:center; padding:40px 20px; color:#94a3b8;">
-                <div style="font-size:48px; margin-bottom:12px;">📖</div>
-                <div style="font-size:15px; font-weight:500;">题库已做完！</div>
-                <div style="font-size:0.85rem; margin-top:8px;">可切换为「AI生成」获取更多题目</div>
-                <button class="btn btn-primary" style="margin-top:14px;" id="switchToAiBtn">🤖 切换AI生成</button>
-                <button class="btn btn-secondary" style="margin-top:8px;" id="reloadLocalBtn">🔄 重新做题</button>
-            </div>`;
-            document.getElementById('switchToAiBtn').onclick = async () => {
-                syncQuestionSource('ai');
-                if (apiKey) await goToExamPage();
-            };
-            document.getElementById('reloadLocalBtn').onclick = async () => {
-                await loadQuestionsFromLocal();
-            };
-            return;
-        }
-        const q = questionPool.shift();
-        currentQuestion = q;
-        selectedLetter = null;
-        questionHistory.push(q);
-        questionIndex = questionHistory.length - 1;
-        renderQuestion(q, questionPool.length, true, true);
-    }
 
     (async () => {
         await initQuiz();
