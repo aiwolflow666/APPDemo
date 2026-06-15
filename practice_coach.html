@@ -288,6 +288,21 @@
             color: #0f172a;
             margin: 8px 0 16px;
         }
+        .reading-passage {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #334155;
+            max-height: 320px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .reading-passage p { margin-bottom: 8px; }
+        .reading-title { font-weight: 700; color: #1e293b; margin-bottom: 8px; }
         .option {
             background: #f8fafc;
             border: 1.5px solid #e2e8f0;
@@ -943,6 +958,7 @@
 
 
     // ---------- 全局变量 ----------
+    const apiKey = 'ark-4d777fa7-9c4f-403c-8958-07fad323d293-04e4c';
     let currentQuestionSource = localStorage.getItem('toeic_question_source') || 'builtIn';
     let statsTotal = 0, statsAccuracy = 0, statsWrong = 0;
     const clearHistoryBtn = document.getElementById('clearHistoryBtn');
@@ -1019,14 +1035,16 @@
             return `
             <div class="record-item ${rec.correct ? 'correct-item' : 'wrong-item'}" data-id="${rec.id}">
                 <div class="record-question">
-                    ${rec.correct ? '✅' : '❌'} ${rec.questionText}
-                    <span class="category-badge">${rec.category || '未分类'}</span>
+                    ${rec.correct ? '✅' : '❌'} ${rec.number ? rec.number + '. ' : ''}${rec.questionText}
+                    <span class="category-badge">${rec.part || rec.category || '未分类'}</span>
                 </div>
                 <div style="font-size:0.75rem; margin-top:4px; color:#64748b;">你的答案: ${rec.userAnswer} | 正确答案: ${rec.correctAnswer}</div>
                 <div class="record-detail" style="display:none;">
+                    ${rec.passageText ? `<div><strong>📄 文章：</strong><br>${rec.passageText}</div>` : ''}
                     <div><strong>📖 翻译：</strong> ${rec.translation || ''}</div>
                     <div><strong>🔑 核心词汇：</strong> ${renderKeywords(rec.keywords)}</div>
-                    <div><strong>🎯 解题步骤：</strong> ${rec.solutionSteps || '—'}</div>
+                    <div><strong>🎯 中文解析：</strong> ${rec.explanationCn || rec.solutionSteps || '—'}</div>
+                    ${rec.explanationJa ? `<div><strong>🇯🇵 日文原解析：</strong> ${rec.explanationJa}</div>` : ''}
                     <div><strong>⚠️ 选项分析：</strong></div>
                     ${analysisHtml}
                     <div><strong>📚 考点小结：</strong> ${rec.summaryTip || '—'}</div>
@@ -1146,7 +1164,8 @@
     let localQuestionBank = [];
     const QUESTION_BANK_FILES = {
         builtIn: { file: 'question_bank.dat', label: '原题库' },
-        ppt600: { file: 'question_bank_ppt600.dat', label: 'PPT600题库' }
+        ppt600: { file: 'question_bank_ppt600.dat', label: 'PPT600题库' },
+        reading: { file: 'reading_bank.dat', label: '阅读题组' }
     };
 
     function isBankSource() {
@@ -1198,7 +1217,9 @@
     //  模拟考试模式
     // ============================================================
     const EXAM_QUESTION_COUNT = 30;
+    const EXAM_READING_GROUP_COUNT = 3;
     const EXAM_TIME_MINUTES = 10;
+    let currentPartMode = localStorage.getItem('toeic_part_mode') || 'Part5';
     let examQuestions = [];
     let examAnswers = {};
     let examTimer = null;
@@ -1229,9 +1250,9 @@
                     <div class="exam-icon">📝</div>
                     <div class="exam-title">模拟考试</div>
                     <div class="exam-desc">
-                        标准商务英语 Part 5 模拟测试<br>
-                        ${bankCount > 0 ? `${getCurrentBankLabel()} ${bankCount} 道题，随机抽取 ${Math.min(EXAM_QUESTION_COUNT, bankCount)} 题` : '暂无题库题目'} · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
-                        考试结束后 AI 分析不足与改进点
+                        TOEIC Reading 题组练习<br>
+                        ${bankCount > 0 ? `${getCurrentBankLabel()} ${bankCount} ${currentQuestionSource === 'reading' ? '组' : '道'}题，优先抽做题少的内容` : '暂无题库题目'} · 限时 ${EXAM_TIME_MINUTES} 分钟<br>
+                        考试结束后查看解析与历史记录
                     </div>
                     <div class="exam-stats">
                         <div class="exam-stat-item">
@@ -1250,10 +1271,17 @@
                     <button class="btn btn-primary" id="startExamBtn" style="width:100%; margin-top:8px;">
                         🚀 开始考试
                     </button>
-                    <div style="margin-top:10px;">
+                    <div style="margin-top:10px; display:flex; flex-direction:column; gap:8px;">
+                        <select id="partModeSelect" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.85rem;">
+                            <option value="Part5">Part 5 单题</option>
+                            <option value="Part6">Part 6 题组</option>
+                            <option value="Part7">Part 7 题组</option>
+                            <option value="ReadingMixed">阅读混合（Part5/6/7）</option>
+                        </select>
                         <select id="examSourceSelect" style="width:100%; padding:8px; border-radius:8px; border:1px solid #e2e8f0; font-size:0.85rem;">
                             <option value="builtIn">📖 基础题库（220题）</option>
                             <option value="ppt600">🧾 PPT600题库（600题）</option>
+                            <option value="reading">📚 阅读题组（Part6/7）</option>
                         </select>
                         <div id="examBankStatus" style="font-size:0.75rem; color:#64748b; margin-top:4px;"></div>
                     </div>
@@ -1268,7 +1296,8 @@
             <div class="card">
                 <div class="card-label">📋 考试说明</div>
                 <div style="font-size:0.82rem; line-height:1.7; color:#475569;">
-                    <div style="margin-bottom:8px;">• 从题库随机抽取 <strong>${EXAM_QUESTION_COUNT} 道</strong> Part 5 单选题</div>
+                    <div style="margin-bottom:8px;">• Part5抽取 <strong>${EXAM_QUESTION_COUNT} 道</strong>；Part6/7按题组抽取 <strong>${EXAM_READING_GROUP_COUNT} 组</strong></div>
+                    <div style="margin-bottom:8px;">• 优先抽做题次数少的题目/题组，保证覆盖全部内容</div>
                     <div style="margin-bottom:8px;">• 时间限制 <strong>${EXAM_TIME_MINUTES} 分钟</strong>，到时自动交卷</div>
                     <div style="margin-bottom:8px;">• 可随时点击题目序号跳转答题</div>
                     <div style="margin-bottom:8px;">• 考试结束后 AI 分析不足与改进点</div>
@@ -1279,33 +1308,92 @@
         `;
         document.getElementById('startExamBtn').onclick = startExam;
         document.getElementById('viewHistoryBtn').onclick = () => renderExamHistory();
+        const partModeSelect = document.getElementById('partModeSelect');
+        partModeSelect.value = currentPartMode;
+        partModeSelect.addEventListener('change', async () => {
+            currentPartMode = partModeSelect.value;
+            localStorage.setItem('toeic_part_mode', currentPartMode);
+            if (currentPartMode === 'Part6' || currentPartMode === 'Part7') await handleQuestionSourceChange('reading', false);
+            if (currentPartMode === 'Part5' && currentQuestionSource === 'reading') await handleQuestionSourceChange('ppt600', false);
+            renderExamStart();
+        });
         const examSourceSelect = document.getElementById('examSourceSelect');
         examSourceSelect.value = currentQuestionSource;
         examSourceSelect.addEventListener('change', async () => {
             await handleQuestionSourceChange(examSourceSelect.value, false);
+            if (examSourceSelect.value === 'reading' && currentPartMode === 'Part5') {
+                currentPartMode = 'ReadingMixed';
+                localStorage.setItem('toeic_part_mode', currentPartMode);
+            }
             renderExamStart();
         });
         const examBankStatus = document.getElementById('examBankStatus');
-        examBankStatus.textContent = localQuestionBank.length > 0 ? `已加载 ${localQuestionBank.length} 道题` : '题库未加载';
+        examBankStatus.textContent = localQuestionBank.length > 0 ? `已加载 ${localQuestionBank.length} ${currentQuestionSource === 'reading' ? '组题' : '道题'}` : '题库未加载';
+    }
+
+    function getRecordKey(item) {
+        return (item.groupId || item.questionText || '').substring(0, 80);
+    }
+
+    function normalizeQuestion(q, group) {
+        const letters = ['A','B','C','D'];
+        const correctAnswer = q.correctAnswer || (q.correctIndex !== null && q.correctIndex !== undefined ? letters[q.correctIndex] : '');
+        return {
+            ...q,
+            part: group?.part || q.part || 'Part5',
+            groupId: group?.groupId || q.groupId || '',
+            passageTitle: group?.passageTitle || q.passageTitle || '',
+            passageText: group?.passageText || q.passageText || '',
+            documents: group?.documents || q.documents || [],
+            questionText: q.questionText || '',
+            options: q.options || [],
+            options_cn: q.options_cn || ['', '', '', ''],
+            correctAnswer,
+            correctIndex: correctAnswer ? letters.indexOf(correctAnswer) : (q.correctIndex || 0),
+            category: q.category || group?.part || '未分类',
+            translation: q.translation || '',
+            keywords: q.keywords || [],
+            solutionSteps: q.solutionSteps || q.explanationCn || '',
+            wrongOptionAnalysis: q.wrongOptionAnalysis || [],
+            summaryTip: q.summaryTip || '',
+            explanationJa: q.explanationJa || '',
+            explanationCn: q.explanationCn || q.solutionSteps || '',
+        };
+    }
+
+    function expandReadingGroups(groups) {
+        return groups.flatMap(group => (group.questions || []).map(q => normalizeQuestion(q, group)));
     }
 
     async function startExam() {
         await loadLocalQuestionBank(false);
-        const actualCount = Math.min(EXAM_QUESTION_COUNT, localQuestionBank.length);
-        if (actualCount < EXAM_QUESTION_COUNT) {
-            if (!confirm(`题库仅有 ${localQuestionBank.length} 道题，不足 ${EXAM_QUESTION_COUNT} 道。是否用 ${actualCount} 道题开始考试？`)) return;
-        }
         const records = await getAllRecords();
         const countMap = {};
         records.forEach(r => {
-            const key = (r.questionText || '').substring(0, 60);
+            const key = (r.groupId || r.questionText || '').substring(0, 80);
             countMap[key] = (countMap[key] || 0) + 1;
         });
-        const sorted = localQuestionBank.map((q, i) => ({
-            q, count: countMap[(q.questionText || '').substring(0, 60)] || 0, rand: Math.random()
-        }));
-        sorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
-        const selected = sorted.slice(0, Math.min(EXAM_QUESTION_COUNT, sorted.length)).map(s => s.q);
+        let selected = [];
+        if (currentQuestionSource === 'reading') {
+            let groups = localQuestionBank.filter(g => currentPartMode === 'ReadingMixed' || g.part === currentPartMode);
+            if (groups.length === 0) {
+                alert('当前题型暂无题组，请先生成或导入Part6/Part7题库');
+                return;
+            }
+            const sortedGroups = groups.map(g => ({ g, count: countMap[getRecordKey(g)] || 0, rand: Math.random() }));
+            sortedGroups.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
+            selected = expandReadingGroups(sortedGroups.slice(0, Math.min(EXAM_READING_GROUP_COUNT, sortedGroups.length)).map(x => x.g));
+        } else {
+            const actualCount = Math.min(EXAM_QUESTION_COUNT, localQuestionBank.length);
+            if (actualCount < EXAM_QUESTION_COUNT) {
+                if (!confirm(`题库仅有 ${localQuestionBank.length} 道题，不足 ${EXAM_QUESTION_COUNT} 道。是否用 ${actualCount} 道题开始考试？`)) return;
+            }
+            const sorted = localQuestionBank.map(q => ({
+                q, count: countMap[(q.questionText || '').substring(0, 60)] || 0, rand: Math.random()
+            }));
+            sorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
+            selected = sorted.slice(0, Math.min(EXAM_QUESTION_COUNT, sorted.length)).map(s => s.q);
+        }
         const letters = ['A','B','C','D'];
         examQuestions = selected.map((q, idx) => {
             const q2 = {...q};
@@ -1316,7 +1404,7 @@
             if (!q2.solutionSteps) q2.solutionSteps = '';
             if (!q2.summaryTip) q2.summaryTip = '';
             if (!q2.category) q2.category = '未分类';
-            if (q2.correctIndex !== undefined) {
+            if (typeof q2.correctIndex === 'number' && q2.correctIndex >= 0) {
                 const correctIdx = q2.correctIndex;
                 const indices = [0,1,2,3];
                 for (let i = indices.length-1; i>0; i--) {
@@ -1379,6 +1467,7 @@
         const timerClass = examTimeLeft <= 60 ? 'danger' : examTimeLeft <= 180 ? 'warning' : '';
         const letters = ['A','B','C','D'];
 
+        const passageHtml = q.passageText ? `<div class="reading-passage"><div class="reading-title">${q.part || ''} ${q.passageTitle || ''}</div>${(q.passageText || '').split('\n').filter(Boolean).map(p => `<p>${p}</p>`).join('')}</div>` : '';
         let optionsHtml = q.options.map((optText, idx) => {
             const letter = letters[idx];
             const selected = examAnswers[examCurrentIdx] === letter ? 'selected' : '';
@@ -1415,14 +1504,15 @@
                 </div>
             </div>
             <div class="card">
-                <div class="exam-question-num">第 ${examCurrentIdx + 1} / ${examTotal} 题</div>
-                <div class="question-text">${q.questionText}</div>
+                <div class="exam-question-num">第 ${examCurrentIdx + 1} / ${examTotal} 题 ${q.part ? '· ' + q.part : ''}</div>
+                ${passageHtml}
+                <div class="question-text">${q.number ? q.number + '. ' : ''}${q.questionText}</div>
                 <div>${optionsHtml}</div>
                 <div style="margin-top:10px;">
                     <button class="btn btn-outline" id="showTransBtn">🔍 选项中文</button>
                 </div>
                 <div id="examTransArea" style="display:none;" class="options-translation">
-                    ${letters.map((l, idx) => `<div class="translation-item">${l}. ${q.options[idx]} → ${q.options_cn[idx] || ''}</div>`).join('')}
+                    ${letters.map((l, idx) => `<div class="translation-item">${l}. ${q.options[idx] || ''} → ${(q.options_cn || [])[idx] || ''}</div>`).join('')}
                 </div>
                 <div style="display:flex; gap:8px; margin-top:12px;">
                     <button class="btn btn-secondary" id="examPrevBtn" style="flex:1" ${examCurrentIdx === 0 ? 'disabled' : ''}>◀ 上一题</button>
@@ -1500,7 +1590,7 @@
             const userAnswer = examAnswers[idx];
             const isCorrect = userAnswer === q.correctAnswer;
             if (isCorrect) correct++;
-            const cat = q.category || '未分类';
+            const cat = q.part || q.category || '未分类';
             if (!categoryStats[cat]) categoryStats[cat] = { total: 0, correct: 0 };
             categoryStats[cat].total++;
             if (isCorrect) categoryStats[cat].correct++;
@@ -1508,6 +1598,11 @@
                 id: Date.now() + idx,
                 timestamp: Date.now(),
                 questionText: q.questionText,
+                part: q.part || 'Part5',
+                groupId: q.groupId || '',
+                passageTitle: q.passageTitle || '',
+                passageText: q.passageText || '',
+                number: q.number || '',
                 options: q.options,
                 options_cn: q.options_cn,
                 userAnswer: userAnswer || '',
@@ -1519,6 +1614,8 @@
                 solutionSteps: q.solutionSteps,
                 wrongOptionAnalysis: q.wrongOptionAnalysis,
                 summaryTip: q.summaryTip,
+                explanationCn: q.explanationCn || '',
+                explanationJa: q.explanationJa || '',
                 examMode: true,
             });
         });
@@ -1616,9 +1713,11 @@
                         你的答案: ${userAnswer || '未答'} | 正确答案: ${q.correctAnswer}
                     </div>
                     <div class="record-detail" style="display:none;">
+                        ${q.passageText ? `<div><strong>📄 文章：</strong><br>${q.passageText}</div>` : ''}
                         <div><strong>📖 翻译：</strong> ${q.translation || ''}</div>
                         <div><strong>🔑 核心词汇：</strong> ${renderKeywords(q.keywords)}</div>
-                        <div><strong>🎯 解题步骤：</strong> ${q.solutionSteps || '—'}</div>
+                        <div><strong>🎯 中文解析：</strong> ${q.explanationCn || q.solutionSteps || '—'}</div>
+                        ${q.explanationJa ? `<div><strong>🇯🇵 日文原解析：</strong> ${q.explanationJa}</div>` : ''}
                         <div><strong>📚 考点小结：</strong> ${q.summaryTip || '—'}</div>
                     </div>
                 </div>
@@ -1983,7 +2082,13 @@ ${trendInfo}
     async function initQuiz() {
         await openDB();
         const savedSource = localStorage.getItem('toeic_question_source') || 'builtIn';
-        syncQuestionSource(savedSource === 'ai' ? 'builtIn' : savedSource);
+        if ((currentPartMode === 'Part6' || currentPartMode === 'Part7' || currentPartMode === 'ReadingMixed') && savedSource !== 'reading') {
+            syncQuestionSource('reading');
+        } else if (currentPartMode === 'Part5' && savedSource === 'reading') {
+            syncQuestionSource('ppt600');
+        } else {
+            syncQuestionSource(savedSource === 'ai' ? 'builtIn' : savedSource);
+        }
         await loadLocalQuestionBank(false);
         await updateAllStatsAndRecords();
         renderExamPage();

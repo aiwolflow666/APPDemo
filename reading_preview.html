@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>TOEIC 阅读题预览（Part 6/7）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f3f4f6;color:#1f2937;-webkit-text-size-adjust:100%}
+header{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:100}
+header h1{font-size:16px}
+header .meta{font-size:11px;opacity:.85;margin-top:3px}
+.toolbar{background:#fff;padding:8px 12px;border-bottom:1px solid #e5e7eb;display:flex;gap:6px;align-items:center;font-size:12px;flex-wrap:wrap;position:sticky;top:52px;z-index:99}
+.toolbar button{background:#f3f4f6;border:1px solid #e5e7eb;padding:4px 8px;border-radius:6px;cursor:pointer;font-size:11px;white-space:nowrap}
+.toolbar button.active{background:#2563eb;color:#fff;border-color:#2563eb}
+.toolbar .set-sel{margin-left:auto;display:flex;gap:4px}
+.toolbar .set-sel button{font-size:10px;padding:3px 6px}
+.layout{display:flex;min-height:calc(100vh - 100px)}
+.sidebar{width:280px;background:#fff;border-right:1px solid #e5e7eb;overflow-y:auto;flex-shrink:0;position:sticky;top:100px;height:calc(100vh - 100px)}
+.sidebar .section{padding:8px 12px;font-size:10px;font-weight:700;color:#6b7280;background:#f9fafb;border-bottom:1px solid #e5e7eb}
+.sidebar .item{padding:8px 12px;border-bottom:1px solid #f3f4f6;cursor:pointer}
+.sidebar .item:hover{background:#f9fafb}
+.sidebar .item.active{background:#dbeafe;border-left:3px solid #2563eb;padding-left:9px}
+.sidebar .item .gid{font-weight:600;font-size:12px}
+.sidebar .item .title{font-size:10px;color:#6b7280;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sidebar .item .badge{display:inline-block;font-size:9px;padding:1px 5px;border-radius:8px;background:#e0e7ff;color:#3730a3;margin-right:3px}
+.sidebar .item.part7 .badge{background:#fef3c7;color:#92400e}
+.main{flex:1;overflow-y:auto;padding:16px 20px;max-width:800px}
+.empty{text-align:center;color:#9ca3af;padding:60px 20px}
+.group-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.group-header .pill{padding:3px 8px;border-radius:10px;font-size:11px;font-weight:600;color:#fff}
+.group-header .pill.p6{background:#2563eb}
+.group-header .pill.p7{background:#d97706}
+.group-header .pill.set{background:#10b981}
+.group-header h2{font-size:16px}
+.passage{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;margin-bottom:12px}
+.passage h3{margin:0 0 6px;font-size:12px;color:#1d4ed8}
+.passage .body{white-space:pre-wrap;line-height:1.7;font-size:13px;font-family:Georgia,serif}
+.passage .zh{background:#f0fdf4;padding:8px;border-radius:6px;margin-top:6px;border-left:3px solid #10b981;color:#374151;white-space:pre-wrap;line-height:1.6;font-size:12px}
+.vocab-card{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 14px;margin-bottom:12px}
+.vocab-card h3{margin:0 0 8px;font-size:13px;color:#92400e}
+.vocab-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:4px 10px;font-size:11px}
+.vocab-list .word{padding:3px 0;border-bottom:1px dotted #fde68a}
+.vocab-list .word .w{font-weight:700}
+.vocab-list .word .pos{color:#9ca3af;font-size:10px;padding:0 3px}
+.vocab-list .word .m{color:#374151}
+.question{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px;margin-bottom:12px}
+.question .num{font-weight:700;color:#2563eb;margin-right:4px}
+.question .stem{font-size:13px;line-height:1.6;margin-bottom:8px}
+.options{list-style:none;margin:0 0 10px}
+.options li{padding:5px 10px;border:1px solid #e5e7eb;border-radius:6px;margin-bottom:4px;font-size:12px}
+.options li.correct{background:#d1fae5;border-color:#10b981;color:#065f46;font-weight:600}
+.options li .opt-letter{display:inline-block;width:22px;font-weight:700}
+.explanation{border-top:1px dashed #e5e7eb;padding-top:8px;font-size:12px;line-height:1.7;color:#374151;white-space:pre-wrap}
+.explanation .label{display:inline-block;font-weight:600;font-size:10px;color:#fff;padding:2px 6px;border-radius:4px;margin-right:4px;background:#10b981}
+.bottom-nav{display:none}
+@media(max-width:768px){
+  .sidebar{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;height:100vh;width:100%}
+  .sidebar.mobile-open{display:block}
+  .sidebar .close-btn{position:sticky;top:0;background:#2563eb;color:#fff;padding:10px 14px;font-size:14px;font-weight:600;cursor:pointer;text-align:left;border:none;width:100%}
+  .main{padding:12px;max-width:100%}
+  .mobile-fab{position:fixed;bottom:20px;right:16px;width:48px;height:48px;border-radius:50%;background:#2563eb;color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,.4);z-index:150;display:flex;align-items:center;justify-content:center}
+  .toolbar{top:0;padding-top:44px}
+  header{padding:10px 14px;padding-right:50px}
+  .toolbar .set-sel{margin-left:0;margin-top:4px;width:100%}
+  .vocab-list{grid-template-columns:1fr}
+  .passage .body{font-size:12px}
+  .question .stem{font-size:12px}
+  .options li{font-size:11px}
+  .explanation{font-size:11px}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>TOEIC 阅读题预览（Part 6/7）</h1>
+  <div class="meta" id="meta">加载中...</div>
+</header>
+<div class="toolbar">
+  <span>套题：</span>
+  <span id="testFilters"></span>
+  <div class="set-sel" id="setSel"></div>
+</div>
+<button class="mobile-fab" id="fabBtn" style="display:none" onclick="toggleSidebar()">&#9776;</button>
+<div class="layout">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="main" id="main"><div class="empty">从左侧选择题组</div></div>
+</div>
+<script>
+var groups = [];
+var currentFilter = 'all';
+var currentSet = 'all';
+var availableSources = [];
+var setData = {};
+
+function esc(s){return(s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function srcLabel(s){
+  if(!s)return '?';
+  return s.replace(/^set/i,'公式').replace(/_test1$/i,' 套1').replace(/_test2$/i,' 套2');
+}
+
+async function load(){
+  var files = ['set11_preview.json','set12_preview.json'];
+  var labels = ['公式11','公式12'];
+  var all = [];
+  for(var i=0;i<files.length;i++){
+    try{
+      var res = await fetch(files[i]+'?t='+Date.now());
+      var data = await res.json();
+      setData[labels[i]] = data;
+      all = all.concat(data);
+    }catch(e){console.warn('skip '+files[i],e)}
+  }
+  groups = all;
+  availableSources = [];
+  var seen = {};
+  groups.forEach(function(g){var s=g.source;if(s&&!seen[s]){seen[s]=1;availableSources.push(s)}});
+  availableSources.sort();
+  renderSetButtons();
+  renderFilters();
+  renderSidebar();
+  updateMeta();
+  if(window.innerWidth<=768) document.getElementById('fabBtn').style.display='flex';
+}
+
+function renderSetButtons(){
+  var wrap = document.getElementById('setSel');
+  var html = '<button data-set="all" class="active">全部</button>';
+  Object.keys(setData).forEach(function(k){
+    html += '<button data-set="'+k+'">'+k+'</button>';
+  });
+  wrap.innerHTML = html;
+  wrap.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      currentSet = btn.dataset.set;
+      if(currentSet==='all'){groups=[];Object.values(setData).forEach(function(d){groups=groups.concat(d)})}
+      else{groups=setData[currentSet]||[]}
+      availableSources=[];var seen={};
+      groups.forEach(function(g){var s=g.source;if(s&&!seen[s]){seen[s]=1;availableSources.push(s)}});
+      availableSources.sort();
+      currentFilter='all';
+      wrap.querySelectorAll('button').forEach(function(b){b.classList.toggle('active',b===btn)});
+      renderFilters();
+      renderSidebar();
+      updateMeta();
+    });
+  });
+}
+
+function renderFilters(){
+  var wrap = document.getElementById('testFilters');
+  var html = '<button data-test="all" class="active">全部</button>';
+  availableSources.forEach(function(s){html+='<button data-test="'+s+'">'+srcLabel(s)+'</button>'});
+  wrap.innerHTML = html;
+  wrap.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      currentFilter=btn.dataset.test;
+      wrap.querySelectorAll('button').forEach(function(b){b.classList.toggle('active',b===btn)});
+      renderSidebar();updateMeta();
+    });
+  });
+}
+
+function updateMeta(){
+  var v=groups.filter(function(g){return currentFilter==='all'||g.source===currentFilter});
+  var p6=v.filter(function(g){return g.part==='Part6'}).reduce(function(s,g){return s+(g.questions||[]).length},0);
+  var p7=v.filter(function(g){return g.part==='Part7'}).reduce(function(s,g){return s+(g.questions||[]).length},0);
+  document.getElementById('meta').textContent='共 '+v.length+' 组 · Part6 '+p6+'题 · Part7 '+p7+'题 · 合计 '+(p6+p7)+'题';
+}
+
+function renderSidebar(){
+  var sb=document.getElementById('sidebar');
+  var sources=currentFilter==='all'?availableSources:[currentFilter];
+  var isMobile=window.innerWidth<=768;
+  var html='';
+  if(isMobile) html+='<button class="close-btn" onclick="toggleSidebar()">&#10005; 关闭选题</button>';
+  sources.forEach(function(src){
+    var sub=groups.map(function(g,i){return{g:g,i:i}}).filter(function(x){return x.g.source===src});
+    if(!sub.length)return;
+    html+='<div class="section">'+srcLabel(src)+'</div>';
+    ['Part6','Part7'].forEach(function(part){
+      var items=sub.filter(function(x){return x.g.part===part});
+      if(!items.length)return;
+      html+='<div class="section" style="padding-left:18px;font-size:9px">'+part+'</div>';
+      items.forEach(function(o){
+        var g=o.g,i=o.i,cls=g.part==='Part7'?'part7':'';
+        var t=g.passageTitle||(g.passages&&g.passages[0]&&g.passages[0].title)||'(无标题)';
+        var qn=(g.questions||[]).length;
+        html+='<div class="item '+cls+'" data-idx="'+i+'"><div class="gid"><span class="badge">'+esc(g.groupId)+'</span>'+qn+'题</div><div class="title">'+esc(t)+'</div></div>';
+      });
+    });
+  });
+  sb.innerHTML=html;
+  sb.querySelectorAll('.item').forEach(function(el){
+    el.addEventListener('click',function(){select(parseInt(el.dataset.idx));if(window.innerWidth<=768)toggleSidebar()});
+  });
+}
+
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('mobile-open');
+}
+
+function select(i){
+  document.querySelectorAll('.item').forEach(function(el){el.classList.toggle('active',parseInt(el.dataset.idx)===i)});
+  renderMain(groups[i]);
+}
+
+function splitTrans(t,n){
+  if(!t)return[];if(n<=1)return[t];
+  var re=/【\s*文章\s*\d+\s*】/g;
+  var parts=t.split(re).map(function(s){return s.trim()}).filter(Boolean);
+  return parts.length===n?parts:[t];
+}
+
+function renderMain(g){
+  var main=document.getElementById('main');
+  var pcls=g.part==='Part7'?'p7':'p6';
+  var title=g.passageTitle||(g.passages&&g.passages[0]&&g.passages[0].title)||'(无标题)';
+  var html='<div class="group-header">'
+    +'<span class="pill set">'+srcLabel(g.source)+'</span>'
+    +'<span class="pill '+pcls+'">'+g.part+'</span>'
+    +'<h2>'+esc(title)+'</h2>'
+    +'<span style="font-size:11px;color:#6b7280">题号 '+esc(g.groupId)+' · '+(g.questions||[]).length+' 题</span></div>';
+
+  var passages=[];
+  if(g.passages&&Array.isArray(g.passages)&&g.passages.length>0)passages=g.passages;
+  else if(g.passageText)passages=[{title:'',text:g.passageText}];
+
+  var transParts=splitTrans(g.passageTranslation||'',passages.length);
+  passages.forEach(function(p,idx){
+    var pt=p.title?esc(p.title):('文章 '+(idx+1));
+    var ptxt=esc(p.text||'');
+    var trans=(transParts[idx]||'').trim();
+    html+='<div class="passage"><h3>'+pt+'</h3>'
+      +'<div class="body">'+ptxt+'</div>'
+      +(trans?'<div class="zh">中文翻译：'+esc(trans)+'</div>':'')
+      +'</div>';
+  });
+
+  if(g.vocabulary&&g.vocabulary.length){
+    html+='<div class="vocab-card"><h3>词汇表（'+g.vocabulary.length+'）</h3><div class="vocab-list">';
+    g.vocabulary.forEach(function(w){
+      html+='<div class="word"><span class="w">'+esc(w.word)+'</span>'
+        +(w.pos?'<span class="pos">'+esc(w.pos)+'</span>':'')
+        +'<span class="m">'+esc(w.meaning)+'</span></div>';
+    });
+    html+='</div></div>';
+  }
+
+  (g.questions||[]).forEach(function(q){
+    var correct=q.correctAnswer||'';
+    var cidx='ABCD'.indexOf(correct);
+    var optsHtml='';
+    (q.options||[]).forEach(function(opt,i){
+      var letter='ABCD'[i];
+      var isC=i===cidx;
+      optsHtml+='<li class="'+(isC?'correct':'')+'"><span class="opt-letter">('+letter+')</span>'+esc(opt)+(isC?' ✓':'')+'</li>';
+    });
+    html+='<div class="question">'
+      +'<div class="stem"><span class="num">'+q.number+'.</span>'+esc(q.questionText||'')+'</div>'
+      +'<ul class="options">'+optsHtml+'</ul>'
+      +(q.explanation?'<div class="explanation"><span class="label">解析</span>'+esc(q.explanation)+'</div>':'')
+      +'</div>';
+  });
+
+  main.innerHTML=html;
+  main.scrollTop=0;
+}
+
+window.addEventListener('resize',function(){
+  document.getElementById('fabBtn').style.display=window.innerWidth<=768?'flex':'none';
+});
+
+load().catch(function(e){document.getElementById('main').innerHTML='<div class="empty">加载失败：'+e.message+'</div>'});
+</script>
+</body>
+</html>

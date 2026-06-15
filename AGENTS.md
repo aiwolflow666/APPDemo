@@ -25,6 +25,7 @@ Auto-picks port from 8000→8080→3000→5000→9000. No npm/node required.
 | `question_bank.html` | SQLite question bank management | SQLite (sql.js WASM), persisted in IndexedDB `toeic_sqlite_store` |
 | `question_batch_generator.html` | Batch AI question generation | — |
 
+
 Shared JS modules in `js/`:
 - `data_decrypt.js` — XOR decrypts `.dat` files (key: `EngLearn2026XX`), used by 4 pages
 - `db.js` — SQLite wrapper (`window.ToeicDB`), used only by `question_bank.html`
