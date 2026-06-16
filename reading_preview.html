@@ -73,8 +73,13 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
 </head>
 <body>
 <header>
-  <h1>TOEIC 阅读题预览（Part 6/7）</h1>
-  <div class="meta" id="meta">加载中...</div>
+  <div>
+    <h1>TOEIC 阅读题预览（Part 6/7）</h1>
+    <div class="meta" id="meta">加载中...</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <button class="mode-toggle" id="modeBtn" onclick="toggleMode()">手机模式</button>
+  </div>
 </header>
 <div class="toolbar">
   <span>套题：</span>
@@ -92,6 +97,18 @@ var currentFilter = 'all';
 var currentSet = 'all';
 var availableSources = [];
 var setData = {};
+var isMobileMode = false;
+
+function isMobile(){return isMobileMode||(window.innerWidth<=768&&!document.body.classList.contains('force-pc'))}
+function toggleMode(){
+  isMobileMode=!isMobileMode;
+  var body=document.body,btn=document.getElementById('modeBtn');
+  if(isMobileMode){body.classList.add('mobile-mode');body.classList.remove('force-pc');btn.textContent='PC模式'}
+  else{body.classList.remove('mobile-mode');if(window.innerWidth<=768)body.classList.add('force-pc');btn.textContent='手机模式'}
+  updateFab();renderSidebar();
+}
+
+function updateFab(){document.getElementById('fabBtn').style.display=isMobile()?'flex':'none'}
 
 function esc(s){return(s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
@@ -121,7 +138,7 @@ async function load(){
   renderFilters();
   renderSidebar();
   updateMeta();
-  if(window.innerWidth<=768) document.getElementById('fabBtn').style.display='flex';
+  updateFab();
 }
 
 function renderSetButtons(){
@@ -172,9 +189,9 @@ function updateMeta(){
 function renderSidebar(){
   var sb=document.getElementById('sidebar');
   var sources=currentFilter==='all'?availableSources:[currentFilter];
-  var isMobile=window.innerWidth<=768;
+  var isMobileCheck=isMobile();
   var html='';
-  if(isMobile) html+='<button class="close-btn" onclick="toggleSidebar()">&#10005; 关闭选题</button>';
+  if(isMobileCheck) html+='<button class="close-btn" onclick="toggleSidebar()">&#10005; 关闭选题</button>';
   sources.forEach(function(src){
     var sub=groups.map(function(g,i){return{g:g,i:i}}).filter(function(x){return x.g.source===src});
     if(!sub.length)return;
@@ -193,7 +210,7 @@ function renderSidebar(){
   });
   sb.innerHTML=html;
   sb.querySelectorAll('.item').forEach(function(el){
-    el.addEventListener('click',function(){select(parseInt(el.dataset.idx));if(window.innerWidth<=768)toggleSidebar()});
+    el.addEventListener('click',function(){select(parseInt(el.dataset.idx));if(isMobile())toggleSidebar()});
   });
 }
 
@@ -269,7 +286,7 @@ function renderMain(g){
 }
 
 window.addEventListener('resize',function(){
-  document.getElementById('fabBtn').style.display=window.innerWidth<=768?'flex':'none';
+  document.getElementById('fabBtn').style.display=isMobile()?'flex':'none';
 });
 
 load().catch(function(e){document.getElementById('main').innerHTML='<div class="empty">加载失败：'+e.message+'</div>'});
