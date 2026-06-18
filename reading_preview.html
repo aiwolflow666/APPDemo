@@ -91,6 +91,7 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
   <div class="sidebar" id="sidebar"></div>
   <div class="main" id="main"><div class="empty">从左侧选择题组</div></div>
 </div>
+<script src="js/data_decrypt.js"></script>
 <script>
 var groups = [];
 var currentFilter = 'all';
@@ -118,18 +119,22 @@ function srcLabel(s){
 }
 
 async function load(){
-  var files = ['set11_preview.json','set12_preview.json'];
-  var labels = ['公式11','公式12'];
-  var all = [];
-  for(var i=0;i<files.length;i++){
-    try{
-      var res = await fetch(files[i]+'?t='+Date.now());
-      var data = await res.json();
-      setData[labels[i]] = data;
-      all = all.concat(data);
-    }catch(e){console.warn('skip '+files[i],e)}
+  try{
+    var data = await DataDecrypt.fetchAndDecrypt('reading_bank.dat');
+    groups = Array.isArray(data) ? data : [];
+    // Build setData by set number
+    setData = {};
+    groups.forEach(function(g){
+      var s = g.set || 0;
+      var key = '公式' + String(s).padStart(2,'0');
+      if(!setData[key]) setData[key] = [];
+      setData[key].push(g);
+    });
+  }catch(e){
+    console.error('load error',e);
+    document.getElementById('main').innerHTML='<div class="empty">加载失败：'+(e.message||e)+'</div>';
+    return;
   }
-  groups = all;
   availableSources = [];
   var seen = {};
   groups.forEach(function(g){var s=g.source;if(s&&!seen[s]){seen[s]=1;availableSources.push(s)}});
