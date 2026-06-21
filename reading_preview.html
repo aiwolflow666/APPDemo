@@ -359,7 +359,7 @@ function renderMain(g){
     });
     html+='<div class="question">'
       +'<div class="stem"><span class="num">'+q.number+'.</span>'+esc(q.questionText||'')+'</div>'
-      +'<div class="collapse-toggle" onclick="toggleCollapse(\''+oid+'\')">选项与答案</div><div class="collapse-body" id="'+oid+'"><ul class="options">'+optsHtml+'</ul></div>'
+      +'<div class="collapse-toggle" onclick="toggleCollapse(\''+oid+'\')">选项与答案</div><div class="collapse-body hidden" id="'+oid+'"><ul class="options">'+optsHtml+'</ul></div>'
       +(q.explanation?'<div class="collapse-toggle" onclick="toggleCollapse(\''+eid+'\')">📝 解析</div><div class="collapse-body hidden" id="'+eid+'">'+esc(q.explanation)+'</div>':'')
       +'</div>';
   });
