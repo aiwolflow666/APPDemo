@@ -2,19 +2,30 @@ const fs = require('fs');
 const path = require('path');
 const { pdf } = require('pdf-to-img');
 
-const API_KEY = process.env.ARK_API_KEY || '';
-const API_URL = process.env.ARK_VISION_API_URL || 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
-const MODEL = process.env.ARK_VISION_MODEL || '';
+function loadOpencodeConfig() {
+  try {
+    const cfgPath = process.env.OPENCODE_CONFIG || `${process.env.HOME}/.config/opencode/opencode.jsonc`;
+    const text = fs.readFileSync(cfgPath, 'utf8');
+    return JSON.parse(text);
+  } catch (e) {
+    return null;
+  }
+}
+
+const opencodeConfig = loadOpencodeConfig();
+const defaultProvider = opencodeConfig?.provider?.['volcengine-plan'];
+const API_KEY = process.env.ARK_API_KEY || defaultProvider?.options?.apiKey || '';
+const API_URL = process.env.ARK_VISION_API_URL || (defaultProvider?.options?.baseURL ? defaultProvider.options.baseURL.replace(/\/$/, '') + '/chat/completions' : 'https://ark.cn-beijing.volces.com/api/coding/v3/chat/completions');
+const MODEL = process.env.ARK_VISION_MODEL || 'ark-code-latest';
 
 function usage() {
-  console.log('Usage: ARK_API_KEY=... ARK_VISION_MODEL=... node scripts/extract_reading_vision.js --pdf <test.pdf> --answers <answer.pdf> --out <out.json> [--pages 40-83] [--answer-pages 1-40]');
-  console.log('Example: ARK_API_KEY=... ARK_VISION_MODEL=... node scripts/extract_reading_vision.js --pdf 托业问题集12.pdf --answers 解析.pdf --out p12_reading.json --pages 78-83');
+  console.log('Usage: node scripts/extract_reading_vision.js --pdf <test.pdf> --answers <answer.pdf> --out <out.json> [--pages 40-83] [--answer-pages 1-40]');
+  console.log('By default it reads ~/.config/opencode/opencode.jsonc and uses volcengine-plan/ark-code-latest.');
   process.exit(1);
 }
 function checkEnv() {
   if (!API_KEY || !MODEL) {
-    console.log('Error: ARK_API_KEY and ARK_VISION_MODEL environment variables required.');
-    console.log('See: https://www.volcengine.com/docs/82379/1206201 for vision models.');
+    console.log('Error: no vision model credentials found. Set ARK_API_KEY/ARK_VISION_MODEL or configure ~/.config/opencode/opencode.jsonc.');
     process.exit(1);
   }
 }
@@ -39,7 +50,8 @@ function parseRanges(s, max) {
 
 async function renderPages(pdfPath, pages, outDir, prefix) {
   fs.mkdirSync(outDir, { recursive: true });
-  const doc = await pdf(pdfPath, { scale: 2.0 });
+  const scale = parseFloat(arg('scale') || '1.4');
+  const doc = await pdf(pdfPath, { scale });
   const wanted = new Set(parseRanges(pages, doc.length));
   const outputs = [];
   let pageNo = 0;
@@ -66,16 +78,25 @@ function extractJson(text) {
 }
 
 async function callVision(messages, temperature = 0) {
-  const resp = await fetch(API_URL, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: MODEL, temperature, stream: false, messages })
-  });
-  if (!resp.ok) throw new Error(`API ${resp.status}: ${await resp.text()}`);
-  const data = await resp.json();
-  const content = data.choices?.[0]?.message?.content || '';
-  if (!content) throw new Error('Empty model response');
-  return content;
+  let lastErr = null;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const resp = await fetch(API_URL, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: MODEL, temperature, stream: false, messages })
+      });
+      if (!resp.ok) throw new Error(`API ${resp.status}: ${await resp.text()}`);
+      const data = await resp.json();
+      const content = data.choices?.[0]?.message?.content || '';
+      if (!content) throw new Error('Empty model response');
+      return content;
+    } catch (err) {
+      lastErr = err;
+      await new Promise(resolve => setTimeout(resolve, attempt * 2000));
+    }
+  }
+  throw lastErr;
 }
 
 async function detectReadingPages(images) {
@@ -94,13 +115,24 @@ async function detectReadingPages(images) {
   return hits;
 }
 
-async function extractQuestionGroups(images, part) {
+function groupDetectedRanges(detected, images) {
+  const imageMap = new Map(images.map(x => [x.page, x]));
+  const ranges = new Map();
+  for (const d of detected) {
+    if (!d.questionRange || !imageMap.has(d.page)) continue;
+    const key = `${d.part}:${d.questionRange}`;
+    if (!ranges.has(key)) ranges.set(key, { part: d.part, questionRange: d.questionRange, pages: [] });
+    ranges.get(key).pages.push(imageMap.get(d.page));
+  }
+  return [...ranges.values()].map(r => ({ ...r, pages: r.pages.sort((a, b) => a.page - b.page) }));
+}
+
+async function extractQuestionGroupsFromRanges(ranges) {
   const groups = [];
-  for (let i = 0; i < images.length; i += 2) {
-    const batch = images.slice(i, i + 2);
+  for (const range of ranges) {
     const content = [
-      { type: 'text', text: `从这些TOEIC ${part}扫描页中提取题组。只提取图中完整可见的${part}题组，跨页题组也要合并上下文。返回严格JSON数组，字段：groupId, part, sourcePages, passageTitle, passageText, documents(数组), questions。questions字段：number, questionText, options(4项), correctAnswer空字符串, correctIndex null, explanationJa空字符串, explanationCn空字符串。不要猜答案，不要输出其它文字。` },
-      ...batch.flatMap(x => [{ type: 'text', text: `PAGE ${x.page}` }, imageContent(x.file)])
+      { type: 'text', text: `从这些TOEIC ${range.part}扫描页中提取题组，题号范围必须是 ${range.questionRange}。跨页材料要合并上下文。返回严格JSON数组，通常只返回1个题组。字段：groupId(用题号范围), part(Part6或Part7), sourcePages, passageTitle, passageText, documents(数组), questions。questions字段：number, questionText, options(4项), correctAnswer空字符串, correctIndex null, explanationJa空字符串, explanationCn空字符串。必须提取该范围内所有题号，不要漏题，不要猜答案，不要输出其它文字。` },
+      ...range.pages.flatMap(x => [{ type: 'text', text: `PAGE ${x.page}` }, imageContent(x.file)])
     ];
     const raw = await callVision([{ role: 'user', content }]);
     const arr = extractJson(raw);
@@ -154,11 +186,9 @@ async function translateAndMerge(groups, answers) {
   fs.writeFileSync(out.replace(/\.json$/, '.detected.json'), JSON.stringify(detected, null, 2));
   const readingPages = new Set(detected.map(x => x.page));
   const readingImages = testImages.filter(x => readingPages.has(x.page));
-  const part6 = readingImages.filter(x => detected.some(d => d.page === x.page && d.part === 'Part6'));
-  const part7 = readingImages.filter(x => detected.some(d => d.page === x.page && d.part === 'Part7'));
-  let groups = [];
-  groups.push(...await extractQuestionGroups(part6, 'Part6'));
-  groups.push(...await extractQuestionGroups(part7, 'Part7'));
+  const ranges = groupDetectedRanges(detected, readingImages);
+  fs.writeFileSync(out.replace(/\.json$/, '.ranges.json'), JSON.stringify(ranges.map(r => ({ part: r.part, questionRange: r.questionRange, pages: r.pages.map(p => p.page) })), null, 2));
+  let groups = await extractQuestionGroupsFromRanges(ranges);
   let answers = [];
   if (answerPath) {
     const answerImages = await renderPages(answerPath, arg('answer-pages'), path.join(work, 'answers'), 'answers');

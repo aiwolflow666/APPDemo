@@ -10,3 +10,5 @@ node_modules/
 package-lock.json
 word_database.json
 toeic_questions_sample.json
+set*_preview.json
+公式TOEIC*/
