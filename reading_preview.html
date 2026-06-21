@@ -66,7 +66,11 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
 .options li.correct{background:#d1fae5;border-color:#10b981;color:#065f46;font-weight:600}
 .options li .opt-letter{display:inline-block;width:22px;font-weight:700}
 .explanation{border-top:1px dashed #e5e7eb;padding-top:8px;font-size:12px;line-height:1.7;color:#374151;white-space:pre-wrap}
-.explanation .label{display:inline-block;font-weight:600;font-size:10px;color:#fff;padding:2px 6px;border-radius:4px;margin-right:4px;background:#10b981}
+.explanation .label{display:inline-block;font-weight:600;font-size:10px;color:#fff;padding:2px 6px;border-radius:4px;margin-right:4px;background:#10b981;cursor:pointer}
+.collapse-toggle{display:inline-block;font-size:11px;color:#2563eb;cursor:pointer;padding:2px 8px;border-radius:4px;background:#eff6ff;margin-bottom:4px;user-select:none}
+.collapse-toggle:hover{background:#dbeafe}
+.collapse-body{transition:all 0.2s ease;overflow:hidden}
+.collapse-body.hidden{display:none}
 .bottom-nav{display:none}
 .test-sel{display:flex;gap:4px}
 .test-sel button{background:#f3f4f6;border:1px solid #e5e7eb;padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;white-space:nowrap}
@@ -288,6 +292,11 @@ function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('mobile-open');
 }
 
+function toggleCollapse(id){
+  var el=document.getElementById(id);
+  if(el)el.classList.toggle('hidden');
+}
+
 function select(i){
   document.querySelectorAll('.item').forEach(function(el){el.classList.toggle('active',parseInt(el.dataset.idx)===i)});
   renderMain(groups[i]);
@@ -319,25 +328,29 @@ function renderMain(g){
     var pt=p.title?esc(p.title):('文章 '+(idx+1));
     var ptxt=esc(p.text||'');
     var trans=(transParts[idx]||'').trim();
+    var tid='trans_'+idx;
     html+='<div class="passage"><h3>'+pt+'</h3>'
       +'<div class="body">'+ptxt+'</div>'
-      +(trans?'<div class="zh">中文翻译：'+esc(trans)+'</div>':'')
+      +(trans?'<div class="collapse-toggle" onclick="toggleCollapse(\''+tid+'\')">📖 中文翻译</div><div class="collapse-body hidden" id="'+tid+'">'+esc(trans)+'</div>':'')
       +'</div>';
   });
 
   if(g.vocabulary&&g.vocabulary.length){
-    html+='<div class="vocab-card"><h3>词汇表（'+g.vocabulary.length+'）</h3><div class="vocab-list">';
+    var vid='vocab_'+Date.now();
+    html+='<div class="vocab-card"><div class="collapse-toggle" onclick="toggleCollapse(\''+vid+'\')">📚 词汇表（'+g.vocabulary.length+'）</div><div class="collapse-body hidden" id="'+vid+'"><div class="vocab-list">';
     g.vocabulary.forEach(function(w){
       html+='<div class="word"><span class="w">'+esc(w.word)+'</span>'
         +(w.pos?'<span class="pos">'+esc(w.pos)+'</span>':'')
         +'<span class="m">'+esc(w.meaning)+'</span></div>';
     });
-    html+='</div></div>';
+    html+='</div></div></div>';
   }
 
-  (g.questions||[]).forEach(function(q){
+  (g.questions||[]).forEach(function(q,idx){
     var correct=q.correctAnswer||'';
     var cidx='ABCD'.indexOf(correct);
+    var oid='opts_'+idx;
+    var eid='expl_'+idx;
     var optsHtml='';
     (q.options||[]).forEach(function(opt,i){
       var letter='ABCD'[i];
@@ -346,8 +359,8 @@ function renderMain(g){
     });
     html+='<div class="question">'
       +'<div class="stem"><span class="num">'+q.number+'.</span>'+esc(q.questionText||'')+'</div>'
-      +'<ul class="options">'+optsHtml+'</ul>'
-      +(q.explanation?'<div class="explanation"><span class="label">解析</span>'+esc(q.explanation)+'</div>':'')
+      +'<div class="collapse-toggle" onclick="toggleCollapse(\''+oid+'\')">选项与答案</div><div class="collapse-body" id="'+oid+'"><ul class="options">'+optsHtml+'</ul></div>'
+      +(q.explanation?'<div class="collapse-toggle" onclick="toggleCollapse(\''+eid+'\')">📝 解析</div><div class="collapse-body hidden" id="'+eid+'">'+esc(q.explanation)+'</div>':'')
       +'</div>';
   });
 
