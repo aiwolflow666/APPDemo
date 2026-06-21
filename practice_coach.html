@@ -1222,6 +1222,7 @@
     const EXAM_QUESTION_COUNT = 30;
     const EXAM_READING_GROUP_COUNT = 3;
     const EXAM_TIME_MINUTES = 10;
+    const EXAM_MIXED_TIME_MINUTES = 45;
     let currentPartMode = localStorage.getItem('toeic_part_mode') || 'Part5';
     let examQuestions = [];
     let examAnswers = {};
@@ -1299,8 +1300,9 @@
             <div class="card">
                 <div class="card-label">📋 考试说明</div>
                 <div style="font-size:0.82rem; line-height:1.7; color:#475569;">
-                    <div style="margin-bottom:8px;">• Part5抽 <strong>${EXAM_QUESTION_COUNT} 道</strong>；Part6/7按题组抽取 <strong>${EXAM_READING_GROUP_COUNT} 组</strong></div>
-                    <div style="margin-bottom:8px;">• 「阅读混合」模式 = Part5 30题 + Part6/7 3组题，共约40+题</div>
+                    <div style="margin-bottom:8px;">• Part5单独考试：${EXAM_QUESTION_COUNT}道题，限时${EXAM_TIME_MINUTES}分钟</div>
+                    <div style="margin-bottom:8px;">• 「阅读混合」模式 = Part5 30题 + 整套Part6/7(70题)，共100题，限时${EXAM_MIXED_TIME_MINUTES}分钟</div>
+                    <div style="margin-bottom:8px;">• Part6/7按套题整套抽取（公式01~12随机选一套，含套1+套2共70题）</div>
                     <div style="margin-bottom:8px;">• 优先抽做题次数少的题目/题组，保证覆盖全部内容</div>
                     <div style="margin-bottom:8px;">• 时间限制 <strong>${EXAM_TIME_MINUTES} 分钟</strong>，到时自动交卷</div>
                     <div style="margin-bottom:8px;">• 可随时点击题目序号跳转答题</div>
@@ -1379,7 +1381,7 @@
         });
         let selected = [];
         if (currentPartMode === 'ReadingMixed') {
-            // Part5+6/7 mixed exam: load both banks
+            // Part5+6/7 mixed exam: Part5 30q + one full set of Part6/7 (70q)
             // 1. Load Part5 from builtIn or ppt600
             let p5Source = currentQuestionSource === 'reading' ? (localStorage.getItem('toeic_p5_source') || 'ppt600') : currentQuestionSource;
             let p5Bank = [];
@@ -1395,28 +1397,43 @@
                 readingBank = Array.isArray(readingBank) ? readingBank : [];
             } catch(e) { console.warn('Reading bank load fail:', e); }
 
-            // 3. Select Part5: 30 questions
             if (p5Bank.length === 0) {
                 alert('Part5题库加载失败，请检查题库文件');
                 return;
             }
+            if (readingBank.length === 0) {
+                alert('Part6/7题库加载失败，请检查reading_bank.dat');
+                return;
+            }
+
+            // 3. Select Part5: 30 questions (prefer least practiced)
             const p5Sorted = p5Bank.map(q => ({
                 q, count: countMap[(q.questionText || '').substring(0, 60)] || 0, rand: Math.random()
             }));
             p5Sorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
             const p5Selected = p5Sorted.slice(0, Math.min(EXAM_QUESTION_COUNT, p5Sorted.length)).map(s => s.q);
 
-            // 4. Select Part6/7: 3 groups (all groups, not filtered by part)
-            if (readingBank.length === 0) {
-                alert('Part6/7题库加载失败，请检查reading_bank.dat');
+            // 4. Select one full set of Part6/7: pick a random set (1-12), use both test1+test2
+            //    Each set has 38 groups: Part6(4 groups x 4q=16) + Part7(15 groups x 2-5q=54) = 70q
+            const setNums = [...new Set(readingBank.map(g => g.set || 0))].filter(n => n > 0).sort();
+            if (setNums.length === 0) {
+                alert('Part6/7题库无有效套题数据');
                 return;
             }
-            const readingSorted = readingBank.map(g => ({ g, count: countMap[getRecordKey(g)] || 0, rand: Math.random() }));
-            readingSorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
-            const readingSelected = expandReadingGroups(readingSorted.slice(0, Math.min(EXAM_READING_GROUP_COUNT, readingSorted.length)).map(x => x.g));
+            // Pick a random set, prefer least practiced
+            const setCounts = setNums.map(s => {
+                const groups = readingBank.filter(g => g.set === s);
+                const totalPractice = groups.reduce((sum, g) => sum + (countMap[getRecordKey(g)] || 0), 0);
+                return { set: s, count: totalPractice, rand: Math.random() };
+            });
+            setCounts.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
+            const pickedSet = setCounts[0].set;
+            const setGroups = readingBank.filter(g => g.set === pickedSet);
+            const readingSelected = expandReadingGroups(setGroups);
 
             // 5. Merge: Part5 first, then Part6/7
             selected = [...p5Selected, ...readingSelected];
+            examTimeLeft = EXAM_MIXED_TIME_MINUTES * 60;
         } else if (currentQuestionSource === 'reading') {
             let groups = localQuestionBank.filter(g => currentPartMode === 'ReadingMixed' || g.part === currentPartMode);
             if (groups.length === 0) {
@@ -1464,7 +1481,7 @@
         });
         examAnswers = {};
         examMode = 'active';
-        examTimeLeft = EXAM_TIME_MINUTES * 60;
+        examTimeLeft = (currentPartMode === 'ReadingMixed') ? EXAM_MIXED_TIME_MINUTES * 60 : EXAM_TIME_MINUTES * 60;
         examStartTime = Date.now();
         examCurrentIdx = 0;
         renderExamQuestion();
