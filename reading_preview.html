@@ -99,7 +99,6 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
 </header>
 <div class="toolbar">
   <span>套题：</span>
-  <span id="testFilters"></span>
   <div class="set-sel" id="setSel"></div>
 </div>
 <button class="mobile-fab" id="fabBtn" style="display:none" onclick="toggleSidebar()">&#9776;</button>
@@ -110,9 +109,7 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
 <script src="js/data_decrypt.js"></script>
 <script>
 var groups = [];
-var currentFilter = 'all';
 var currentSet = 'all';
-var availableSources = [];
 var setData = {};
 var isMobileMode = false;
 
@@ -131,6 +128,8 @@ function esc(s){return(s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,
 
 function srcLabel(s){
   if(!s)return '?';
+  var m=s.match(/^set(\d+)_test(\d+)$/i);
+  if(m) return '公式'+m[1]+' 套'+m[2];
   return s.replace(/^set/i,'公式').replace(/_test1$/i,' 套1').replace(/_test2$/i,' 套2');
 }
 
@@ -138,7 +137,6 @@ async function load(){
   try{
     var data = await DataDecrypt.fetchAndDecrypt('reading_bank.dat');
     groups = Array.isArray(data) ? data : [];
-    // Build setData by set number
     setData = {};
     groups.forEach(function(g){
       var s = g.set || 0;
@@ -151,12 +149,7 @@ async function load(){
     document.getElementById('main').innerHTML='<div class="empty">加载失败：'+(e.message||e)+'</div>';
     return;
   }
-  availableSources = [];
-  var seen = {};
-  groups.forEach(function(g){var s=g.source;if(s&&!seen[s]){seen[s]=1;availableSources.push(s)}});
-  availableSources.sort();
   renderSetButtons();
-  renderFilters();
   renderSidebar();
   updateMeta();
   updateFab();
@@ -165,7 +158,7 @@ async function load(){
 function renderSetButtons(){
   var wrap = document.getElementById('setSel');
   var html = '<button data-set="all" class="active">全部</button>';
-  Object.keys(setData).forEach(function(k){
+  Object.keys(setData).sort().forEach(function(k){
     html += '<button data-set="'+k+'">'+k+'</button>';
   });
   wrap.innerHTML = html;
@@ -174,51 +167,40 @@ function renderSetButtons(){
       currentSet = btn.dataset.set;
       if(currentSet==='all'){groups=[];Object.values(setData).forEach(function(d){groups=groups.concat(d)})}
       else{groups=setData[currentSet]||[]}
-      availableSources=[];var seen={};
-      groups.forEach(function(g){var s=g.source;if(s&&!seen[s]){seen[s]=1;availableSources.push(s)}});
-      availableSources.sort();
-      currentFilter='all';
       wrap.querySelectorAll('button').forEach(function(b){b.classList.toggle('active',b===btn)});
-      renderFilters();
       renderSidebar();
       updateMeta();
     });
   });
 }
 
-function renderFilters(){
-  var wrap = document.getElementById('testFilters');
-  var html = '<button data-test="all" class="active">全部</button>';
-  availableSources.forEach(function(s){html+='<button data-test="'+s+'">'+srcLabel(s)+'</button>'});
-  wrap.innerHTML = html;
-  wrap.querySelectorAll('button').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      currentFilter=btn.dataset.test;
-      wrap.querySelectorAll('button').forEach(function(b){b.classList.toggle('active',b===btn)});
-      renderSidebar();updateMeta();
-    });
-  });
-}
-
 function updateMeta(){
-  var v=groups.filter(function(g){return currentFilter==='all'||g.source===currentFilter});
-  var p6=v.filter(function(g){return g.part==='Part6'}).reduce(function(s,g){return s+(g.questions||[]).length},0);
-  var p7=v.filter(function(g){return g.part==='Part7'}).reduce(function(s,g){return s+(g.questions||[]).length},0);
-  document.getElementById('meta').textContent='共 '+v.length+' 组 · Part6 '+p6+'题 · Part7 '+p7+'题 · 合计 '+(p6+p7)+'题';
+  var p6=groups.filter(function(g){return g.part==='Part6'}).reduce(function(s,g){return s+(g.questions||[]).length},0);
+  var p7=groups.filter(function(g){return g.part==='Part7'}).reduce(function(s,g){return s+(g.questions||[]).length},0);
+  document.getElementById('meta').textContent='共 '+groups.length+' 组 · Part6 '+p6+'题 · Part7 '+p7+'题 · 合计 '+(p6+p7)+'题';
 }
 
 function renderSidebar(){
   var sb=document.getElementById('sidebar');
-  var sources=currentFilter==='all'?availableSources:[currentFilter];
   var isMobileCheck=isMobile();
   var html='';
   if(isMobileCheck) html+='<button class="close-btn" onclick="toggleSidebar()">&#10005; 关闭选题</button>';
-  sources.forEach(function(src){
-    var sub=groups.map(function(g,i){return{g:g,i:i}}).filter(function(x){return x.g.source===src});
-    if(!sub.length)return;
-    html+='<div class="section">'+srcLabel(src)+'</div>';
+  // Group by set_test
+  var setMap={};
+  groups.forEach(function(g,i){
+    var s=g.set||0;
+    var m=(g.source||'').match(/test(\d)/i);
+    var t=m?m[1]:'?';
+    var key=s+'_'+t;
+    if(!setMap[key]) setMap[key]={set:s,test:t,items:[]};
+    setMap[key].items.push({g:g,i:i});
+  });
+  Object.keys(setMap).sort().forEach(function(key){
+    var info=setMap[key];
+    var label='公式'+String(info.set).padStart(2,'0')+' 套'+info.test;
+    html+='<div class="section">'+label+' ('+info.items.length+'组)</div>';
     ['Part6','Part7'].forEach(function(part){
-      var items=sub.filter(function(x){return x.g.part===part});
+      var items=info.items.filter(function(x){return x.g.part===part});
       if(!items.length)return;
       html+='<div class="section" style="padding-left:18px;font-size:9px">'+part+'</div>';
       items.forEach(function(o){
