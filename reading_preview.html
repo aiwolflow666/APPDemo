@@ -60,14 +60,29 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
 .explanation{border-top:1px dashed #e5e7eb;padding-top:8px;font-size:12px;line-height:1.7;color:#374151;white-space:pre-wrap}
 .explanation .label{display:inline-block;font-weight:600;font-size:10px;color:#fff;padding:2px 6px;border-radius:4px;margin-right:4px;background:#10b981}
 .bottom-nav{display:none}
+/* Mobile mode: triggered by body.mobile-mode OR @media */
+body.mobile-mode .layout{flex-direction:column}
+body.mobile-mode .sidebar{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;height:100vh;width:100%}
+body.mobile-mode .sidebar.mobile-open{display:block}
+body.mobile-mode .sidebar .close-btn{position:sticky;top:0;background:#2563eb;color:#fff;padding:10px 14px;font-size:14px;font-weight:600;cursor:pointer;text-align:left;border:none;width:100%}
+body.mobile-mode .main{padding:12px;max-width:100%}
+body.mobile-mode .mobile-fab{position:fixed;bottom:20px;right:16px;width:48px;height:48px;border-radius:50%;background:#2563eb;color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,.4);z-index:150;display:flex;align-items:center;justify-content:center}
+body.mobile-mode .toolbar{top:0;padding-top:8px}
+body.mobile-mode .toolbar .set-sel{margin-left:0;margin-top:4px;width:100%}
+body.mobile-mode .vocab-list{grid-template-columns:1fr}
+body.mobile-mode .passage .body{font-size:12px}
+body.mobile-mode .question .stem{font-size:12px}
+body.mobile-mode .options li{font-size:11px}
+body.mobile-mode .explanation{font-size:11px}
+body.mobile-mode .header-nav a{font-size:10px;padding:4px 4px}
+body.mobile-mode .group-header h2{font-size:14px}
 @media(max-width:768px){
   .sidebar{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;height:100vh;width:100%}
   .sidebar.mobile-open{display:block}
   .sidebar .close-btn{position:sticky;top:0;background:#2563eb;color:#fff;padding:10px 14px;font-size:14px;font-weight:600;cursor:pointer;text-align:left;border:none;width:100%}
   .main{padding:12px;max-width:100%}
   .mobile-fab{position:fixed;bottom:20px;right:16px;width:48px;height:48px;border-radius:50%;background:#2563eb;color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,.4);z-index:150;display:flex;align-items:center;justify-content:center}
-  .toolbar{top:0;padding-top:44px}
-  header{padding:10px 14px}
+  .toolbar{top:0;padding-top:8px}
   .sidebar{top:0;height:100vh}
   .toolbar .set-sel{margin-left:0;margin-top:4px;width:100%}
   .vocab-list{grid-template-columns:1fr}
@@ -75,6 +90,8 @@ header .meta{font-size:11px;opacity:.85;margin-top:3px}
   .question .stem{font-size:12px}
   .options li{font-size:11px}
   .explanation{font-size:11px}
+  .header-nav a{font-size:10px;padding:4px 4px}
+  .group-header h2{font-size:14px}
 }
 </style>
 </head>
