@@ -297,6 +297,17 @@ function toggleCollapse(id){
   if(el)el.classList.toggle('hidden');
 }
 
+function revealAnswer(idx,aid){
+  var ul=document.getElementById('opts_'+idx);
+  var ans=document.getElementById(aid);
+  if(ul){
+    ul.querySelectorAll('li').forEach(function(li){
+      if(li.dataset.correct==='true')li.classList.add('correct');
+    });
+  }
+  if(ans){ans.classList.remove('hidden');ans.innerHTML='<span style="color:#10b981;font-weight:600">✓ 正确答案：'+(ul?ul.querySelector('li[data-correct="true"] .opt-letter').textContent.replace(/[()]/g,''):'')+'</span>';}
+}
+
 function select(i){
   document.querySelectorAll('.item').forEach(function(el){el.classList.toggle('active',parseInt(el.dataset.idx)===i)});
   renderMain(groups[i]);
@@ -349,17 +360,17 @@ function renderMain(g){
   (g.questions||[]).forEach(function(q,idx){
     var correct=q.correctAnswer||'';
     var cidx='ABCD'.indexOf(correct);
-    var oid='opts_'+idx;
     var eid='expl_'+idx;
+    var aid='ans_'+idx;
     var optsHtml='';
     (q.options||[]).forEach(function(opt,i){
       var letter='ABCD'[i];
-      var isC=i===cidx;
-      optsHtml+='<li class="'+(isC?'correct':'')+'"><span class="opt-letter">('+letter+')</span>'+esc(opt)+(isC?' ✓':'')+'</li>';
+      optsHtml+='<li class="opt-item" data-correct="'+(i===cidx)+'"><span class="opt-letter">('+letter+')</span>'+esc(opt)+'</li>';
     });
     html+='<div class="question">'
       +'<div class="stem"><span class="num">'+q.number+'.</span>'+esc(q.questionText||'')+'</div>'
-      +'<div class="collapse-toggle" onclick="toggleCollapse(\''+oid+'\')">选项与答案</div><div class="collapse-body hidden" id="'+oid+'"><ul class="options">'+optsHtml+'</ul></div>'
+      +'<ul class="options" id="opts_'+idx+'">'+optsHtml+'</ul>'
+      +'<div class="collapse-toggle" onclick="revealAnswer('+idx+',\''+aid+'\')">查看答案</div><div class="collapse-body hidden" id="'+aid+'"></div>'
       +(q.explanation?'<div class="collapse-toggle" onclick="toggleCollapse(\''+eid+'\')">📝 解析</div><div class="collapse-body hidden" id="'+eid+'">'+esc(q.explanation)+'</div>':'')
       +'</div>';
   });
