@@ -1299,7 +1299,8 @@
             <div class="card">
                 <div class="card-label">📋 考试说明</div>
                 <div style="font-size:0.82rem; line-height:1.7; color:#475569;">
-                    <div style="margin-bottom:8px;">• Part5抽取 <strong>${EXAM_QUESTION_COUNT} 道</strong>；Part6/7按题组抽取 <strong>${EXAM_READING_GROUP_COUNT} 组</strong></div>
+                    <div style="margin-bottom:8px;">• Part5抽 <strong>${EXAM_QUESTION_COUNT} 道</strong>；Part6/7按题组抽取 <strong>${EXAM_READING_GROUP_COUNT} 组</strong></div>
+                    <div style="margin-bottom:8px;">• 「阅读混合」模式 = Part5 30题 + Part6/7 3组题，共约40+题</div>
                     <div style="margin-bottom:8px;">• 优先抽做题次数少的题目/题组，保证覆盖全部内容</div>
                     <div style="margin-bottom:8px;">• 时间限制 <strong>${EXAM_TIME_MINUTES} 分钟</strong>，到时自动交卷</div>
                     <div style="margin-bottom:8px;">• 可随时点击题目序号跳转答题</div>
@@ -1377,7 +1378,46 @@
             countMap[key] = (countMap[key] || 0) + 1;
         });
         let selected = [];
-        if (currentQuestionSource === 'reading') {
+        if (currentPartMode === 'ReadingMixed') {
+            // Part5+6/7 mixed exam: load both banks
+            // 1. Load Part5 from builtIn or ppt600
+            let p5Source = currentQuestionSource === 'reading' ? (localStorage.getItem('toeic_p5_source') || 'ppt600') : currentQuestionSource;
+            let p5Bank = [];
+            try {
+                const p5Cfg = QUESTION_BANK_FILES[p5Source] || QUESTION_BANK_FILES.ppt600;
+                p5Bank = await DataDecrypt.fetchAndDecrypt(p5Cfg.file, false);
+                p5Bank = Array.isArray(p5Bank) ? p5Bank : [];
+            } catch(e) { console.warn('Part5 bank load fail:', e); }
+            // 2. Load Part6/7 from reading_bank.dat
+            let readingBank = [];
+            try {
+                readingBank = await DataDecrypt.fetchAndDecrypt('reading_bank.dat', false);
+                readingBank = Array.isArray(readingBank) ? readingBank : [];
+            } catch(e) { console.warn('Reading bank load fail:', e); }
+
+            // 3. Select Part5: 30 questions
+            if (p5Bank.length === 0) {
+                alert('Part5题库加载失败，请检查题库文件');
+                return;
+            }
+            const p5Sorted = p5Bank.map(q => ({
+                q, count: countMap[(q.questionText || '').substring(0, 60)] || 0, rand: Math.random()
+            }));
+            p5Sorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
+            const p5Selected = p5Sorted.slice(0, Math.min(EXAM_QUESTION_COUNT, p5Sorted.length)).map(s => s.q);
+
+            // 4. Select Part6/7: 3 groups (all groups, not filtered by part)
+            if (readingBank.length === 0) {
+                alert('Part6/7题库加载失败，请检查reading_bank.dat');
+                return;
+            }
+            const readingSorted = readingBank.map(g => ({ g, count: countMap[getRecordKey(g)] || 0, rand: Math.random() }));
+            readingSorted.sort((a, b) => a.count !== b.count ? a.count - b.count : a.rand - b.rand);
+            const readingSelected = expandReadingGroups(readingSorted.slice(0, Math.min(EXAM_READING_GROUP_COUNT, readingSorted.length)).map(x => x.g));
+
+            // 5. Merge: Part5 first, then Part6/7
+            selected = [...p5Selected, ...readingSelected];
+        } else if (currentQuestionSource === 'reading') {
             let groups = localQuestionBank.filter(g => currentPartMode === 'ReadingMixed' || g.part === currentPartMode);
             if (groups.length === 0) {
                 alert('当前题型暂无题组，请先生成或导入Part6/Part7题库');
