@@ -801,10 +801,10 @@
             const pageLearn = $('page-learn');
             const pageSearch = $('page-search');
             const navBtns = document.querySelectorAll('.bottom-nav button');
-            const fileInput = $('fileInput');
-            const uploadDrop = $('uploadDrop');
-            const uploadStatus = $('uploadStatus');
-            const btnLoadDemo = $('btnLoadDemo');
+            const fileInput = null;
+            const uploadDrop = null;
+            const uploadStatus = {textContent:'',className:''};
+            const btnLoadDemo = null;
             const cardFlip = $('cardFlip');
             const cardWord = $('cardWord');
             const cardPos = $('cardPos');
@@ -1342,153 +1342,11 @@
             });
 
             // ============================================================
-            //  9. 上传 & 加载数据
+            //  9. 数据加载 (自动从dat文件加载)
             // ============================================================
-            function loadData(data) {
-                if (!data || !Array.isArray(data) || !data.length) {
-                    uploadStatus.textContent = '❌ 无效的数据格式，请上传正确的JSON数组';
-                    uploadStatus.className = 'upload-status error';
-                    return false;
-                }
-                vocabData = data;
-                currentIndex = 0;
-                currentFilter = null;
-                applyFilter();
-                progress = {};
-                saveToStorage();
-                saveProgress();
-                uploadStatus.textContent = `✅ 成功加载 ${vocabData.length} 个单词！`;
-                uploadStatus.className = 'upload-status';
-                showPage('learn');
-                renderCard(0);
-                // 更新搜索
-                if (searchInput.value.trim()) performSearch(searchInput.value);
-                updateFilterBtnStyles();
-                return true;
-            }
-
-            function handleFile(file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        if (loadData(data)) {
-                            // 更新上传区样式
-                            uploadDrop.style.borderColor = '#16a34a';
-                            uploadDrop.style.background = '#f0fdf4';
-                            setTimeout(() => {
-                                uploadDrop.style.borderColor = '#cbd5e1';
-                                uploadDrop.style.background = '#f8fafc';
-                            }, 1200);
-                        }
-                    } catch (err) {
-                        uploadStatus.textContent = '❌ JSON解析失败：' + err.message;
-                        uploadStatus.className = 'upload-status error';
-                    }
-                };
-                reader.onerror = () => {
-                    uploadStatus.textContent = '❌ 文件读取失败，请重试';
-                    uploadStatus.className = 'upload-status error';
-                };
-                reader.readAsText(file);
-            }
-
-            fileInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) handleFile(file);
-                fileInput.value = ''; // 允许重复选择同一文件
-            });
-
-            // 拖拽上传
-            uploadDrop.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadDrop.classList.add('dragover');
-            });
-            uploadDrop.addEventListener('dragleave', (e) => {
-                e.preventDefault();
-                uploadDrop.classList.remove('dragover');
-            });
-            uploadDrop.addEventListener('drop', (e) => {
-                e.preventDefault();
-                uploadDrop.classList.remove('dragover');
-                const files = e.dataTransfer.files;
-                if (files.length) handleFile(files[0]);
-            });
 
             // ============================================================
-            //  10. 示例数据 (内嵌少量示例，方便演示)
-            // ============================================================
-            // 用户要求 "不要内嵌json"，但为了演示方便，我们嵌入一个极小的示例集
-            // 仅在用户点击 "加载示例数据" 时使用，且会提示用户
-            const DEMO_DATA = [{
-                "word": "increase",
-                "pos": ["名", "动"],
-                "meaning": "增加",
-                "antonyms": ["decrease"],
-                "synonyms": ["surge激增"]
-            }, {
-                "word": "include",
-                "pos": ["动"],
-                "meaning": "包含",
-                "antonyms": ["exclude不包括，把...排除在外，排斥"]
-            }, {
-                "word": "currently",
-                "pos": ["副"],
-                "meaning": "目前",
-                "notes": "和形容词current反复在考试中出现"
-            }, {
-                "word": "advertising",
-                "pos": ["名"],
-                "meaning": "广告，宣传",
-                "synonyms": ["advertisement"]
-            }, {
-                "word": "charge",
-                "pos": ["动", "名"],
-                "meaning": "收费，充电，指责；费用，责任",
-                "related": "in charge of负责"
-            }, {
-                "word": "expect",
-                "pos": ["动"],
-                "meaning": "预期，预定",
-                "usage": "be expected to do/expect sb. to do sth.",
-                "synonyms": ["be slated to do预定做某事"]
-            }, {
-                "word": "firm",
-                "pos": ["名"],
-                "meaning": "公司",
-                "related": "law/accounting/architectural/construction"
-            }, {
-                "word": "client",
-                "pos": ["名"],
-                "meaning": "顾客",
-                "synonyms": ["consumer（消费者）", "customer（顾客）", "guest（来宾）", "visitor（访客）", "tourist（游客）"]
-            }, {
-                "word": "financial",
-                "pos": ["形"],
-                "meaning": "金融的，财务的",
-                "related": "finance",
-                "synonyms": ["monetary金钱的"]
-            }, {
-                "word": "annual",
-                "pos": ["形", "名"],
-                "meaning": "每年的；年利",
-                "related": "semi-annual1年2次的"
-            }];
-
-            btnLoadDemo.addEventListener('click', () => {
-                if (vocabData.length) {
-                    if (!confirm('加载示例数据将替换当前词库，确定吗？')) return;
-                }
-                if (loadData(DEMO_DATA)) {
-                    uploadStatus.textContent = '📄 已加载示例数据（10个单词）';
-                    uploadStatus.className = 'upload-status';
-                    // 自动跳转到学习页
-                    showPage('learn');
-                }
-            });
-
-            // ============================================================
-            //  11. 初始化
+            //  10. 初始化
             // ============================================================
             async function loadWordDatabase() {
                 try {
