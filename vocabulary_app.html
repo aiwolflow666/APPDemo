@@ -1492,7 +1492,7 @@
             // ============================================================
             async function loadWordDatabase() {
                 try {
-                    const data = await DataDecrypt.fetchAndDecrypt('word_database.dat');
+                    const data = await DataDecrypt.fetchAndDecrypt('word_database.dat', true);
                     if (Array.isArray(data) && data.length > 0) {
                         return data;
                     }
