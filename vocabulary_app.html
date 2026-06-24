@@ -1198,7 +1198,9 @@
                 if (p === '动' || p === 'v.' || p === 'verb') return '动词';
                 if (p === '形' || p === 'adj.' || p === 'adjective') return '形容词';
                 if (p === '副' || p === 'adv.' || p === 'adverb') return '副词';
-                if (p.includes('短') || p.includes('phrase') || p.includes('搭配') || p.includes('表达') || p.includes('习语')) return '短语/搭配';
+                if (p.includes('固定搭配') || p.includes('搭配')) return '固定搭配';
+                if (p.includes('固定') || p.includes('习语') || p.includes('idiom') || p.includes('表达') || p.includes('句型') || p.includes('句式') || p.includes('结构')) return '固定搭配';
+                if (p.includes('短语') || p.includes('phrase') || p.includes('phr') || p === '短语') return '短语';
                 if (p === '介' || p === 'prep.') return '介词';
                 if (p === '连' || p === 'conj.') return '连词';
                 if (p === '代' || p === 'pron.') return '代词';
@@ -1222,7 +1224,7 @@
                 });
 
                 // Render filter buttons
-                const order = ['名词','动词','形容词','副词','短语/搭配','介词','连词','代词','其他'];
+                const order = ['名词','动词','形容词','副词','短语','固定搭配','介词','连词','代词','其他'];
                 let filterHtml = '<button data-cat="all" class="' + (browseFilter==='all'?'active':'') + '" style="padding:6px 12px;border-radius:20px;border:1px solid #e2e8f0;background:'+(browseFilter==='all'?'#2563eb':'#f1f5f9')+';color:'+(browseFilter==='all'?'#fff':'#475569')+';font-size:12px;cursor:pointer;">全部(' + vocabData.length + ')</button>';
                 order.forEach(cat => {
                     if (!categories[cat]) return;
