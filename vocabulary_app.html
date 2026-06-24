@@ -1492,12 +1492,25 @@
             // ============================================================
             async function loadWordDatabase() {
                 try {
-                    const data = await DataDecrypt.fetchAndDecrypt('word_database.dat', true);
-                    if (Array.isArray(data) && data.length > 0) {
-                        return data;
-                    }
+                    console.log('Loading word_database.dat...');
+                    // Direct fetch + decrypt as fallback
+                    const resp = await fetch('word_database.dat?t=' + Date.now());
+                    const buf = await resp.arrayBuffer();
+                    const u8 = new Uint8Array(buf);
+                    let raw = '';
+                    for (let i = 0; i < u8.length; i++) raw += String.fromCharCode(u8[i]);
+                    const decoded = atob(raw);
+                    const KEY = 'EngLearn2026XX';
+                    const bytes = new Uint8Array(decoded.length);
+                    for (let i = 0; i < decoded.length; i++) bytes[i] = decoded.charCodeAt(i);
+                    const decrypted = new Uint8Array(bytes.length);
+                    for (let i = 0; i < bytes.length; i++) decrypted[i] = bytes[i] ^ KEY.charCodeAt(i % KEY.length);
+                    const text = new TextDecoder().decode(decrypted);
+                    const data = JSON.parse(text);
+                    console.log('Loaded:', data.length, 'words');
+                    if (Array.isArray(data) && data.length > 0) return data;
                 } catch (e) {
-                    console.log('自动加载词库失败:', e.message);
+                    console.error('Load failed:', e.message, e.stack);
                 }
                 return null;
             }
